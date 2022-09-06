@@ -1,5 +1,5 @@
 class AddDepartmentToUser < ActiveRecord::Migration[7.0]
-  def chang
+  def change
     add_column :users, :department, :string
   end
 end
