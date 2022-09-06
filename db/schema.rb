@@ -10,8 +10,97 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_071219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookmarked_places", force: :cascade do |t|
+    t.bigint "tip_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tip_id"], name: "index_bookmarked_places_on_tip_id"
+    t.index ["user_id"], name: "index_bookmarked_places_on_user_id"
+  end
+
+  create_table "bookmarked_users", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_bookmarked_users_on_trip_id"
+    t.index ["user_id"], name: "index_bookmarked_users_on_user_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.string "slack_sub_domain"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.string "location"
+    t.string "name"
+    t.text "content"
+    t.integer "rating"
+    t.string "category"
+    t.bigint "city_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_tips_on_city_id"
+    t.index ["user_id"], name: "index_tips_on_user_id"
+  end
+
+  create_table "trips", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "city_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_trips_on_city_id"
+    t.index ["user_id"], name: "index_trips_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "open_to"
+    t.bigint "city_id", null: false
+    t.bigint "company_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "job_title"
+    t.string "department"
+    t.string "languages"
+    t.string "linkedin"
+    t.index ["city_id"], name: "index_users_on_city_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bookmarked_places", "tips"
+  add_foreign_key "bookmarked_places", "users"
+  add_foreign_key "bookmarked_users", "trips"
+  add_foreign_key "bookmarked_users", "users"
+  add_foreign_key "tips", "cities"
+  add_foreign_key "tips", "users"
+  add_foreign_key "trips", "cities"
+  add_foreign_key "trips", "users"
+  add_foreign_key "users", "cities"
+  add_foreign_key "users", "companies"
 end
