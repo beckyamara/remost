@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Discover all tips</h1>
+  <div class="row">
+  <% @tips.each do |tip| %>
+  <div class="col-lg-4">
+    <div class="tip-card">
+      <div class="d-flex">
+        <p class="category"><%= tip.category %></p>
+        <p class="rating"><%= tip.rating %></p>
+      </div>
+      <p><%= tip.name %></p>
+      <p><%= tip.location %></p>
+      <p><%= tip.content %></p>
+      <%= link_to "Delete", tip_path(tip),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  %>
+    </div>
+  </div>
+  <% end %>
+  </div>
+</div>
