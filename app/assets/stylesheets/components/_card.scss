@@ -1,0 +1,32 @@
+.trip-card{
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+    margin-bottom: 20px;
+    height: 500px;
+    width: 800px;
+}
+
+
+.trip-card-infos {
+  padding: 16px;
+  height: 150px;
+  width: 700px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.favourite-card{
+  padding: 16px;
+  height: 350px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-text {
+  max-width: 80%;
+}
