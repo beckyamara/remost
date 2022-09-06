@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_071219) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_06_100417) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,8 +41,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_071219) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "slack_sub_domain"
+    t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_companies_on_admin_id"
   end
 
   create_table "tips", force: :cascade do |t|
@@ -85,8 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_071219) do
     t.string "last_name"
     t.string "job_title"
     t.string "department"
-    t.string "languages"
     t.string "linkedin"
+    t.string "languages"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -97,6 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_071219) do
   add_foreign_key "bookmarked_places", "users"
   add_foreign_key "bookmarked_users", "trips"
   add_foreign_key "bookmarked_users", "users"
+  add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "tips", "cities"
   add_foreign_key "tips", "users"
   add_foreign_key "trips", "cities"
