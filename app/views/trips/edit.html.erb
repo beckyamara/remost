@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="mt-5">Add an upcoming trip</h1>
+  <h1 class="mt-5">Edit your upcoming trip</h1>
   <%= simple_form_for @trip do |f| %>
   <%= f.association :city %>
   <%= f.input :start_date, as: :date, html5: true %>
@@ -7,4 +7,3 @@
   <%= f.button :submit, value: "Add a trip", class: "btn btn-dark" %>
   <% end %>
 </div>
-
