@@ -1,2 +1,8 @@
-<h1>Companies#new</h1>
-<p>Find me in app/views/companies/new.html.erb</p>
+<div class="container">
+  <h1 class="mt-5">Add your company</h1>
+  <%= simple_form_for [@company] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :slack_sub_domain %>
+    <%= f.submit "Add the company", class: "btn btn-dark" %>
+  <% end %>
+</div>

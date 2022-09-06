@@ -6,8 +6,9 @@ class User < ApplicationRecord
   has_many :tips
   has_many :trips
   belongs_to :city
-  belongs_to :company, optional: true
+  belongs_to :company
   # has_one :company
+  # accepts_nested_attributes_for :company
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

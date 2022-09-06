@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :bookmarked_places, only: [:create]
     end
   end
+  resources :companies, only: [:new, :create]
   resources :trips
   resources :bookmarked_places, only: [:index, :destroy]
 end

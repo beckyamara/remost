@@ -15,6 +15,36 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "first name" } %>
+    <%= f.input :last_name,
+                required: false,
+                input_html: { autocomplete: "last name" } %>
+    <%= f.association :city,
+                required: true,
+                input_html: { autocomplete: "city" } %>
+    <%= f.association :company,
+                required: true,
+                input_html: { autocomplete: "company" } %>
+    <div>
+      <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+    </div>
+    <%= f.input :department,
+                required: true,
+                input_html: { autocomplete: "department" } %>
+    <%= f.input :job_title,
+                required: true,
+                input_html: { autocomplete: "job_title" } %>
+    <%= f.input :languages,
+                required: true,
+                input_html: { autocomplete: "languages" } %>
+    <%= f.input :linkedin,
+                required: false,
+                input_html: { autocomplete: "linkedin" } %>
+    <%= f.input :open_to,
+                required: false,
+                input_html: { autocomplete: "open_to" } %>
   </div>
 
   <div class="form-actions">
