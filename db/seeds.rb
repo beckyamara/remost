@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'tar Wars'}, { name: 'ord of the Rings'}])
 #   Character.create(name: 'uke' movie: movies.first)
 
+Tip.destroy_all
+Trip.destroy_all
+User.destroy_all
+City.destroy_all
+Company.destroy_all
+
 #companies
 company1 = Company.create!(name: 'TestCompany1', slack_sub_domain: 'lewagon-alumni')
 
