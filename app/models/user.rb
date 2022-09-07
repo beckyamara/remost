@@ -22,4 +22,13 @@ class User < ApplicationRecord
  validates :department, presence: true
  validates :languages, presence: true
  validates :slack_user, presence: true
+
+  def current_city(date)
+    if self.trips.where('start_date <= ?', date).where('end_date >= ?', date).count > 0
+      self.trips.where('start_date <= ?', date).where('end_date >= ?', date).first.city
+    else
+      self.city
+    end
+  end
+
 end
