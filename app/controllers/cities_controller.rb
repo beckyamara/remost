@@ -2,11 +2,17 @@ class CitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @teammates = User.where(company: current_user.company)
-    p @teammates.select {|tm| tm.city_id == 2 }
+    if params[:date]
+      @date = Date.parse(params[:date])
+    end
 
     @cities = City.all
     @markers = @cities.geocoded.map do |city|
-      city_people = @teammates.select {|tm| tm.city == city }
+      if @date
+        city_people = @teammates.select {|tm| tm.current_city(@date) == city }
+      else
+        city_people = @teammates.select {|tm| tm.city == city }
+      end
       p city_people
       {
         lat: city.latitude,
