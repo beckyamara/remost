@@ -19,8 +19,12 @@
                 required: true,
                 input_html: { autocomplete: "first name" } %>
     <%= f.input :last_name,
-                required: false,
+                required: true,
                 input_html: { autocomplete: "last name" } %>
+    <%= f.input :photo,
+                as: :file,
+                required: true,
+                input_html: { autocomplete: "photo" } %>
     <%= f.association :city,
                 required: true,
                 input_html: { autocomplete: "city" } %>
@@ -33,18 +37,24 @@
     <%= f.input :department,
                 required: true,
                 input_html: { autocomplete: "department" } %>
+    <%= f.input :location,
+                required: false,
+                input_html: { autocomplete: "location" } %>
     <%= f.input :job_title,
                 required: true,
                 input_html: { autocomplete: "job_title" } %>
     <%= f.input :languages,
                 required: true,
                 input_html: { autocomplete: "languages" } %>
+    <%= f.input :open_to,
+                required: true,
+                input_html: { autocomplete: "open_to" } %>
+    <%= f.input :slack_user,
+                required: true,
+                input_html: { autocomplete: "slack user" } %>
     <%= f.input :linkedin,
                 required: false,
                 input_html: { autocomplete: "linkedin" } %>
-    <%= f.input :open_to,
-                required: false,
-                input_html: { autocomplete: "open_to" } %>
   </div>
 
   <div class="form-actions">
