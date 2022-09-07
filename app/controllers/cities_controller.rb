@@ -2,6 +2,12 @@ class CitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
     @cities = City.all
+    @markers = @cities.geocoded.map do |city|
+      {
+        lat: city.latitude,
+        lng: city.longitude
+      }
+    end
   end
 
   def show
