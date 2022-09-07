@@ -1,26 +1,5 @@
-<% @cities.each do |i| %>
-  <div class="col-sm-12 col-md-6 col-lg-4">
-  <div>
-        <%# <%= cl_image_tag city.photo.key %>Background Photo to be added
-    <div>
-      <div class="card-text">
-        <h2><%= "#{city.name}" %></h2>
-      </div>
-    </div>
-    <%# to be edited %>
-    <div class= "d-flex">
-      <div class="favourite-card">
-        <h2>Tips</h2>
-        <% bookmarked_place.tip[0..3] each do |i| %>
-        <ul>Name: <%=@bookmarked_place.tip.name%></ul>
-        <ul>Location: <%=@bookmarked_place.tip.location%></ul>
-        <ul>Category: <%=@bookmarked_place.tip.category%></ul>
-        <ul>Rating: <%=@bookmarked_place.tip.rating%></ul>
-        <ul>Content: <%=@bookmarked_place.tip.content%></ul>
-        <% end %>
-      </div>
-    </div>
-
-  </div>
-  </div>
-<% end %>
+<div style="width: 100%; height: 100vh;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
