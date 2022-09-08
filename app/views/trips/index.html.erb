@@ -12,24 +12,35 @@
     <div class= "d-flex">
       <div class="favourite-card">
         <h2>People</h2>
-        <% @bookmarked_user.trip.user[0..3] each do |i| %>
-        <ul>Name: <%=@bookmarked_user.trip.user.first_name @bookmarked_user.trip.user.last_name%></ul>
-        <ul>Email: <%=@bookmarked_user.trip.user.email%></ul>
-        <ul>Department: <%=@bookmarked_user.trip.user.department%></ul>
-        <ul>Activities: <%=@bookmarked_user.trip.user.open_to%></ul>
-        <ul>Languages: <%=@bookmarked_user.trip.user.languages%></ul>
-        <% end %>
+        <%# <% @bookmarked_user.trip.user[0..3] each do |i| %>
+        <%# <ul>Name: <%=@bookmarked_user.trip.user.first_name @bookmarked_user.trip.user.last_name</ul> %>
+        <%# <ul>Email: <%=@bookmarked_user.trip.user.email%>
+        <%# <ul>Department: <%=@bookmarked_user.trip.user.department%>
+        <%# <ul>Activities: <%=@bookmarked_user.trip.user.open_to%>
+        <%# <ul>Languages: <%=@bookmarked_user.trip.user.languages%>
+        <%# <% end %>
+        <ul>Name</ul>
+        <ul>Email</ul>
+        <ul>Department</ul>
+        <ul>Activities</ul>
+        <ul>Language</ul>
       </div>
 
       <div class="favourite-card">
         <h2>Tips</h2>
-        <% bookmarked_place.tip[0..3] each do |i| %>
-        <ul>Name: <%=@bookmarked_place.tip.name%></ul>
-        <ul>Location: <%=@bookmarked_place.tip.location%></ul>
-        <ul>Category: <%=@bookmarked_place.tip.category%></ul>
-        <ul>Rating: <%=@bookmarked_place.tip.rating%></ul>
-        <ul>Content: <%=@bookmarked_place.tip.content%></ul>
-        <% end %>
+        <%# <% bookmarked_place.tip[0..3] each do |i| %>
+        <%# <ul>Name: <%=@bookmarked_place.tip.name%>
+        <%# <ul>Location: <%=@bookmarked_place.tip.location%>
+        <%# <ul>Category: <%=@bookmarked_place.tip.category%>
+        <%# <ul>Rating: <%=@bookmarked_place.tip.rating%>
+        <%# <ul>Content: <%=@bookmarked_place.tip.content%>
+        <%# <% end %>
+        <ul>Name</ul>
+        <ul>Location</ul>
+        <ul>Category</ul>
+        <ul>Rating</ul>
+        <ul>Rating</ul>
+        <ul>Content</ul>
       </div>
     </div>
 
