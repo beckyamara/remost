@@ -1,5 +1,6 @@
 class CitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @teammates = User.where(company: current_user.company)
     if params[:date]
@@ -26,7 +27,16 @@ class CitiesController < ApplicationController
   end
 
   def show
-    set_city
+    @city = City.find(params[:id])
+    @tips = Tip.where(city: @city)
+
+    @tips_markers = @tips.geocoded.map do |tip|
+      {
+        lat: tip.latitude,
+        lng: tip.longitude,
+        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip })
+      }
+    end
   end
 
   private
