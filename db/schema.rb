@@ -42,6 +42,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_132937) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "bookmarked_places", force: :cascade do |t|
+    t.bigint "tip_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tip_id"], name: "index_bookmarked_places_on_tip_id"
+    t.index ["user_id"], name: "index_bookmarked_places_on_user_id"
+  end
+
+  create_table "bookmarked_users", force: :cascade do |t|
+    t.bigint "trip_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_bookmarked_users_on_trip_id"
+    t.index ["user_id"], name: "index_bookmarked_users_on_user_id"
+  end
+
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -128,9 +146,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_132937) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  
-  add_foreign_key "companies", "users", column: "admin_id"
-
+  add_foreign_key "bookmarked_places", "tips"
+  add_foreign_key "bookmarked_places", "users"
+  add_foreign_key "bookmarked_users", "trips"
+  add_foreign_key "bookmarked_users", "users"
   add_foreign_key "tips", "cities"
   add_foreign_key "tips", "users"
   add_foreign_key "trips", "cities"
