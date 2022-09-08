@@ -4,6 +4,9 @@ class CitiesController < ApplicationController
     @teammates = User.where(company: current_user.company)
     if params[:date]
       @date = Date.parse(params[:date])
+      @teammates.each do |t|
+        t.current_city(@date)
+      end
     end
 
     @cities = City.all
@@ -36,14 +39,4 @@ class CitiesController < ApplicationController
     params.require(:city).permit(:name)
   end
 
-  # def find_locals
-  #   @city = set_city
-  #   @locals = User.where(:city_id == @city )
-  #   @locals.each do |local|
-  #     @trips = local.trips
-  #     @trips.each do |trip|
-
-  #     end
-  #   end
-  # end
 end
