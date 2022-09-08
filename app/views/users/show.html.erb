@@ -1,33 +1,49 @@
 <div class='container'>
 
+<div class="pt-2 pb-1 mt-2 mb-1">
+<center><h3>Your Colleague's Profile</h3></center>
+</div>
+
+</div>
+
+<div class='container'>
+
+<div class='row'>
   <div class = 'profile-card-1'>
-    <div class='row'>
-      <div class="col-lg-3">
-        <%= cl_image_tag @user.photo.key, class:'pic' %>
-      </div>
-      <div class="col-lg-9">
-        <p><%= @user.first_name @user.last_name %></p>
-        <p><i class="fa-brands fa-slack"></i><%= @user.linkedin_username %></p>
-        <p><i class="fa-brands fa-linkedin"></i><%= @user.slack_username %></p>
-        <p><i class="fa-solid fa-envelope"></i><%= @user.email %></p>
-      </div>
-    </div>
+  <div class = 'photo-card'>
+    <%= cl_image_tag @user.photo.key, class: "photo-big" %>
+    <p></p>
+    <p></p>
+    <p> <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
+    <ul><%= @user.job_title %></ul>
+  </div>
   </div>
 
   <div class = 'profile-card-2'>
-    <div class="col-lg-6">
-      <p><%= @user.department %></p>
-      <p><%= @user.location %></p>
-    </div>
+    <div class = "col-lg-12">
+      <ul><strong>Department:</strong>  <%= @user.department %></ul>
+      <ul><strong>Location:</strong>  <%= @user.location %></ul>
 
-    <div class="col-lg-6">
-      <p><%= @user.job_title %></p>
-      <p><%= @user.language %></p>
-    </div>
+      <% lang_array = @user.languages.split(/[^[[:word:]]]+/).drop(1) %>
+      <ul><strong>Languages:</strong>
+      <% lang_array.each do |lang| %>
+        <%= lang %>
+      <% end %>
+      </ul>
 
-    <div class="col-lg-12">
-      <p><%= @user.open_to %></p>
+      <% open_to_array = @user.open_to.split(/[^[[:word:]]]+/).drop(1) %>
+      <ul><strong>Open to:</strong>
+      <% open_to_array.each do |open| %>
+        <%= open %>
+      <% end %>
+      </ul>
     </div>
-  </div>
+</div>
 
+<div class="profile-card-3">
+ <p> <strong>Contact with <%= @user.first_name %></strong></p>
+  <p><i class="fa-brands fa-slack fa-2xl" href= <% "https://#{@user.company.slack_sub_domain}.slack.com/archives/#{@user.slack_user}" %>> </i>  </p>
+  <p><i class="fa-brands fa-linkedin fa-2xl" href = <% "https://www.linkedin.com/in/#{@user.linkedin}" %>> </i></p>
+  <p><i class="fa-solid fa-envelope fa-2xl" url(<% @user.email %>)></i></p>
+</div>
 </div>
