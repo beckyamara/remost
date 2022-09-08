@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="mt-5 mb-5">Find your colleagues</h1>
+  <%# SEARCH AND FILTERS %>
+
+  <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find colleagues"
+  %>
+  <%= submit_tag "Search", class: "btn btn-dark" %>
+  <% end %>
+  <%# CARDS %>
+  <div class="row">
+  <% @users.each do |user| %>
+    <div class="col-lg-3">
+      <div class="card-user">
+        <%= cl_image_tag user.photo.key %>
+        <div class="card-user-infos">
+          <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <p><%= user.job_title %> (<%= user.department %>)</p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
