@@ -12,6 +12,7 @@ class TipsController < ApplicationController
     set_city
     @tip = Tip.new(tip_params)
     @tip.user = current_user
+    @tip.city = @city
     if @tip.save
       redirect_to city_path(@city)
     else
