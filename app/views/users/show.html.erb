@@ -42,8 +42,20 @@
 
 <div class="profile-card-3">
  <p> <strong>Contact with <%= @user.first_name %></strong></p>
-  <p><i class="fa-brands fa-slack fa-2xl" href= <% "https://#{@user.company.slack_sub_domain}.slack.com/archives/#{@user.slack_user}" %>> </i>  </p>
-  <p><i class="fa-brands fa-linkedin fa-2xl" href = <% "https://www.linkedin.com/in/#{@user.linkedin}" %>> </i></p>
-  <p><i class="fa-solid fa-envelope fa-2xl" url(<% @user.email %>)></i></p>
+  <p class="btn-link">
+    <%= link_to @slack, target: :_blank do %>
+      <i class="fa-brands fa-slack fa-2xl" btn-link></i>
+    <% end %>
+  </p>
+  <p class="btn-link">
+    <%= link_to @email, target: :_blank do %>
+      <i class="fa-solid fa-envelope fa-2xl" > </i>
+    <% end %>
+  </p>
+  <p class="btn-link">
+    <%= link_to @linkedin, target: :_blank do %>
+      <i class="fa-brands fa-linkedin fa-2xl"> </i>
+    <% end %>
+  </p>
 </div>
 </div>
