@@ -1,7 +1,8 @@
 class TripsController < ApplicationController
-
   def index
     @trips = Trip.all
+    @tips = Tip.all
+    @user = current_user
   end
 
   def new

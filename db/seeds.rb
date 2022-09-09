@@ -66,12 +66,13 @@ anastasia.save
 
 
 # TRIPS
-
 trip1 = Trip.create!(user: john, city: paris, start_date: 'Sat, 15 Oct 2022', end_date: 'Fri, 4 Nov 2022')
 trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Fri, 21 Oct 2022', end_date: 'Sat, 17 Dec 2022')
-trip3 = Trip.create!(user: john, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
-trip4 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
-trip5 = Trip.create!(user: leah, city: paris, start_date: 'Sat, 10 Sept 2022', end_date: 'Mon, 17 Oct 2022')
+trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
+trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
+trip5 = Trip.create!(user: anastasia, city: paris, start_date: 'Sat, 10 Sept 2022', end_date: 'Mon, 17 Oct 2022')
+trip6 = Trip.create!(user: anastasia, city: dublin, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
+trip7 = Trip.create!(user: anastasia, city: london, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 
 # # TIPS
 tip1 = Tip.create!(user: john, city: paris, location: 'RER St-Michel-Notre-Dame', name: 'Notre-Dame Cathedral', content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5, category: 'Cultural')
@@ -82,3 +83,12 @@ tip5 = Tip.create!(user: leah, city: london, location: '51 Roman Rd, Bethnal Gre
 tip6 = Tip.create!(user: leah, city: dublin, location: '47-48, Temple Bar, Dublin 2, D02 N725', name: 'Temple Bar Pub', content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4, category: 'Bar')
 tip7 = Tip.create!(user: anastasia, city: brussels, location: "Pl. de l'Atomium 1, 1020 Brussels", name: 'Atomium', content: 'Nice to see at least once, but some will be disappointed...', rating: 3, category: 'Art')
 tip8 = Tip.create!(user: anastasia, city: brussels, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: 'Coworking')
+
+# FAVORITOR TIPS -- THIS ISN'T WORKING
+# john.favorite(tip3)
+# bob.favorite(tip8)
+# jeanne.favorite(tip1)
+# jeanne.favorite(tip2)
+# anastasia.favorite(tip2)
+# anastasia.favorite(tip3)
+# anastasia.favorite(tip6)
