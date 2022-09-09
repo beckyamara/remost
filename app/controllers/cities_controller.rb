@@ -1,6 +1,4 @@
 class CitiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-
   def index
     @teammates = User.where(company: current_user.company)
     if params[:date]
@@ -31,8 +29,8 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @teammates = User.where(company: current_user.company)
     @tips = Tip.where(city: @city)
-
     @tips_markers = @tips.geocoded.map do |tip|
       {
         lat: tip.latitude,
