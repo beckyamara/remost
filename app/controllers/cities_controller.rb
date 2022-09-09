@@ -1,6 +1,4 @@
 class CitiesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-
   def index
     @teammates = User.where(company: current_user.company)
     if params[:date]
