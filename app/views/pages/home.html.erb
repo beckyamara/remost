@@ -2,5 +2,8 @@
   <div class="homepage-title">
     <h1>Connect with your colleagues all around the world!</h1>
     <p class="mb-5">Meet colleagues who have something in common with you</p>
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-dark" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dark" %>
+    <%= link_to "LOG OUT", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item btn-dark" %>
   </div>
 </div>
