@@ -13,3 +13,10 @@
 .btn {
   letter-spacing: 0.05rem;
 }
+
+.btn-link {
+  a {
+    color: $gray;
+    text-decoration: none;
+  }
+}

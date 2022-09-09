@@ -15,5 +15,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @company_domain = @user.company.slack_sub_domain
+    @user_slack = @user.slack_user
+    @slack = "https://#{@company}.slack.com/archives/#{@user_slack}"
+    @linkedin = "https://www.linkedin.com/in/#{@user.linkedin}"
+    @email = "mailto:#{@user.email}"
   end
+
 end
