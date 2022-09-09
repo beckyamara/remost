@@ -1,13 +1,17 @@
 <div class="container">
-  <h1 class="mt-5 mb-5">Find your colleagues</h1>
+  <div class="users-index-h1">
+  <h1 class="mt-4 mb-4">Find your colleagues</h1>
+  <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
+  </div>
   <%# SEARCH AND FILTERS %>
-  <div class="filters">
+
+  <div class="filters mt-4">
     <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
-      <%= f.date_field :date, html5: true, value: params[:date] %>
-      <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "form-select", prompt: "city", selected: params[:city] %>
-      <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "form-select", prompt: "job title", selected: params[:job_title] %>
-      <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "form-select", prompt: "department", selected: params[:department] %>
-      <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "form-select", prompt: "languages", selected: params[:languages] %>
+      <%= f.date_field :date, html5: true, value: params[:date], class: "form-control" %>
+      <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "custom-select", selected: params[:city], include_blank: "city" %>
+      <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
+      <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
+      <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select", selected: params[:languages], include_blank: "languages" %>
       <%= submit_tag "Search", class: "btn btn-dark" %>
     <% end %>
   </div>
