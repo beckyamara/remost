@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <a href="/" class="navbar-brand"><p class="logo-text">ReMost</p></a>
+      <a href="/cities" class="navbar-brand logo-text">ReMost</a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,9 +8,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <%# <% if controller_name == "cities_controller" && action_name = "show" %>
+              <%# <li>Meet your colleagues in <%= @city.name</li> %>
+              <%# <li><%= link_to "Add a tip ", new_city_tip_path(@city)</li> %>
+        <%# <% end %>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to 'Add a trip', new_trip_path, class:"btn btn-dark bold" %>
+            <%= link_to 'Add a trip', new_trip_path, class:"btn btn-outline-light" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
