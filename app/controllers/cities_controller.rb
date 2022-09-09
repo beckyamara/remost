@@ -9,6 +9,10 @@ class CitiesController < ApplicationController
         t.current_city(@date)
       end
     end
+    @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
+    @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
+    @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
+    @teammates = @teammates.to_a.select { |user| params[:date] == "" ? user.city.name == params[:city] : user.current_city(params[:date]).name == params[:city] } if params[:city].present?
 
     @cities = City.all
     @markers = @cities.geocoded.map do |city|
@@ -17,7 +21,6 @@ class CitiesController < ApplicationController
       else
         city_people = @teammates.select {|tm| tm.city == city }
       end
-      p city_people
       {
         lat: city.latitude,
         lng: city.longitude,

@@ -1,65 +1,67 @@
-<h2>Sign up</h2>
+<div class="container">
+  <h2 class="mt-5 mb-4">Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "first name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "last name" } %>
-    <%= f.input :photo,
-                as: :file,
-                required: true,
-                input_html: { autocomplete: "photo" } %>
-    <%= f.association :city,
-                required: true,
-                input_html: { autocomplete: "city" } %>
-    <%= f.association :company,
-                required: true,
-                input_html: { autocomplete: "company" } %>
-    <div>
-      <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "last name" } %>
+      <%= f.input :photo,
+                  as: :file,
+                  required: true,
+                  input_html: { autocomplete: "photo" } %>
+      <%= f.association :city,
+                  required: true,
+                  input_html: { autocomplete: "city" } %>
+      <%= f.association :company,
+                  required: true,
+                  input_html: { autocomplete: "company" } %>
+      <div>
+        <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+      </div>
+      <%= f.input :department,
+                  required: true,
+                  input_html: { autocomplete: "department" } %>
+      <%= f.input :location,
+                  required: false,
+                  input_html: { autocomplete: "location" } %>
+      <%= f.input :job_title,
+                  required: true,
+                  input_html: { autocomplete: "job_title" } %>
+      <%= f.input :languages,
+                  required: true,
+                  input_html: { autocomplete: "languages" } %>
+      <%= f.input :open_to,
+                  required: true,
+                  input_html: { autocomplete: "open_to" } %>
+      <%= f.input :slack_user,
+                  required: true,
+                  input_html: { autocomplete: "slack user" } %>
+      <%= f.input :linkedin,
+                  required: false,
+                  input_html: { autocomplete: "linkedin" } %>
     </div>
-    <%= f.input :department,
-                required: true,
-                input_html: { autocomplete: "department" } %>
-    <%= f.input :location,
-                required: false,
-                input_html: { autocomplete: "location" } %>
-    <%= f.input :job_title,
-                required: true,
-                input_html: { autocomplete: "job_title" } %>
-    <%= f.input :languages,
-                required: true,
-                input_html: { autocomplete: "languages" } %>
-    <%= f.input :open_to,
-                required: true,
-                input_html: { autocomplete: "open_to" } %>
-    <%= f.input :slack_user,
-                required: true,
-                input_html: { autocomplete: "slack user" } %>
-    <%= f.input :linkedin,
-                required: false,
-                input_html: { autocomplete: "linkedin" } %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "btn btn-outline-dark" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
