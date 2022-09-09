@@ -1,5 +1,15 @@
 class User < ApplicationRecord
   acts_as_favoritor
+
+  include PgSearch::Model
+  pg_search_scope :search_by_job_department_name,
+  against: [ :job_title, :department, :first_name, :last_name ],
+  using: {
+    tsearch: { prefix: true }
+  }
+  scope :filter_by_job, ->(job_title) { where job_title: job_title }
+  scope :filter_by_department, ->(department) { where department: department }
+  scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo

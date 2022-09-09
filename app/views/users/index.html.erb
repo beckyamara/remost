@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="mt-5 mb-5">Find your colleagues</h1>
+  <%# SEARCH AND FILTERS %>
+  <div class="filters">
+    <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
+      <%= f.date_field :date, html5: true, value: params[:date] %>
+      <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "form-select", prompt: "city", selected: params[:city] %>
+      <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "form-select", prompt: "job title", selected: params[:job_title] %>
+      <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "form-select", prompt: "department", selected: params[:department] %>
+      <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "form-select", prompt: "languages", selected: params[:languages] %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
+    <% end %>
+  </div>
+  <%# CARDS %>
+  <div class="row">
+  <% @users.each do |user| %>
+    <div class="col-lg-3">
+      <div class="card-user">
+        <%= cl_image_tag user.photo.key %>
+        <div class="card-user-infos">
+          <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <p><%= user.job_title %> (<%= user.department %>)</p>
+          <p>
+            <i class="fa-solid fa-map-pin"></i>
+            <% if params[:date].present? %>
+              Will be in: <%= user.current_city(params[:date]).name %>
+            <% else %>
+              Based in: <%= user.city.name %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  </div>
+</div>
