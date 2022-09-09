@@ -1,6 +1,14 @@
 .btn-map {
   position: absolute;
-  right: 20px;
+  left: 320px;
+  top: 80px;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+.btn-city-map {
+  position: absolute;
+  left: 20px;
   top: 80px;
   z-index: 3;
   opacity: 0.6;

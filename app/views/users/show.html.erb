@@ -1,7 +1,8 @@
 <div class='container'>
 
-<div class="pt-2 pb-1 mt-2 mb-1">
-<center><h3>Your Colleague's Profile</h3></center>
+<div class="mt-5 mb-3 users-index-h1">
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
 </div>
 
 </div>
@@ -22,19 +23,19 @@
   <div class = 'profile-card-2'>
     <div class = "col-lg-12">
       <ul><strong>Department:</strong>  <%= @user.department %></ul>
-      <ul><strong>Location:</strong>  <%= @user.location %></ul>
+      <ul><strong>Based in:</strong>  <%= @user.city.name %></ul>
 
-      <% lang_array = @user.languages.split(/[^[[:word:]]]+/).drop(1) %>
+      <% lang_array = JSON.parse(@user.languages) %>
       <ul><strong>Languages:</strong>
       <% lang_array.each do |lang| %>
-        <%= lang %>
+        <li><%= lang %></li>
       <% end %>
       </ul>
 
-      <% open_to_array = @user.open_to.split(/[^[[:word:]]]+/).drop(1) %>
+      <% open_to_array = JSON.parse(@user.open_to) %>
       <ul><strong>Open to:</strong>
       <% open_to_array.each do |open| %>
-        <%= open %>
+        <li><%= open %></li>
       <% end %>
       </ul>
     </div>
