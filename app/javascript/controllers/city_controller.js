@@ -17,6 +17,7 @@ export default class extends Controller {
     })
 
     this.#addTipsMarkersToMap()
+    this.#fitMapToTipsMarkers()
   }
 
   #addTipsMarkersToMap() {
@@ -29,4 +30,10 @@ export default class extends Controller {
         .addTo(this.city)
     })
   }
+
+  #fitMapToTipsMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.tipsMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.city.fitBounds(bounds, { padding: 300, maxZoom: 15, duration: 0 })
+   }
 }
