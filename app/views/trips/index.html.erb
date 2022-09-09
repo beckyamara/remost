@@ -1,38 +1,34 @@
-<% @trips.each do |i| %>
-  <div class="col-sm-12 col-md-6 col-lg-4">
-  <div class="trip-card">
-        <%# <%= cl_image_tag city.photo.key %>Background Photo to be added
-    <div class="trip-card-infos">
-      <div class="card-text">
-        <h2><%= "My trip to #{city.name}" %></h2>
-        <p class="mb-2"><%= "From #{trip.start_date} to #{trip.end_date}" %></p>
-      </div>
-    </div>
+<div class="container">
+  <h1 class="mt-5 mb-5">My trips</h1>
 
-    <div class= "d-flex">
-      <div class="favourite-card">
-        <h2>People</h2>
-        <% @bookmarked_user.trip.user[0..3] each do |i| %>
-        <ul>Name: <%=@bookmarked_user.trip.user.first_name @bookmarked_user.trip.user.last_name%></ul>
-        <ul>Email: <%=@bookmarked_user.trip.user.email%></ul>
-        <ul>Department: <%=@bookmarked_user.trip.user.department%></ul>
-        <ul>Activities: <%=@bookmarked_user.trip.user.open_to%></ul>
-        <ul>Languages: <%=@bookmarked_user.trip.user.languages%></ul>
-        <% end %>
-      </div>
+  <div class="row">
 
-      <div class="favourite-card">
-        <h2>Tips</h2>
-        <% bookmarked_place.tip[0..3] each do |i| %>
-        <ul>Name: <%=@bookmarked_place.tip.name%></ul>
-        <ul>Location: <%=@bookmarked_place.tip.location%></ul>
-        <ul>Category: <%=@bookmarked_place.tip.category%></ul>
-        <ul>Rating: <%=@bookmarked_place.tip.rating%></ul>
-        <ul>Content: <%=@bookmarked_place.tip.content%></ul>
-        <% end %>
-      </div>
+      <% @current_user.trips.each do |t| %>
+
+        <div class="col-lg-6">
+
+          <div class="trip-card">
+
+            <%= cl_image_tag t.city.photo.key %>
+
+            <div class="trip-card-infos">
+              <h2>Trip to <strong><%= t.city.name %></strong></h2>
+              <p>From <%= t.start_date %> to <%= t.end_date %></p>
+              <hr>
+              <p><%= t.location %></p>
+              <h3><%= t.city.name %> tips you saved:</h3>
+                <% t.city.tips.take(3).each do |tip| %>
+              <p class="trip-card-infos-tip">By <strong><%= tip.user.first_name %></strong> - <em><strong><%= tip.name %></em></strong> - <em><%= tip.content %></em></p>
+              <% end %>
+              <br>
+              <p><%= link_to "See all tips", cities_path, class: "btn btn-dark bold" %>
+            </div>
+
+          </div>
+        </div>
+      <% end %>
     </div>
 
   </div>
-  </div>
-<% end %>
+
+</div>

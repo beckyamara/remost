@@ -1,6 +1,13 @@
-<h2><%= city.name %></h2>
-<ul>
+<div class="people-window">
+<%= link_to city.name, city_path(city), class: "card-heading-link" %>
+<ul class="people-list">
   <% city_people.each do |person| %>
-    <li><%= person.first_name %> <%= person.last_name %></li>
+    <li class="person">
+      <%= cl_image_tag person.photo.key, class: "avatar-small" %>
+      <%= link_to(user_path(person)) do %>
+      <%= person.first_name %> <%= person.last_name %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+</div>

@@ -1,9 +1,13 @@
 class CitiesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @teammates = User.where(company: current_user.company)
     if params[:date]
       @date = Date.parse(params[:date])
+      @teammates.each do |t|
+        t.current_city(@date)
+      end
     end
 
     @cities = City.all
@@ -23,7 +27,16 @@ class CitiesController < ApplicationController
   end
 
   def show
-    set_city
+    @city = City.find(params[:id])
+    @tips = Tip.where(city: @city)
+
+    @tips_markers = @tips.geocoded.map do |tip|
+      {
+        lat: tip.latitude,
+        lng: tip.longitude,
+        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip })
+      }
+    end
   end
 
   private
@@ -36,14 +49,4 @@ class CitiesController < ApplicationController
     params.require(:city).permit(:name)
   end
 
-  # def find_locals
-  #   @city = set_city
-  #   @locals = User.where(:city_id == @city )
-  #   @locals.each do |local|
-  #     @trips = local.trips
-  #     @trips.each do |trip|
-
-  #     end
-  #   end
-  # end
 end

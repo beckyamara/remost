@@ -30,4 +30,9 @@
 
 .card-user .card-user-infos {
   padding: 16px;
+
+  i {
+    color: $red;
+    margin-right: 3px;
+  }
 }
