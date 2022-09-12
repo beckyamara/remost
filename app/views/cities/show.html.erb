@@ -1,27 +1,3 @@
-<%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
-<%# <div class="city-tip-div">
-<p>Meet your colleagues in <span><%= @city.name</span> </p>
-<%# <%= link_to "Add a tip", new_city_tip_path(@city), class: "btn btn-dark btn-sm" %>
-<%# </div> %>
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>ReMost | Colleagues & Tips in <%= @city.name %></title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-</style>
-<script src=""></script>
-
-<body>
-
-<div class="city-tip-div">
-<p>Meet your colleagues in <span><%= @city.name %></span> </p>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add a tip!
-</button>
-</div>
-
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -29,21 +5,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="container">
-          <h1 class="mt-5">Add a tip</h1>
+        <div class="container pb-5">
+          <h1 class="mt-4 mb-4">Add a tip</h1>
           <%= simple_form_for [@city, @tip] do |f| %>
             <%= f.input :name %>
-            <%= f.input :location %>
+            <%= f.input :location,
+                input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, class: "form-control" %>
             <%= f.input :content %>
             <%= f.input :rating, input_html: { min: 0, max: 10 } %>
             <%= f.input :category, :collection => ["cafes/restaurants", "co-working spaces", "bars", "sights", "safety", "other" ] %>
-            <%= f.submit "Submit a tip", class: "btn btn-dark" %>
+            <%= f.submit "Submit a tip", class: "btn btn-outline-dark" %>
           <% end %>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

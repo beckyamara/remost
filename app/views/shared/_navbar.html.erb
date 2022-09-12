@@ -4,7 +4,8 @@
        <div class="d-flex align-items-center">
        <% if params[:controller] == "cities" && params[:action] == "show" %>
             <p>Meet your colleagues in <span><%= @city.name %></span></p>
-            <%= link_to "Add a tip ", new_city_tip_path(@city), class: "btn btn-light btn-sm " %>
+            <%# <%= link_to "Add a tip ", new_city_tip_path(@city), class: "btn btn-light btn-sm " %>
+            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a tip</button>
         <% end %>
        </div>
 
