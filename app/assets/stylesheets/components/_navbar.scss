@@ -12,6 +12,22 @@
   .nav-link:hover {
     color: white;
   }
+
+  p {
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+
+  span {
+    font-size: 1.5rem;
+    color: $pink-orange;
+    font-weight: 600;
+    margin: 0 3px;
+  }
+
+  .btn-sm {
+    height: 30px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
