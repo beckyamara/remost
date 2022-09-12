@@ -1,20 +1,5 @@
-<%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
-<%# <div class="city-tip-div">
-<p>Meet your colleagues in <span><%= @city.name</span> </p>
-<%# <%= link_to "Add a tip", new_city_tip_path(@city), class: "btn btn-dark btn-sm" %>
-<%# </div> %>
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>ReMost | Colleagues & Tips in <%= @city.name %></title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-</style>
-<script src=""></script>
 
-<body>
-
+<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Colleagues & Tips in @city.name" %></title>
 <div class="city-tip-div">
 <p>Meet your colleagues in <span><%= @city.name %></span> </p>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -100,7 +85,3 @@
   </div>
 
 </div>
-
-
-</body>
-</html>
