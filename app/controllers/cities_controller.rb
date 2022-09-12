@@ -29,6 +29,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @tip = Tip.new
     @teammates = User.where(company: current_user.company)
     @tips = Tip.where(city: @city)
     @tips_markers = @tips.geocoded.map do |tip|
