@@ -1,4 +1,4 @@
 class BookmarkedPlace < ApplicationRecord
-  belongs_to :user
   belongs_to :tip
+  belongs_to :user
 end
