@@ -15,7 +15,11 @@
       <div class="homepage-text">
         <h3>Connect with your colleagues all around the world!</h3>
         <h4 class="mb-5">Meet colleagues who have something in common with you</h4>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dark" %>
+        <% if user_signed_in? %>
+          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark" %>
+        <% else %>
+          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark" %>
+        <% end %>
       </div>
     </div>
 
