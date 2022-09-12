@@ -24,7 +24,14 @@ export default class extends Controller {
     this.tipsMarkersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.tips_window)
       console.log(marker.tips_window)
-      new mapboxgl.Marker()
+
+
+
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker-dot"
+      customMarker.style.borderRadius = "50%"
+
+      new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(this.city)

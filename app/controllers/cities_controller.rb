@@ -22,15 +22,26 @@ class CitiesController < ApplicationController
       {
         lat: city.latitude,
         lng: city.longitude,
-        people_window: render_to_string(partial: "people_window", locals: { city: city, city_people: city_people })
+        people_window: render_to_string(partial: "people_window", locals: { city: city, city_people: city_people }),
+        image_url: helpers.asset_url("map-pin.svg"),
+        marker: render_to_string(partial: "marker", locals: { city: city, city_count: city_people.count, sample_person_image: city_people.sample ? city_people.sample.photo.attached? ? city_people.sample.photo.key : "default_image" : "default_image"})
       }
     end
   end
 
   def show
     @city = City.find(params[:id])
+    @bookmarked_place = BookmarkedPlace.new
     @tip = Tip.new
+    if params[:date]
+      @date = Date.parse(params[:date])
+    else
+      @date = Date.today
+    end
     @teammates = User.where(company: current_user.company)
+    @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
+    @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
+    @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
     @tips = Tip.where(city: @city)
     @tips_markers = @tips.geocoded.map do |tip|
       {
