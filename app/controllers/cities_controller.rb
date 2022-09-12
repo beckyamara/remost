@@ -29,6 +29,8 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @tip = Tip.new
+
     if params[:date]
       @date = Date.parse(params[:date])
     else
