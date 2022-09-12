@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
   has_many :bookmarked_places
-  has_many :bookmarked_users
+  # has_many :bookmarked_users
   has_many :tips
   has_many :trips
   belongs_to :city
@@ -39,6 +39,10 @@ class User < ApplicationRecord
     else
       self.city
     end
+  end
+
+  def bookmarked_tip?(tip)
+    bookmarked_places.map(&:tip).include?(tip)
   end
 
 end

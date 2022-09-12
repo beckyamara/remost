@@ -29,6 +29,7 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
+    @bookmarked_place = BookmarkedPlace.new
     if params[:date]
       @date = Date.parse(params[:date])
     else
