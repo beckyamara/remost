@@ -1,8 +1,8 @@
 <%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
-<div class="city-tip-div">
-<p>Meet your colleagues in <span><%= @city.name %></span> </p>
-<%= link_to "Add a tip", new_city_tip_path(@city), class: "btn btn-dark btn-sm" %>
-</div>
+<%# <div class="city-tip-div">
+<p>Meet your colleagues in <span><%= @city.name</span> </p>
+<%# <%= link_to "Add a tip", new_city_tip_path(@city), class: "btn btn-dark btn-sm" %>
+<%# </div> %>
 <div style="width: 100%; height: 100vh;"
   data-controller="city"
   data-city-tips-markers-value="<%= @tips_markers.to_json %>"
