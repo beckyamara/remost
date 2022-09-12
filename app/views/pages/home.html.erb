@@ -1,21 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>ReMost | Make the most out of remote!</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-</style>
-<script src=""></script>
+<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Make the most out of remote!" %></title>
 
-<body>
 <div class="banner">
-  <div class="homepage-title">
-    <h1>Connect with your colleagues all around the world!</h1>
-    <p class="mb-5">Meet colleagues who have something in common with you</p>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dark" %>
+
+<div class="container">
+  <div class="row">
+
+  <div class="column-1">
+    <div class="homepage-title">
+    <h1>ReMost</h1>
+    </div>
+  </div>
+
+    <div class="column-2">
+      <div class="homepage-text">
+        <h3>Connect with your colleagues all around the world!</h3>
+        <h4 class="mb-5">Meet colleagues who have something in common with you</h4>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-dark" %>
+      </div>
+    </div>
+
   </div>
 </div>
-</body>
 
-</html>
+</div>

@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>ReMost | Colleagues & Tips in <%= @city.name %></title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="">
-<style>
-</style>
-<script src=""></script>
-
-<body>
+<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Colleagues & Tips in @city.name" %></title>
 
 <%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
 
@@ -85,7 +75,3 @@
   </div>
 
 </div>
-
-
-</body>
-</html>
