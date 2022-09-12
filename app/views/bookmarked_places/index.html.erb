@@ -1,0 +1,23 @@
+<div class="container">
+  <h1 class="mt-5 mb-5">My Tips</h1>
+  <div class="row">
+    <% @bookmarked_places.each do |b| %>
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="product-card mb-5">
+        <%= cl_image_tag b.city.photo.key %>
+          <div class="product-card-infos">
+            <div>
+              <h2><%= b.tip.name %></h2>
+              <p class="mb-3"><%= b.tip.category %></p>
+              <p><%= b.tip.content %></p>
+              <%# <%= link_to "Learn more", item_path(f.item), class: "btn btn-dark" %> %>
+            </div>
+            <div>
+            <%= link_to "<i class='fa-solid fa-trash-can'></i>".html_safe, favorite_path(f), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "card-delete" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
