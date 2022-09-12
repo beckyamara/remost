@@ -32,8 +32,6 @@ class CitiesController < ApplicationController
   def show
     @city = set_city
     @tip = Tip.new
-    @bookmarked_place = BookmarkedPlace.new
-
     if params[:date]
       @date = Date.parse(params[:date])
     else
@@ -48,7 +46,7 @@ class CitiesController < ApplicationController
       {
         lat: tip.latitude,
         lng: tip.longitude,
-        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip, bookmarked_place: @bookmarked_place })
+        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip })
       }
     end
   end
