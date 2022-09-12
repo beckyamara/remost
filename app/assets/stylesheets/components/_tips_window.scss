@@ -4,26 +4,21 @@
 
 .card-heading-link:hover {
   color: white;
-
 }
 
-.tips-list {
+.tip-name {
+  color: $dark-orange;
   margin-top: 20px;
-  padding-left: 0;
+  text-align: center;
 
-  a {
-    color: $gray;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: $gray;
-    text-decoration: underline;
-  }
 }
 
-.tip {
-  list-style: none;
-  text-align: left;
+.tip-category {
+  text-align: center;
+  margin-bottom: 7px;
+}
+
+.tip-content {
+  text-align: center;
   margin-bottom: 7px;
 }

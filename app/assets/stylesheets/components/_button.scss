@@ -9,7 +9,7 @@
 .btn-city-map {
   position: absolute;
   left: 20px;
-  top: 80px;
+  top: 260px;
   z-index: 3;
   opacity: 0.6;
 }
@@ -20,4 +20,11 @@
 
 .btn {
   letter-spacing: 0.05rem;
+}
+
+.btn-link {
+  a {
+    color: $gray;
+    text-decoration: none;
+  }
 }

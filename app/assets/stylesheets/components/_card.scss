@@ -101,3 +101,10 @@ background-color:white;
 .trip-card-infos-tip {
   color: grey;
 }
+
+.photo-big {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
