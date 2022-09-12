@@ -2,6 +2,17 @@
   <h4 class="tip-name"> <%= tip.name %> </h4>
   <p class="tip-category"> <%= tip.category %> </p>
   <p class="tip-content"> <%= tip.content %> </p>
-  <div class="favorite-div ml-auto">
-  </div>
+   <%# simple_form_for [tip, @bookmarked_place] do |f| %>
+      <%# button_to tip_bookmarked_places_path do %>
+        <% if current_user.bookmarked_tip?(tip) %>
+          <%= link_to city_bookmarked_place_path(tip.city, current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-heart"></i>
+          <% end %>
+        <% else %>
+          <%= link_to tip_bookmarked_places_path(tip), data: {turbo_method: :post} do %>
+            <i class="fa-regular fa-heart"></i>
+          <% end %>
+        <% end %>
+      <%# end %>
+    <%# end %>
 </div>

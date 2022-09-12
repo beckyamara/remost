@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  acts_as_favoritor
-
   include PgSearch::Model
   pg_search_scope :search_by_job_department_name,
   against: [ :job_title, :department, :first_name, :last_name ],
@@ -44,5 +42,4 @@ class User < ApplicationRecord
   def bookmarked_tip?(tip)
     bookmarked_places.map(&:tip).include?(tip)
   end
-
 end

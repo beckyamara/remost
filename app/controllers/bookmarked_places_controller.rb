@@ -7,10 +7,11 @@ class BookmarkedPlacesController < ApplicationController
 
   def create
     @bookmarked_place = BookmarkedPlace.new
-    @bookmarked_place.tip = @tip
+    @bookmarked_place.tip = set_tip
     @bookmarked_place.user = current_user
+
     if @bookmarked_place.save
-      redirect_to tip_path(@tip)
+      redirect_to city_path(@bookmarked_place.tip.city)
     else
       render :show, status: :unproccessable_entity
     end
@@ -19,12 +20,16 @@ class BookmarkedPlacesController < ApplicationController
   def destroy
     @bookmarked_place = BookmarkedPlace.find(params[:id])
     @bookmarked_place.destroy
-    redirect_to bookmarked_places_path
+    redirect_to city_bookmarked_place_path
   end
 
   private
 
   def set_tip
-    @tip = Tip.find(params[:tip_id])
+    Tip.find(params[:tip_id])
+  end
+
+  def set_city
+    City.find(params[:city_id])
   end
 end
