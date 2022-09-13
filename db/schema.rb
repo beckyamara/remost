@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_161004) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,8 +47,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_161004) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tip_id"], name: "index_bookmaked_places_on_tip_id"
-    t.index ["user_id"], name: "index_bookmaked_places_on_user_id"
+    t.index ["tip_id"], name: "index_bookmarked_places_on_tip_id"
+    t.index ["user_id"], name: "index_bookmarked_places_on_user_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -141,11 +141,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_161004) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-<<<<<<< HEAD
-=======
-  add_foreign_key "bookmaked_places", "tips"
-  add_foreign_key "bookmaked_places", "users"
->>>>>>> 7e17b4011547495514b07e31e8a182785cf3d836
+  add_foreign_key "bookmarked_places", "tips"
+  add_foreign_key "bookmarked_places", "users"
   add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "tips", "cities"
   add_foreign_key "tips", "users"
