@@ -42,7 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_161004) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmaked_places", force: :cascade do |t|
+  create_table "bookmarked_places", force: :cascade do |t|
     t.bigint "tip_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -141,8 +141,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_161004) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+<<<<<<< HEAD
+=======
   add_foreign_key "bookmaked_places", "tips"
   add_foreign_key "bookmaked_places", "users"
+>>>>>>> 7e17b4011547495514b07e31e8a182785cf3d836
   add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "tips", "cities"
   add_foreign_key "tips", "users"
