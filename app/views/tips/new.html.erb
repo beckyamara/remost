@@ -5,7 +5,7 @@
     <%= f.input :location %>
     <%= f.input :content %>
     <%= f.input :rating, input_html: { min: 0, max: 10 } %>
-    <%= f.input :category, :collection => ["cafes/restaurants", "co-working spaces", "bars", "sights", "safety", "other" ] %>
+    <%= f.input :category, :collection => ["💻 Coworking","🍽️ Restaurant","☕ Café","🍹 Bar","👟 Sports","🎭 Culture","🎨 Art","🛐 Worship","🌆 Sight","🛡️ Safety"," Other" ] %>
     <%= f.submit "Submit a tip", class: "btn btn-dark" %>
   <% end %>
 </div>
