@@ -28,8 +28,4 @@ class BookmarkedPlacesController < ApplicationController
   def set_tip
     Tip.find(params[:tip_id])
   end
-
-  def set_city
-    City.find(params[:city_id])
-  end
 end
