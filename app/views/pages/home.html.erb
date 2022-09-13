@@ -13,12 +13,21 @@
 
     <div class="column-2">
       <div class="homepage-text">
-        <h3>Connect with your colleagues all around the world!</h3>
-        <h4 class="mb-5">Meet colleagues who have something in common with you</h4>
         <% if user_signed_in? %>
-          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark" %>
+          <h3>Welcome <%= current_user.first_name %>! </h3>
+          <h5 class="mb-2">Meet your colleagues from <%= current_user.company.name %> who have something in common with you, based in <%= current_user.company.cities.count%> cities.</h5>
+
+            <% num = 0 %>
+            <% @cities.each do |city| %>
+              <% num += city.trips.count%>
+            <% end %>
+
+          <h5 class="mb-5">Together with your colleagues you have <%= num %> upcoming trips.</h5>
+          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark btn-lg" %>
         <% else %>
-          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark" %>
+          <h3>Connect with your colleagues all around the world!</h3>
+          <h5 class="mb-5">Meet colleagues who have something in common with you.</h5>
+          <%= link_to "Sign up", cities_path, class: "btn btn-dark btn-lg" %>
         <% end %>
       </div>
     </div>
@@ -27,3 +36,24 @@
 </div>
 
 </div>
+
+
+<%# <div class="footer">
+  <div class="row footer-content">
+    <div class="col-lg-6 footer-div">
+    <h6 class="mb-3">ABOUT US</h6>
+      <a class="footer-link" href="#">Home</a>
+      <a class="footer-link" href="#">About</a>
+      <a class="footer-link" href="#">Contact</a>
+    </div>
+
+  <div class="col-lg-6 footer-div">
+    <h3 class="mb-3">ReMost</h3>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</div> %>

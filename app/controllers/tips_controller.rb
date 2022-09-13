@@ -1,6 +1,7 @@
 class TipsController < ApplicationController
   def index
     @tips = Tip.all
+    @city = set_city
   end
 
   def create
