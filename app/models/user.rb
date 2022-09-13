@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  acts_as_favoritor
-
   include PgSearch::Model
   pg_search_scope :search_by_job_department_name,
   against: [ :job_title, :department, :first_name, :last_name ],
@@ -10,11 +8,12 @@ class User < ApplicationRecord
   scope :filter_by_job, ->(job_title) { where job_title: job_title }
   scope :filter_by_department, ->(department) { where department: department }
   scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
+  scope :filter_by_open_to, ->(open_to) { where("open_to ILIKE ?", "%#{open_to}%") }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
   has_many :bookmarked_places
-  has_many :bookmarked_users
+  # has_many :bookmarked_users
   has_many :tips
   has_many :trips
   belongs_to :city
@@ -41,4 +40,7 @@ class User < ApplicationRecord
     end
   end
 
+  def bookmarked_tip?(tip)
+    bookmarked_places.map(&:tip).include?(tip)
+  end
 end

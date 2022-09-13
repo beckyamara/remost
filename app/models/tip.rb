@@ -1,7 +1,7 @@
 class Tip < ApplicationRecord
-  acts_as_favoritable
   belongs_to :city
   belongs_to :user
+  has_many :bookmark_places
 
   validates :location, presence: true
   validates :content, presence: true

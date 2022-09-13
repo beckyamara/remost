@@ -1,11 +1,14 @@
 <div class="people-window">
-<%= link_to city.name, city_path(city), class: "card-heading-link" %>
+<%= link_to city.name, city_path(city), class: "link-underline-effect" %>
 <ul class="people-list">
   <% city_people.each do |person| %>
     <li class="person">
       <%= cl_image_tag person.photo.key, class: "avatar-small" %>
       <%= link_to(user_path(person)) do %>
       <%= person.first_name %> <%= person.last_name %>
+      <% end %>
+      <% if person.city.name == city.name %>
+        <i class="fa-solid fa-house-chimney"></i>
       <% end %>
     </li>
   <% end %>

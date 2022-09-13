@@ -1,18 +1,19 @@
 <div class="container">
   <div class="users-index-h1">
-  <h1 class="mt-4 mb-4">Find your colleagues</h1>
+  <h1 class="mt-5 mb-4">Find your colleagues</h1>
   <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
   </div>
   <%# SEARCH AND FILTERS %>
 
   <div class="filters mt-4">
     <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
-      <%= f.date_field :date, html5: true, value: params[:date], class: "form-control" %>
+      <%= f.date_field :date, html5: true, value: params[:date], class: "form-control rounded-0" %>
       <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "custom-select", selected: params[:city], include_blank: "city" %>
       <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
       <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
       <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select", selected: params[:languages], include_blank: "languages" %>
-      <%= submit_tag "Search", class: "btn btn-dark" %>
+      <%= f.select :open_to, User.all.collect { |u| u.open_to }, class: "custom-select", selected: params[:open_to], include_blank: "open to" %>
+      <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
     <% end %>
   </div>
   <%# CARDS %>

@@ -4,18 +4,13 @@ class TipsController < ApplicationController
     @city = set_city
   end
 
-  def new
-    set_city
-    @tip = Tip.new
-  end
-
   def create
     set_city
     @tip = Tip.new(tip_params)
     @tip.user = current_user
     @tip.city = @city
     if @tip.save
-      redirect_to city_path(@city)
+      redirect_to city_path(@city), alert: "Tip successfully created"
     else
       render :new, status: :unprocessable_entity
     end

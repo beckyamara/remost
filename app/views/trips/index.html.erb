@@ -1,3 +1,5 @@
+<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Your trips" %></title>
+
 <div class="container">
   <h1 class="mt-5 mb-5">My trips</h1>
 
@@ -21,7 +23,7 @@
               <p class="trip-card-infos-tip">By <strong><%= tip.user.first_name %></strong> ● <em><strong><%= tip.name %></em></strong> ● <em><%= tip.content %></em></p>
               <% end %>
               <br>
-              <p><%= link_to "See all tips", city_path(t.city), class: "btn btn-outline-dark" %>
+              <p><%= link_to "See all tips", city_path(t.city, date: t.start_date), class: "btn btn-outline-dark" %>
             </div>
 
           </div>

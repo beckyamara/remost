@@ -1,3 +1,5 @@
+<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Your colleagues around the world" %></title>
+
 <div class="map-filters">
     <%= form_with url: cities_path, method: :get do |f| %>
       <div class="input-div"><i class="fa-solid fa-calendar-days"></i><%= f.date_field :date, html5: true, value: params[:date].present? ? params[:date] : Date.today, class: "date-field" %></div>

@@ -6,3 +6,55 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+.marker {
+  width: auto;
+  height: auto;
+  text-align: center;
+  padding-top: 9px;
+
+  svg {
+    height: 60px;
+    width: 63px;
+    filter: invert(44%) sepia(99%) saturate(358%) hue-rotate(110deg) brightness(98%) contrast(90%);
+  }
+
+  img {
+    width: 62%;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 5;
+    top: 13px;
+    left: 11.7px;
+
+  }
+
+  .city-count {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255, 90, 81);
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 3px;
+    padding: auto;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.marker-dot {
+  width: 15px;
+  height: 15px;
+  background-color: $blue;
+  transition: 0.2s;
+}
+
+.marker-dot:hover {
+  width: 18px;
+  height: 18px;
+  background-color: $pink-orange;
+}
