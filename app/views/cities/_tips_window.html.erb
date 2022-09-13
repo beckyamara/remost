@@ -8,7 +8,7 @@
     <% end %>
   <% else %>
     <%= link_to tip_bookmarked_places_path(tip), data: {turbo_method: :post} do %>
-      <i class='fa-regular fa-heart' data-controller='bookmarktip' data-bookmarktip-target='regularheart' data-action="click->bookmarktip#unfav"></i>
+      <i class="fa-regular fa-heart" data-controller="bookmarktip" data-bookmarktip-target="regularheart" data-action="click->bookmarktip#unfav"></i>
     <% end %>
   <% end %>
 </div>
