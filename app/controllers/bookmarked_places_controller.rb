@@ -20,16 +20,13 @@ class BookmarkedPlacesController < ApplicationController
   def destroy
     @bookmarked_place = BookmarkedPlace.find(params[:id])
     @bookmarked_place.destroy
-    redirect_to city_bookmarked_place_path
+    redirect_to tip_bookmarked_place_path
+
   end
 
   private
 
   def set_tip
     Tip.find(params[:tip_id])
-  end
-
-  def set_city
-    City.find(params[:city_id])
   end
 end

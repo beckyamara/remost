@@ -3,12 +3,12 @@
   <p class="tip-category"> <%= tip.category %> </p>
   <p class="tip-content"> <%= tip.content %> </p>
   <% if current_user.bookmarked_tip?(tip) %>
-    <%= link_to city_bookmarked_place_path(tip.city, current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
-      <i class="fa-solid fa-heart"></i>
+    <%= link_to tip_bookmarked_place_path(tip.city, current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
+      <i class="fa-solid fa-heart" data-controller="bookmarktip" data-bookmarktip-target="soildheart" data-action="click->bookmarktip#unfav"></i>
     <% end %>
   <% else %>
     <%= link_to tip_bookmarked_places_path(tip), data: {turbo_method: :post} do %>
-      <i class="fa-regular fa-heart"></i>
+      <i class="fa-regular fa-heart" data-controller="bookmarktip" data-bookmarktip-target="regularheart" data-action="click->bookmarktip#unfav"></i>
     <% end %>
   <% end %>
 </div>

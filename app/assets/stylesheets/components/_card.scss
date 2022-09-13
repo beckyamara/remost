@@ -8,39 +8,38 @@
   margin-bottom: 30px;
   width: 100%;
   height: 380px;
-}
 
-.trip-card img {
-  width: 20%;
-  height: 100%;
-  object-fit: cover;
-}
+  img {
+    width: 20%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.trip-card h2 {
-  font-size: 25px;
-  text-align: left;
-  margin: 0;
-}
+  h2 {
+    font-size: 25px;
+    text-align: left;
+    margin: 0;
+  }
 
-.trip-card h3 {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-  margin: 0;
-}
+  h3 {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+  }
 
-.trip-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
 
-.trip-card .trip-card-infos {
-  padding: 30px;
+  .trip-card-infos {
+    padding: 30px;
+  }
 }
-
 
 .profile-card-1 {
 width:30%;
@@ -107,4 +106,99 @@ background-color:white;
   height: 230px;
   object-fit: cover;
   border-radius: 50%;
+}
+
+
+.tip-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  height: 165px;
+  flex-direction: column;
+
+  h3 {
+    font-size: 22px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .tip-card-content {
+    font-size: 0.9rem;
+    margin-top: 15px;;
+    font-style: italic;
+    color: grey;
+  }
+
+  .tip-card-top {
+    border-bottom: solid lightgrey;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .tip-card-icon {
+    color:  rgba(129, 127, 127, 0.4);
+    transition: 0.2s;
+    font-size: small;
+    position: absolute;
+    bottom: 13px;
+    right: 10px;
+  }
+
+  .tip-card-icon:hover {
+    color: #FF5A51;
+    transition: 0.1s;
+  }
+
+  .author-name {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #FF5A51;
+    padding-left: 10px;
+  }
+
+  #place-name {
+    color: #19A87B;
+  }
+
+  #full-address {
+    font-size: 10px;
+    text-decoration: none;
+    color: #adadad;
+  }
+
+  #full-address:hover {
+    color: #FF5A51;
+  }
+
+  #city-name {
+    color: #FF5A51;
+    font-weight: bolder;
+  }
+}
+
+.tip-card .tip-card-icon {
+  // display: none;
+  // transition: 0.3s;
+}
+
+.tip-card:hover .tip-card-icon {
+  // display: contents;
+  // transition: 0.3s;
+}
+
+
+.tip-card-location {
+  font-size: smaller;
+  color: grey;
+
+  a {
+    text-decoration: none;
+    color: grey;
+  }
 }
