@@ -1,5 +1,5 @@
 <div class="people-window">
-<%= link_to city.name, city_path(city), class: "link-underline-effect" %>
+<%= link_to city.name + ".", city_path(city), class: "link-underline-effect" %>
 <ul class="people-list">
   <% city_people.each do |person| %>
     <li class="person">

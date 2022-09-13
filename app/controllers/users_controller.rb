@@ -22,5 +22,4 @@ class UsersController < ApplicationController
     @linkedin = "https://www.linkedin.com/in/#{@user.linkedin}"
     @email = "mailto:#{@user.email}"
   end
-
 end
