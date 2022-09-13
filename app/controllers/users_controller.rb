@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @users = @users.filter_by_job(params[:job_title]) if params[:job_title].present?
     @users = @users.filter_by_department(params[:department]) if params[:department].present?
     @users = @users.filter_by_languages(params[:languages]) if params[:languages].present?
+    @users = @users.filter_by_open_to(params[:open_to]) if params[:open_to].present?
     @users = @users.to_a.select { |user| params[:date] == "" ? user.city.name == params[:city] : user.current_city(params[:date]).name == params[:city] } if params[:city].present?
   end
 

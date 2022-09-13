@@ -8,6 +8,7 @@ class User < ApplicationRecord
   scope :filter_by_job, ->(job_title) { where job_title: job_title }
   scope :filter_by_department, ->(department) { where department: department }
   scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
+  scope :filter_by_open_to, ->(open_to) { where("open_to ILIKE ?", "%#{open_to}%") }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
