@@ -3,7 +3,7 @@
 <div class='container'>
 
 <div class="mt-5 mb-3 users-index-h1">
-<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<%# <h3><%= @user.first_name <%= @user.last_name %>
 <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
 </div>
 
@@ -11,66 +11,57 @@
 
 <div class='container'>
 
-<div class='row'>
-  <div class = 'profile-card-1'>
-  <div class = 'photo-card'>
-    <%= cl_image_tag @user.photo.key, class: "photo-big" %>
-    <p></p>
-    <p></p>
-    <p> <strong><%= @user.first_name %> <%= @user.last_name %></strong></p>
-    <ul><%= @user.job_title %></ul>
+<div class="profile">
+<%# <div class="user-photo-div"> %>
+<%= cl_image_tag @user.photo.key, class: "profile-page-photo" %>
+<%# </div> %>
+<div class="profile-info">
+  <div class="d-flex justify-content-between">
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+    <div class="contacts">
+      <p class="btn-link">
+          <%= link_to @slack, target: :_blank do %>
+            <i class="fa-brands fa-slack fa-2xl" btn-link></i>
+          <% end %>
+        </p>
+        <p class="btn-link">
+          <%= link_to @email, target: :_blank do %>
+            <i class="fa-solid fa-envelope fa-2xl" > </i>
+          <% end %>
+        </p>
+        <p class="btn-link">
+          <%= link_to @linkedin, target: :_blank do %>
+            <i class="fa-brands fa-linkedin fa-2xl"> </i>
+          <% end %>
+        </p>
+    </div>
   </div>
-  </div>
-
-  <div class = 'profile-card-2'>
-    <div class = "col-lg-12">
-      <ul><strong>Department:</strong>  <%= @user.department %></ul>
-      <ul><strong>Based in:</strong>  <%= @user.city.name %></ul>
-
+  <p class="mb-2"><%= @user.job_title %></p>
+  <p><strong>Department:</strong>  <%= @user.department %></p>
+  <p><i class="fa-solid fa-map-pin"></i><strong>Based in:</strong>  <%= @user.city.name %></p>
+  <div class="d-flex">
       <% lang_array = JSON.parse(@user.languages) %>
-      <ul><strong>Languages:</strong>
+      <ul><i class="fa-solid fa-language"></i><strong>Languages:</strong>
       <% lang_array.each do |lang| %>
         <li><%= lang %></li>
       <% end %>
       </ul>
 
       <% open_to_array = JSON.parse(@user.open_to) %>
-      <ul><strong>Open to:</strong>
+      <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
       <% open_to_array.each do |open| %>
         <li><%= open %></li>
       <% end %>
       </ul>
-    </div>
-</div>
-
-  <div class="profile-card-3">
-  <p> <strong>Contact with <%= @user.first_name %></strong></p>
-    <p class="btn-link">
-      <%= link_to @slack, target: :_blank do %>
-        <i class="fa-brands fa-slack fa-2xl" btn-link></i>
-      <% end %>
-    </p>
-    <p class="btn-link">
-      <%= link_to @email, target: :_blank do %>
-        <i class="fa-solid fa-envelope fa-2xl" > </i>
-      <% end %>
-    </p>
-    <p class="btn-link">
-      <%= link_to @linkedin, target: :_blank do %>
-        <i class="fa-brands fa-linkedin fa-2xl"> </i>
-      <% end %>
-    </p>
   </div>
 
-  <%# TIMELINE %>
-
-  <div id="carouselExampleControls" class="carousel slide mb-5 mt-3">
+        <div id="carouselExampleControls" class="carousel slide mb-5 mt-3">
           <div class="carousel-inner">
           <% months = ((@user.trips.last.end_date - @user.trips.first.start_date)/ 30).to_i + 1 %>
           <% month_tracker = @user.trips.first.start_date - (@user.trips.first.start_date.day - 1) %>
           <% months.times do |i| %>
             <div class="carousel-item <%= month_tracker.month == Date.today.month && month_tracker.year == Date.today.year ? "active" : ""%>">
-              <h2 class="text-center"><%= month_tracker.strftime("%b") %></h2>
+              <h2 class="text-center month"><%= month_tracker.strftime("%B") %></h2>
               <div class="timeline-trips">
                 <% @user.trips.where('start_date >= ?', month_tracker).and(@user.trips.where('end_date <= ?', month_tracker.advance(months: 1) - 1)).each do |trip| %>
                     <div class="timeline-trip" style="width:<%= trip.width %>; left:<%= trip.left %>;">
@@ -92,5 +83,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+</div>
+</div>
 
 </div>

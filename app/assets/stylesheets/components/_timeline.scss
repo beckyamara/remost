@@ -1,3 +1,10 @@
+.carousel {
+  margin-bottom: 40px;
+  background-color: var(--bs-body-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
 .carousel-inner {
   padding: 0 30px;
 }
@@ -12,7 +19,20 @@
 
 .carousel-control-prev, .carousel-control-next {
   background-color: $pink-orange;
-  margin-top: 24px;
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.carousel-control-prev {
+  margin-left: 15px;
+}
+
+.carousel-control-next {
+  margin-right: 15px;
+}
+
+.month {
+  font-size: 1.3rem;
 }
 
 
