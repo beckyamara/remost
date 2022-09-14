@@ -42,35 +42,35 @@
 }
 
 .profile-card-1 {
-width:30%;
-height:400px;
-justify-content: center;
-text-align:center;
-font-size:120%;
-position:center;
-background-size:cover;
-margin:auto;
-box-shadow: 0 0 15px rgba(0,0,0,0.1);
-margin-top: 20px;
-margin-bottom: 20px;
-padding-top:30px;
-background-color:white;
+  width:30%;
+  height:400px;
+  justify-content: center;
+  text-align:center;
+  font-size:120%;
+  position:center;
+  background-size:cover;
+  margin:auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top:30px;
+  background-color:white;
 }
 
 .profile-card-2 {
-width:40%;
-height:400px;
-justify-content:flex;
-text-align:left;
-font-size:large;
-position:center;
-background-size:cover;
-margin:auto;
-box-shadow: 0 0 15px rgba(0,0,0,0.1);
-margin-top: 20px;
-margin-bottom: 20px;
-padding-top: 30px;
-background-color:white;
+  width:40%;
+  height:400px;
+  justify-content:flex;
+  text-align:left;
+  font-size:large;
+  position:center;
+  background-size:cover;
+  margin:auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 30px;
+  background-color:white;
 
   li {
     margin-left: 30px;
@@ -78,19 +78,19 @@ background-color:white;
 }
 
 .profile-card-3 {
-width:25%;
-height:400px;
-text-align:center;
-font-size:large;
-position:center;
-background-size:cover;
-margin:auto;
-box-shadow: 0 0 15px rgba(0,0,0,0.1);
-margin-top: 20px;
-margin-bottom: 20px;
-padding-top:30px;
-padding-left:20px;
-background-color:white;
+  width:25%;
+  height:400px;
+  text-align:center;
+  font-size:large;
+  position:center;
+  background-size:cover;
+  margin:auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top:30px;
+  padding-left:20px;
+  background-color:white;
 }
 
 .city-names-in-cards {
@@ -181,17 +181,6 @@ background-color:white;
     font-weight: bolder;
   }
 }
-
-.tip-card .tip-card-icon {
-  // display: none;
-  // transition: 0.3s;
-}
-
-.tip-card:hover .tip-card-icon {
-  // display: contents;
-  // transition: 0.3s;
-}
-
 
 .tip-card-location {
   font-size: smaller;
