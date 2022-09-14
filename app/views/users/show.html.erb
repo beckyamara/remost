@@ -55,7 +55,7 @@
       </ul>
   </div>
 
-        <div id="carouselExampleControls" class="carousel slide mb-5 mt-3">
+        <div id="carouselExampleControls" class="carousel timeline slide mb-5 mt-3">
           <div class="carousel-inner">
           <% months = ((@user.trips.last.end_date - @user.trips.first.start_date)/ 30).to_i + 1 %>
           <% month_tracker = @user.trips.first.start_date - (@user.trips.first.start_date.day - 1) %>
