@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :bookmarked_places
   # has_many :bookmarked_users
   has_many :tips
-  has_many :trips
+  has_many :trips, -> { order(start_date: :asc)}
   belongs_to :city
   belongs_to :company
   # has_one :company

@@ -8,35 +8,60 @@
   }
 }
 
+
 .link-underline-effect {
-  color: $gray;
+  color: #18272F;
+  position: relative;
   text-decoration: none;
   font-size: 1.4rem;
 }
 
-.link-underline-effect {
-  background:
-      linear-gradient(
-        to right,
-        #19A87B,
-        #19A87B
-      ),
-      linear-gradient(
-        to right,
-        $pink-orange,
-        rgba(255, 0, 180, 1),
-        rgba(0, 100, 200, 1)
-    );
-    background-size: 100% 3px, 0 3px;
-    background-position: 100% 100%, 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 400ms;
-}
-
 .link-underline-effect:hover {
   color: $gray;
-  background-size: 0 3px, 100% 3px;
 }
+
+.link-underline-effect::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 0;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.link-underline-effect:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+// .link-underline-effect {
+//   background:
+//       linear-gradient(
+//         to right,
+//         #19A87B,
+//         #19A87B
+//       ),
+//       linear-gradient(
+//         to right,
+//         $pink-orange,
+//         rgba(255, 0, 180, 1),
+//         rgba(0, 100, 200, 1)
+//     );
+//     background-size: 100% 3px, 0 3px;
+//     background-position: 100% 100%, 0 100%;
+//     background-repeat: no-repeat;
+//     transition: background-size 400ms;
+// }
+
+// .link-underline-effect:hover {
+//   color: $gray;
+//   background-size: 0 3px, 100% 3px;
+// }
 
 // .card-heading-link {
 //   border: none;

@@ -26,7 +26,7 @@
     object-fit: cover;
     position: absolute;
     z-index: 5;
-    top: 13px;
+    top: 4px;
     left: 11.7px;
 
   }
@@ -38,8 +38,8 @@
     border-radius: 50%;
     z-index: -1;
     position: absolute;
-    top: 0;
-    right: 3px;
+    top: -7.5px;
+    right: 2.5px;
     padding: auto;
     font-weight: 600;
     color: white;
@@ -57,4 +57,47 @@
   width: 18px;
   height: 18px;
   background-color: $pink-orange;
+}
+
+.map-date {
+  background-color: transparent;
+  width: auto;
+  position: absolute;
+  bottom: 40px;
+  right: 50px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .date-div {
+    margin: 0 12px;
+    text-align: center;
+  }
+
+  a {
+    color: $pink-orange;
+  }
+
+  a:hover {
+    color: rgb(229, 46, 36);
+  }
+
+  i {
+    font-size: 2.1rem;
+  }
+
+  .month {
+    font-size: 1.7rem;
+    margin-bottom: 0;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .year {
+    font-size: 1.3rem;
+    margin-bottom: 0px;
+    color: #19A87B;
+  }
+
 }

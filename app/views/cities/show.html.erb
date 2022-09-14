@@ -27,15 +27,21 @@
 <div class="map-filters">
     <%= form_with url: city_path(@city), method: :get do |f| %>
       <div class="input-div"><i class="fa-solid fa-calendar-days"></i><%= f.date_field :date, html5: true, value: params[:date].present? ? params[:date] : Date.today, class: "date-field" %></div>
+      <details class="mb-3">
+      <summary class="mb-3">Filters</summary>
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
       <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
-      <%= f.submit "Search", class: "btn btn-dark" %>
+      </details>
+      <div class="row justify-content-center">
+      <%= f.submit "Search", class: "btn btn-light" %>
+      </div>
     <% end %>
-    <%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
 </div>
 
-<div style="width: 100%; height: 100vh;"
+<%= link_to "Back to world map", cities_path, class: "btn btn-dark btn-map" %>
+
+<div style="width: 100%; height: 92vh;"
   data-controller="city"
   data-city-tips-markers-value="<%= @tips_markers.to_json %>"
   data-city-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -52,10 +58,17 @@
       <% if t.current_city(@date) == @city %>
         <div class="card">
               <div class="card-body">
-                <%= cl_image_tag t.photo.key, class: "avatar-small-carousel" %>
-                <h6 class="card-title"><%= t.first_name %> <%= t.last_name %></h5>
-                <p>From <%= t.city.name %></p>
-                <a href="#" class="btn btn-dark">Bookmark</a>
+                <% if t.city.name == @city.name %>
+                  <i class="fa-solid fa-house-chimney"></i>
+                <% end %>
+                <%= cl_image_tag t.photo.key, class: "avatar-small-carousel mb-2" %>
+                <h6 class="card-title">
+                <%= link_to(user_path(t)) do %>
+                <%= t.first_name %> <%= t.last_name %>
+                <% end %>
+                </h6>
+                <p><%= t.department  %></p>
+                <a href="#" class="btn btn-light">Bookmark</a>
               </div>
         </div>
       <% end %>

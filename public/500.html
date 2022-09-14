@@ -4,7 +4,7 @@
   <title>We're sorry, but something went wrong (500)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
- .rails-default-error-page {
+ .error-page {
     background-image:url(500-background.jpg);
     background-size:cover;
     opacity:0.9;
@@ -38,15 +38,35 @@
       font-family:'Jost', "Helvetica", "sans-serif";
     }
 
+    .errorpage-button{
+      color:white;
+      align-items: center;
+      background-color: black;
+      text-decoration:none;
+      padding: 15px 32px;
+      margin-left: 520px;
+      position: relative;
+      font-family:'Jost', "Helvetica", "sans-serif";
+    }
+
+    .button-box{
+      margin-top:50px;
+    }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
+<body class="error-page">
   <!-- This file lives in public/500.html -->
   <div class="text-block">
     <h1>500</h1>
     <h2>We're sorry, but something went wrong.</h2>
     <p>We are working towards something better! It won't be long.</p>
   </div>
+
+  <div class="button-box">
+    <a href="/" class = "errorpage-button">Back to the home page</a>
+  </div>
+
 </body>
 </html>
