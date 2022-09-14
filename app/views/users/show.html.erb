@@ -1,4 +1,4 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | #{@user.first_name} #{@user.last_name}‘s profile" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}‘s profile" %></title>
 
 <div class='container'>
 
@@ -36,7 +36,7 @@
         </p>
     </div>
   </div>
-  <p class="mb-2"><%= @user.job_title %></p>
+  <p class="mb-2 job-title"><%= @user.job_title %></p>
   <p><strong>Department:</strong>  <%= @user.department %></p>
   <p><i class="fa-solid fa-map-pin"></i><strong>Based in:</strong>  <%= @user.city.name %></p>
   <div class="d-flex">
