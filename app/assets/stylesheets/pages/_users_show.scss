@@ -1,0 +1,52 @@
+.profile {
+  display: flex;
+  align-items: center;
+  height: 570px;
+
+
+  .profile-page-photo {
+    width: 30%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+
+  .profile-info {
+    width: 70%;
+    height: 550px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 30px;
+
+    ul {
+      padding-left: 0;
+    }
+
+    li {
+      margin-left: 30px;
+    }
+
+    .open-to {
+      margin-left: 70px;
+    }
+  }
+
+  .contacts {
+    display: flex;
+    margin-top: 30px;
+
+    i {
+      margin-right: 20px;
+    }
+
+    i:hover {
+      color: $pink-orange;
+    }
+  }
+
+  .fa-map-pin, .fa-language, .fa-door-open {
+    color: $pink-orange;
+    margin-right: 6px;
+  }
+}
