@@ -1,4 +1,4 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Make the most out of remote!" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Make the most out of remote!" %></title>
 
 <div class="banner">
 
@@ -7,7 +7,7 @@
 
   <%# <div class="column-1">
     <div class="homepage-title">
-    <h1>ReMost</h1>
+    <h1><%= image_tag("brand-name-lg.png", id: "brand-name-image-hp") %></h1>
     </div>
   </div> %>
 
@@ -15,7 +15,7 @@
       <div class="homepage-text">
         <% if user_signed_in? %>
           <h3>Welcome <%= current_user.first_name %>! </h3>
-          <h5 class="mb-2">Meet your colleagues from <%= current_user.company.name %> who have something in common with you, based in <%= current_user.company.cities.count%> cities.</h5>
+          <h5 class="mb-2">Meet your coworkers from <%= current_user.company.name %> who have something in common with you, based in <%= current_user.company.cities.count%> cities.</h5>
 
             <% num = 0 %>
             <% @cities.each do |city| %>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="col-lg-4 footer-div">
-    <p>© 2022 ReMost All rights reserved.</p>
+    <p>© 2022 remost All rights reserved.</p>
     <a class="footer-link" href="#">Privacy</a>
     <a class="footer-link" href="#">Terms</a>
      <a class="footer-link" href="#">Cookies Contents</a>
@@ -67,7 +67,7 @@
 
 
   <div class="col-lg-4 footer-div">
-    <h3 class="mb-3">ReMost</h3>
+    <h3 class="mb-3">remost</h3>
     <div class="footer-links">
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-facebook"></i></a>

@@ -1,10 +1,10 @@
 .trip-column-1{
-  width:40%;
+  // width:40%;
   margin-left:130px;
 }
 
 .trip-column-2{
-  width:60%;
+  // width:60%;
   background-image:url('form-image');
   background-size: cover;
   width:320PX;
@@ -12,4 +12,38 @@
   margin-top:50px;
   margin-bottom:20px;
   margin-left:80px;
+}
+
+.trip-form-card {
+  width: 70%;
+  height: 550px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 30px;
+
+  h1 {
+    padding-bottom: 30px;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+
+  .trip-form-card-left {
+    width: 47%;
+    height: 100%;
+    padding: 30px;
+    padding-right: 0px;
+  }
+
+  .trip-form-card-right {
+    background-image: url('form-image');
+    background-size: 105%;
+    background-position: center;
+    height: 100%;
+    width: 49%;
+    height: 550px;
+    object-fit: fill;
+    margin-left: 10px;
+  }
 }
