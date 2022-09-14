@@ -23,14 +23,18 @@
       <div class="card-user">
         <%= cl_image_tag user.photo.key %>
         <div class="card-user-infos">
-          <h2><%= user.first_name %> <%= user.last_name %></h2>
+          <h2 class="card-title">
+            <%= link_to(user_path(user)) do %>
+            <%= user.first_name %> <%= user.last_name %>
+            <% end %>
+          </h2>
           <p><%= user.job_title %> (<%= user.department %>)</p>
           <p>
             <i class="fa-solid fa-map-pin"></i>
             <% if params[:date].present? %>
-              Will be in: <%= user.current_city(params[:date]).name %>
+              Will be in: <%= link_to user.current_city(params[:date]).name, city_path(user.current_city(params[:date])) %>
             <% else %>
-              Based in: <%= user.city.name %>
+              Based in: <%= link_to user.city.name, city_path(user.city) %>
             <% end %>
           </p>
         </div>
