@@ -3,6 +3,7 @@ class BookmarkedPlacesController < ApplicationController
 
   def index
     @bookmarked_places = BookmarkedPlace.where(user: current_user)
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] }if params[:city].present?
   end
 
   def create
@@ -20,8 +21,7 @@ class BookmarkedPlacesController < ApplicationController
   def destroy
     @bookmarked_place = BookmarkedPlace.find(params[:id])
     @bookmarked_place.destroy
-    redirect_to tip_bookmarked_place_path
-
+    redirect_to bookmarked_place_path
   end
 
   private

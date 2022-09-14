@@ -6,10 +6,10 @@
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
       <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
+      <%= link_to "List View", users_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages]), class: "btn btn-dark btn-map" %>
       <%= f.submit "Search", class: "btn btn-dark" %>
     <% end %>
 </div>
-<%= link_to "List View", users_path, class: "btn btn-dark btn-map" %>
 <div style="width: 100%; height: 100vh;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
