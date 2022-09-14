@@ -31,6 +31,8 @@ export default class extends Controller {
       customMarker.className = "marker-dot"
       customMarker.style.borderRadius = "50%"
 
+      customMarker.insertAdjacentHTML('afterbegin', marker.tip_marker)
+
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)

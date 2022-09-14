@@ -3,13 +3,13 @@
 <div class="banner">
 
 <div class="container">
-  <div class="row">
+  <div class="row form-div">
 
-  <div class="column-1">
+  <%# <div class="column-1">
     <div class="homepage-title">
     <h1>ReMost</h1>
     </div>
-  </div>
+  </div> %>
 
     <div class="column-2">
       <div class="homepage-text">
@@ -23,7 +23,7 @@
             <% end %>
 
           <h5 class="mb-5">Together with your colleagues you have <%= num %> upcoming trips.</h5>
-          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark btn-lg" %>
+          <%= link_to "Explore", cities_path, class: "btn btn-dark btn-lg" %>
         <% else %>
           <h3>Connect with your colleagues all around the world!</h3>
           <h5 class="mb-5">Meet colleagues who have something in common with you.</h5>
@@ -35,6 +35,17 @@
   </div>
 </div>
 
+</div>
+
+<div style="background-color: white;">
+  <i class=“fa-solid fa-masks-theater”></i>
+  <i class=“fa-solid fa-plate-utensils”></i>
+  <i class=“fa-solid fa-briefcase”></i>
+  <i class=“fa-solid fa-person-praying”></i>
+  <i class=“fa-solid fa-wine-glass”></i>
+  <i class=“fa-solid fa-palette”></i>
+  <i class=“fa-solid fa-tennis-ball”></i>
+  <i class=“fa-solid fa-tennis-ball”></i>
 </div>
 
 

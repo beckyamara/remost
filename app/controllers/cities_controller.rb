@@ -50,7 +50,8 @@ class CitiesController < ApplicationController
       {
         lat: tip.latitude,
         lng: tip.longitude,
-        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip, bookmarked_place: @bookmarked_place })
+        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip, bookmarked_place: @bookmarked_place }),
+        tip_marker: render_to_string(partial: "tip_marker", locals: { city: @city, tips: @tips, tip: tip, category: tip.category })
       }
     end
   end

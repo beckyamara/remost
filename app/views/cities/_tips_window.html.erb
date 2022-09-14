@@ -1,6 +1,6 @@
-<div >
-  <h4 class="tip-name"> <%= tip.name %> </h4>
+<div class="tip-window">
   <p class="tip-category"> <%= tip.category %> </p>
+  <h4 class="tip-name"> <%= tip.name %> </h4>
   <p class="tip-content"> <%= tip.content %> </p>
   <% if current_user.bookmarked_tip?(tip) %>
     <%= link_to  bookmarked_place_path(current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
