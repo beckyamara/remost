@@ -1,5 +1,5 @@
 .banner{
-  background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), asset-url("background-image2.jpg");
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), asset-url("background-image2.jpg");
   background-size: cover;
   color:white;
   width: 100%;
@@ -7,8 +7,35 @@
 }
 
 .homepage-text{
-  padding-top: 80px;
+  padding-top: 10%;
   text-align: left;
+  margin-left: 50%;
+  letter-spacing: 0.1rem;
+
+  h1 {
+    font-size: 3rem;
+
+  }
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  .btn {
+    background-color: $pink-orange;
+    border: none;
+  }
+
+  .btn:hover {
+    background-color: rgb(206, 39, 30);
+    border: none;
+  }
+
+  span {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $pink-orange;
+  }
 }
 
 .homepage-title{
