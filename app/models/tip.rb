@@ -1,7 +1,7 @@
 class Tip < ApplicationRecord
   belongs_to :city
   belongs_to :user
-  has_many :bookmark_places
+  has_many :bookmark_places, dependent: :destroy
 
   validates :location, presence: true
   validates :content, presence: true

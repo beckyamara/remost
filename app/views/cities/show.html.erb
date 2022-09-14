@@ -2,7 +2,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
+      <div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -16,7 +16,7 @@
             <%= f.input :content %>
             <%= f.input :rating, input_html: { min: 0, max: 10 } %>
             <%= f.input :category, :collection => ["cafes/restaurants", "co-working spaces", "bars", "sights", "safety", "other" ] %>
-            <%= f.submit "Submit a tip", class: "btn btn-outline-dark" %>
+            <%= f.submit "Save tip", class: "btn btn-outline-dark" %>
           <% end %>
         </div>
       </div>

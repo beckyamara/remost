@@ -2,20 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="bookmarktip"
 export default class extends Controller {
-  static targets = ["soildheart", "regularheart"]
+  // static targets = ["solidheart", "regularheart"]
 
-  connect() {
-    console.log(this.soildheartTarget)
-    console.log(this.regularheartTarget)
-  }
+  // connect() {
+  //   console.log(this.soildheartTarget)
+  //   console.log(this.regularheartTarget)
+  // // }
 
-  unfav() {
-    this.soildheartValue.classList.remove("fa-solid")
-    this.soildheartValue.classList.add("fa-regular")
-    fetch('/cities', { headers: { accept: "application/json" } })
-  }
-  fav() {
-    this.soildheartValue.classList.remove("fa-regular")
-    this.soildheartValue.classList.add("fa-solid")
-  }
+  // unfav(e) {
+  //   e.preventDefault()
+  //   // this.solidheartTarget.classList.remove("fa-solid")
+  //   // this.solidheartTarget.classList.add("fa-regular")
+  // }
+  // fav(e) {
+  //   e.preventDefault()
+  //   // this.regularheartTarget.classList.remove("fa-regular")
+  //   // this.regularheartTarget.classList.add("fa-solid")
+  // }
 }

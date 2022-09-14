@@ -1,18 +1,18 @@
 <div class="container">
-  <h1 class="mt-5 mb-5">My Tips</h1>
+
   <div class="row">
+
     <% @bookmarked_places.each do |b| %>
-      <div class="col-lg-6">
-        <div class="trip-card">
-        <%# <%= cl_image_tag @city.photo.key %> %>
-          <div class="trip-card-infos">
-            <div class="trip-card-infos-tip">
-              <h2><%= b.tip.name %></h2>
-              <p class="mb-3"><%= b.tip.category %></p>
-              <p><%= b.tip.content %></p>
+      <div class="col-lg-4">
+        <div class="tip-card">
+            <div class="tip-card-top">
+              <h3><span id="place-name"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></span> <%= link_to "(address ↗️)",  "https://www.google.co.uk/maps/search/#{b.tip.location}", target: :_blank, id: "full-address" %></h3>
+              <%= link_to bookmarked_place_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{b.tip.city.name}?"}, class: "tip-card-icon" do %>
+                <i class="fa-solid fa-heart-circle-minus"></i>
+              <% end %>
             </div>
-            <%= link_to "<i class='fa-solid fa-trash-can'></i>".html_safe,   tip_bookmarked_places_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "card-delete" %>
-          </div>
+            <%# THE LINK ABOVE NEEDS TO BE UPDATE TO DELETE TIP FROM BOOKMARKED PLACES TABLE %>
+            <p><%= cl_image_tag b.tip.user.photo.key, class: "avatar-small" %><strong><%= link_to b.tip.user.first_name, user_path(b.tip.user.id), class: "author-name" %></strong> ● <%= b.tip.rating %>/10 ● <span class="tip-card-content"><%= b.tip.content %></span></p>
         </div>
       </div>
     <% end %>
