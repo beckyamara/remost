@@ -45,5 +45,5 @@ export default class extends Controller {
         console.log(urlArray.join("/"))
         this.unfavTarget.href = urlArray.join("/")
       })
-
   }
+}
