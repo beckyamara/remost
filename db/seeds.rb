@@ -1,6 +1,3 @@
-# dgfdfgd
-
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -229,7 +226,7 @@ trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Fri, 2 Dec 2022',
 
 ## TIPS
 tip1 = Tip.create!(user: john, city: paris, location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', name: 'Notre-Dame Cathedral', content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5, category: '🎭 Cultural')
-tip2 = Tip.create!(user: john, city: paris, location: '7 Rue du Faubourg Montmartre, 75009 Paris', name: 'Bouillon Chartier', content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4, category: '🍽 Restaurant')
+tip2 = Tip.create!(user: john, city: paris, location: '7 Rue du Faubourg Montmartre, 75009 Paris', name: 'Bouillon Chartier', content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4, category: '🍽️ Restaurant')
 tip3 = Tip.create!(user: bob, city: paris, location: '33 Rue La Fayette, 75009 Paris', name: 'WeWork Lafayette', content: 'Just the best (and most beautiful!) WeWork in Paris! Half the remote workers travelling to Paris stop there at some point.', rating: 5, category: '💻 Coworking')
 tip4 = Tip.create!(user: jeanne, city: london, location: 'Gracechurch St, London EC3V 1LT', name: 'Leadenhall Market', content: 'Very Harry-Potteresque, but full of bankers having a pint after work. Worth a quick visit.', rating: 4, category: '🎭 Cultural')
 tip5 = Tip.create!(user: leah, city: london, location: '51 Roman Rd, Bethnal Green, London E2 0HU', name: 'London Buddhist Centre', content: 'My favourite temple in London by far! Everyone is lovely.', rating: 5, category: '🛐 Worship')
@@ -237,15 +234,15 @@ tip6 = Tip.create!(user: leah, city: dublin, location: '47-48, Temple Bar, Dubli
 tip7 = Tip.create!(user: anastasia, city: brussels, location: "Pl. de l'Atomium 1, 1020 Brussels", name: 'Atomium', content: 'Nice to see at least once, but some will be disappointed...', rating: 3, category: '🎨 Art')
 tip8 = Tip.create!(user: anastasia, city: brussels, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
 
-tip9 = Tip.create!(user: sam, city: lisbon, location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', name: 'Primero de Maio', content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8, category: '🍽 Restaurant')
-tip10 = Tip.create!(user: bertrand, city: lisbon, location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', name: 'TimeOut Market Lisbon', content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9, category: '🍽 Restaurant')
+tip9 = Tip.create!(user: sam, city: lisbon, location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', name: 'Primero de Maio', content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8, category: '🍽️ Restaurant')
+tip10 = Tip.create!(user: bertrand, city: lisbon, location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', name: 'TimeOut Market Lisbon', content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9, category: '🍽️ Restaurant')
 tip11 = Tip.create!(user: nick, city: lisbon, location: 'R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal', name: 'Castelo de S. Jorge', content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9, category: '🎭 Cultural')
 
 tip12 = Tip.create!(user: pavel, city: amsterdam, location: 'Museumplein 10, 1071 DJ Amsterdam, Netherlands', name: 'Stedelijk Museum', content: "Go at least once!", rating: 8, category: '🎨 Art')
 tip13 = Tip.create!(user: beatriz, city: amsterdam, location: 'Herengracht 420, 1017 BZ Amsterdam, Netherlands', name: 'StartDock Coworking Herengracht', content: "My favorite coworking space in the city.", rating: 8, category: '💻 Coworking')
-tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', name: 'Restaurant Zaza s', content: "One of the best restaurants I've ever been to!", rating: 9, category: '🍽 Restaurant')
+tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', name: 'Restaurant Zaza s', content: "One of the best restaurants I've ever been to!", rating: 9, category: '🍽️ Restaurant')
 
-tip15 = Tip.create!(user: beatriz, city: dublin, location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', name: 'Chapter One', content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9, category: '🍽 Restaurant')
+tip15 = Tip.create!(user: beatriz, city: dublin, location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', name: 'Chapter One', content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9, category: '🍽️ Restaurant')
 tip16 = Tip.create!(user: anthony, city: dublin, location: '31 Dawson St, Dublin 2, D02 DR58, Ireland', name: 'Peruke & Periwig', content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9, category: '🍹 Bar')
 tip17 = Tip.create!(user: anastasia, city: dublin, location: '27 Camden Street Lower, Saint Kevin’s, Dublin 2, D02 NV09, Ireland', name: 'CoCreate South', content: "Descent CoWorking Space", rating: 7, category: '💻 Coworking')
 
