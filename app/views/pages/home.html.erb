@@ -12,7 +12,7 @@
               <% num += city.trips.count%>
             <% end %>
           <div>
-          <p><span><%= @users.count %></span> teammates | <span><%= current_user.company.cities.count %></span> cities | <span><%= num %></span> upcoming trips  </p>
+          <p><span><%= @users.count %></span> teammates | <span><%= current_user.company.cities.uniq.count %></span> cities | <span><%= num %></span> upcoming trips  </p>
           </div>
           <%= link_to "Explore", cities_path, class: "btn btn-dark btn-lg" %>
         <% else %>
