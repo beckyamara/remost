@@ -3,6 +3,8 @@ class TripsController < ApplicationController
     @trips = Trip.all
     @tips = Tip.all
     @user = current_user
+    @user_tips = BookmarkedPlace.where(user: current_user)
+    @teammates = User.where(company: current_user.company)
   end
 
   def new
