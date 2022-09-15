@@ -61,6 +61,12 @@ copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', conten
 
 
 # USERS & THEIR AVATARS
+
+marion = User.new(company: company1, city: london, email: 'marion@test.com', password: 123456, first_name: 'Marion', last_name: 'Salaun', job_title: 'Speedy Onboarding Specialist', department: 'HR', languages: ['English', 'French', 'Spanish', 'Dutch'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
+photo_marion = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663234417/ReMost/marion_pwlxzr.jpg")
+marion.photo.attach(io: photo_marion, filename: 'marion.jpg', content_type: 'image/jpg')
+marion.save
+
 john = User.new(company: company1, city: paris, email: 'john@test.com', password: 123456, first_name: 'John', last_name: 'Smith', job_title: 'Forward Operations Engineer', department: 'Ops', languages: ['English', 'French'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
 photo_john = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/john_oyqjvw.jpg")
 john.photo.attach(io: photo_john, filename: 'john.jpg', content_type: 'image/jpg')
@@ -123,21 +129,25 @@ ed.save
 
 
 
-# TRIPS
+# TRIPS - demoing for SEPT 21, then 22, then 23 (more people there)
 trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
 trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
 trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
-trip5 = Trip.create!(user: anastasia, city: paris, start_date: 'Thu, 15 Sept 2022', end_date: 'Mon, 19 Sept 2022')
+trip5 = Trip.create!(user: anastasia, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Mon, 26 Sept 2022')
 trip6 = Trip.create!(user: anastasia, city: dublin, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
 trip7 = Trip.create!(user: anastasia, city: london, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 trip8 = Trip.create!(user: leah, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip9 = Trip.create!(user: jeanne, city: paris, start_date: 'Sun, 18 Sept 2022', end_date: 'Sun, 25 Sept 2022')
-trip10 = Trip.create!(user: bob, city: paris, start_date: 'Sat, 17 Sept 2022', end_date: 'Wed, 21 Sept 2022')
-trip11 = Trip.create!(user: sam, city: paris, start_date: 'Sat, 17 Sept 2022', end_date: 'Thu, 22 Sept 2022')
-trip12 = Trip.create!(user: ed, city: london, start_date: 'Wed, 14 Sept 2022', end_date: 'Fri, 16 Sept 2022')
-trip13 = Trip.create!(user: pavel, city: paris, start_date: 'Fri, 16 Sept 2022', end_date: 'Fri, 23 Sept 2022')
-trip13 = Trip.create!(user: anthony, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
+trip9 = Trip.create!(user: jeanne, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip10 = Trip.create!(user: bob, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip11 = Trip.create!(user: sam, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip12 = Trip.create!(user: ed, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
+trip13 = Trip.create!(user: pavel, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
+trip14 = Trip.create!(user: anthony, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
+trip15 = Trip.create!(user: marion, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
+trip16 = Trip.create!(user: marion, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
+trip17 = Trip.create!(user: marion, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
+
 
 
 
@@ -152,3 +162,23 @@ tip5 = Tip.create!(user: leah, city: london, location: '51 Roman Rd, Bethnal Gre
 tip6 = Tip.create!(user: leah, city: dublin, location: '47-48, Temple Bar, Dublin 2, D02 N725', name: 'Temple Bar Pub', content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4, category: '🍹 Bar')
 tip7 = Tip.create!(user: anastasia, city: brussels, location: "Pl. de l'Atomium 1, 1020 Brussels", name: 'Atomium', content: 'Nice to see at least once, but some will be disappointed...', rating: 3, category: '🎨 Art')
 tip8 = Tip.create!(user: anastasia, city: brussels, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
+
+tip9 = Tip.create!(user: sam, city: lisbon, location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', name: 'Primero de Maio', content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8, category: '🍽 Restaurant')
+tip10 = Tip.create!(user: bertrand, city: lisbon, location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', name: 'TimeOut Market Lisbon', content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9, category: '🍽 Restaurant')
+tip11 = Tip.create!(user: nick, city: lisbon, location: 'R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal', name: 'Castelo de S. Jorge', content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9, category: '🎭 Cultural')
+
+tip12 = Tip.create!(user: pavel, city: amsterdam, location: 'Museumplein 10, 1071 DJ Amsterdam, Netherlands', name: 'Stedelijk Museum', content: "Go at least once!", rating: 8, category: '🎨 Art')
+tip13 = Tip.create!(user: beatriz, city: amsterdam, location: 'Herengracht 420, 1017 BZ Amsterdam, Netherlands', name: 'StartDock Coworking Herengracht', content: "My favorite coworking space in the city.", rating: 8, category: '💻 Coworking')
+tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', name: 'Restaurant Zaza s', content: "One of the best restaurants I've ever been to!", rating: 9, category: '🍽 Restaurant')
+
+# tip15 = Tip.create!(user: beatriz, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
+# tip16 = Tip.create!(user: anthony, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
+# tip17 = Tip.create!(user: anastasia, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
+
+# # BOOKMARKED PLACES
+bookmark1 = BookmarkedPlace.create!(user: marion, tip: tip9)
+bookmark2 = BookmarkedPlace.create!(user: marion, tip: tip10)
+bookmark3 = BookmarkedPlace.create!(user: marion, tip: tip6)
+bookmark4 = BookmarkedPlace.create!(user: marion, tip: tip12)
+bookmark5 = BookmarkedPlace.create!(user: marion, tip: tip13)
+bookmark6 = BookmarkedPlace.create!(user: marion, tip: tip14)

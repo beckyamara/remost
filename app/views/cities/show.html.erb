@@ -1,8 +1,8 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Colleagues & Tips in @city.name" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Teammates & Recommendations in @city.name" %></title>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div>
+      <div class="modal-header">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -16,7 +16,7 @@
             <%= f.input :content %>
             <%= f.input :rating, input_html: { min: 0, max: 10 } %>
             <%= f.input :category, :collection => ["cafes/restaurants", "co-working spaces", "bars", "sights", "safety", "other" ] %>
-            <%= f.submit "Save tip", class: "btn btn-outline-dark" %>
+            <%= f.submit "Submit a tip", class: "btn btn-outline-dark" %>
           <% end %>
         </div>
       </div>
@@ -27,21 +27,19 @@
 <div class="map-filters">
     <%= form_with url: city_path(@city), method: :get do |f| %>
       <div class="input-div"><i class="fa-solid fa-calendar-days"></i><%= f.date_field :date, html5: true, value: params[:date].present? ? params[:date] : Date.today, class: "date-field" %></div>
-      <details class="mb-3">
-      <summary class="mb-3">Filters</summary>
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
       <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
+      <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["Working side by side", "Brunch, Lunch, Dinner", "Breakfast", "Coffee", "Drinks", "Networking", "Brainstorming", "Casual chat", "Weekend activity/drink"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %></div>
       </details>
       <div class="row justify-content-center">
       <%= f.submit "Search", class: "btn btn-light" %>
       </div>
     <% end %>
 </div>
+<%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-map" %>
 
-<%= link_to "Back to world map", cities_path, class: "btn btn-dark btn-map" %>
-
-<div style="width: 100%; height: 92vh;"
+<div style="width: 100%; height: 100vh;"
   data-controller="city"
   data-city-tips-markers-value="<%= @tips_markers.to_json %>"
   data-city-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -68,7 +66,7 @@
                 <% end %>
                 </h6>
                 <p><%= t.department  %></p>
-                <a href="#" class="btn btn-light">Bookmark</a>
+                <%= link_to "See profile", user_path(t), class: "btn btn-light" %>
               </div>
         </div>
       <% end %>

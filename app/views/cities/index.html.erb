@@ -1,4 +1,4 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Your colleagues around the world" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Your teammates around the world" %></title>
 
 <div class="map-filters">
     <%= form_with url: cities_path, method: :get do |f| %>
@@ -8,13 +8,14 @@
         <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
         <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
         <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
+        <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["Working side by side", "Brunch, Lunch, Dinner", "Breakfast", "Coffee", "Drinks", "Networking", "Brainstorming", "Casual chat", "Weekend activity/drink"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %></div>
       </details>
       <div class="row justify-content-center">
       <%= f.submit "Search", class: "btn btn-light" %>
       </div>
     <% end %>
 </div>
-<%= link_to "List View", users_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages]), class: "btn btn-dark btn-map" %>
+<%= link_to "List View", users_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages], open_to: params[:open_to]), class: "btn btn-dark btn-map" %>
 <%# DATE SLIDER %>
 <div class="map-date">
     <% if params[:date] && params[:date] != "" %>

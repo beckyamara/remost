@@ -1,7 +1,7 @@
 <div class="container">
   <div class="users-index-h1">
-  <h1 class="mt-5 mb-4">Find your colleagues</h1>
-  <%= link_to "Back to the map", cities_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages]), class: "btn btn-outline-dark" %>
+  <h1 class="mt-5 mb-4">Find your teammates</h1>
+  <%= link_to "Back to the map", cities_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages], open_to: params[:open_to]), class: "btn btn-outline-dark" %>
   </div>
   <%# SEARCH AND FILTERS %>
 
@@ -12,7 +12,7 @@
       <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
       <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
       <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select", selected: params[:languages], include_blank: "languages" %>
-      <%= f.select :open_to, User.all.collect { |u| u.open_to }, class: "custom-select", selected: params[:open_to], include_blank: "open to" %>
+      <%= f.select :open_to, ["Working side by side", "Brunch, Lunch, Dinner", "Breakfast", "Coffee", "Drinks", "Networking", "Brainstorming", "Casual chat", "Weekend activity/drink"], class: "custom-select", selected: params[:open_to], include_blank: "open to" %>
       <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
     <% end %>
   </div>

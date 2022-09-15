@@ -1,24 +1,36 @@
-.tips-window {
-  padding: 15px 5px;
-}
+.tip-window {
+  padding: 10px;
+  text-align: left;
 
-.card-heading-link:hover {
-  color: white;
+  a {
+    text-decoration: none;
+
+  }
+
+  a:focus-visible {
+    outline: none;
+  }
+
+  .fa-heart {
+    font-size: 1.15rem;
+    color: $pink-orange;
+    margin-top: 5px;
+  }
 }
 
 .tip-name {
-  color: $dark-orange;
-  margin-top: 20px;
-  text-align: center;
+  color: $pink-orange;
 
 }
 
 .tip-category {
-  text-align: center;
-  margin-bottom: 7px;
+  border: 1px solid $pink-orange;
+  border-radius: 12px;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 1rem;
 }
 
 .tip-content {
-  text-align: center;
   margin-bottom: 7px;
 }

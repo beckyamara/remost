@@ -1,40 +1,39 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Make the most out of remote!" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Make the most out of remote!" %></title>
 
 <div class="banner">
 
 <div class="container">
-  <div class="row">
-
-  <div class="column-1">
-    <div class="homepage-title">
-    <h1>ReMost</h1>
-    </div>
-  </div>
-
-    <div class="column-2">
       <div class="homepage-text">
         <% if user_signed_in? %>
-          <h3>Welcome <%= current_user.first_name %>! </h3>
-          <h5 class="mb-2">Meet your colleagues from <%= current_user.company.name %> who have something in common with you, based in <%= current_user.company.cities.count%> cities.</h5>
-
+          <h1>Get the most from remote working</h1>
+          <p class="mb-2">Meet your coworkers from <%= current_user.company.name %> in <span data-controller="typed-js"></span> </h5>
             <% num = 0 %>
             <% @cities.each do |city| %>
               <% num += city.trips.count%>
             <% end %>
-
-          <h5 class="mb-5">Together with your colleagues you have <%= num %> upcoming trips.</h5>
-          <%= link_to "Find who is in which city", cities_path, class: "btn btn-dark btn-lg" %>
+          <div>
+          <p><span><%= @users.count %></span> teammates | <span><%= current_user.company.cities.count %></span> cities | <span><%= num %></span> upcoming trips  </p>
+          </div>
+          <%= link_to "Explore", cities_path, class: "btn btn-dark btn-lg" %>
         <% else %>
-          <h3>Connect with your colleagues all around the world!</h3>
-          <h5 class="mb-5">Meet colleagues who have something in common with you.</h5>
+          <h3>Connect with your teammates all around the world!</h3>
+          <h5 class="mb-5">Meet coworkers who have something in common with you.</h5>
           <%= link_to "Sign up", cities_path, class: "btn btn-dark btn-lg" %>
         <% end %>
       </div>
-    </div>
-
-  </div>
 </div>
 
+</div>
+
+<div style="background-color: white;">
+  <i class=“fa-solid fa-masks-theater”></i>
+  <i class=“fa-solid fa-plate-utensils”></i>
+  <i class=“fa-solid fa-briefcase”></i>
+  <i class=“fa-solid fa-person-praying”></i>
+  <i class=“fa-solid fa-wine-glass”></i>
+  <i class=“fa-solid fa-palette”></i>
+  <i class=“fa-solid fa-tennis-ball”></i>
+  <i class=“fa-solid fa-tennis-ball”></i>
 </div>
 
 
@@ -48,7 +47,7 @@
     </div>
 
     <div class="col-lg-4 footer-div">
-    <p>© 2022 ReMost All rights reserved.</p>
+    <p>© 2022 remost All rights reserved.</p>
     <a class="footer-link" href="#">Privacy</a>
     <a class="footer-link" href="#">Terms</a>
      <a class="footer-link" href="#">Cookies Contents</a>
@@ -56,7 +55,7 @@
 
 
   <div class="col-lg-4 footer-div">
-    <h3 class="mb-3">ReMost</h3>
+    <h3 class="mb-3">remost</h3>
     <div class="footer-links">
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-facebook"></i></a>

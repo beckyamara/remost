@@ -1,7 +1,9 @@
+// app/javascript/controllers/movie_card_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="bookmarktip"
 export default class extends Controller {
+
   static targets = ["unfav", "fav"]
 
   connect() {
@@ -11,11 +13,18 @@ export default class extends Controller {
   }
 
   unfav(e) {
-    //e.preventDefault()
+    e.preventDefault()
     console.log("unfaving")
     this.unfavTarget.classList.add("d-none")
     this.favTarget.classList.remove("d-none")
     console.log(this.unfavTarget);
+    fetch(`${this.unfavTarget.href}?user_id=${this.user}`,
+      { headers: {"Accept": "application/json"}}
+    )
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+      })
   }
   fav(e) {
     e.preventDefault()
@@ -31,7 +40,28 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         console.log(data);
+        let urlArray = this.unfavTarget.href.split("/")
+        urlArray[4] = data.message
+        console.log(urlArray.join("/"))
+        this.unfavTarget.href = urlArray.join("/")
       })
 
   }
+
+// update() {
+//   const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
+//   fetch(url, {headers: {"Accept": "text/plain"}})
+//     .then(response => response.text())
+//     .then((data) => {
+//       this.listTarget.outerHTML = data
+//     })
+// }
+
+// const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
+// fetch(url,
+//   {
+//       method: "DELETE",
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({password: '123'})
+//   })
 }
