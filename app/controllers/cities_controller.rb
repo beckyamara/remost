@@ -54,6 +54,11 @@ class CitiesController < ApplicationController
         tip_marker: render_to_string(partial: "tip_marker", locals: { city: @city, tips: @tips, tip: tip, category: tip.category })
       }
     end
+    if params[:date]
+      @teammates_city = @teammates.select { |t| t.current_city(@date) == @city }.compact
+    else
+      @teammates_city = @teammates.select { |t| t.city == @city }.compact
+    end
   end
 
   private

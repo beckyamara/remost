@@ -44,6 +44,11 @@
     font-weight: 600;
     color: white;
   }
+
+}
+
+.marker:hover {
+  z-index: 10;
 }
 
 .marker-dot {

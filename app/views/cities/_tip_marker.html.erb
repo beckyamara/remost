@@ -3,9 +3,14 @@
   theater_comedy
   </span>
 <% end %>
-<% if tip.category == '🍽 Restaurant' %>
+<% if tip.category == '🍽️ Restaurant' %>
   <span class="material-icons">
   restaurant
+  </span>
+<% end %>
+<% if tip.category == '☕️ Café' %>
+  <span class="material-icons">
+  local_cafe
   </span>
 <% end %>
 <% if tip.category == '💻 Coworking' %>
@@ -36,5 +41,15 @@
 <% if tip.category == '🛡️ Safety' %>
   <span class="material-icons">
   privacy_tip
+  </span>
+<% end %>
+<% if tip.category == '🌆 Sight' %>
+  <span class="material-icons">
+  museum
+  </span>
+<% end %>
+<% if tip.category == 'ℹ️ Other' %>
+  <span class="material-icons">
+  info
   </span>
 <% end %>
