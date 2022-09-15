@@ -164,7 +164,7 @@ aakash.photo.attach(io: photo_aakash, filename: 'aakash.jpg', content_type: 'ima
 aakash.save
 
 paul = User.new(company: company1, city: lisbon, email: 'paul@test.com', password: 123456, first_name: 'Paul', last_name: 'Harris', job_title: 'Relational Java Associate', department: 'Engineering', languages: ['English', 'Portuguese'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_paul = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpghttps://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpghttps://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpg")
+photo_paul = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpg")
 paul.photo.attach(io: photo_paul, filename: 'paul.jpg', content_type: 'image/jpg')
 paul.save
 
