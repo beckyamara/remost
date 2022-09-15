@@ -7,7 +7,7 @@
       </div>
       <div class="modal-body">
         <div class="container pb-5">
-          <h1 class="mt-4 mb-4">Add a tip</h1>
+          <h1 class="mt-4 mb-4">Add a recommendation</h1>
           <%= simple_form_for [@city, @tip] do |f| %>
             <%= f.input :name %>
             <%= f.input :location,
@@ -16,7 +16,7 @@
             <%= f.input :content %>
             <%= f.input :rating, input_html: { min: 0, max: 10 } %>
             <%= f.input :category, :collection => ["cafes/restaurants", "co-working spaces", "bars", "sights", "safety", "other" ] %>
-            <%= f.submit "Submit a tip", class: "btn btn-outline-dark" %>
+            <%= f.submit "Save recommendation", class: "btn btn-outline-dark" %>
           <% end %>
         </div>
       </div>
