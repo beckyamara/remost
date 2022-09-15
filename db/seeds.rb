@@ -134,57 +134,57 @@ ed.save
 
 
 charlie = User.new(company: company1, city: dublin, email: 'charlie@test.com', password: 123456, first_name: 'Charlie', last_name: 'Rossi', job_title: 'Head of Corporate Resonance', department: 'Sales', languages: ['English', 'Italian'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
-photo_charlie = URI.open("")
+photo_charlie = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250945/ReMost/charlie_valtn3.jpg")
 charlie.photo.attach(io: photo_charlie, filename: 'charlie.jpg', content_type: 'image/jpg')
 charlie.save
 
 mina = User.new(company: company1, city: amsterdam, email: 'mina@test.com', password: 123456, first_name: 'Mina', last_name: 'Heikkinnen', job_title: 'Sales Quality Representative', department: 'Sales', languages: ['English', 'Finnish'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
-photo_mina = URI.open("")
+photo_mina = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663252324/ReMost/mina_axghpx.jpg")
 mina.photo.attach(io: photo_mina, filename: 'mina.jpg', content_type: 'image/jpg')
 mina.save
 
 anton = User.new(company: company1, city: madrid, email: 'anton@test.com', password: 123456, first_name: 'Anton', last_name: 'Schmid', job_title: 'Talent Security Director', department: 'HR', languages: ['English', 'Spanish', 'German'], open_to: ['💡 Brainstorming', '☕ Coffee', '🏃 Weekend activity/meal'], slack_user: 'U03PQD9E3M1')
-photo_anton = URI.open("")
+photo_anton = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/anton_y5x87w.jpg")
 anton.photo.attach(io: photo_anton, filename: 'anton.jpg', content_type: 'image/jpg')
 anton.save
 
 ina = User.new(company: company1, city: berlin, email: 'ina@test.com', password: 123456, first_name: 'Ina', last_name: 'Demir', job_title: 'Interactive Identity Agent', department: 'HR', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_ina = URI.open("")
+photo_ina = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
 ina.photo.attach(io: photo_ina, filename: 'ina.jpg', content_type: 'image/jpg')
 ina.save
 
 anjali = User.new(company: company1, city: brussels, email: 'anjali@test.com', password: 123456, first_name: 'Anjali', last_name: 'Adhvaryu', job_title: 'Product Growth Marketing Branding Officer', department: 'Marketing', languages: ['English', 'Gujarati'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
-photo_anjali = URI.open("")
+photo_anjali = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250946/ReMost/anjali_hzmb7s.jpg")
 anjali.photo.attach(io: photo_anjali, filename: 'anjali.jpg', content_type: 'image/jpg')
 anjali.save
 
 aakash = User.new(company: company1, city: amsterdam, email: 'aakash@test.com', password: 123456, first_name: 'Aakash', last_name: 'Patel', job_title: 'Senior Full-end Engineer', department: 'Engineering', languages: ['English', 'Hindi'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_aakash = URI.open("")
+photo_aakash = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/aakash_xozrhi.jpg")
 aakash.photo.attach(io: photo_aakash, filename: 'aakash.jpg', content_type: 'image/jpg')
 aakash.save
 
 paul = User.new(company: company1, city: lisbon, email: 'paul@test.com', password: 123456, first_name: 'Paul', last_name: 'Harris', job_title: 'Relational Java Associate', department: 'Engineering', languages: ['English', 'Portuguese'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_paul = URI.open("")
+photo_paul = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpghttps://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpghttps://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpg")
 paul.photo.attach(io: photo_paul, filename: 'paul.jpg', content_type: 'image/jpg')
 paul.save
 
 fang = User.new(company: company1, city: london, email: 'fang@test.com', password: 123456, first_name: 'Fang', last_name: 'Zhang', job_title: 'Global Legal Intern', department: 'Admin', languages: ['English', 'Portuguese'], open_to: ['💻 Working together/side-by-side', '☕ Coffee'], slack_user: 'U03PQD9E3M1')
-photo_fang = URI.open("")
+photo_fang = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250946/ReMost/fang_nxua1d.jpg")
 fang.photo.attach(io: photo_fang, filename: 'fang.jpg', content_type: 'image/jpg')
 fang.save
 
 alba = User.new(company: company1, city: london, email: 'alba@test.com', password: 123456, first_name: 'Alba', last_name: 'Perez', job_title: 'Lead Travel Administrator', department: 'HR', languages: ['English', 'Spanish'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
-photo_alba = URI.open("")
+photo_alba = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/alba_x57tnn.jpg")
 alba.photo.attach(io: photo_alba, filename: 'alba.jpg', content_type: 'image/jpg')
 alba.save
 
 effia = User.new(company: company1, city: brussels, email: 'effia@test.com', password: 123456, first_name: 'Effia', last_name: 'Akakpo', job_title: 'Lead Growth Engineer', department: 'Sales', languages: ['English', 'French'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🏃 Weekend activity/meal'], slack_user: 'U03PQD9E3M1')
-photo_effia = URI.open("")
+photo_effia = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250948/ReMost/effia_rs3q3v.jpg")
 effia.photo.attach(io: photo_effia, filename: 'effia.jpg', content_type: 'image/jpg')
 effia.save
 
 benjamin = User.new(company: company1, city: london, email: 'benjamin@test.com', password: 123456, first_name: 'Benjamin', last_name: 'Muller', job_title: 'Technical Debt Designer', department: 'Product', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '💬 Casual chat', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
-photo_benjamin = URI.open("")
+photo_benjamin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250947/ReMost/benjamin_sgqp4o.jpg")
 benjamin.photo.attach(io: photo_benjamin, filename: 'benjamin.jpg', content_type: 'image/jpg')
 benjamin.save
 
