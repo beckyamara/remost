@@ -3,7 +3,7 @@ class CitiesController < ApplicationController
 
   def index
     @teammates = User.where(company: current_user.company)
-    if params[:date]
+    if params[:date] && params[:date] != ""
       @date = Date.parse(params[:date])
       @teammates.each do |t|
         t.current_city(@date)

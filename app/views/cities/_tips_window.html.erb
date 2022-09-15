@@ -1,13 +1,19 @@
-<div >
+<div data-controller="bookmarktip" data-user="<%= current_user.id %>">
   <h4 class="tip-name"> <%= tip.name %> </h4>
   <p class="tip-category"> <%= tip.category %> </p>
   <p class="tip-content"> <%= tip.content %> </p>
   <% if current_user.bookmarked_tip?(tip) %>
-    <%= link_to  bookmarked_place_path(current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
+    <%= link_to  bookmarked_place_path(tip), data: {turbo_method: :delete, bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
       <i class="fa-solid fa-heart"></i>
     <% end %>
+    <%= link_to tip_favourite_path(tip), data: {turbo_method: :post, bookmarktip_target: "fav", action: "click->bookmarktip#fav"}, class:"d-none" do %>
+      <i class="fa-regular fa-heart"></i>
+    <% end %>
   <% else %>
-    <%= link_to tip_bookmarked_places_path(tip), data: {turbo_method: :post} do %>
+    <%= link_to  bookmarked_place_path(tip), data: {turbo_method: :delete, bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
+      <i class="fa-solid fa-heart"></i>
+    <% end %>
+    <%= link_to tip_favourite_path(tip), data: {turbo_method: :post, bookmarktip_target: "fav", action: "click->bookmarktip#fav"} do %>
       <i class="fa-regular fa-heart"></i>
     <% end %>
   <% end %>

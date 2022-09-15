@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :bookmarked_places, only: [:index, :destroy]
   resources :companies, only: [:new, :create]
   resources :tips, only: [:destroy] do
-    resources :bookmarked_places, only: [:create]
+    get 'favourite', to: "bookmarked_places#favourite"
   end
   resources :trips
 end

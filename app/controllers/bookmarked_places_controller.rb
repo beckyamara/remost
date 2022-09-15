@@ -6,19 +6,22 @@ class BookmarkedPlacesController < ApplicationController
     @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] }if params[:city].present?
   end
 
-  def create
+  def favourite
     @bookmarked_place = BookmarkedPlace.new
     @bookmarked_place.tip = set_tip
-    @bookmarked_place.user = current_user
-
-    if @bookmarked_place.save
-      redirect_to city_path(@bookmarked_place.tip.city)
-    else
-      render :show, status: :unproccessable_entity
+    @bookmarked_place.user = current_user || params[:user_id]
+    respond_to do format
+      if @bookmarked_place.save
+        format.html {redirect_to city_path(@bookmarked_place.tip.city)}
+        format.json render json: {message: "success"}
+      else
+        format.html {render :show, status: :unproccessable_entity}
+        format.json render json: {message: "failure"}
+      end
     end
   end
 
-  def destroy
+  def unfavourite
     @bookmarked_place = BookmarkedPlace.find(params[:id])
     @bookmarked_place.destroy
     redirect_to bookmarked_place_path

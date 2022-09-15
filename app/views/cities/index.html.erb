@@ -17,7 +17,7 @@
 <%= link_to "List View", users_path(date: params[:date], job_title: params[:job_title], department: params[:department], languages: params[:languages]), class: "btn btn-dark btn-map" %>
 <%# DATE SLIDER %>
 <div class="map-date">
-    <% if params[:date] %>
+    <% if params[:date] && params[:date] != "" %>
       <%= link_to '<i class="fa-sharp fa-solid fa-circle-chevron-left"></i>'.html_safe, cities_path(params: params.permit!.merge({date: Date.parse(params[:date]) - 1})) %>
       <div class="date-div">
       <p class="month"><%= Date.parse(params[:date]).to_formatted_s(:short) %></p>
