@@ -6,7 +6,7 @@
       <div class="homepage-text">
         <% if user_signed_in? %>
           <h1>Get the most from remote working</h1>
-          <p class="mb-2">Meet your colleagues from <%= current_user.company.name %> in <span data-controller="typed-js"></span> </h5>
+          <p class="mb-2">Meet your coworkers from <%= current_user.company.name %> in <span data-controller="typed-js"></span> </h5>
             <% num = 0 %>
             <% @cities.each do |city| %>
               <% num += city.trips.count%>
@@ -16,8 +16,8 @@
           </div>
           <%= link_to "Explore", cities_path, class: "btn btn-dark btn-lg" %>
         <% else %>
-          <h3>Connect with your colleagues all around the world!</h3>
-          <h5 class="mb-5">Meet colleagues who have something in common with you.</h5>
+          <h3>Connect with your teammates all around the world!</h3>
+          <h5 class="mb-5">Meet coworkers who have something in common with you.</h5>
           <%= link_to "Sign up", cities_path, class: "btn btn-dark btn-lg" %>
         <% end %>
       </div>

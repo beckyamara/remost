@@ -3,45 +3,47 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="bookmarktip"
 export default class extends Controller {
-  static targets = ["solidheart", "regularheart"]
+
+  static targets = ["unfav", "fav"]
 
   connect() {
-    console.log("hello from bookmarktip")
+    console.log("hello from bookmarktip controller")
+    this.user = this.element.dataset.user
+    console.log(this.user)
   }
+
   unfav(e) {
     e.preventDefault()
-    this.solidheartTarget.classList.remove("fa-solid")
-    this.solidheartTarget.classList.add("fa-regular")
-
-  }
-
-  update(event) {
-    event.preventDefault()
-    const url = this.solidheartTarget.action
-    fetch(url, {
-      method: "DELETE",
-      headers: { "Accept": "text/plain" },
-      body: new FormData(this.formTarget)
-    })
-      .then(response => response.text())
+    console.log("unfaving")
+    this.unfavTarget.classList.add("d-none")
+    this.favTarget.classList.remove("d-none")
+    console.log(this.unfavTarget);
+    fetch(`${this.unfavTarget.href}?user_id=${this.user}`,
+      { headers: {"Accept": "application/json"}}
+    )
+      .then(response => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
       })
   }
-}
-update() {
-  const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
-  fetch(url, {headers: {"Accept": "text/plain"}})
-    .then(response => response.text())
-    .then((data) => {
-      this.listTarget.outerHTML = data
-    })
-}
+  fav(e) {
+    e.preventDefault()
+    console.log("Faving")
+    this.favTarget.classList.add("d-none")
+    this.unfavTarget.classList.remove("d-none")
+    console.log(this.favTarget.href);
+    //this.favTarget.src
+    console.log(`${this.favTarget.href}?user_id=${this.user}`)
+    fetch(`${this.favTarget.href}?user_id=${this.user}`,
+      { headers: {"Accept": "application/json"}}
+    )
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        let urlArray = this.unfavTarget.href.split("/")
+        urlArray[4] = data.message
+        console.log(urlArray.join("/"))
+        this.unfavTarget.href = urlArray.join("/")
+      })
 
-const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
-fetch(url,
-  {
-      method: "DELETE",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({password: '123'})
-  })
+  }
