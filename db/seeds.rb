@@ -174,3 +174,11 @@ tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat
 # tip15 = Tip.create!(user: beatriz, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
 # tip16 = Tip.create!(user: anthony, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
 # tip17 = Tip.create!(user: anastasia, city: dublin, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
+
+# # BOOKMARKED PLACES
+bookmark1 = BookmarkedPlace.create!(user: marion, tip: tip9)
+bookmark2 = BookmarkedPlace.create!(user: marion, tip: tip10)
+bookmark3 = BookmarkedPlace.create!(user: marion, tip: tip6)
+bookmark4 = BookmarkedPlace.create!(user: marion, tip: tip12)
+bookmark5 = BookmarkedPlace.create!(user: marion, tip: tip13)
+bookmark6 = BookmarkedPlace.create!(user: marion, tip: tip14)

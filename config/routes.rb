@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   resources :cities, only: [:index, :show] do
     resources :tips, only: [:index, :create]
   end
-  resources :bookmarked_places, only: [:index, :destroy]
+  resources :bookmarked_places, only: [:index] do
+    get 'unfavourite', to: "bookmarked_places#unfavourite"
+  end
   resources :companies, only: [:new, :create]
   resources :tips, only: [:destroy] do
-    resources :bookmarked_places, only: [:create]
+    get 'favourite', to: "bookmarked_places#favourite"
   end
   resources :trips
 end
