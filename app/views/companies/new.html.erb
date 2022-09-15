@@ -1,8 +1,10 @@
 <div class="container">
-  <h1 class="mt-5">Add your company</h1>
+<div class = "registration-form">
+  <h2 class="title mt-5 mb-4">Add your company</h2>
   <%= simple_form_for [@company] do |f| %>
     <%= f.input :name %>
     <%= f.input :slack_sub_domain %>
-    <%= f.submit "Add the company", class: "btn btn-dark" %>
+    <%= f.submit "Add the company", class: "btn btn-registration btn-dark" %>
   <% end %>
+</div>
 </div>
