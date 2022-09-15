@@ -10,7 +10,7 @@ class TipsController < ApplicationController
     @tip.user = current_user
     @tip.city = @city
     if @tip.save
-      redirect_to city_path(@city), alert: "Tip successfully created"
+      redirect_to city_path(@city), alert: "Recommendation successfully created"
     else
       render :new, status: :unprocessable_entity
     end
