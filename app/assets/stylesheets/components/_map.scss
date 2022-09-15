@@ -47,16 +47,31 @@
 }
 
 .marker-dot {
-  width: 15px;
-  height: 15px;
+  width: 30px;
+  height: 30px;
   background-color: $blue;
   transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .material-icons {
+    color: white;
+    font-size: 20px;
+  }
+
 }
 
 .marker-dot:hover {
-  width: 18px;
-  height: 18px;
+  width: 30px;
+  height: 30px;
   background-color: $pink-orange;
+  z-index: 10;
+
+  .material-icons {
+    color: black;
+  }
 }
 
 .map-date {
@@ -64,7 +79,8 @@
   width: auto;
   position: absolute;
   bottom: 40px;
-  right: 50px;
+  left: 50%;
+  margin-left: -89px;
   z-index: 10;
   display: flex;
   justify-content: space-between;

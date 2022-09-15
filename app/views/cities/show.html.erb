@@ -1,4 +1,4 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - Remost" : "ReMost | Colleagues & Tips in @city.name" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Colleagues & Tips in @city.name" %></title>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -30,7 +30,11 @@
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
       <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
-      <%= f.submit "Search", class: "btn btn-dark" %>
+      <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["Working side by side", "Brunch, Lunch, Dinner", "Breakfast", "Coffee", "Drinks", "Networking", "Brainstorming", "Casual chat", "Weekend activity/drink"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %></div>
+      </details>
+      <div class="row justify-content-center">
+      <%= f.submit "Search", class: "btn btn-light" %>
+      </div>
     <% end %>
     <%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-city-map" %>
 </div>
@@ -52,10 +56,17 @@
       <% if t.current_city(@date) == @city %>
         <div class="card">
               <div class="card-body">
-                <%= cl_image_tag t.photo.key, class: "avatar-small-carousel" %>
-                <h6 class="card-title"><%= t.first_name %> <%= t.last_name %></h5>
-                <p>From <%= t.city.name %></p>
-                <a href="#" class="btn btn-dark">Bookmark</a>
+                <% if t.city.name == @city.name %>
+                  <i class="fa-solid fa-house-chimney"></i>
+                <% end %>
+                <%= cl_image_tag t.photo.key, class: "avatar-small-carousel mb-2" %>
+                <h6 class="card-title">
+                <%= link_to(user_path(t)) do %>
+                <%= t.first_name %> <%= t.last_name %>
+                <% end %>
+                </h6>
+                <p><%= t.department  %></p>
+                <%= link_to "See profile", user_path(t), class: "btn btn-light" %>
               </div>
         </div>
       <% end %>

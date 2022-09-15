@@ -1,14 +1,14 @@
 .profile {
   display: flex;
   align-items: center;
-  height: 570px;
+  height: 550px;
+  margin-bottom: 30px;
 
 
   .profile-page-photo {
     width: 30%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
   }
 
@@ -21,6 +21,7 @@
 
     ul {
       padding-left: 0;
+      padding-bottom: 0;
     }
 
     li {
@@ -29,6 +30,13 @@
 
     .open-to {
       margin-left: 70px;
+    }
+
+    .job-title {
+      padding-bottom: 20px;
+      font-weight: lighter;
+      font-size: larger;
+      font-style: italic;
     }
   }
 

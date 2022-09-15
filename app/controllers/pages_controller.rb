@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @user = current_user
     @cities =City.all
     @users = User.all
+    @trips = Trip.all
     # @trips = City.all.trips
     # @company_cities = current_user.company.users.city.count
   end

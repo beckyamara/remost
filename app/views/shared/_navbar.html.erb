@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-      <a href="/cities" class="navbar-brand logo-text">ReMost</a>
+       <a href="/cities" class="navbar-brand logo-text"><%= image_tag("brand-name.png", id: "brand-name-image") %></a>
        <div class="d-flex align-items-center">
        <% if params[:controller] == "cities" && params[:action] == "show" %>
             <p>Meet your colleagues in <span><%= @city.name %></span></p>
-            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a tip</button>
+            <button type="button" class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Add a recommendation</button>
         <% end %>
        </div>
 
@@ -21,6 +21,7 @@
           <li class="nav-item dropdown">
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "My Trips", trips_path, class: "dropdown-item" %>
               <%= link_to "My Teammates", users_path, class: "dropdown-item" %>
               <%= link_to "My Saved Tips", bookmarked_places_path, class: "dropdown-item" %>
