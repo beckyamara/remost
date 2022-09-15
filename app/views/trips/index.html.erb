@@ -7,22 +7,33 @@
 
       <% @current_user.trips.each do |t| %>
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
 
           <div class="trip-card">
 
-            <%= cl_image_tag t.city.photo.key %>
+            <%= cl_image_tag t.city.photo.key, class: "city-picture" %>
 
             <div class="trip-card-infos">
               <h2>Trip to <strong><%= t.city.name %></strong></h2>
-              <p>From <%= t.start_date %> to <%= t.end_date %></p>
+              <p class="dates">From <%= t.start_date.to_formatted_s(:short) %> to <%= t.end_date.to_formatted_s(:short) %></p>
               <hr>
               <p><%= t.location %></p>
-              <h3><%= t.city.name %> tips you saved:</h3>
-                <% t.city.tips.take(3).each do |tip| %>
-              <p class="trip-card-infos-tip">By <strong><%= tip.user.first_name %></strong> ● <em><strong><%= tip.name %></em></strong> ● <em><%= tip.content %></em></p>
-              <% end %>
-              <br>
+              <div class="d-flex">
+                <div class="recommendations mb-4">
+                  <h3><%= t.city.name %> recommendations you saved:</h3>
+                    <% @user_tips.to_a.select { |b| b.tip.city == t.city }.each do |bookmark| %>
+                  <p class="trip-card-infos-tip">By <strong><%= bookmark.tip.user.first_name %></strong> ● <em><strong><%= bookmark.tip.name %></em></strong> ● <em><%= bookmark.tip.content %></em></p>
+                  <% end %>
+                </div>
+                <div class="people">
+                  <h3 class="mb-4">People in <%= t.city.name %>:</h3>
+                  <% @teammates.to_a.select { |teammate| teammate.current_city(t.start_date) == t.city && teammate != current_user}.each do |user| %>
+                  <%= link_to(user_path(user)) do %>
+                  <%= cl_image_tag user.photo.key, class: "avatar-trips" %>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
               <p><%= link_to "See all tips", bookmarked_places_path(city: t.city.name), class: "btn btn-outline-dark" %>
             </div>
 
