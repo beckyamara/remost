@@ -248,7 +248,7 @@ tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat
 
 tip15 = Tip.create!(user: beatriz, city: dublin, location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', name: 'Chapter One', content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9, category: '🍽 Restaurant')
 tip16 = Tip.create!(user: anthony, city: dublin, location: '31 Dawson St, Dublin 2, D02 DR58, Ireland', name: 'Peruke & Periwig', content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9, category: '🍹 Bar')
-tip17 = Tip.create!(user: anastasia, city: dublin, location: '', name: '', content: "", rating: 5, category: '💻 Coworking')
+tip17 = Tip.create!(user: anastasia, city: dublin, location: '27 Camden Street Lower, Saint Kevin’s, Dublin 2, D02 NV09, Ireland', name: 'CoCreate South', content: "Descent CoWorking Space", rating: 7, category: '💻 Coworking')
 
 tip18 = Tip.create!(user: sam, city: paris, location: "52 Rue de l'Hôtel de Ville, 75004 Paris, France", name: 'The Caféothèque of Paris', content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8, category: '☕ Cafe')
 tip19 = Tip.create!(user: ed, city: paris, location: "Jardin des Tuileries, Place de la Concorde, Paris, France", name: 'Jardin des Tuileries', content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9, category: '🎾 Sports')
