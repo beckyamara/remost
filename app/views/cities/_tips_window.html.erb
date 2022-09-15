@@ -4,7 +4,9 @@
   <p class="tip-content"> <%= tip.content %> </p>
   <% if current_user.bookmarked_tip?(tip) %>
     <%= link_to  bookmarked_place_path(current_user.bookmarked_places.where(tip: tip).first), data: {turbo_method: :delete} do %>
-      <i class="fa-solid fa-heart"></i>
+      <p data-controller="bookmarktip">
+      <i class="fa-solid fa-heart" data-bookmarktip-target="solidheart" data-action="click->bookmarktip#unfav"></i>
+      </p>
     <% end %>
   <% else %>
     <%= link_to tip_bookmarked_places_path(tip), data: {turbo_method: :post} do %>

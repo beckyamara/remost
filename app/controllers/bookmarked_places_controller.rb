@@ -3,7 +3,7 @@ class BookmarkedPlacesController < ApplicationController
 
   def index
     @bookmarked_places = BookmarkedPlace.where(user: current_user)
-    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] }if params[:city].present?
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] } if params[:city].present?
   end
 
   def create
