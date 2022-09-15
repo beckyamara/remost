@@ -1,6 +1,8 @@
 .people-window {
-  padding: 15px 5px;
+  padding: 15px 15px 15px 5px;
   width: 200px;
+  height: 280px;
+  overflow-y: scroll;
 
 
   a:focus-visible {
