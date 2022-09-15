@@ -47,21 +47,3 @@ export default class extends Controller {
       })
 
   }
-
-// update() {
-//   const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
-//   fetch(url, {headers: {"Accept": "text/plain"}})
-//     .then(response => response.text())
-//     .then((data) => {
-//       this.listTarget.outerHTML = data
-//     })
-// }
-
-// const url = `${this.olidheartTarget.action}?query=${this.inputTarget.value}`
-// fetch(url,
-//   {
-//       method: "DELETE",
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({password: '123'})
-//   })
-}
