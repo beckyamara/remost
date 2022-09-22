@@ -12,11 +12,11 @@ class BookmarkedPlacesController < ApplicationController
     @bookmarked_place.user = current_user || params[:user_id]
     respond_to do |format|
       if @bookmarked_place.save
-        format.html {redirect_to city_path(@bookmarked_place.tip.city)}
-        format.json {render json: {message: @bookmarked_place.id}}
+        format.html { redirect_to city_path(@bookmarked_place.tip.city) }
+        format.json { render json: { message: @bookmarked_place.id } }
       else
-        format.html {render :show, status: :unproccessable_entity}
-        format.json {render json: {message: "failure"}}
+        format.html { render :show, status: :unproccessable_entity }
+        format.json { render json: { message: "failure" } }
       end
     end
   end
@@ -25,8 +25,8 @@ class BookmarkedPlacesController < ApplicationController
     @bookmarked_place = BookmarkedPlace.find(params[:bookmarked_place_id])
     @bookmarked_place.destroy
     respond_to do |format|
-      format.html { redirect_to bookmarked_place_path }
-      format.json {render json: {message: "success"}}
+      format.html { redirect_to bookmarked_places_path }
+      format.json { render json: { message: "success" } }
     end
   end
 

@@ -56,6 +56,19 @@
   .trip-card-infos {
     padding: 30px;
     width: 70%;
+
+    .city-names-in-cards {
+      font-weight: bold;
+
+      a {
+        color: #FF5A51;
+      }
+
+      a:hover {
+        color: #b94640;
+        transition: 0.2s;
+      }
+    }
   }
 }
 
@@ -111,9 +124,6 @@
   background-color:white;
 }
 
-.city-names-in-cards {
-  font-size: 40px;
-}
 
 .trip-card-infos-tip {
   color: grey;
@@ -159,16 +169,30 @@
     position: relative;
   }
 
-  .tip-card-icon {
+  .tip-card-icon-address {
     color:  rgba(129, 127, 127, 0.4);
     transition: 0.2s;
-    font-size: small;
+    font-size: medium;
+    position: absolute;
+    bottom: 13px;
+    right: 40px;
+  }
+
+  .tip-card-icon-address:hover {
+    color: #FF5A51;
+    transition: 0.1s;
+  }
+
+  .tip-card-icon-bin {
+    color:  rgba(129, 127, 127, 0.4);
+    transition: 0.2s;
+    font-size: medium;
     position: absolute;
     bottom: 13px;
     right: 10px;
   }
 
-  .tip-card-icon:hover {
+  .tip-card-icon-bin:hover {
     color: #FF5A51;
     transition: 0.1s;
   }
