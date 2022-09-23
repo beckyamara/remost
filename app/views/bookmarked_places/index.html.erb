@@ -1,11 +1,16 @@
 <div class="container">
+  <h1 class="mt-5 mb-5">My Saved Places</h1>
+  <p>Here are all the recommendations from your colleagues that you've bookmarked.</p>
   <div class="row mt-5">
     <% @bookmarked_places.each do |b| %>
       <div class="col-lg-4">
         <div class="tip-card">
             <div class="tip-card-top">
-              <h3><span id="place-name"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></span> <%= link_to "(address ↗️)",  "https://www.google.co.uk/maps/search/#{b.tip.location}", target: :_blank, id: "full-address" %></h3>
-              <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{b.tip.city.name}?"}, class: "tip-card-icon" do %>
+              <h3><span id="place-name"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></span></h3>
+              <%= link_to "https://www.google.co.uk/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
+                <i class="fa-solid fa-route"></i>
+              <% end %>
+              <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{b.tip.city.name}?"}, class: "tip-card-icon-bin" do %>
                 <i class="fa-solid fa-heart-circle-minus"></i>
               <% end %>
             </div>

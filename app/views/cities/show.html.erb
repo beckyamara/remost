@@ -32,7 +32,7 @@
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
       <div class="input-div"><i class="fa-solid fa-language"></i><%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select mb-3", selected: params[:languages], include_blank: "languages" %></div>
-      <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["Working side by side", "Brunch, Lunch, Dinner", "Breakfast", "Coffee", "Drinks", "Networking", "Brainstorming", "Casual chat", "Weekend activity/drink"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %></div>
+      <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %></div>
       </details>
       <div class="row justify-content-center">
       <%= f.submit "Search", class: "btn btn-light" %>
@@ -51,7 +51,7 @@
 
 <div id="carouselCityUsers" class="carousel slide ">
   <div class="carousel-inner">
-    <% @teammates_city.each_with_index do |t, i| %>
+    <% @teammates_city.excluding(current_user).each_with_index do |t, i| %>
       <% if i % 4 == 0 %>
         <div class="carousel-item <%= i == 0 ? "active" : "" %>">
           <div class="cards-wrapper">
