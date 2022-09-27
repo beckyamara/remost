@@ -57,12 +57,15 @@
                   required: true,
                   input_html: { autocomplete: "languages" } %>
       <%= f.input :open_to,
-            required: true,
-            collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
-            input_html: { autocomplete: "open_to" } %>
-      <%= f.input :slack_user,
                   required: true,
-                  input_html: { autocomplete: "slack user" } %>
+                  collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
+                  input_html: { autocomplete: "open_to" } %>
+      <%= f.input :slack_user,
+                  # required: true,
+                  input_html: { autocomplete: "slack_user" } %>
+      <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank do %>
+        <p><em>Here is how to find it.</em></p>
+      <% end %>
       <%= f.input :linkedin,
                   required: false,
                   placeholder: "ex: https://www.linkedin.com/in/vancityreynolds/",

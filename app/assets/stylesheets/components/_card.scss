@@ -53,6 +53,30 @@
     margin-top: 8px;
   }
 
+  .icon-bin-delete {
+    color:  rgba(129, 127, 127, 0.4);
+    transition: 0.2s;
+    font-size: medium;
+    margin-right: 10px;
+    margin-left: 15px;
+  }
+
+  .icon-bin-delete:hover {
+    color: #FF5A51;
+    transition: 0.1s;
+  }
+
+  .icon-pen-edit {
+    color:  rgba(129, 127, 127, 0.4);
+    transition: 0.2s;
+    font-size: medium;
+  }
+
+  .icon-pen-edit:hover {
+    color: #FF5A51;
+    transition: 0.1s;
+  }
+
   .trip-card-infos {
     padding: 30px;
     width: 70%;

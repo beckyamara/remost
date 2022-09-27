@@ -6,8 +6,9 @@
       <div class="col-lg-4">
         <div class="tip-card">
             <div class="tip-card-top">
+              <h3><span id="place-name"><%= b.tip.city.name %></span></h3>
               <h3><span id="place-name"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></span></h3>
-              <%= link_to "https://www.google.co.uk/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
+              <%= link_to "https://www.google.com/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
                 <i class="fa-solid fa-route"></i>
               <% end %>
               <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{b.tip.city.name}?"}, class: "tip-card-icon-bin" do %>

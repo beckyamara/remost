@@ -29,7 +29,7 @@ export default class extends Controller {
 
       const customMarker = document.createElement("div")
       customMarker.className = "marker-dot"
-      customMarker.style.borderRadius = "90%"
+      customMarker.style.borderRadius = "50%"
 
       customMarker.insertAdjacentHTML('afterbegin', marker.tip_marker)
 

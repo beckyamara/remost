@@ -10,7 +10,7 @@ class TipsController < ApplicationController
     @tip.user = current_user
     @tip.city = @city
     if @tip.save
-      redirect_to city_path(@city), alert: "Recommendation successfully created"
+      redirect_to city_path(@city), alert: "Recommendation successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -20,7 +20,7 @@ class TipsController < ApplicationController
     set_city
     @tip = Tip.find(params[:id])
     @tip.destroy
-    redirect_to tips_path, status: :see_other
+    redirect_to tips_path, status: :see_other, alert: "Recommendation successfully deleted."
   end
 
   private

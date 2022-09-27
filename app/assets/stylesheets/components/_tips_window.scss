@@ -16,6 +16,13 @@
     color: $pink-orange;
     margin-top: 5px;
   }
+
+  .fa-route {
+    font-size: 1.15rem;
+    color: $pink-orange;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
 }
 
 .tip-name {
@@ -28,7 +35,8 @@
   border-radius: 12px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 1rem;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 .tip-content {

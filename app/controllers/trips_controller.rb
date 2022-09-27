@@ -32,13 +32,13 @@ class TripsController < ApplicationController
   def update
     set_trip
     @trip.update(trip_params)
-    redirect_to trips_path
+    redirect_to trips_path, alert: "Trip successfully updated."
   end
 
   def destroy
     set_trip
     @trip.destroy
-    redirect_to trips_path
+    redirect_to trips_path, alert: "Trip successfully deleted."
   end
 
   private
