@@ -47,3 +47,37 @@
     margin-left: 10px;
   }
 }
+
+.user-edit-form-card {
+  width: 90%;
+  height: auto;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 30px;
+
+  h1 {
+    padding-bottom: 30px;
+  }
+
+  .row {
+    justify-content: space-between;
+  }
+
+  .user-edit-form-card-left {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    // padding-right: 0px;
+  }
+
+  // .user-edit-form-card-right {
+  //   background-image: url('form-image');
+  //   background-size: 105%;
+  //   background-position: center;
+  //   height: 100%;
+  //   width: 49%;
+  //   height: 550px;
+  //   object-fit: fill;
+  //   margin-left: 10px;
+  // }
+}

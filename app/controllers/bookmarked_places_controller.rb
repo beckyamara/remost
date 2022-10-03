@@ -4,6 +4,9 @@ class BookmarkedPlacesController < ApplicationController
   def index
     @bookmarked_places = BookmarkedPlace.where(user: current_user)
     @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] } if params[:city].present?
+    @bookmarked_places_cities = []
+    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.tip.city.id, "name" => b.tip.city.name})}
+    @bookmarked_places_cities = @bookmarked_places_cities.uniq
   end
 
   def favourite

@@ -7,7 +7,7 @@ class Trip < ApplicationRecord
   validates_comparison_of :end_date, greater_than_or_equal_to: :start_date
 
   def width
-    "#{((((end_date - start_date) + 1 ) / Time.days_in_month(start_date.month, start_date.year)) * 100).to_f}%"
+    "#{((((end_date - start_date) + 1) / Time.days_in_month(start_date.month, start_date.year)) * 100).to_f}%"
   end
 
   def left

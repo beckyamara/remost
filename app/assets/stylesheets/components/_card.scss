@@ -1,3 +1,21 @@
+.city-category {
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  font-size: 2rem;
+  font-weight: bold;
+
+  a {
+    text-decoration: none;
+    color: $pink-orange;
+    transition: 0.2s;
+  }
+
+  a:hover {
+    color: $dark-pink-orange;
+    transition: 0.2s;
+  }
+}
+
 .trip-card {
   overflow: hidden;
   height: auto;
@@ -62,7 +80,7 @@
   }
 
   .icon-bin-delete:hover {
-    color: #FF5A51;
+    color: $pink-orange;
     transition: 0.1s;
   }
 
@@ -73,7 +91,7 @@
   }
 
   .icon-pen-edit:hover {
-    color: #FF5A51;
+    color: $pink-orange;
     transition: 0.1s;
   }
 
@@ -85,69 +103,16 @@
       font-weight: bold;
 
       a {
-        color: #FF5A51;
+        color: $pink-orange;
       }
 
       a:hover {
-        color: #b94640;
+        color: $dark-pink-orange;
         transition: 0.2s;
       }
     }
   }
 }
-
-.profile-card-1 {
-  width:30%;
-  height:400px;
-  justify-content: center;
-  text-align:center;
-  font-size:120%;
-  position:center;
-  background-size:cover;
-  margin:auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top:30px;
-  background-color:white;
-}
-
-.profile-card-2 {
-  width:40%;
-  height:400px;
-  justify-content:flex;
-  text-align:left;
-  font-size:large;
-  position:center;
-  background-size:cover;
-  margin:auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 30px;
-  background-color:white;
-
-  li {
-    margin-left: 30px;
-  }
-}
-
-.profile-card-3 {
-  width:25%;
-  height:400px;
-  text-align:center;
-  font-size:large;
-  position:center;
-  background-size:cover;
-  margin:auto;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top:30px;
-  padding-left:20px;
-  background-color:white;
-}
-
 
 .trip-card-infos-tip {
   color: grey;
@@ -168,9 +133,8 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
-  padding: 20px;
   width: 100%;
-  height: 165px;
+  height: 90%;
   flex-direction: column;
 
   h3 {
@@ -181,20 +145,20 @@
 
   .tip-card-content {
     font-size: 0.9rem;
-    margin-top: 15px;;
+    margin-top: 5px;
     font-style: italic;
     color: grey;
   }
 
   .tip-card-top {
-    border-bottom: solid lightgrey;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     position: relative;
   }
 
   .tip-card-icon-address {
-    color:  rgba(129, 127, 127, 0.4);
+    color:  white;
+    opacity: 0.6;
     transition: 0.2s;
     font-size: medium;
     position: absolute;
@@ -203,12 +167,14 @@
   }
 
   .tip-card-icon-address:hover {
-    color: #FF5A51;
-    transition: 0.1s;
+    color: white;
+    opacity: 1;
+    transition: 0.2s;
   }
 
   .tip-card-icon-bin {
-    color:  rgba(129, 127, 127, 0.4);
+    color:  white;
+    opacity: 0.6;
     transition: 0.2s;
     font-size: medium;
     position: absolute;
@@ -217,43 +183,31 @@
   }
 
   .tip-card-icon-bin:hover {
-    color: #FF5A51;
-    transition: 0.1s;
+    color: white;
+    opacity: 1;
+    transition: 0.2s;
   }
 
   .author-name {
     font-size: 1.1rem;
     text-decoration: none;
-    color: #FF5A51;
-    padding-left: 10px;
+    color: $pink-orange;
+    padding-left: 5px;
   }
 
-  #place-name {
-    color: #19A87B;
+  .author-name:hover {
+    color: $dark-pink-orange;
   }
 
-  #full-address {
-    font-size: 10px;
-    text-decoration: none;
-    color: #adadad;
-  }
-
-  #full-address:hover {
-    color: #FF5A51;
-  }
-
-  #city-name {
-    color: #FF5A51;
-    font-weight: bolder;
+  .place-name-box {
+    color: white;
+    font-weight: default;
+    font-size: 1.3rem;
+    padding: 10px;
+    background-color: #19A87B;
   }
 }
 
-.tip-card-location {
-  font-size: smaller;
-  color: grey;
-
-  a {
-    text-decoration: none;
-    color: grey;
-  }
+.review-box {
+  padding: 10px;
 }

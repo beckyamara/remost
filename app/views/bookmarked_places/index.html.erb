@@ -2,22 +2,24 @@
   <h1 class="mt-5 mb-5">My Saved Places</h1>
   <p>Here are all the recommendations from your colleagues that you've bookmarked.</p>
   <div class="row mt-5">
-    <% @bookmarked_places.each do |b| %>
+  <% @bookmarked_places_cities.each do |c| %>
+    <p class="city-category"><%= link_to c["name"], city_path(c["id"]) %></p>
+    <% @bookmarked_places.select { |bk| bk.tip.city.name == c["name"] }.each do |b| %>
       <div class="col-lg-4">
         <div class="tip-card">
             <div class="tip-card-top">
-              <h3><span id="place-name"><%= b.tip.city.name %></span></h3>
-              <h3><span id="place-name"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></span></h3>
+              <div class="place-name-box"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></div>
               <%= link_to "https://www.google.com/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
                 <i class="fa-solid fa-route"></i>
               <% end %>
-              <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{b.tip.city.name}?"}, class: "tip-card-icon-bin" do %>
+              <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved places for #{b.tip.city.name}?"}, class: "tip-card-icon-bin" do %>
                 <i class="fa-solid fa-heart-circle-minus"></i>
               <% end %>
             </div>
-            <p><%= cl_image_tag b.tip.user.photo.key, class: "avatar-small" %><strong><%= link_to b.tip.user.first_name, user_path(b.tip.user.id), class: "author-name" %></strong> ● <%= b.tip.rating %>/10 ● <span class="tip-card-content"><%= b.tip.content %></span></p>
+            <div class="review-box"><%= cl_image_tag b.tip.user.photo.key, class: "avatar-small" %><%= link_to b.tip.user.first_name, user_path(b.tip.user.id), class: "author-name" %> • <%= b.tip.rating %>/10 • <span class="tip-card-content"><%= b.tip.content %></span></div>
         </div>
       </div>
     <% end %>
+  <% end %>
   </div>
 </div>
