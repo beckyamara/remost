@@ -5,7 +5,11 @@
     <li class="person">
       <%= cl_image_tag person.photo.key, class: "avatar-small" %>
       <%= link_to(user_path(person)) do %>
-      <%= person.first_name %> <%= person.last_name %>
+        <% if (person.first_name + person.last_name).length < 17 %>
+          <%= person.first_name %> <%= person.last_name %>
+        <% else %>
+          <%= person.first_name %> <%= person.last_name.first %>.
+        <% end %>
       <% end %>
       <% if person.city.name == city.name %>
         <i class="fa-solid fa-house-chimney"></i>

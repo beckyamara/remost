@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @user = User.find(params[:id])
     @company_domain = @user.company.slack_sub_domain
     @user_slack = @user.slack_user

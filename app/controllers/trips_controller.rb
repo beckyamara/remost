@@ -15,7 +15,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
-      redirect_to city_path(@trip.city, date: @trip.start_date) # change to city_path(@city) later
+      redirect_to city_path(@trip.city, date: @trip.start_date), alert: "Trip successfully created." # change to city_path(@city) later
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,13 +32,13 @@ class TripsController < ApplicationController
   def update
     set_trip
     @trip.update(trip_params)
-    redirect_to trips_path
+    redirect_to trips_path, alert: "Trip successfully updated."
   end
 
   def destroy
     set_trip
     @trip.destroy
-    redirect_to trips_path
+    redirect_to trips_path, alert: "Trip successfully deleted."
   end
 
   private

@@ -1,93 +1,121 @@
 <title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}‘s profile" %></title>
 
 <div class='container'>
-
-<div class="mt-5 mb-3 users-index-h1">
-<%# <h3><%= @user.first_name <%= @user.last_name %>
-<%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
-</div>
-
+  <div class="mt-5 mb-3 users-index-h1">
+  <%# <h3><%= @user.first_name <%= @user.last_name %>
+  <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
+  </div>
 </div>
 
 <div class='container'>
+  <div class="profile">
+    <%= cl_image_tag @user.photo.key, class: "profile-page-photo" %>
+    <div class="profile-info">
+      <div class="d-flex justify-content-between">
+        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+        <div class="contacts">
+          <p class="btn-link">
+            <% if (@current_user == @user) %>
+              <%= link_to edit_user_registration_path do %>
+                <i class="fa-solid fa-pen-to-square fa-2xl" btn-link></i>
+              <% end %>
+            <% end %>
+          </p>
+          <p class="btn-link">
+            <%= link_to @slack, target: :_blank do %>
+              <i class="fa-brands fa-slack fa-2xl" btn-link></i>
+            <% end %>
+          </p>
+          <p class="btn-link">
+            <%= link_to @email, target: :_blank do %>
+              <i class="fa-solid fa-envelope fa-2xl" > </i>
+            <% end %>
+          </p>
+          <p class="btn-link">
+            <%= link_to @linkedin, target: :_blank do %>
+              <i class="fa-brands fa-linkedin fa-2xl"> </i>
+            <% end %>
+          </p>
+        </div>
+      </div>
 
-<div class="profile">
-<%# <div class="user-photo-div"> %>
-<%= cl_image_tag @user.photo.key, class: "profile-page-photo" %>
-<%# </div> %>
-<div class="profile-info">
-  <div class="d-flex justify-content-between">
-    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-    <div class="contacts">
-      <p class="btn-link">
-          <%= link_to @slack, target: :_blank do %>
-            <i class="fa-brands fa-slack fa-2xl" btn-link></i>
+      <p class="mb-2 job-title"><%= @user.job_title %></p>
+      <p><strong>Department: </strong><%= @user.department %></p>
+      <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name %></p>
+      <div class="d-flex">
+        <% lang_array = JSON.parse(@user.languages) %>
+        <ul><i class="fa-solid fa-language"></i><strong>Languages:</strong>
+          <% lang_array.each do |lang| %>
+            <li><%= lang %></li>
           <% end %>
-        </p>
-        <p class="btn-link">
-          <%= link_to @email, target: :_blank do %>
-            <i class="fa-solid fa-envelope fa-2xl" > </i>
-          <% end %>
-        </p>
-        <p class="btn-link">
-          <%= link_to @linkedin, target: :_blank do %>
-            <i class="fa-brands fa-linkedin fa-2xl"> </i>
-          <% end %>
-        </p>
-    </div>
-  </div>
-  <p class="mb-2 job-title"><%= @user.job_title %></p>
-  <p><strong>Department:</strong>  <%= @user.department %></p>
-  <p><i class="fa-solid fa-map-pin"></i><strong>Based in:</strong>  <%= @user.city.name %></p>
-  <div class="d-flex">
-      <%# <% lang_array = JSON.parse(@user.languages) %>
-      <%# <ul><i class="fa-solid fa-language"></i><strong>Languages:</strong>
-      <% lang_array.each do |lang| %>
-        <%# <li><%= lang</li>
-      <% end %>
-      <%# </ul> %>
+        </ul>
+        <% open_to_array = JSON.parse(@user.open_to) %>
+        <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
+          <% open_to_array.each do |open| %>
+            <li><%= open %></li>
+        <% end %>
+        </ul>
+      </div>
 
-      <%# <% open_to_array = JSON.parse(@user.open_to) %>
-      <%# <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
-      <% open_to_array.each do |open| %>
-        <%# <li><%= open</li> %>
-      <%# <% end %>
-      <%# </ul> %>
-  </div>
+      <div id="carouselExampleControls" class="carousel timeline slide mb-5 mt-3">
 
-        <div id="carouselExampleControls" class="carousel timeline slide mb-5 mt-3">
-          <div class="carousel-inner">
+        <div class="carousel-inner">
           <% if @user.trips.present? %>
             <% months = ((@user.trips.last.end_date - @user.trips.first.start_date)/ 30).to_i + 1 %>
             <% month_tracker = @user.trips.first.start_date - (@user.trips.first.start_date.day - 1) %>
             <% months.times do |i| %>
+
               <div class="carousel-item <%= month_tracker.month == Date.today.month && month_tracker.year == Date.today.year ? "active" : ""%>">
-                <h2 class="text-center month"><%= month_tracker.strftime("%B") %></h2>
+                <h2 class="text-center month"><%= month_tracker.strftime("%B") %> <%= month_tracker.strftime("%Y") %></h2>
+
                 <div class="timeline-trips">
                   <% @user.trips.where('start_date >= ?', month_tracker).and(@user.trips.where('end_date <= ?', month_tracker.advance(months: 1) - 1)).each do |trip| %>
-                      <div class="timeline-trip" style="width:<%= trip.width %>; left:<%= trip.left %>;">
-                        <p class="city-name"><%= trip.city.name %></p>
-                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short) %> - <%= trip.end_date.to_formatted_s(:short) %></p>
-                      </div>
+                    <div class="timeline-trip" style="width:<%= trip.width %>; left:<%= trip.left %>;">
+                      <% if ((trip.end_date - trip.start_date) == 0) %>
+                        <p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p>
+                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %></p>
+                        <p class="trip-duration">(1)</p>
+                      <% elsif ((trip.end_date - trip.start_date) <= 1) %>
+                        <p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p>
+                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %> - <%= trip.end_date.to_formatted_s(:short)[0,2] %></p>
+                        <p class="trip-duration">(<%= (trip.end_date - trip.start_date).to_i + 1 %> days)</p>
+                      <% elsif ((trip.end_date - trip.start_date) <= 3) && (trip.city.name.length > 8) %>
+                        <p class="city-name-small"><%= link_to trip.city.name, (city_path(trip.city.id)+"?date=#{trip.start_date}") %></p>
+                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %> - <%= trip.end_date.to_formatted_s(:short) %></p>
+                        <p class="trip-duration">(<%= (trip.end_date - trip.start_date).to_i + 1 %> days)</p>
+                      <% elsif ((trip.end_date - trip.start_date) <= 3) && (trip.city.name.length <= 8) %>
+                        <p class="city-name"><%= link_to trip.city.name, (city_path(trip.city.id)+"?date=#{trip.start_date}") %></p>
+                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %> - <%= trip.end_date.to_formatted_s(:short) %></p>
+                        <p class="trip-duration">(<%= (trip.end_date - trip.start_date).to_i + 1 %> days)</p>
+                      <% else %>
+                        <p class="city-name"><%= link_to trip.city.name, (city_path(trip.city.id)+"?date=#{trip.start_date}") %></p>
+                        <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %> - <%= trip.end_date.to_formatted_s(:short) %></p>
+                        <p class="trip-duration">(<%= (trip.end_date - trip.start_date).to_i + 1 %> days)</p>
+                      <% end %>
+                    </div>
                   <% end %>
                 </div>
+
               </div>
-              <% month_tracker = month_tracker.advance(months: 1) %>
+
+            <% month_tracker = month_tracker.advance(months: 1) %>
             <% end %>
+
           <% else %>
             <p>No trips created yet.</p>
           <% end %>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
         </div>
-</div>
-</div>
 
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
 </div>

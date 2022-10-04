@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
-    @cities =City.all
+    @cities = City.all
     @users = User.all
     @trips = Trip.all
     # @trips = City.all.trips

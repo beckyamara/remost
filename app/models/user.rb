@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :bookmarked_places
   # has_many :bookmarked_users
   has_many :tips
-  has_many :trips, -> { order(start_date: :asc)}
+  has_many :trips, -> { order(start_date: :asc) }
   belongs_to :city
   belongs_to :company
   # has_one :company
@@ -30,7 +30,7 @@ class User < ApplicationRecord
  validates :job_title, presence: true
  validates :department, presence: true
  validates :languages, presence: true
- validates :slack_user, presence: true
+#  validates :slack_user, presence: true
 
   def current_city(date)
     if self.trips.where('start_date <= ?', date).where('end_date >= ?', date).count > 0

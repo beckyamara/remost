@@ -13,6 +13,7 @@ export default class extends Controller {
 
     this.city = new mapboxgl.Map({
       container: this.element,
+      // center: [40.4165, -3.70256],
       style: "mapbox://styles/jane-doronina/cl7ropavj000t15lckgo1ky9j"
     })
 
