@@ -1,4 +1,5 @@
 class BookmarkedPlacesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tip, only: [:create]
 
   def index
