@@ -11,18 +11,6 @@
     outline: none;
   }
 
-  .fa-heart {
-    font-size: 1.15rem;
-    color: $green;
-    margin-top: 5px;
-    transition: 0.2s;
-  }
-
-  .fa-heart:hover {
-    color: $dark-green;
-    transition: 0.2s
-  }
-
   .fa-route {
     font-size: 1.15rem;
     color: $green;
@@ -32,6 +20,32 @@
   }
 
   .fa-route:hover {
+    color: $dark-green;
+    transition: 0.2s
+  }
+
+
+  .fa-heart {
+    font-size: 1.15rem;
+    color: $green;
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: 0.2s;
+  }
+
+  .fa-heart:hover {
+    color: $dark-green;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square {
+    font-size: 1.15rem;
+    color: $green;
+    margin-top: 5px;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square:hover {
     color: $dark-green;
     transition: 0.2s
   }

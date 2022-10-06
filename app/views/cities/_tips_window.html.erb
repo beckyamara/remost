@@ -12,13 +12,18 @@
         <i class="fa-regular fa-heart"></i>
       <% end %>
     <% else %>
-      <%= link_to  "/bookmarked_places/id/unfavourite", data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
+      <%= link_to "/bookmarked_places/id/unfavourite", data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
         <i class="fa-solid fa-heart"></i>
       <% end %>
       <%= link_to tip_favourite_path(tip), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"} do %>
         <i class="fa-regular fa-heart"></i>
       <% end %>
     <% end %>
+    <% if current_user == tip.user %>
+    <%= link_to bookmarked_place_unfavourite_path(tip), data: { bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
+      <i class="fa-solid fa-pen-to-square"></i>
+    <% end %>
+  <% end %>
   </p>
 
   <p class="tip-content">
@@ -29,11 +34,7 @@
   </p>
 
 
-  <% if current_user == tip.user %>
-    <%= link_to  bookmarked_place_unfavourite_path(current_user.bookmarked_places.where(tip_id: tip.id).first), data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
-      <i class="fa-solid fa-pen-to-square"></i>
-    <% end %>
-  <% end %>
+
 
 
 </div>
