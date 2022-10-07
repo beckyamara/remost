@@ -32,7 +32,11 @@ class TripsController < ApplicationController
   def update
     set_trip
     @trip.update(trip_params)
-    redirect_to trips_path, alert: "Trip successfully updated."
+    if @trip.start_date <= @trip.end_date
+      redirect_to trips_path, alert: "Trip successfully updated."
+    else
+      redirect_to edit_trip_path(@trip), alert: "The end date must be after the start date (or the same day)."
+    end
   end
 
   def destroy
