@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="mt-5 mb-5">My Saved Places</h1>
   <% if @bookmarked_places_cities != [] %>
-    <p>Here are all the recommendations from your colleagues that you've bookmarked.</p>
+    <p>Here are the reviews you've bookmarked.</p>
     <div class="row mt-5">
     <% @bookmarked_places_cities.each do |c| %>
       <p class="city-category"><%= link_to c["name"], city_path(c["id"]) %></p>
@@ -9,12 +9,12 @@
         <div class="col-lg-4">
           <div class="tip-card">
               <div class="tip-card-top">
-                <div class="place-name-box"><%= b.tip.name %> <%= b.tip.category.split("")[0] %></div>
+                <div class="place-name-box"><%= b.tip.name %> <span title=<%= b.tip.category.split[1] %>><%= b.tip.category.split[0] %></span></div>
                 <%= link_to "https://www.google.com/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
-                  <i class="fa-solid fa-route"></i>
+                  <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
                 <% end %>
                 <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved places for #{b.tip.city.name}?"}, class: "tip-card-icon-bin" do %>
-                  <i class="fa-solid fa-heart-circle-minus"></i>
+                  <span title="Unsave"><i class="fa-solid fa-heart-circle-minus"></i></span>
                 <% end %>
               </div>
               <div class="review-box"><%= cl_image_tag b.tip.user.photo.key, class: "avatar-small" %><%= link_to b.tip.user.first_name, user_path(b.tip.user.id), class: "author-name" %> • <%= b.tip.rating %>/10 • <span class="tip-card-content"><%= b.tip.content %></span></div>
@@ -24,6 +24,6 @@
     <% end %>
   </div>
   <% else %>
-    <p>You haven't bookmarked any recommendations from your coworkers yet. You can find them by clicking on the icons on city maps.</p>
+    <p>You haven't bookmarked any of your teammates' reviews. You can find them by clicking on the icons which are on each city map.</p>
   <% end %>
 </div>

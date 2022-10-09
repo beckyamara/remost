@@ -74,11 +74,11 @@
                     <% @user.trips.where('start_date >= ?', month_tracker).and(@user.trips.where('end_date <= ?', month_tracker.advance(months: 1) - 1)).each do |trip| %>
                       <div class="timeline-trip" style="width:<%= trip.width %>; left:<%= trip.left %>;">
                         <% if ((trip.end_date - trip.start_date) == 0) %>
-                          <p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p>
+                          <span title=<%= trip.city.name %>><p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p></span>
                           <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %></p>
                           <p class="trip-duration">(1)</p>
                         <% elsif ((trip.end_date - trip.start_date) <= 1) %>
-                          <p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p>
+                          <span title=<%= trip.city.name %>><p class="city-name-small"><%= link_to trip.city.name.first(2), (city_path(trip.city.id)+"?date=#{trip.start_date}") %>.</p></span>
                           <p class="trip-dates"><%= trip.start_date.to_formatted_s(:short)[0,2] %> - <%= trip.end_date.to_formatted_s(:short)[0,2] %></p>
                           <p class="trip-duration">(<%= (trip.end_date - trip.start_date).to_i + 1 %> days)</p>
                         <% elsif ((trip.end_date - trip.start_date) <= 3) && (trip.city.name.length > 8) %>

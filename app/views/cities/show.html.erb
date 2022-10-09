@@ -60,7 +60,7 @@
             <div class="card">
               <div class="card-body">
                 <% if t.city.name == @city.name %>
-                  <i class="fa-solid fa-house-chimney"></i>
+                  <span title="City local"><i class="fa-solid fa-house-chimney"></i></span>
                 <% end %>
                 <%= cl_image_tag t.photo.key, class: "avatar-small-carousel mb-2" %>
                 <h6 class="card-title">

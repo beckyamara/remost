@@ -11,7 +11,7 @@
     outline: none;
   }
 
-  .fa-route {
+  .fa-map-location-dot {
     font-size: 1.15rem;
     color: $green;
     margin-top: 5px;
@@ -19,7 +19,7 @@
     transition: 0.2s
   }
 
-  .fa-route:hover {
+  .fa-map-location-dot:hover {
     color: $dark-green;
     transition: 0.2s
   }
@@ -53,7 +53,6 @@
 
 .tip-name {
   color: $pink-orange;
-
 }
 
 .tip-category {
