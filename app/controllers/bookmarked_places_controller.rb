@@ -4,11 +4,17 @@ class BookmarkedPlacesController < ApplicationController
 
   def index
     @bookmarked_places = BookmarkedPlace.where(user: current_user)
+
     # @saved_tips = @bookmarked_places.filter_by_city(params[:city]) if params[:city].present?
     # @saved_tips = @bookmarked_places.filter_by_category(params[:category]) if params[:category].present?
     # @saved_tips = @bookmarked_places.filter_by_user(params[:user]) if params[:user].present?
     # @saved_tips = @bookmarked_places.filter_by_rating(params[:rating]) if params[:rating].present?
-
+    
+    
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] } if params[:city].present?
+    @bookmarked_places_cities = []
+    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.tip.city.id, "name" => b.tip.city.name})}
+    @bookmarked_places_cities = @bookmarked_places_cities.uniq
   end
 
   def favourite

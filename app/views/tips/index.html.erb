@@ -8,8 +8,8 @@
       <div class="col-lg-4">
         <div class="tip-card">
             <div class="tip-card-top">
-              <h3><span id="place-name"><%= tip.name %> <%= tip.category.split[0] %></span> <%= link_to "(address ↗️)",  "https://www.google.co.uk/maps/search/#{tip.location}", target: :_blank, id: "full-address" %></h3>
-              <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, tip_path(tip), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it from your saved tips for #{@city.name}?"}, class: "tip-card-icon" %>
+              <h3><span id="place-name"><%= tip.name %> <%= tip.category.split[0] %></span> <%= link_to "(address ↗️)",  "https://www.google.com/maps/search/#{tip.location}", target: :_blank, id: "full-address" %></h3>
+              <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, tip_path(tip), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to remove it from your saved places for #{@city.name}?"}, class: "tip-card-icon" %>
             </div>
             <%# THE LINK ABOVE NEEDS TO BE UPDATE TO DELETE TIP FROM BOOKMARKED PLACES TABLE %>
             <p><%= cl_image_tag tip.user.photo.key, class: "avatar-small" %><strong><%= link_to tip.user.first_name, user_path(tip.user.id), class: "author-name" %></strong> ● <%= tip.rating %>/10 ● <span class="tip-card-content"><%= tip.content %></span></p>

@@ -1,8 +1,9 @@
 .timeline {
   margin-bottom: 40px;
-  background-color: var(--bs-body-bg);
+  // background-color: var(--bs-body-bg);
+  background-color: $gray;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .carousel-inner {
@@ -18,35 +19,41 @@
 }
 
 .carousel-control-prev, .carousel-control-next {
-  background-color: $pink-orange;
-  width: 1.7rem;
-  height: 1.7rem;
+  background-color: $green;
+  width: 2rem;
+  height: 2rem;
+  padding: 5px;
+  font-weight: bold;
 }
 
 .carousel-control-prev {
   margin-left: 15px;
+  padding-right: 8px;
 }
 
 .carousel-control-next {
   margin-right: 15px;
+  padding-left: 8px;
 }
 
 .month {
   font-size: 1.3rem;
+  color: white;
 }
 
 
 .timeline-trip {
   color: white;
+  border: solid 1px lightgrey;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3px 5px;
-  border-radius: 24px;
-  background-color: rgb(25, 168, 123);
+  border-radius: 10px;
+  background-color: white;
   overflow: visible;
-  height: auto;
+  height: 70%;
   position: absolute;
 
   p {
@@ -55,10 +62,50 @@
 
   .city-name {
     font-size: 1rem;
+    font-weight: bold;
+    color: $pink-orange;
+
+    a {
+      color: $pink-orange;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+
+    a:hover {
+      color: $dark-pink-orange;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+  }
+
+  .city-name-small {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: $pink-orange;
+
+    a {
+      color: $pink-orange;
+      text-decoration: none;
+      transition: 0.1s;
+    }
+
+    a:hover {
+      color: $dark-pink-orange;
+      text-decoration: none;
+      transition: 0.1s;
+    }
   }
 
   .trip-dates {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+    color: black;
+  }
+
+  .trip-duration {
     font-size: 0.5rem;
     margin-bottom: 4px;
+    font-style: italic 200;
+    color: black;
   }
 }

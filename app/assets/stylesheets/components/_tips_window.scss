@@ -11,10 +11,43 @@
     outline: none;
   }
 
+  .fa-route {
+    font-size: 1.15rem;
+    color: $green;
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: 0.2s
+  }
+
+  .fa-route:hover {
+    color: $dark-green;
+    transition: 0.2s
+  }
+
+
   .fa-heart {
     font-size: 1.15rem;
-    color: $pink-orange;
+    color: $green;
     margin-top: 5px;
+    margin-right: 10px;
+    transition: 0.2s;
+  }
+
+  .fa-heart:hover {
+    color: $dark-green;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square {
+    font-size: 1.15rem;
+    color: $green;
+    margin-top: 5px;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square:hover {
+    color: $dark-green;
+    transition: 0.2s
   }
 }
 
@@ -24,11 +57,13 @@
 }
 
 .tip-category {
-  border: 1px solid $pink-orange;
+  border: 1px solid $green;
   border-radius: 12px;
   display: inline-block;
   padding: 2px 8px;
-  font-size: 1rem;
+  margin-right: 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
 .tip-content {
