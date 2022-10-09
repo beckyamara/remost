@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!
+
   def new
     @company = Company.new
   end

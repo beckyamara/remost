@@ -1,4 +1,6 @@
 class TipsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @tips = Tip.all
     @city = set_city

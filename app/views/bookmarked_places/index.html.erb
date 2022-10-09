@@ -1,6 +1,17 @@
 <div class="container">
   <h1 class="mt-5 mb-5">My Saved Places</h1>
   <p>Here are all the recommendations from your colleagues that you've bookmarked.</p>
+
+  <%# <div class="filters mt-4">
+    <%= form_with url: bookmarked_places_path, method: :get, class: "d-flex mb-5" do |f| %>
+      <%# <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "custom-select", selected: params[:city], include_blank: "city" %> %>
+      <%# <%= f.select :category, ['💻 Coworking','🍽️ Restaurant','☕️ Café','🍹 Bar','🎾 Sports','🎭 Cultural','🎨 Art','🛐 Worship','🌆 Sight','🛡️ Safety','ℹ️ Other' ], class: "custom-select", selected: params[:category], include_blank: "category" %> %>
+      <%# <%= f.select :user, User.all.collect { |user| [ user.first_name ] }, class: "custom-select", selected: params[:user], include_blank: "user" %> %>
+      <%# <%= f.select :rating, ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], class: "custom-select", selected: params[:rating], include_blank: "rating" %> %>
+      <%# <%= submit_tag "Search", class: "btn btn-dark rounded-0" %> %>
+    <%# <% end %> %>
+  </div> %>
+
   <div class="row mt-5">
     <% @bookmarked_places.each do |b| %>
       <div class="col-lg-4">
