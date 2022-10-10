@@ -135,6 +135,18 @@
   dependencies:
     meow "^6.1.1"
 
+"@orchidjs/sifter@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@orchidjs/sifter/-/sifter-1.0.1.tgz#9a401546d80e3592f78f0640290d51b82f89ca64"
+  integrity sha512-gciY+iuk2hBAyzsPBMCvGJa+JVrssWOit6Pveke4KqkY/6JTinvztAESmPDM0UJBPNmc1m1tC15VVKrZ3v8nrw==
+  dependencies:
+    "@orchidjs/unicode-variants" "^1.0.2"
+
+"@orchidjs/unicode-variants@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@orchidjs/unicode-variants/-/unicode-variants-1.0.2.tgz#3d4355fe9796ed00ca9709e6bd85caf4f6da8c53"
+  integrity sha512-Q0DDoAwywdCE3dOBl8PlMWci8OwEwZG22WxLB48xfLPpM1hC+gQRnUAKMEUBZqPN/Rk/FrdAcem4VQe8qfuPHQ==
+
 "@polymer/lit-element@^0.6.1":
   version "0.6.5"
   resolved "https://registry.npmjs.org/@polymer/lit-element/-/lit-element-0.6.5.tgz"
@@ -1346,6 +1358,14 @@ to-readable-stream@^2.0.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/to-readable-stream/-/to-readable-stream-2.1.0.tgz"
   integrity sha512-o3Qa6DGg1CEXshSdvWNX2sN4QHqg03SPq7U6jPXRahlQdl5dK8oXjkU/2/sGrnOZKeGV1zLSO8qPwyKklPPE7w==
+
+tom-select@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tom-select/-/tom-select-2.2.1.tgz#7abab1fdd074fefa96653e60eb89b6292e4cf9f2"
+  integrity sha512-wdYe/baQrztDJEjUtB0p3eZFFyr3jljoWPh31KEdqUEsdHGQ3UyqUYyGzT//F7WlvZc7Qmg+hLGT5qKFWAqgIA==
+  dependencies:
+    "@orchidjs/sifter" "^1.0.1"
+    "@orchidjs/unicode-variants" "^1.0.2"
 
 trim-newlines@^3.0.0:
   version "3.0.1"
