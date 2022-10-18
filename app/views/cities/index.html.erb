@@ -13,9 +13,13 @@
         <div class="input-div"><i class="fa-solid fa-door-open"></i>
         <%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", input_html: {data: {controller: "tom_select"}}, selected: params[:open_to], include_blank: "open to" %>
         </div>
+
+        <div class="row justify-content-center">
+          <%= link_to "Reset filters", cities_path, class: "btn btn-light" %>
+        </div>
       </details>
       <div class="row justify-content-center">
-      <%= f.submit "Search", class: "btn btn-light" %>
+        <%= f.submit "Search", class: "btn btn-light" %>
       </div>
     <% end %>
 </div>

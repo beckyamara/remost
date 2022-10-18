@@ -6,9 +6,12 @@ export default class extends Controller {
   static values = { options: Object }
   connect() {
     console.log("hello from tom-select controller"),
-    new TomSelect(
-      this.element ,
-      this.optionsValue
-    );
+    new TomSelect("#select-state",{
+      maxItems: 3
+    });
+    // new TomSelect(
+    //   this.element ,
+    //   this.optionsValue
+    // );
   }
 }
