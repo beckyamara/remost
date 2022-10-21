@@ -1,77 +1,73 @@
-<div class="container">
-  <div class="container user-edit-form-card">
-    <div class="row">
+<div class="devise-form">
+ <h2 class="mt-5 mb-4 text-center">Edit my profile</h2>
 
-    <div class="user-edit-form-card-left">
-    <h2>Edit my profile</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+      <%# <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <%# <p>Currently waiting confirmation for: <%= resource.unconfirmed_email</p> %>
+      <%# <% end %>
 
-    <%# <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <%# <p>Currently waiting confirmation for: <%= resource.unconfirmed_email</p> %>
-    <%# <% end %>
-
-    <%= f.input :password,
-                hint: "Leave it blank if you don't want to change it.",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "We need your current password to confirm your changes.",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "first name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "last name" } %>
-    <%= f.input :photo,
-                as: :file,
-                required: true,
-                input_html: { autocomplete: "photo" } %>
-    <%= f.association :city,
-                required: true,
-                input_html: { autocomplete: "city" } %>
-    <%= f.association :company,
-                required: true,
-                input_html: { autocomplete: "company" } %>
-    <div>
-      <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+      <%= f.input :password,
+                  hint: "Leave it blank if you don't want to change it.",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :current_password,
+                  hint: "We need your current password to confirm your changes.",
+                  required: true,
+                  input_html: { autocomplete: "current-password" } %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "first name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "last name" } %>
+      <%= f.input :photo,
+                  as: :file,
+                  required: true,
+                  hint: "Leave it blank if you don't want to change it.",
+                  input_html: { autocomplete: "photo" } %>
+      <%= f.association :city,
+                  required: true,
+                  input_html: { autocomplete: "city" } %>
+      <%= f.association :company,
+                  required: true,
+                  input_html: { autocomplete: "company" } %>
+      <div>
+        <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+      </div>
+      <%= f.input :department,
+                  required: true,
+                  collection: ["Administrative", "Community & Advocacy", "Customer Success & Support", "Data Science", "Engineering", "Finance & Accounting", "HR & Talent", "IT", "Legal", "Marketing & Comms", "Operations", "Other", "Product & Design", "Sales & Growth"],
+                  input_html: { autocomplete: "department" } %>
+      <%= f.input :job_title,
+                  required: true,
+                  input_html: { autocomplete: "job_title" } %>
+      <%= f.input :open_to, as: :check_boxes, collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
+                  include_hidden: false,
+                  input_html: { class: "tag-selector" },
+                  item_wrapper_class: 'tag-item' %>
+      <%= f.input :slack_user,
+                  # required: true,
+                  input_html: { autocomplete: "slack user" } %>
+      <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank do %>
+          <p><em>Here is how to find it.</em></p>
+        <% end %>
+      <%= f.input :linkedin,
+                  required: false,
+                  input_html: { autocomplete: "linkedin" } %>
     </div>
-    <%= f.input :department,
-                required: true,
-                input_html: { autocomplete: "department" } %>
-    <%= f.input :location,
-                required: false,
-                input_html: { autocomplete: "location" } %>
-    <%= f.input :job_title,
-                required: true,
-                input_html: { autocomplete: "job_title" } %>
-    <%= f.input :languages,
-                required: true,
-                input_html: { autocomplete: "languages" } %>
-    <%= f.input :open_to,
-                required: true,
-                input_html: { autocomplete: "open_to" } %>
-    <%= f.input :slack_user,
-                required: true,
-                input_html: { autocomplete: "slack user" } %>
-    <%= f.input :linkedin,
-                required: false,
-                input_html: { autocomplete: "linkedin" } %>
-  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+  <% end %>
 
 <h3>Cancel my account</h3>
 

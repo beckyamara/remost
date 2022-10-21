@@ -42,20 +42,11 @@
       <p class="mb-2 job-title"><%= @user.job_title %></p>
       <p><strong>Department: </strong><%= @user.department %></p>
       <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name %></p>
-      <div class="d-flex">
-        <% lang_array = JSON.parse(@user.languages) %>
-        <ul><i class="fa-solid fa-language"></i><strong>Languages:</strong>
-          <% lang_array.each do |lang| %>
-            <li><%= lang %></li>
-          <% end %>
-        </ul>
-        <% open_to_array = JSON.parse(@user.open_to) %>
-        <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
-          <% open_to_array.each do |open| %>
+      <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
+          <% @user.open_to.each do |open| %>
             <li><%= open %></li>
         <% end %>
-        </ul>
-      </div>
+      </ul>
 
 
       <% if @user.trips.present? %>
