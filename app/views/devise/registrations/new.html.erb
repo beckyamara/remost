@@ -1,81 +1,80 @@
 <title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Welcome!" %></title>
 
 <div class="container">
-  <h2 class="mt-5 mb-4">Sign up</h2>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-4">
+      <div class="form-login mb-5">
+        <h2 class="mt-5 mb-4 text-center">Sign up</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
-    <%= f.error_notification %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+          <%= f.error_notification %>
 
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: true,
-                  placeholder: 'Email',
-                  autofocus: true,
-                  input_html: { autocomplete: "email" }%>
-      <%= f.input :password,
-                  required: true,
-                  placeholder: 'Password',
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  placeholder: 'Password confirmation',
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :first_name,
-                  required: true,
-                  placeholder: 'ex: Luke',
-                  input_html: { autocomplete: "first name" } %>
-      <%= f.input :last_name,
-                  required: true,
-                  placeholder: 'Skywalker',
-                  input_html: { autocomplete: "last name" } %>
-      <%= f.input :photo,
-                  as: :file,
-                  required: true,
-                  input_html: { autocomplete: "photo" } %>
-      <%= f.association :city,
-                  required: true,
-                  input_html: { autocomplete: "city" } %>
-      <%= f.association :company,
-                  required: true,
-                  input_html: { autocomplete: "company" } %>
-      <div>
-        <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+          <div class="form-inputs">
+            <%= f.input :email,
+                        required: true,
+                        placeholder: 'Email',
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.input :password,
+                        required: true,
+                        placeholder: 'Password',
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :password_confirmation,
+                        required: true,
+                        placeholder: 'Password confirmation',
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.input :first_name,
+                        required: true,
+                        placeholder: 'ex: Luke',
+                        input_html: { autocomplete: "first name" } %>
+            <%= f.input :last_name,
+                        required: true,
+                        placeholder: 'Skywalker',
+                        input_html: { autocomplete: "last name" } %>
+            <%= f.input :photo,
+                        as: :file,
+                        required: true,
+                        input_html: { autocomplete: "photo" } %>
+            <%= f.association :city,
+                        required: true,
+                        input_html: { autocomplete: "city" } %>
+            <%= f.association :company,
+                        required: true,
+                        input_html: { autocomplete: "company" } %>
+            <div>
+              <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
+            </div>
+            <%= f.input :department,
+                        required: true,
+                        collection: ["Administrative", "Community & Advocacy", "Customer Success & Support", "Data Science", "Engineering", "Finance & Accounting", "HR & Talent", "IT", "Legal", "Marketing & Comms", "Operations", "Other", "Product & Design", "Sales & Growth"],
+                        input_html: { autocomplete: "department" } %>
+            <%= f.input :job_title,
+                        required: true,
+                        input_html: { autocomplete: "job_title" } %>
+            <%= f.input :open_to, as: :check_boxes, collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
+                        include_hidden: false,
+                        input_html: { class: "tag-selector" },
+                        item_wrapper_class: 'tag-item' %>
+            <%= f.input :slack_user,
+                        # required: true,
+                        input_html: { autocomplete: "slack_user" } %>
+            <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank do %>
+              <p><em>Here is how to find it.</em></p>
+            <% end %>
+            <%= f.input :linkedin,
+                        required: false,
+                        placeholder: "ex: https://www.linkedin.com/in/vancityreynolds/",
+                        input_html: { autocomplete: "linkedin" } %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign up", class: "btn btn-outline-dark" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
       </div>
-      <%= f.input :department,
-                  required: true,
-                  collection: ["Admin", "Community & Advocacy", "Customer Success & Support", "Data Science", "Engineering", "Finance & Accounting", "HR & Talent", "IT", "Legal", "Marketing & Comms", "Ops", "Other", "Product & Design", "Sales & Growth"],
-                  input_html: { autocomplete: "department" } %>
-      <%= f.input :location,
-                  required: false,
-                  placeholder: 'ex: Paris',
-                  input_html: { autocomplete: "location" } %>
-      <%= f.input :job_title,
-                  required: true,
-                  input_html: { autocomplete: "job_title" } %>
-      <%= f.input :languages,
-                  required: true,
-                  input_html: { autocomplete: "languages" } %>
-      <%= f.input :open_to,
-                  required: true,
-                  collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
-                  input_html: { autocomplete: "open_to" } %>
-      <%= f.input :slack_user,
-                  # required: true,
-                  input_html: { autocomplete: "slack_user" } %>
-      <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank do %>
-        <p><em>Here is how to find it.</em></p>
-      <% end %>
-      <%= f.input :linkedin,
-                  required: false,
-                  placeholder: "ex: https://www.linkedin.com/in/vancityreynolds/",
-                  input_html: { autocomplete: "linkedin" } %>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-outline-dark" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+  </div>
 </div>

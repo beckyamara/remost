@@ -61,7 +61,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
+    t.string "company_code"
     t.string "slack_sub_domain"
+    t.string "email_domain"
+    t.string "company_size"
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

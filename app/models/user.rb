@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  serialize :open_to, Array
   include PgSearch::Model
   pg_search_scope :search_by_job_department_name,
   against: [ :job_title, :department, :first_name, :last_name ],
@@ -29,7 +30,6 @@ class User < ApplicationRecord
  validates :open_to, presence: true
  validates :job_title, presence: true
  validates :department, presence: true
- validates :languages, presence: true
 #  validates :slack_user, presence: true
 
   def current_city(date)
