@@ -41,7 +41,7 @@
 
       <p class="mb-2 job-title"><%= @user.job_title %></p>
       <p><strong>Department: </strong><%= @user.department %></p>
-      <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name %></p>
+      <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name.split(",").first %></p>
       <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
           <% @user.open_to.each do |open| %>
             <li><%= open %></li>

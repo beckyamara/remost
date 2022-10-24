@@ -10,6 +10,9 @@ application.register("address-autocomplete", AddressAutocompleteController)
 import BookmarktipController from "./bookmarktip_controller"
 application.register("bookmarktip", BookmarktipController)
 
+import CityAutocompleteController from "./city_autocomplete_controller"
+application.register("city-autocomplete", CityAutocompleteController)
+
 import CityController from "./city_controller"
 application.register("city", CityController)
 

@@ -1,3 +1,5 @@
+require "open-uri"
+
 class TripsController < ApplicationController
   before_action :authenticate_user!
 
@@ -16,8 +18,17 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
+    if City.where(name: trip_params[:destination]).empty?
+      city_photo = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
+      new_city = City.create!(name: trip_params[:destination])
+      new_city.photo.attach(io: city_photo, filename: 'paris.jpg', content_type: 'image/jpg')
+      @trip.city = new_city
+
+    else
+      @trip.city = City.where(name: trip_params[:destination])
+    end
     if @trip.save
-      redirect_to city_path(@trip.city, date: @trip.start_date), alert: "Trip successfully created." # change to city_path(@city) later
+      redirect_to city_path(@trip.city, date: @trip.start_date), alert: "Trip successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -54,6 +65,6 @@ class TripsController < ApplicationController
   end
 
   def trip_params
-    params.require(:trip).permit(:city_id, :start_date, :end_date)
+    params.require(:trip).permit(:city_id, :start_date, :end_date, :destination)
   end
 end

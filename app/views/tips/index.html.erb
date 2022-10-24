@@ -1,7 +1,7 @@
 <%# THIS PAGE SHOULD BE MOVED TO /cities/[city_id]/bookmarked_places ONCE BECKY IS DONE W/ BOOKMARKS %>
 
 <div class="container">
-  <h1 class="mt-4 mb-4">All my saved recommendations for <span id="city-name"><%= @city.name %></span></h1>
+  <h1 class="mt-4 mb-4">All my saved recommendations for <span id="city-name"><%= @city.name.split(",").first %></span></h1>
   <div class="row">
 
     <% @city.tips.each do |tip| %>
