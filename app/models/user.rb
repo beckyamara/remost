@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :create_city
   serialize :open_to, Array
   include PgSearch::Model
   pg_search_scope :search_by_job_department_name,
@@ -43,4 +44,14 @@ class User < ApplicationRecord
   def bookmarked_tip?(tip)
     bookmarked_places.map(&:tip).include?(tip)
   end
+
+  # def create_city
+  #   city_name = current_user.location.split(",").first
+  #   if City.where(name: city_name).empty?
+  #     new_city = City.create!(name: city_name)
+  #     current_user.city = new_city
+  #   else
+  #     current_user.city = City.where(name: city_name)
+  #   end
+  # end
 end

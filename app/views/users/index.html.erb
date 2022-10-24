@@ -8,7 +8,7 @@
   <div class="filters mt-4">
     <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
       <%= f.date_field :date, html5: true, value: params[:date], class: "form-control rounded-0" %>
-      <%= f.select :city, City.all.collect { |c| [ c.name ] }, class: "custom-select", selected: params[:city], include_blank: "city" %>
+      <%= f.select :city, City.all.collect { |c| [ c.name.split(",").first ] }, class: "custom-select", selected: params[:city], include_blank: "city" %>
       <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
       <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
       <%= f.select :languages, ["English", "French", "Hebrew", "Russian", "Spanish", "Scots"], class: "custom-select", selected: params[:languages], include_blank: "languages" %>
@@ -38,7 +38,7 @@
             <% if params[:date].present? %>
               Will be in: <%= link_to user.current_city(params[:date]).name, city_path(user.current_city(params[:date])) %>
             <% else %>
-              Based in: <%= link_to user.city.name, city_path(user.city) %>
+              Based in: <%= link_to user.city.name.split(",").first, city_path(user.city) %>
             <% end %>
           </p>
         </div>

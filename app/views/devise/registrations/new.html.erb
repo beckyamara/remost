@@ -36,9 +36,10 @@
                         as: :file,
                         required: true,
                         input_html: { autocomplete: "photo" } %>
-            <%= f.association :city,
+            <%= f.input :location,
                         required: true,
-                        input_html: { autocomplete: "city" } %>
+                        input_html: {data: {city_autocomplete_target: "address"}, class: "d-none"},
+                        wrapper_html: {data: {controller: "city-autocomplete", city_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, class: "form-control" %>
             <%= f.association :company,
                         required: true,
                         input_html: { autocomplete: "company" } %>

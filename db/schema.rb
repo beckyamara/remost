@@ -106,6 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
   end
 
   create_table "trips", force: :cascade do |t|
+    t.string "destination"
     t.date "start_date"
     t.date "end_date"
     t.bigint "city_id", null: false
