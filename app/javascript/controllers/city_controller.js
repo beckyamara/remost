@@ -5,17 +5,24 @@ export default class extends Controller {
 
   static values = {
     apiKey: String,
-    tipsMarkers: Array
+    tipsMarkers: Array,
+    city: Object
   }
 
   connect() {
     mapboxgl.accessToken = this.apiKeyValue
 
-    this.city = new mapboxgl.Map({
+    const config = {
       container: this.element,
-      // center: [40.4165, -3.70256],
-      style: "mapbox://styles/jane-doronina/cl7ropavj000t15lckgo1ky9j"
-    })
+      style: "mapbox://styles/jane-doronina/cl7ropavj000t15lckgo1ky9j",
+    }
+
+    if (this.tipsMarkersValue.length == 0) {
+      config.center = [this.cityValue.longitude, this.cityValue.latitude]
+      config.zoom = 10
+    }
+
+    this.city = new mapboxgl.Map(config)
 
     this.#addTipsMarkersToMap()
     this.#fitMapToTipsMarkers()
@@ -45,5 +52,5 @@ export default class extends Controller {
     const bounds = new mapboxgl.LngLatBounds()
     this.tipsMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.city.fitBounds(bounds, { padding: 300, maxZoom: 15, duration: 0 })
-   }
+  }
 }
