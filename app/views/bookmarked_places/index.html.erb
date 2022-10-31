@@ -4,12 +4,16 @@
     <p>Here are the reviews you've bookmarked.</p>
     <div class="row mt-5">
     <% @bookmarked_places_cities.each do |c| %>
-      <p class="city-category"><%= link_to c["name"], city_path(c["id"]) %></p>
+      <p class="city-category" id=<%= c["name"] %>></a><%= link_to c["name"], city_path(c["id"]) %></p>
       <% @bookmarked_places.select { |bk| bk.tip.city.name == c["name"] }.each do |b| %>
         <div class="col-lg-4">
           <div class="tip-card">
               <div class="tip-card-top">
                 <div class="place-name-box"><%= b.tip.name %> <span title=<%= b.tip.category.split[1] %>><%= b.tip.category.split[0] %></span></div>
+                <% if current_user == b.tip.user %>
+                  <%= link_to bookmarked_place_unfavourite_path(b.tip), data: { bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class: "tip-card-icon-pen" do %>
+                    <span title="Edit your tip"><i class="fa-solid fa-pen-to-square"></i></span>
+                  <% end %><% end %>
                 <%= link_to "https://www.google.com/maps/search/#{b.tip.location}", target: :_blank, class: "tip-card-icon-address" do %>
                   <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
                 <% end %>
