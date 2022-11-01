@@ -2,14 +2,14 @@ class User < ApplicationRecord
   after_create :create_city
   serialize :open_to, Array
   include PgSearch::Model
-  pg_search_scope :search_by_job_department_name,
-  against: [ :job_title, :department, :first_name, :last_name ],
+  pg_search_scope :search_by_job_city_name,
+  against: [ :job_title, :first_name, :last_name, :city_id ],
   using: {
     tsearch: { prefix: true }
   }
   scope :filter_by_job, ->(job_title) { where job_title: job_title }
   scope :filter_by_department, ->(department) { where department: department }
-  scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
+  # scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
   scope :filter_by_open_to, ->(open_to) { where("open_to ILIKE ?", "%#{open_to}%") }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
