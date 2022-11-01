@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,15 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookmarked_places", force: :cascade do |t|
-    t.bigint "tip_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tip_id"], name: "index_bookmarked_places_on_tip_id"
-    t.index ["user_id"], name: "index_bookmarked_places_on_user_id"
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -61,10 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "company_code"
     t.string "slack_sub_domain"
-    t.string "email_domain"
-    t.string "company_size"
     t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -89,19 +77,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
-  create_table "tips", force: :cascade do |t|
+  create_table "places", force: :cascade do |t|
     t.string "location"
     t.string "name"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "city_id", null: false
+    t.index ["city_id"], name: "index_places_on_city_id"
+  end
+
+  create_table "tips", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
-    t.string "category"
-    t.bigint "city_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["city_id"], name: "index_tips_on_city_id"
     t.index ["user_id"], name: "index_tips_on_user_id"
   end
 
@@ -144,10 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_12_160608) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarked_places", "tips"
-  add_foreign_key "bookmarked_places", "users"
   add_foreign_key "companies", "users", column: "admin_id"
-  add_foreign_key "tips", "cities"
+  add_foreign_key "places", "cities"
   add_foreign_key "tips", "users"
   add_foreign_key "trips", "cities"
   add_foreign_key "trips", "users"
