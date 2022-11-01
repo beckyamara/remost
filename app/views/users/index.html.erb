@@ -14,10 +14,11 @@
       <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
       <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Find colleagues by name or job title" %>
       <%# <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
-
       <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
+      <%= link_to "Reset filters", users_path, class: "btn btn-light border border-dark rounded-0" %>
     <% end %>
   </div>
+
   <%# CARDS %>
   <div class="row">
   <% @users.each do |user| %>

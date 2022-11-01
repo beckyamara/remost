@@ -21,13 +21,15 @@ class CitiesController < ApplicationController
       else
         city_people = @teammates.select {|tm| tm.city == city }
       end
-      {
-        lat: city.latitude,
-        lng: city.longitude,
-        people_window: render_to_string(partial: "people_window", locals: { city: city, city_people: city_people }),
-        image_url: helpers.asset_url("map-pin.svg"),
-        marker: render_to_string(partial: "marker", locals: { city: city, city_count: city_people.count, sample_person_image: city_people.sample ? city_people.sample.photo.attached? ? city_people.sample.photo.key : "default_image" : "default_image"})
-      }
+      if city_people != 0
+        {
+          lat: city.latitude,
+          lng: city.longitude,
+          people_window: render_to_string(partial: "people_window", locals: { city: city, city_people: city_people }),
+          image_url: helpers.asset_url("map-pin.svg"),
+          marker: render_to_string(partial: "marker", locals: { city: city, city_count: city_people.count, sample_person_image: city_people.sample ? city_people.sample.photo.attached? ? city_people.sample.photo.key : "default_image" : "default_image"})
+        }
+      end
     end
   end
 

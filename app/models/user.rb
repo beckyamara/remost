@@ -14,7 +14,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
-  has_many :bookmarked_places
+  # has_many :bookmarked_places
   # has_many :bookmarked_users
   has_many :tips
   has_many :trips, -> { order(start_date: :asc) }
