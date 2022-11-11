@@ -1,5 +1,9 @@
 class User < ApplicationRecord
-  after_create :create_city
+  # after_create :create_city
+  cattr_accessor :user_steps do
+  	%w(company sign_up details)
+  end
+  attr_accessor :form_step
   serialize :open_to, Array
   include PgSearch::Model
   pg_search_scope :search_by_job_city_name,
@@ -9,7 +13,6 @@ class User < ApplicationRecord
   }
   scope :filter_by_job, ->(job_title) { where job_title: job_title }
   scope :filter_by_department, ->(department) { where department: department }
-  # scope :filter_by_languages, ->(languages) { where("languages ILIKE ?", "%#{languages}%") }
   scope :filter_by_open_to, ->(open_to) { where("open_to ILIKE ?", "%#{open_to}%") }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -21,9 +24,11 @@ class User < ApplicationRecord
   belongs_to :city
   belongs_to :company
   # has_one :company
-  # accepts_nested_attributes_for :company
+  accepts_nested_attributes_for :company
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
 
  validates :photo, presence: true
  validates :first_name, presence: true
@@ -31,7 +36,7 @@ class User < ApplicationRecord
  validates :open_to, presence: true
  validates :job_title, presence: true
  validates :department, presence: true
-#  validates :slack_user, presence: true
+ validates :slack_user, presence: true
 
   def current_city(date)
     if self.trips.where('start_date <= ?', date).where('end_date >= ?', date).count > 0

@@ -14,6 +14,55 @@
   opacity: 0.6;
 }
 
+.btn-pink {
+  background-color: $pink-orange;
+  color: white;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.btn-pink:hover {
+  border: 1px solid $pink-orange;
+  background-color: white;
+  color: $pink-orange;
+}
+
+.btn-white {
+  background-color: white;
+  color: $pink-orange;
+  display: inline-block;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-weight: 400;
+  border: 1px solid white;
+}
+
+.btn-white:hover {
+  border: 1px solid white;
+  background-color: $pink-orange;
+  color: white;
+}
+
+.btn-outline {
+  text-align: center;
+  display: block;
+  width: 150px;
+  border: 1px solid $pink-orange;
+  background-color: white;
+  color: $pink-orange;
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.btn-outline:hover {
+  border: 1px solid white;
+  background-color: $pink-orange;
+  color: white;
+}
+
 .btn-map:hover {
   opacity: 0.9;
 }
