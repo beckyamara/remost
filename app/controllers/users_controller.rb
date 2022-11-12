@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @users = User.where(company: current_user.company)
-
     @users = @users.search_by_job_city_name(params[:query]) if params[:query].present?
     @users = @users.filter_by_job(params[:job_title]) if params[:job_title].present?
     @users = @users.filter_by_department(params[:department]) if params[:department].present?

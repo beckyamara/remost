@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'bookmarked_places/new'
-  devise_for :users, :controllers => {:registrations => "my_devise/registrations"}
+  devise_for :users, :controllers => { :registrations => "my_devise/registrations" }
   root to: "pages#home"
   resources :users, only: [:index, :show]
+  resources :steps, only: [:show, :update], controller: 'user_steps'
   resources :cities, only: [:index, :show] do
     resources :tips, only: [:index, :create]
   end

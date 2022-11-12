@@ -1,13 +1,94 @@
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+input[type="checkbox"]:focus,
+.uneditable-input:focus {
+  border-color: rgba(255, 90, 81, 0.5);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(255, 90, 81, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: $pink-orange;
+}
+
+.wrapper {
+  background: white;
+  height: 92vh;
+  padding-top: 50px;
+}
+
+.forgot-password {
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    font-size: 0.9rem !important;
+  }
+}
+
+.new-here-wrapper {
+  background-color: #ff5a51;
+  position: relative;
+  height: 92vh;
+  padding: 50px 0;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .new-here-info {
+    width: 70%;
+    position: relative;
+  }
+
+  h2 {
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 300;
+    opacity: 0.9;
+  }
+
+  .margin-div {
+    margin-bottom: 50px;
+  }
+}
+
+
+
+
 .form-login {
   background: white;
-  padding: 10px 20px 20px;
-  margin-top: 50px;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  padding: 0 20px 20px;
+  width: 50%;
+  margin: 0 auto;
+
   h2 {
-    font-size: 25px;
+    font-size: 35px;
     margin-bottom: 30px;
     text-align: center;
+    font-weight: 600;
+    color: $pink-orange;
   }
   .btn {
     width: 100%;
@@ -18,5 +99,91 @@
     text-decoration: none;
     color: $gray;
     font-size: 1rem;
+  }
+
+  .form-check-input {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+}
+
+.mockup {
+  width: 130%;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+}
+
+// JOIN COMPANY
+
+.company {
+  border-radius: 7px;
+  padding: 70px 100px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  h2 {
+    color: $pink-orange;
+    margin-top: 0 !important;
+  }
+
+  .join {
+    display: block;
+    width: 100%;
+    border: 1px solid $pink-orange;
+    padding: 8px 20px;
+  }
+
+  .input-field {
+    width: 100%;
+  }
+
+  label {
+    margin: 12px 0 8px;
+    font-size: 1rem;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+  }
+
+  .company_name, .company_email_domain, .company_slack_sub_domain, .company_company_size {
+    width: 100%;
+  }
+
+}
+
+.new-user {
+  padding: 20px 70px;
+  border-radius: 7px;
+
+  h2 {
+    color: $pink-orange;
+  }
+
+  .info-support {
+    text-decoration: none;
+    font-style: italic;
+    color: $pink-orange;
+  }
+
+  .user_slack_user {
+    margin-bottom: 10px !important;
+  }
+}
+
+.cancel {
+  padding: 20px;
+  background-color: #F4F4F4;
+  border-radius: 7px;
+  margin-bottom: 20px;
+
+  h3 {
+    font-size: 1.2rem;
   }
 }

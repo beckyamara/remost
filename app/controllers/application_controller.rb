@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: [:index]
+  # before_action :authenticate_user!, except: [:index]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
@@ -17,5 +17,4 @@ class ApplicationController < ActionController::Base
   def after_update_path_for(resource)
     user_path(resource)
   end
-
 end

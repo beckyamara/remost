@@ -14,7 +14,7 @@
   border-radius: 50rem;
   padding: 0.15rem 0.8rem;
   background-color: $light-pink-orange;
-  color: $pink-orange;
+  color: $pink-orange !important;
   border: 1px solid $pink-orange;
   margin-right: 0.6rem;
   margin-bottom: 0.6rem;
@@ -22,5 +22,5 @@
 
 .tag-selector:checked + label {
   background-color: $pink-orange;
-  color: white;
+  color: white !important;
 }

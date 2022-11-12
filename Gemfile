@@ -83,3 +83,4 @@ end
 
 gem "geocoder"
 gem "pg_search"
+gem "wicked"

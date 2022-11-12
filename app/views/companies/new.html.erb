@@ -1,14 +1,15 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <div class="form-login">
+    <div class="col-12 col-md-5">
+      <div class="form-signup company">
       <h2 class="mt-5">Add your company</h2>
       <%= simple_form_for [@company] do |f| %>
         <%= f.input :name, label: "Company name", required: true, placeholder: 'ex: Remost' %>
         <%= f.input :email_domain, required: true, label: "Email domain(s):", placeholder: "ex: @remost.com" %>
         <%= f.input :slack_sub_domain, placeholder: "ex: T02NE0241" %>
         <%= f.input :company_size, collection: ["1 - 20", "21 - 50", "51 - 200", "201 - 500", "501 - 4K", "4K - 10K", "10K +"], include_blank: true %>
-        <%= f.submit "Add the company", class: "btn btn-outline-dark" %>
+        <%= f.submit "Add the company", class: "btn-pink join mt-3" %>
+        <%= link_to "Back to Login", new_user_session_path, class: "btn-outline mt-5" %>
       <% end %>
       </div>
     </div>

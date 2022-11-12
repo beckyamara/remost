@@ -1,0 +1,27 @@
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | Welcome!" %></title>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-5">
+      <div class="form-signup mb-5 text-center company">
+        <h2 class="mb-4 text-center">Joining a workspace</h2>
+
+        <%= form_tag(new_user_registration_path(company_code: params[:company_code], email: params[:email]), method: :get) do %>
+        <div class="input-field">
+          <label for="fname">Your company code:</label>
+          <input type="text" id="company_code" name="company_code" class="form-control">
+        </div>
+        <div class="input-field">
+          <label for="lname">Your email:</label>
+          <input type="email" id="email" name="email" class="mb-4 form-control">
+        </div>
+        <%= submit_tag "Join", class: "btn-pink join" %>
+        <%= link_to "Back to Login", new_user_session_path, class: "btn-outline mt-5" %>
+        <% end %>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

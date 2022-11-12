@@ -2,19 +2,20 @@
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
-      <div class="form-login mb-5">
-        <h2 class="mt-5 mb-4 text-center">Sign up</h2>
+    <div class="col-12 col-sm-5">
+      <div class="form-signup new-user">
+        <h2 class="mt-5 mb-4 text-center">Welcome to <%= @company.name %> Workspace</h2>
 
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name, company_code: params[:company_code], email: params[:email]), data: {turbo: false}) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
+
             <%= f.input :email,
                         required: true,
                         placeholder: 'Email',
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
+                        readonly: true,
+                        input_html: { autocomplete: "email", value: params[:email] }%>
             <%= f.input :password,
                         required: true,
                         placeholder: 'Password',
@@ -40,12 +41,6 @@
                         required: true,
                         input_html: {data: {city_autocomplete_target: "address"}, class: "d-none"},
                         wrapper_html: {data: {controller: "city-autocomplete", city_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, class: "form-control" %>
-            <%= f.association :company,
-                        required: true,
-                        input_html: { autocomplete: "company" } %>
-            <div>
-              <p>Can't find your company? <%= link_to "Add it here", new_company_path %></p>
-            </div>
             <%= f.input :department,
                         required: true,
                         collection: ["Administrative", "Community & Advocacy", "Customer Success & Support", "Data Science", "Engineering", "Finance & Accounting", "HR & Talent", "IT", "Legal", "Marketing & Comms", "Operations", "Other", "Product & Design", "Sales & Growth"],
@@ -55,13 +50,14 @@
                         input_html: { autocomplete: "job_title" } %>
             <%= f.input :open_to, as: :check_boxes, collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
                         include_hidden: false,
+                        required: true,
                         input_html: { class: "tag-selector" },
                         item_wrapper_class: 'tag-item' %>
             <%= f.input :slack_user,
-                        # required: true,
+                        required: true,
                         input_html: { autocomplete: "slack_user" } %>
-            <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank do %>
-              <p><em>Here is how to find it.</em></p>
+            <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank, class: "info-support" do %>
+              <p class="support">Here is how to find it.</p>
             <% end %>
             <%= f.input :linkedin,
                         required: false,
@@ -70,7 +66,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, "Sign up", class: "btn btn-outline-dark" %>
+            <%= f.button :submit, "Sign up", class: "btn-pink mt-3" %>
           </div>
         <% end %>
 
