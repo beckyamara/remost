@@ -5,27 +5,32 @@
         <div class="form-signup new-user">
           <h2 class="mt-5 mb-4 text-center">Edit my profile</h2>
 
-            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }, html: { method: :put }) do |f| %>
               <%= f.error_notification %>
 
-              <div class="form-inputs">
+              <div class="form-inputs" data-controller="password-change">
                 <%= f.input :email, required: true, readonly: true, autofocus: true %>
 
                 <%# <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <%# <p>Currently waiting confirmation for: <%= resource.unconfirmed_email</p> %>
                 <%# <% end %>
 
-                <%= f.input :password,
-                            hint: "Leave it blank if you don't want to change it.",
-                            required: false,
-                            input_html: { autocomplete: "new-password" } %>
-                <%= f.input :password_confirmation,
-                            required: false,
-                            input_html: { autocomplete: "new-password" } %>
-                <%= f.input :current_password,
-                            hint: "We need your current password to confirm your changes.",
-                            required: true,
-                            input_html: { autocomplete: "current-password" } %>
+
+                <button class="password-btn" data-action="click->password-change#display"><i class="fa-solid fa-key"></i>Change password</button>
+
+                <div class="password-change-fields d-none" data-password-change-target="password">
+                  <%= f.input :password,
+                              hint: "Leave it blank if you don't want to change it.",
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+                  <%= f.input :password_confirmation,
+                              required: false,
+                              input_html: { autocomplete: "new-password" } %>
+                  <%= f.input :current_password,
+                              hint: "We need your current password to confirm your changes.",
+                              required: true,
+                              input_html: { autocomplete: "current-password" } %>
+                </div>
                 <%= f.input :first_name,
                             required: true,
                             input_html: { autocomplete: "first name" } %>
