@@ -60,3 +60,18 @@
   font-style: italic;
   margin-top: 15px;
 }
+
+.details-calender-container {
+  display: flex;
+  height: 90%;
+
+  .profile-details {
+    width: 40%;
+  }
+
+  .calender {
+    width: 60%;
+    margin: 10px;
+
+  }
+}

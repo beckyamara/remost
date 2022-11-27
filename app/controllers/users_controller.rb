@@ -18,5 +18,6 @@ class UsersController < ApplicationController
     @slack = "slack://user?team=#{@company_domain}&id=#{@user_slack}"
     @linkedin = "https://www.linkedin.com/in/#{@user.linkedin}"
     @email = "mailto:#{@user.email}"
+    @trips = current_user.trips
   end
 end

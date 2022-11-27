@@ -1,0 +1,56 @@
+.simple-calendar {
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 7px;
+
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 18px;
+
+    i {
+      color: $pink-orange;
+      font-size: 20px;
+    }
+  }
+
+  .table {
+    border: none;
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 500px;
+
+    th {
+      border: none;
+      width: 14.2%;
+    }
+
+    .day {
+      width: 14.2%;
+      font-size: 0.8rem;
+      border: none;
+      font-weight: 600;
+      height: 40px;
+      width: 40px;
+      overflow: hidden;
+
+    }
+
+    .today {
+      background-color: rgba(255, 90, 81, 0.2);
+    }
+
+    .next-month, .prev-month {
+      color: grey;
+      background-color: white;
+    }
+
+    .has-events {
+      background-color: #19A87B;
+      color: white;
+    }
+  }
+}
