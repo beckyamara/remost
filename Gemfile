@@ -84,3 +84,4 @@ end
 gem "geocoder"
 gem "pg_search"
 gem "wicked"
+gem "simple_calendar", "~> 2.4"
