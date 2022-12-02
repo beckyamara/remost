@@ -84,3 +84,7 @@ end
 gem "geocoder"
 gem "pg_search"
 gem "wicked"
+gem "json"
+gem "uri"
+gem "httparty"
+gem "rest-client"
