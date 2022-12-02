@@ -22,3 +22,6 @@
 <% if trip.city.name.split(",").map(&:strip).last == 'Spain' %>
   <span class="flag">🇪🇸</span>
 <% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'United States' %>
+  <span class="flag">🇺🇸</span>
+<% end %>

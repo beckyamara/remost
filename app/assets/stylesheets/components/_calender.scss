@@ -1,6 +1,7 @@
 .simple-calendar {
   padding: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border: 1.2px solid var(--bs-border-color);
   border-radius: 7px;
 
   .calendar-heading {
@@ -33,9 +34,9 @@
       font-size: 0.8rem;
       border: none;
       font-weight: 600;
-      height: 40px;
+      height: 53.7px;
       width: 40px;
-      overflow: hidden;
+      // overflow: hidden;
 
     }
 
@@ -51,6 +52,47 @@
     .has-events {
       background-color: #19A87B;
       color: white;
+    }
+
+    .first-day {
+      white-space: nowrap;
+      text-align: left;
+      width: fit-content;
+      padding-left: 25%;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    .end-day {
+      font-size: 16px;
+    }
+
+    .day:has(.end-date) {
+      text-align: right;
+    }
+
+    .tooltip-city {
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      padding: 8px 12px;
+      position: absolute;
+      visibility: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+      .tooltip-city-name {
+        font-size: 14px;
+        margin-bottom: 3px;
+      }
+
+      .tooltip-city-dates {
+        font-size: 13px;
+        margin-bottom: 0;
+      }
+    }
+
+    .has-events:hover .tooltip-city {
+      visibility: visible;
     }
   }
 }

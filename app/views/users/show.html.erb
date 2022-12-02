@@ -1,65 +1,85 @@
 <title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}‘s profile" %></title>
 
-<div class='container'>
+<div class='container profile-container'>
   <div class="mt-5 mb-3 users-index-h1">
-  <%# <h3><%= @user.first_name <%= @user.last_name %>
-  <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
+    <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
   </div>
-</div>
-
-<div class='container'>
   <div class="profile">
-    <%= cl_image_tag @user.photo.key, class: "profile-page-photo" %>
     <div class="profile-info">
-      <div class="d-flex justify-content-between">
-        <h3><%= @user.first_name %> <%= @user.last_name %></h3>
-        <div class="contacts">
-          <p class="btn-link">
-            <% if (@current_user == @user) %>
-              <%= link_to edit_user_registration_path do %>
-                <i class="fa-solid fa-pen-to-square fa-2xl" btn-link></i>
-              <% end %>
-            <% end %>
-          </p>
-          <p class="btn-link">
-            <%= link_to @slack, target: :_blank do %>
-              <i class="fa-brands fa-slack fa-2xl" btn-link></i>
-            <% end %>
-          </p>
-          <p class="btn-link">
-            <%= link_to @email, target: :_blank do %>
-              <i class="fa-solid fa-envelope fa-2xl" > </i>
-            <% end %>
-          </p>
-          <p class="btn-link">
-            <%= link_to @linkedin, target: :_blank do %>
-              <i class="fa-brands fa-linkedin fa-2xl"> </i>
-            <% end %>
-          </p>
-        </div>
-      </div>
-      <div class="details-calender-container">
-        <div class="profile-details">
+      <div class="profile-info-main">
+        <%= cl_image_tag @user.photo.key, class: "profile-page-photo" %>
+        <div class="under-photo">
+          <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           <p class="mb-2 job-title"><%= @user.job_title %></p>
           <p><strong>Department: </strong><%= @user.department %></p>
-          <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name.split(",").first %></p>
-          <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
-              <% @user.open_to.each do |open| %>
-                <li><%= open %></li>
-            <% end %>
-          </ul>
+          <div class="contacts">
+            <p class="btn-link">
+              <% if (@current_user == @user) %>
+                <%= link_to edit_user_registration_path do %>
+                  <i class="fa-solid fa-pen-to-square fa-2xl" btn-link></i>
+                <% end %>
+              <% end %>
+            </p>
+            <p class="btn-link">
+              <%= link_to @slack, target: :_blank do %>
+                <i class="fa-brands fa-slack fa-2xl" btn-link></i>
+              <% end %>
+            </p>
+            <p class="btn-link">
+              <%= link_to @email, target: :_blank do %>
+                <i class="fa-solid fa-envelope fa-2xl" > </i>
+              <% end %>
+            </p>
+            <p class="btn-link">
+              <%= link_to @linkedin, target: :_blank do %>
+                <i class="fa-brands fa-linkedin fa-2xl"> </i>
+              <% end %>
+            </p>
+          </div>
         </div>
-
-        <div class="calender">
-          <%= month_calendar(events: @trips, attribute: :start_date, end_attribute: :end_date) do |date, trips| %>
-            <%= date.day %>
-            <% if @user.trips.present? %>
-              <% trips.each do |trip| %>
-                  <div><%= trip.destination.split(",").first %></div>
+      </div>
+      <div class="profile-details">
+        <h3>Details</h3>
+        <p><i class="fa-solid fa-map-pin"></i><strong>Based in: </strong><%= @user.city.name.split(",").first %></p>
+        <ul class="open-to"><i class="fa-solid fa-door-open"></i><strong>Open to:</strong>
+            <% @user.open_to.each do |open| %>
+              <li><%= open %></li>
+          <% end %>
+        </ul>
+        <ul class="upcoming-trips"><i class="fa-sharp fa-solid fa-plane-departure"></i><strong>Upcoming trips:</strong>
+            <% if @user.trips.length > 4 %>
+              <% @user.trips.slice(0, 4).each do |trip| %>
+                <li><%= render 'trips/flags', trip: trip %> <%= trip.destination.split(",").first %></li>
+              <% end %>
+            <% else %>
+              <% @user.trips.each do |trip| %>
+                <li><%= render 'trips/flags', trip: trip %> <%= trip.destination.split(",").first %></li>
               <% end %>
             <% end %>
+        </ul>
+      </div>
+
+    </div>
+    <div class="details-calender-container">
+      <h3>Trips</h3>
+      <div class="calender" data-controller="tooltip">
+        <%= month_calendar(events: @trips, attribute: :start_date, end_attribute: :end_date) do |date, trips| %>
+          <%= date.day %>
+          <% if @user.trips.present? %>
+            <% trips.each do |trip| %>
+                <div class="tooltip-city">
+                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.destination.split(",").last %><%= render 'trips/flags', trip: trip %></p>
+                  <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> – <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
+                </div>
+                <% if date == trip.start_date %>
+                  <div class="first-day">👋 <%= trip.destination.split(",").first %></div>
+                <% end %>
+                <% if date == trip.end_date %>
+                  <div class="end-day">😢</div>
+                <% end %>
+            <% end %>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
