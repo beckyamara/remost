@@ -1,5 +1,27 @@
-<% if city.name.split(',').last == 'Afghanistan' %>
-  <span class="flag">
-  <>
-  </span>
+<% if trip.city.name.split(",").map(&:strip).last == 'United Kingdom' %>
+  <span class="flag">🇬🇧</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'United Arab Emirates' %>
+  <span class="flag">🇦🇪</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'France' %>
+  <span class="flag">🇫🇷</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'Belgium' %>
+  <span class="flag">🇧🇪</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'Austria' %>
+  <span class="flag">🇦🇹</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'Germany' %>
+  <span class="flag">🇩🇪</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'Italy' %>
+  <span class="flag">🇮🇹</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'Spain' %>
+  <span class="flag">🇪🇸</span>
+<% end %>
+<% if trip.city.name.split(",").map(&:strip).last == 'United States' %>
+  <span class="flag">🇺🇸</span>
 <% end %>

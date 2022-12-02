@@ -1,55 +1,90 @@
+.profile-container {
+  width: 85%;
+}
+
 .profile {
   display: flex;
   align-items: center;
-  height: 550px;
-  margin-bottom: 30px;
+  margin: 30px auto;
+  width: 100%;
+  height: 100%;
+
 
 
   .profile-page-photo {
-    width: 30%;
-    height: 100%;
+    width: 260px;
+    height: 260px;
     object-fit: cover;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 50%;
   }
 
   .profile-info {
-    width: 70%;
     height: 550px;
+    width: 50%;
     background-color: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin-right: 20px;
+    border-radius: 8px;
 
-    ul {
-      padding-left: 0;
-      padding-bottom: 0;
+
+
+    .profile-info-main {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h3 {
+        margin-top: 20px;
+      }
+
+      .job-title {
+        font-weight: lighter;
+        font-size: 18px;
+      }
+
+      .under-photo {
+        width: 200px;
+      }
     }
 
-    li {
-      margin-left: 30px;
-    }
+    .profile-details {
+      width: 42%;
+      border-left: 1.2px solid var(--bs-border-color);
+      padding-left: 30px;
 
-    .job-title {
-      padding-bottom: 20px;
-      font-weight: lighter;
-      font-size: larger;
-      font-style: italic;
+      h3 {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        padding-left: 0;
+        padding-bottom: 0;
+        list-style: none;
+      }
+
+      li {
+        margin: 7px 20px;
+      }
     }
   }
 
   .contacts {
+    width: 200px;
     display: flex;
+    justify-content: space-between;
     margin-top: 30px;
 
-    i {
-      margin-right: 20px;
-    }
 
     i:hover {
       color: $pink-orange;
     }
   }
 
-  .fa-map-pin, .fa-language, .fa-door-open {
+  .fa-map-pin, .fa-language, .fa-door-open, .fa-plane-departure {
     color: $pink-orange;
     margin-right: 6px;
   }
@@ -59,4 +94,29 @@
   font-weight: bold;
   font-style: italic;
   margin-top: 15px;
+}
+
+.details-calender-container {
+  background-color: white;
+  padding: 30px 30px;
+  text-align: center;
+
+  width: 50%;
+  height: 550px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+
+  h3 {
+    margin-bottom: 20px;
+  }
+
+  .profile-details {
+    width: 40%;
+  }
+
+  .calender {
+    width: 90%;
+    margin: 10px auto;
+
+  }
 }
