@@ -1,4 +1,5 @@
 require "open-uri"
+require "csv"
 
 class MyDevise::RegistrationsController < Devise::RegistrationsController
   before_action :check_company, only: [:new]
@@ -18,8 +19,12 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
     if City.where(name: params[:user][:location]).empty?
+      filepath = 'lib/assets/country_flags.csv'
+      CSV.foreach(filepath, headers: :first_row) do |row|
+        @flag = row['Emoji'] if params[:user][:location].split(",").map(&:strip).last == row['Name']
+      end
       city_photo = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-      new_city = City.create!(name: params[:user][:location])
+      new_city = City.create!(name: params[:user][:location], flag: @flag)
       new_city.photo.attach(io: city_photo, filename: 'paris.jpg', content_type: 'image/jpg')
       resource.city = new_city
     else
