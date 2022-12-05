@@ -49,11 +49,11 @@
         <ul class="upcoming-trips"><i class="fa-sharp fa-solid fa-plane-departure"></i><strong>Upcoming trips:</strong>
             <% if @user.trips.length > 4 %>
               <% @user.trips.slice(0, 4).each do |trip| %>
-                <li><%= render 'trips/flags', trip: trip %> <%= trip.destination.split(",").first %></li>
+                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
               <% end %>
             <% else %>
               <% @user.trips.each do |trip| %>
-                <li><%= render 'trips/flags', trip: trip %> <%= trip.destination.split(",").first %></li>
+                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
               <% end %>
             <% end %>
         </ul>
@@ -68,7 +68,7 @@
           <% if @user.trips.present? %>
             <% trips.each do |trip| %>
                 <div class="tooltip-city">
-                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.destination.split(",").last %><%= render 'trips/flags', trip: trip %></p>
+                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.destination.split(",").last %> <%= trip.city.flag %></p>
                   <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> – <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
                 </div>
                 <% if date == trip.start_date %>

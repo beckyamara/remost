@@ -1,3 +1,4 @@
+require "csv"
 require "open-uri"
 
 class TripsController < ApplicationController
@@ -19,8 +20,12 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if City.where(name: trip_params[:destination]).empty?
+      filepath = 'lib/assets/country_flags.csv'
+      CSV.foreach(filepath, headers: :first_row) do |row|
+        @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
+      end
       city_photo = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-      new_city = City.create!(name: trip_params[:destination])
+      new_city = City.create!(name: trip_params[:destination], flag: @flag)
       new_city.photo.attach(io: city_photo, filename: 'paris.jpg', content_type: 'image/jpg')
       @trip.city = new_city
 
