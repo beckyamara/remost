@@ -8,7 +8,7 @@ class TripsController < ApplicationController
     @trips = Trip.all
     @tips = Tip.all
     @user = current_user
-    @user_tips = BookmarkedPlace.where(user: current_user)
+    # @user_tips = BookmarkedPlace.where(user: current_user)
     @teammates = User.where(company: current_user.company)
   end
 
@@ -24,13 +24,18 @@ class TripsController < ApplicationController
       CSV.foreach(filepath, headers: :first_row) do |row|
         @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
       end
-      city_photo = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
+      unsplash_key = ENV.fetch('UNSPLASH_ACCESS_KEY')
+      @url = "https://api.unsplash.com/search/photos?query=#{@trip.destination.split(',').first}&orientation=portrait&client_id=#{unsplash_key}"
+      @response = RestClient.get(@url)
+      @response_parsed = JSON.parse(@response)
+      @first_result_url = @response_parsed["results"].first["urls"]["small"]
+      city_photo = URI.open(@first_result_url.to_s)
       new_city = City.create!(name: trip_params[:destination], flag: @flag)
-      new_city.photo.attach(io: city_photo, filename: 'paris.jpg', content_type: 'image/jpg')
+      formatted_city_name = "#{@trip.destination.split(',').first} #{@trip.destination.split(',').last}".gsub!(" ", "_")
+      new_city.photo.attach(io: city_photo, filename: "#{formatted_city_name}.jpg", content_type: 'image/jpg')
       @trip.city = new_city
-
     else
-      @trip.city = City.where(name: trip_params[:destination])
+      @trip.city = City.where(name: trip_params[:destination])[0]
     end
     if @trip.save
       redirect_to city_path(@trip.city, date: @trip.start_date), alert: "Trip successfully created."
@@ -49,6 +54,21 @@ class TripsController < ApplicationController
 
   def update
     set_trip
+    unless City.where(name: trip_params[:destination]).exists?
+      unsplash_key = ENV.fetch('UNSPLASH_ACCESS_KEY')
+      @trip.update(trip_params)
+      @url = "https://api.unsplash.com/search/photos?query=#{@trip.destination.split(',').first}&orientation=portrait&client_id=#{unsplash_key}"
+      @response = RestClient.get(@url)
+      @response_parsed = JSON.parse(@response)
+      @first_result_url = @response_parsed["results"].first["urls"]["small"]
+      city_photo = URI.open(@first_result_url.to_s)
+      new_city = City.create!(name: trip_params[:destination])
+      formatted_city_name = "#{@trip.destination.split(',').first} #{@trip.destination.split(',').last}".gsub!(" ", "_")
+      new_city.photo.attach(io: city_photo, filename: "#{formatted_city_name}.jpg", content_type: 'image/jpg')
+      @trip.city = new_city
+    else
+      @trip.city = City.where(name: trip_params[:destination])[0]
+    end
     @trip.update(trip_params)
     if @trip.start_date <= @trip.end_date
       redirect_to trips_path, alert: "Trip successfully updated."
