@@ -7,6 +7,7 @@
 #   Character.create(name: 'uke' movie: movies.first)
 
 Tip.destroy_all
+Place.destroy_all
 Trip.destroy_all
 User.destroy_all
 City.destroy_all
@@ -20,43 +21,43 @@ company1 = Company.create!(name: 'AirBnBeer', slack_sub_domain: 'T02NE0241')
 
 ## CITIES & THEIR PHOTOS
 photo_paris = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-paris = City.create!(name: 'Paris')
+paris = City.create!(name: 'Paris, France')
 paris.photo.attach(io: photo_paris, filename: 'paris.jpg', content_type: 'image/jpg')
 
 photo_london = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485636/ReMost/london_krq8d9.jpg")
-london = City.create!(name: 'London')
+london = City.create!(name: 'London, Greater London, England, United Kingdom')
 london.photo.attach(io: photo_london, filename: 'london.jpg', content_type: 'image/jpg')
 
 photo_dublin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/dublin_jyz38h.jpg")
-dublin = City.create!(name: 'Dublin')
+dublin = City.create!(name: 'Dublin, Ireland')
 dublin.photo.attach(io: photo_dublin, filename: 'dublin.jpg', content_type: 'image/jpg')
 
 photo_brussels = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/brussels_swwscr.jpg")
-brussels = City.create!(name: 'Brussels')
+brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium')
 brussels.photo.attach(io: photo_brussels, filename: 'brussels.jpg', content_type: 'image/jpg')
 
 photo_amsterdam = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/amsterdam_jhskkq.jpg")
-amsterdam = City.create!(name: 'Amsterdam')
+amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands')
 amsterdam.photo.attach(io: photo_amsterdam, filename: 'amsterdam.jpg', content_type: 'image/jpg')
 
 photo_madrid = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167188/ReMost/madrid_qrov1i.jpg")
-madrid = City.create!(name: 'Madrid')
+madrid = City.create!(name: 'Madrid, Madrid, Spain')
 madrid.photo.attach(io: photo_madrid, filename: 'madrid.jpg', content_type: 'image/jpg')
 
 photo_lisbon = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167187/ReMost/lisbon_dqf5ut.jpg")
-lisbon = City.create!(name: 'Lisbon')
+lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal')
 lisbon.photo.attach(io: photo_lisbon, filename: 'lisbon.jpg', content_type: 'image/jpg')
 
 photo_berlin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/berlin_ot0dou.jpg")
-berlin = City.create!(name: 'Berlin')
+berlin = City.create!(name: 'Berlin, Germany')
 berlin.photo.attach(io: photo_berlin, filename: 'berlin.jpg', content_type: 'image/jpg')
 
 photo_zurich = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/zurich_oa9z3r.jpg")
-zurich = City.create!(name: 'Zurich')
+zurich = City.create!(name: 'Zurich, Zürich, Switzerland')
 zurich.photo.attach(io: photo_zurich, filename: 'zurich.jpg', content_type: 'image/jpg')
 
 photo_copenhagen = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/copenhagen_qzhsoa.jpg")
-copenhagen = City.create!(name: 'Copenhagen')
+copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark')
 copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', content_type: 'image/jpg')
 
 
@@ -190,7 +191,7 @@ benjamin.save
 
 
 
-## TRIPS - demoing for SEPT 21, then 22, then 23 (more people there)
+## TRIPS - originally created for Demo Day, for days of SEPT 21, then 22, then 23 (more people there)
 
 trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
@@ -203,7 +204,6 @@ trip8 = Trip.create!(user: anastasia, city: madrid, start_date: 'Tue, 27 Sept 20
 trip9 = Trip.create!(user: anastasia, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
 trip10 = Trip.create!(user: anastasia, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 trip11 = Trip.create!(user: anastasia, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
-
 
 trip12 = Trip.create!(user: leah, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
 trip13 = Trip.create!(user: jeanne, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
@@ -221,41 +221,65 @@ trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Fri, 2 Dec 2022',
 
 
 
+## PLACES
+
+place1 = Place.create!(location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
+place2 = Place.create!(location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
+place3 = Place.create!(location: '33 Rue La Fayette, 75009 Paris', city: paris, name: 'WeWork Lafayette', category: '💻 Coworking')
+place4 = Place.create!(location: 'Gracechurch St, London EC3V 1LT', city: paris, name: 'Leadenhall Market', category: '🎭 Cultural')
+place5 = Place.create!(location: '51 Roman Rd, Bethnal Green, London E2 0HU', city: london, name: 'London Buddhist Centre', category: '🛐 Worship')
+place6 = Place.create!(location: '47-48, Temple Bar, Dublin 2, D02 N725', city: dublin, name: 'Temple Bar Pub', category: '🍹 Bar')
+place7 = Place.create!(location: "Pl. de l'Atomium 1, 1020 Brussels", city: brussels, name: 'Atomium', category: '🎨 Art')
+place8 = Place.create!(location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', city: brussels, name: 'WeWork Botanic', category: '💻 Coworking')
+place9 = Place.create!(location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', city: lisbon, name: 'Primero de Maio', category: '🍽️ Restaurant')
+place10 = Place.create!(location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', city: lisbon, name: 'TimeOut Market Lisbon', category: '🍽️ Restaurant')
+place11 = Place.create!(location: 'R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal', city: lisbon, name: 'Castelo de S. Jorge', category: '🎭 Cultural')
+place12 = Place.create!(location: 'Museumplein 10, 1071 DJ Amsterdam, Netherlands', city: amsterdam, name: 'Stedelijk Museum', category: '🎨 Art')
+place13 = Place.create!(location: 'Herengracht 420, 1017 BZ Amsterdam, Netherlands', city: amsterdam, name: 'StartDock Coworking Herengracht', category: '💻 Coworking')
+place14 = Place.create!(location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', city: amsterdam, name: 'Restaurant Zazas', category: '🍽️ Restaurant')
+place15 = Place.create!(location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', city: dublin, name: 'Chapter One', category: '🍽️ Restaurant')
+place16 = Place.create!(location: '31 Dawson St, Dublin 2, D02 DR58, Ireland', city: dublin, name: 'Peruke & Periwig', category: '🍹 Bar')
+place17 = Place.create!(location: '27 Camden Street Lower, Saint Kevins, Dublin 2, D02 NV09, Ireland', city: dublin, name: 'CoCreate South', category: '💻 Coworking')
+place18 = Place.create!(location: "52 Rue de l'Hôtel de Ville, 75004 Paris, France", city: paris, name: 'The Caféothèque of Paris', category: '☕️ Café')
+place19 = Place.create!(location: 'Jardin des Tuileries, Place de la Concorde, Paris, France', city: paris, name: 'Jardin des Tuileries', category: '🎾 Sports')
+place20 = Place.create!(location: '17 rue Pajol, 75018 Paris, France', city: paris, name: 'Temple de Ganesh', category: '🛐 Worship')
+place21 = Place.create!(location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', city: paris, name: 'Stalingrad (metro)', category: '🛡️ Safety')
 
 
 
-## TIPS
-tip1 = Tip.create!(user: john, city: paris, location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', name: 'Notre-Dame Cathedral', content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5, category: '🎭 Cultural')
-tip2 = Tip.create!(user: john, city: paris, location: '7 Rue du Faubourg Montmartre, 75009 Paris', name: 'Bouillon Chartier', content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4, category: '🍽️ Restaurant')
-tip3 = Tip.create!(user: bob, city: paris, location: '33 Rue La Fayette, 75009 Paris', name: 'WeWork Lafayette', content: 'Just the best (and most beautiful!) WeWork in Paris! Half the remote workers travelling to Paris stop there at some point.', rating: 5, category: '💻 Coworking')
-tip4 = Tip.create!(user: jeanne, city: london, location: 'Gracechurch St, London EC3V 1LT', name: 'Leadenhall Market', content: 'Very Harry-Potteresque, but full of bankers having a pint after work. Worth a quick visit.', rating: 4, category: '🎭 Cultural')
-tip5 = Tip.create!(user: leah, city: london, location: '51 Roman Rd, Bethnal Green, London E2 0HU', name: 'London Buddhist Centre', content: 'My favourite temple in London by far! Everyone is lovely.', rating: 5, category: '🛐 Worship')
-tip6 = Tip.create!(user: leah, city: dublin, location: '47-48, Temple Bar, Dublin 2, D02 N725', name: 'Temple Bar Pub', content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4, category: '🍹 Bar')
-tip7 = Tip.create!(user: anastasia, city: brussels, location: "Pl. de l'Atomium 1, 1020 Brussels", name: 'Atomium', content: 'Nice to see at least once, but some will be disappointed...', rating: 3, category: '🎨 Art')
-tip8 = Tip.create!(user: anastasia, city: brussels, location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', name: 'WeWork Botanic', content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5, category: '💻 Coworking')
 
-tip9 = Tip.create!(user: sam, city: lisbon, location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', name: 'Primero de Maio', content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8, category: '🍽️ Restaurant')
-tip10 = Tip.create!(user: bertrand, city: lisbon, location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', name: 'TimeOut Market Lisbon', content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9, category: '🍽️ Restaurant')
-tip11 = Tip.create!(user: nick, city: lisbon, location: 'R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal', name: 'Castelo de S. Jorge', content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9, category: '🎭 Cultural')
+# ## TIPS
+tip1 = Tip.create!(user: john, place: place1, content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5)
+tip2 = Tip.create!(user: john, place: place2, content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4)
+tip3 = Tip.create!(user: bob, place: place3, content: 'Just the best (and most beautiful!) WeWork in Paris! Half the remote workers travelling to Paris stop there at some point.', rating: 5)
+tip4 = Tip.create!(user: jeanne, place: place4, content: 'Very Harry-Potteresque, but full of bankers having a pint after work. Worth a quick visit.', rating: 4)
+tip5 = Tip.create!(user: leah, place: place5, content: 'My favourite temple in London by far! Everyone is lovely.', rating: 5)
+tip6 = Tip.create!(user: leah, place: place6, content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4)
+tip7 = Tip.create!(user: anastasia, place: place7, content: 'Nice to see at least once, but some will be disappointed...', rating: 3)
+tip8 = Tip.create!(user: anastasia, place: place8, content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5)
 
-tip12 = Tip.create!(user: pavel, city: amsterdam, location: 'Museumplein 10, 1071 DJ Amsterdam, Netherlands', name: 'Stedelijk Museum', content: "Go at least once!", rating: 8, category: '🎨 Art')
-tip13 = Tip.create!(user: beatriz, city: amsterdam, location: 'Herengracht 420, 1017 BZ Amsterdam, Netherlands', name: 'StartDock Coworking Herengracht', content: "My favorite coworking space in the city.", rating: 8, category: '💻 Coworking')
-tip14 = Tip.create!(user: ed, city: amsterdam, location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', name: 'Restaurant Zaza s', content: "One of the best restaurants I've ever been to!", rating: 9, category: '🍽️ Restaurant')
+tip9 = Tip.create!(user: sam, place: place9, content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8)
+tip10 = Tip.create!(user: bertrand, place: place10, content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9)
+tip11 = Tip.create!(user: nick, place: place11, content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9)
 
-tip15 = Tip.create!(user: beatriz, city: dublin, location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', name: 'Chapter One', content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9, category: '🍽️ Restaurant')
-tip16 = Tip.create!(user: anthony, city: dublin, location: '31 Dawson St, Dublin 2, D02 DR58, Ireland', name: 'Peruke & Periwig', content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9, category: '🍹 Bar')
-tip17 = Tip.create!(user: anastasia, city: dublin, location: '27 Camden Street Lower, Saint Kevin’s, Dublin 2, D02 NV09, Ireland', name: 'CoCreate South', content: "Descent CoWorking Space", rating: 7, category: '💻 Coworking')
+tip12 = Tip.create!(user: pavel, place: place12, content: "Go at least once!", rating: 8)
+tip13 = Tip.create!(user: beatriz, place: place13, content: "My favorite coworking space in the city.", rating: 8)
+tip14 = Tip.create!(user: ed, place: place14, content: "One of the best restaurants I've ever been to!", rating: 9)
 
-tip18 = Tip.create!(user: sam, city: paris, location: "52 Rue de l'Hôtel de Ville, 75004 Paris, France", name: 'The Caféothèque of Paris', content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8, category: '☕️ Café')
-tip19 = Tip.create!(user: ed, city: paris, location: "Jardin des Tuileries, Place de la Concorde, Paris, France", name: 'Jardin des Tuileries', content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9, category: '🎾 Sports')
-tip20 = Tip.create!(user: nick, city: paris, location: "17 rue Pajol, 75018 Paris, France", name: 'Temple de Ganesh', content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8, category: '🛐 Worship')
-tip21 = Tip.create!(user: beatriz, city: paris, location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', name: 'Stalingrad (metro)', content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0, category: '🛡️ Safety')
+tip15 = Tip.create!(user: beatriz, place: place15, content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9)
+tip16 = Tip.create!(user: anthony, place: place16, content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9)
+tip17 = Tip.create!(user: anastasia, place: place17, content: "Decent CoWorking Space", rating: 7)
+
+tip18 = Tip.create!(user: sam, place: place18, content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8)
+tip19 = Tip.create!(user: ed, place: place19, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
+tip20 = Tip.create!(user: nick, place: place20, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
+tip21 = Tip.create!(user: beatriz, place: place21, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
 
 
 # # BOOKMARKED PLACES
-bookmark1 = BookmarkedPlace.create!(user: marion, tip: tip9)
-bookmark2 = BookmarkedPlace.create!(user: marion, tip: tip10)
-bookmark3 = BookmarkedPlace.create!(user: marion, tip: tip6)
-bookmark4 = BookmarkedPlace.create!(user: marion, tip: tip12)
-bookmark5 = BookmarkedPlace.create!(user: marion, tip: tip13)
-bookmark6 = BookmarkedPlace.create!(user: marion, tip: tip14)
+# bookmark1 = BookmarkedPlace.create!(user: marion, tip: tip9)
+# bookmark2 = BookmarkedPlace.create!(user: marion, tip: tip10)
+# bookmark3 = BookmarkedPlace.create!(user: marion, tip: tip6)
+# bookmark4 = BookmarkedPlace.create!(user: marion, tip: tip12)
+# bookmark5 = BookmarkedPlace.create!(user: marion, tip: tip13)
+# bookmark6 = BookmarkedPlace.create!(user: marion, tip: tip14)

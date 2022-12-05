@@ -35,7 +35,7 @@
           <p>
             <i class="fa-solid fa-map-pin"></i>
             <% if params[:date].present? %>
-              Will be in: <%= link_to user.current_city(params[:date]).name, city_path(user.current_city(params[:date])) %>
+              Will be in: <%= link_to user.current_city(params[:date]).name.split(",").first, city_path(user.current_city(params[:date])) %>
             <% else %>
               Based in: <%= link_to user.city.name.split(",").first, city_path(user.city) %>
             <% end %>
