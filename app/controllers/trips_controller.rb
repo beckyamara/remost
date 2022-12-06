@@ -36,7 +36,7 @@ class TripsController < ApplicationController
       else
         @first_result_url = @response_parsed["results"].first["urls"]["small"]
         city_photo = URI.open(@first_result_url.to_s)
-        new_city = City.create!(name: trip_params[:destination])
+        new_city = City.create!(name: trip_params[:destination], flag: @flag)
         formatted_city_name = "#{@trip.destination.split(',').first} #{@trip.destination.split(',').last}".gsub!(" ", "_")
         new_city.photo.attach(io: city_photo, filename: "#{formatted_city_name}.jpg", content_type: 'image/jpg')
       end
