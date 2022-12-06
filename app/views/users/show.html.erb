@@ -1,4 +1,4 @@
-<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}‘s profile" %></title>
+<title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}'s profile" %></title>
 
 <div class='container profile-container'>
   <div class="mt-5 mb-3 users-index-h1">
@@ -49,11 +49,11 @@
         <ul class="upcoming-trips"><i class="fa-sharp fa-solid fa-plane-departure"></i><strong>Upcoming trips:</strong>
             <% if @user.trips.length > 4 %>
               <% @user.trips.slice(0, 4).each do |trip| %>
-                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
+                <li><%= trip.city.flag %> <%= trip.city.name.split(",").first %></li>
               <% end %>
             <% else %>
               <% @user.trips.each do |trip| %>
-                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
+                <li><%= trip.city.flag %> <%= trip.city.name.split(",").first %></li>
               <% end %>
             <% end %>
         </ul>
@@ -68,7 +68,7 @@
           <% if @user.trips.present? %>
             <% trips.each do |trip| %>
                 <div class="tooltip-city">
-                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.destination.split(",").last %> <%= trip.city.flag %></p>
+                  <p class="tooltip-city-name"><%= trip.city.name.split(",").first %>, <%= trip.city.name.split(",").last %> <%= trip.city.flag %></p>
                   <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> – <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
                 </div>
                 <% if date == trip.start_date %>
