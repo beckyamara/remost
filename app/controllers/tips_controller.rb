@@ -8,9 +8,10 @@ class TipsController < ApplicationController
 
   def create
     set_city
+    @place = Place.create!(name: params[:name], location: params[:location].split(',').drop(1).map(&:strip).join(", "), category: params[:category], city: @city)
     @tip = Tip.new(tip_params)
+    @tip.place = @place
     @tip.user = current_user
-    @tip.city = @city
     if @tip.save
       redirect_to city_path(@city), alert: "Recommendation successfully created."
     else
@@ -32,6 +33,6 @@ class TipsController < ApplicationController
   end
 
   def tip_params
-    params.require(:tip).permit(:name, :location, :rating, :category, :content)
+    params.require(:tip).permit(:rating, :content, place_attributes: [:location, :name, :category])
   end
 end

@@ -13,13 +13,13 @@
           <p class="mb-2 job-title"><%= @user.job_title %></p>
           <p><strong>Department: </strong><%= @user.department %></p>
           <div class="contacts">
-            <p class="btn-link">
-              <% if (@current_user == @user) %>
+            <% if (@current_user == @user) %>
+              <p class="btn-link">
                 <%= link_to edit_user_registration_path do %>
                   <i class="fa-solid fa-pen-to-square fa-2xl" btn-link></i>
                 <% end %>
-              <% end %>
-            </p>
+              </p>
+            <% end %>
             <p class="btn-link">
               <%= link_to @slack, target: :_blank do %>
                 <i class="fa-brands fa-slack fa-2xl" btn-link></i>
@@ -47,13 +47,13 @@
           <% end %>
         </ul>
         <ul class="upcoming-trips"><i class="fa-sharp fa-solid fa-plane-departure"></i><strong>Upcoming trips:</strong>
-            <% if @user.trips.length > 4 %>
-              <% @user.trips.slice(0, 4).each do |trip| %>
-                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
+            <% if @upcoming_trips.length > 4 %>
+              <% @upcoming_trips.slice(0, 4).each do |trip| %>
+                <li><%= trip.city.flag %> <%= trip.city.name.split(",").first %></li>
               <% end %>
             <% else %>
-              <% @user.trips.each do |trip| %>
-                <li><%= trip.city.flag %> <%= trip.destination.split(",").first %></li>
+              <% @upcoming_trips.each do |trip| %>
+                <li><%= trip.city.flag %> <%= trip.city.name.split(",").first %></li>
               <% end %>
             <% end %>
         </ul>
@@ -68,7 +68,7 @@
           <% if @user.trips.present? %>
             <% trips.each do |trip| %>
                 <div class="tooltip-city">
-                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.destination.split(",").last %> <%= trip.city.flag %></p>
+                  <p class="tooltip-city-name"><%= trip.destination.split(",").first %>, <%= trip.city.name.split(",").last %> <%= trip.city.flag %></p>
                   <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> – <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
                 </div>
                 <% if date == trip.start_date %>

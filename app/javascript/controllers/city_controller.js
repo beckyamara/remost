@@ -5,7 +5,7 @@ export default class extends Controller {
 
   static values = {
     apiKey: String,
-    tipsMarkers: Array,
+    placesMarkers: Array,
     city: Object
   }
 
@@ -17,26 +17,26 @@ export default class extends Controller {
       style: "mapbox://styles/jane-doronina/cl7ropavj000t15lckgo1ky9j",
     }
 
-    if (this.tipsMarkersValue.length == 0) {
+    if (this.placesMarkersValue.length == 0) {
       config.center = [this.cityValue.longitude, this.cityValue.latitude]
       config.zoom = 10
     }
 
     this.city = new mapboxgl.Map(config)
 
-    this.#addTipsMarkersToMap()
-    this.#fitMapToTipsMarkers()
+    this.#addPlacesMarkersToMap()
+    this.#fitMapToPlacesMarkers()
   }
 
-  #addTipsMarkersToMap() {
-    this.tipsMarkersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.tips_window)
+  #addPlacesMarkersToMap() {
+    this.placesMarkersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.place_window)
 
       const customMarker = document.createElement("div")
       customMarker.className = "marker-dot"
       customMarker.style.borderRadius = "90%"
 
-      customMarker.insertAdjacentHTML('afterbegin', marker.tip_marker)
+      customMarker.insertAdjacentHTML('afterbegin', marker.place_marker)
 
       new mapboxgl.Marker(customMarker)
         .setLngLat([ marker.lng, marker.lat ])
@@ -45,9 +45,9 @@ export default class extends Controller {
     })
   }
 
-  #fitMapToTipsMarkers() {
+  #fitMapToPlacesMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.tipsMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
+    this.placesMarkersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     this.city.fitBounds(bounds, { padding: 300, maxZoom: 15, duration: 0 })
   }
 }
