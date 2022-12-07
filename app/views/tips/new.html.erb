@@ -1,11 +1,15 @@
 <div class="container">
   <h1 class="mt-5">Add a Recommendation</h1>
-  <%= simple_form_for [@city, @tip] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :location %>
+  <%= simple_form_for [@city, @place, @tip] do |f| %>
+    <%= simple_fields_for @place do |f| %>
+      <%= f.input :name %>
+      <%= f.input :category, :collection => ['💻 Coworking','🍽️ Restaurant','☕️ Café','🍹 Bar','🎾 Sports','🎭 Cultural','🎨 Art','🛐 Worship','🌆 Sight','🛡️ Safety','ℹ️ Other' ] %>
+      <%= f.input :location,
+          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, class: "form-control" %>
+    <% end %>
     <%= f.input :content %>
     <%= f.input :rating, input_html: { min: 0, max: 10 } %>
-    <%= f.select :category, :collection => ["💻 Coworking","🍽️ Restaurant","☕️ Café","🍹 Bar","🎾 Sports","🎭 Cultural","🎨 Art","🛐 Worship","🌆 Sight","🛡️ Safety"," Other" ] %>
-    <%= f.submit "Add a Recommendation", class: "btn btn-dark" %>
-  <% end %>
+    <%= f.submit "Add a recommendation", class: "btn btn-outline-dark" %>
+    <% end %>
 </div>
