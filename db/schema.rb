@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_02_231216) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
+    t.string "flag", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
@@ -60,24 +61,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_companies_on_admin_id"
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.string "favoritable_type", null: false
-    t.bigint "favoritable_id", null: false
-    t.string "favoritor_type", null: false
-    t.bigint "favoritor_id", null: false
-    t.string "scope", default: "favorite", null: false
-    t.boolean "blocked", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["blocked"], name: "index_favorites_on_blocked"
-    t.index ["favoritable_id", "favoritable_type"], name: "fk_favoritables"
-    t.index ["favoritable_type", "favoritable_id", "favoritor_type", "favoritor_id", "scope"], name: "uniq_favorites__and_favoritables", unique: true
-    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable"
-    t.index ["favoritor_id", "favoritor_type"], name: "fk_favorites"
-    t.index ["favoritor_type", "favoritor_id"], name: "index_favorites_on_favoritor"
-    t.index ["scope"], name: "index_favorites_on_scope"
   end
 
   create_table "places", force: :cascade do |t|
@@ -100,6 +83,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.bigint "place_id", null: false
+    t.index ["place_id"], name: "index_tips_on_place_id"
     t.index ["user_id"], name: "index_tips_on_user_id"
   end
 
@@ -145,6 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_01_082919) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "places", "cities"
+  add_foreign_key "tips", "places"
   add_foreign_key "tips", "users"
   add_foreign_key "trips", "cities"
   add_foreign_key "trips", "users"

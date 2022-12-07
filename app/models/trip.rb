@@ -5,6 +5,7 @@ class Trip < ApplicationRecord
   # validates :destination, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
+  # validates :end_date, comparison: { greater_than: :start_date }
   validates_comparison_of :end_date, greater_than_or_equal_to: :start_date
 
   def width

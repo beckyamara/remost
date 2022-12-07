@@ -6,4 +6,9 @@
   color: $dark-green;
   background-color: $green-transp;
   border: 2px $dark-green;
+
+  span {
+    font-size: 20px;
+    font-weight: bolder;
+  }
 }
