@@ -36,7 +36,7 @@ class CitiesController < ApplicationController
   def show
     @city = set_city
     @tip = Tip.new
-    @bookmarked_place = BookmarkedPlace.new
+    # @bookmarked_place = BookmarkedPlace.new
 
     if params[:date]
       @date = Date.parse(params[:date])
