@@ -1,6 +1,7 @@
 ISO,Emoji,Name
 AD,🇦🇩,Andorra
 AE,🇦🇪,United Arab Emirates
+AE,🇦🇪,UAE
 AF,🇦🇫,Afghanistan
 AG,🇦🇬,Antigua and Barbuda
 AI,🇦🇮,Anguilla
@@ -27,6 +28,7 @@ BJ,🇧🇯,Benin
 BL,🇧🇱,Saint Barthélemy
 BM,🇧🇲,Bermuda
 BN,🇧🇳,Brunei Darussalam
+BN,🇧🇳,Brunei
 BO,🇧🇴,Bolivia
 BQ,🇧🇶,"Bonaire, Sint Eustatius and Saba"
 BR,🇧🇷,Brazil
@@ -43,6 +45,7 @@ CF,🇨🇫,Central African Republic
 CG,🇨🇬,Congo
 CH,🇨🇭,Switzerland
 CI,🇨🇮,Côte D'Ivoire
+CI,🇨🇮,Ivory Coast
 CK,🇨🇰,Cook Islands
 CL,🇨🇱,Chile
 CM,🇨🇲,Cameroon
@@ -55,6 +58,7 @@ CW,🇨🇼,Curaçao
 CX,🇨🇽,Christmas Island
 CY,🇨🇾,Cyprus
 CZ,🇨🇿,Czech Republic
+CZ,🇨🇿,Czechia
 DE,🇩🇪,Germany
 DJ,🇩🇯,Djibouti
 DK,🇩🇰,Denmark
@@ -76,6 +80,7 @@ FO,🇫🇴,Faroe Islands
 FR,🇫🇷,France
 GA,🇬🇦,Gabon
 GB,🇬🇧,United Kingdom
+GB,🇬🇧,UK
 GD,🇬🇩,Grenada
 GE,🇬🇪,Georgia
 GF,🇬🇫,French Guiana
@@ -94,6 +99,7 @@ GU,🇬🇺,Guam
 GW,🇬🇼,Guinea-Bissau
 GY,🇬🇾,Guyana
 HK,🇭🇰,Hong Kong
+HK,🇭🇰,HK
 HM,🇭🇲,Heard Island and Mcdonald Islands
 HN,🇭🇳,Honduras
 HR,🇭🇷,Croatia
@@ -101,6 +107,7 @@ HT,🇭🇹,Haiti
 HU,🇭🇺,Hungary
 ID,🇮🇩,Indonesia
 IE,🇮🇪,Ireland
+IE,🇮🇪,Eire
 IL,🇮🇱,Israel
 IM,🇮🇲,Isle of Man
 IN,🇮🇳,India
@@ -125,6 +132,7 @@ KW,🇰🇼,Kuwait
 KY,🇰🇾,Cayman Islands
 KZ,🇰🇿,Kazakhstan
 LA,🇱🇦,Lao People's Democratic Republic
+LA,🇱🇦,Laos
 LB,🇱🇧,Lebanon
 LC,🇱🇨,Saint Lucia
 LI,🇱🇮,Liechtenstein
@@ -140,6 +148,7 @@ MC,🇲🇨,Monaco
 MD,🇲🇩,Moldova
 ME,🇲🇪,Montenegro
 MF,🇲🇫,Saint Martin (French Part)
+MF,🇲🇫,Saint Martin
 MG,🇲🇬,Madagascar
 MH,🇲🇭,Marshall Islands
 MK,🇲🇰,Macedonia
@@ -160,6 +169,7 @@ MY,🇲🇾,Malaysia
 MZ,🇲🇿,Mozambique
 NA,🇳🇦,Namibia
 NC,🇳🇨,New Caledonia
+NC,🇳🇨,Nouvelle Calédonie
 NE,🇳🇪,Niger
 NF,🇳🇫,Norfolk Island
 NG,🇳🇬,Nigeria
@@ -170,6 +180,7 @@ NP,🇳🇵,Nepal
 NR,🇳🇷,Nauru
 NU,🇳🇺,Niue
 NZ,🇳🇿,New Zealand
+NZ,🇳🇿,NZ
 OM,🇴🇲,Oman
 PA,🇵🇦,Panama
 PE,🇵🇪,Peru
@@ -190,6 +201,7 @@ RE,🇷🇪,Réunion
 RO,🇷🇴,Romania
 RS,🇷🇸,Serbia
 RU,🇷🇺,Russia
+RU,🇷🇺,Russian Federation
 RW,🇷🇼,Rwanda
 SA,🇸🇦,Saudi Arabia
 SB,🇸🇧,Solomon Islands
@@ -210,7 +222,9 @@ SS,🇸🇸,South Sudan
 ST,🇸🇹,Sao Tome and Principe
 SV,🇸🇻,El Salvador
 SX,🇸🇽,Sint Maarten (Dutch Part)
+SX,🇸🇽,Sint Maarten
 SY,🇸🇾,Syrian Arab Republic
+SY,🇸🇾,Syria
 SZ,🇸🇿,Swaziland
 TC,🇹🇨,Turks and Caicos Islands
 TD,🇹🇩,Chad
@@ -232,6 +246,7 @@ UA,🇺🇦,Ukraine
 UG,🇺🇬,Uganda
 UM,🇺🇲,United States Minor Outlying Islands
 US,🇺🇸,United States
+US,🇺🇸,US
 UY,🇺🇾,Uruguay
 UZ,🇺🇿,Uzbekistan
 VA,🇻🇦,Vatican City
@@ -239,6 +254,7 @@ VC,🇻🇨,Saint Vincent and The Grenadines
 VE,🇻🇪,Venezuela
 VG,🇻🇬,"Virgin Islands, British"
 VI,🇻🇮,"Virgin Islands, U.S."
+VN,🇻🇳,Vietnam
 VN,🇻🇳,Viet Nam
 VU,🇻🇺,Vanuatu
 WF,🇼🇫,Wallis and Futuna
