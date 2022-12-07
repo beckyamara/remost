@@ -19,5 +19,6 @@ class UsersController < ApplicationController
     @linkedin = "https://www.linkedin.com/in/#{@user.linkedin}"
     @email = "mailto:#{@user.email}"
     @trips = current_user.trips
+    @upcoming_trips = @user.trips.select { |trip| trip.end_date > Date.today }
   end
 end
