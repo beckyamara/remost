@@ -67,7 +67,7 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
       email_domain = params[:email][/@\S+.\w+/]
       if Company.all.map {|company| company.company_code}.include?(params[:company_code])
         @company = Company.find_by(company_code: params[:company_code])
-        redirect_to step_path(:company), alert: "Wrong Email – please use your corporate email address." unless @company.email_domain.split(",").include?(email_domain)
+        redirect_to step_path(:company), alert: "Wrong Email - please use your corporate email address." unless @company.email_domain.split(",").include?(email_domain)
       else
         redirect_to step_path(:company), alert: "Invalid company code. Please, contact the admin of your workspace :("
       end

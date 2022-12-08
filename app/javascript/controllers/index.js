@@ -25,6 +25,9 @@ application.register("map", MapController)
 import PasswordChangeController from "./password_change_controller"
 application.register("password-change", PasswordChangeController)
 
+import HiddenFieldController from "./hidden_field_controller"
+application.register("hidden-field", HiddenFieldController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
 
