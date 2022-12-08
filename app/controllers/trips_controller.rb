@@ -42,7 +42,7 @@ class TripsController < ApplicationController
       end
       @trip.city = new_city
     else
-      @trip.city = City.where(name: trip_params[:destination])[0]
+      @trip.city = City.find_by(name: trip_params[:destination])
     end
     if @trip.save
       redirect_to city_path(@trip.city, date: @trip.start_date), alert: "Trip successfully created."
@@ -61,14 +61,13 @@ class TripsController < ApplicationController
 
   def update
     set_trip
-    filepath = 'lib/assets/country_flags.csv'
-    CSV.foreach(filepath, headers: :first_row) do |row|
-      @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
-    end
-    unless City.where(name: trip_params[:destination]).exists?
+    if City.where(name: trip_params[:destination]).empty?
+      filepath = 'lib/assets/country_flags.csv'
+      CSV.foreach(filepath, headers: :first_row) do |row|
+        @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
+      end
       unsplash_key = ENV.fetch('UNSPLASH_ACCESS_KEY')
-      @trip.update(trip_params)
-      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination)} architecture&orientation=portrait&client_id=#{unsplash_key}"
+      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination.split(',').first)} architecture&orientation=portrait&client_id=#{unsplash_key}"
       @response = RestClient.get(@url)
       @response_parsed = JSON.parse(@response)
       if @response_parsed["total"].zero?
@@ -85,7 +84,7 @@ class TripsController < ApplicationController
       end
       @trip.city = new_city
     else
-      @trip.city = City.where(name: trip_params[:destination])[0]
+      @trip.city = City.find_by(name: trip_params[:destination])
     end
     @trip.update(trip_params)
     if @trip.start_date <= @trip.end_date

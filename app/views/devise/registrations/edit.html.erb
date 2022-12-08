@@ -44,7 +44,7 @@
                             hint: "Leave it blank if you don't want to change it.",
                             input_html: { autocomplete: "photo" } %>
                 <div class="mb-3" data-controller="hidden-field">
-                  <p class="form-label mt-4 mb-4">Home base: <span class="bold-text"><%= resource.city.flag %> <%= resource.city.name %></span> <i class="fa-solid fa-pen-to-square ml-5" data-action="click->hidden-field#display"></i><p>
+                  <p class="form-label mt-4 mb-4">Home base: <span class="bold-text"><%= resource.city.flag %> <%= resource.city.name.split(",").first %>,<%= resource.city.name.split(",").last %></span> <i class="fa-solid fa-pen-to-square ml-5" data-action="click->hidden-field#display"></i><p>
                   <div class="hidden-field-fields d-none" data-hidden-field-target="field">
                   <%= f.input :location,
                               label: "New home base",
