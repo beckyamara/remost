@@ -33,10 +33,11 @@
           </h2>
           <p><%= user.job_title %> (<%= user.department %>)</p>
           <p>
-            <i class="fa-solid fa-map-pin"></i>
             <% if params[:date].present? %>
+            <i class="fa-solid fa-map-pin"></i>
               Will be in: <%= link_to user.current_city(params[:date]).name.split(",").first, city_path(user.current_city(params[:date])) %>
             <% else %>
+            <i class="fa-solid fa-house-user"></i>
               Based in: <%= link_to user.city.name.split(",").first, city_path(user.city) %>
             <% end %>
           </p>

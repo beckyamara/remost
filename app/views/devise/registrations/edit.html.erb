@@ -11,7 +11,7 @@
               <%# <div class="form-inputs" data-controller="password-change"> %>
               <div class="form-inputs" data-controller="hidden-field">
 
-                <%= f.input :email, required: true, readonly: true, autofocus: true %>
+                <%= f.input :email, required: true, readonly: true, autofocus: true, hint: "To change your email please contact your workspace admin." %>
 
                 <%# <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <%# <p>Currently waiting confirmation for: <%= resource.unconfirmed_email</p> %>
@@ -47,6 +47,7 @@
                             hint: "Leave it blank if you don't want to change it.",
                             input_html: { autocomplete: "photo" } %>
                 <%= f.input :location,
+                            label: "Home base",
                             required: true,
                             input_html: {data: {city_autocomplete_target: "address"}, class: "d-none"},
                             wrapper_html: {data: {controller: "city-autocomplete", city_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, class: "form-control" %>
@@ -63,10 +64,8 @@
                             item_wrapper_class: 'tag-item' %>
                 <%= f.input :slack_user,
                             required: true,
-                            input_html: { autocomplete: "slack user" } %>
-                <%= link_to "https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-", target: :_blank, class: "info-support" do %>
-                  <p class="support">Here is how to find it.</p>
-                <% end %>
+                            input_html: { autocomplete: "slack user" },
+                            hint: "Here is how to <a href='https://slack.com/intl/en-gb/help/articles/360003827751-Create-a-link-to-a-members-profile-'>find it</a>".html_safe %>
                 <%= f.input :linkedin,
                             required: false,
                             input_html: { autocomplete: "linkedin" } %>
