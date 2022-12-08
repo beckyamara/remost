@@ -1,5 +1,6 @@
 class Place < ApplicationRecord
   belongs_to :city
+  belongs_to :company
   has_many :tips
   validates :name, presence: true
   validates :location, presence: true

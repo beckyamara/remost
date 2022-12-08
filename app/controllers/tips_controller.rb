@@ -8,6 +8,7 @@ class TipsController < ApplicationController
 
   def create
     set_city
+    # if @city.places.where(company: current_user.company)
     @place = Place.create!(name: params[:name], location: params[:location].split(',').drop(1).map(&:strip).join(", "), category: params[:category], city: @city)
     @tip = Tip.new(tip_params)
     @tip.place = @place
