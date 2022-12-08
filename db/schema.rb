@@ -72,7 +72,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_231216) do
     t.float "latitude"
     t.float "longitude"
     t.bigint "city_id", null: false
+    t.bigint "company_id", null: false
     t.index ["city_id"], name: "index_places_on_city_id"
+    t.index ["company_id"], name: "index_places_on_company_id"
   end
 
   create_table "tips", force: :cascade do |t|
@@ -128,6 +130,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_231216) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "places", "cities"
+  add_foreign_key "places", "companies"
   add_foreign_key "tips", "places"
   add_foreign_key "tips", "users"
   add_foreign_key "trips", "cities"
