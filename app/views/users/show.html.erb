@@ -1,9 +1,11 @@
 <title><%= content_for(:title) ? "#{content_for(:title)} - remost" : "remost | #{@user.first_name} #{@user.last_name}'s profile" %></title>
 
 <div class='container profile-container'>
-  <div class="mt-5 mb-3 users-index-h1">
-    <%= link_to "Back to the map", cities_path, class: "btn btn-outline-dark" %>
-  </div>
+  <%# <div class="mt-5 mb-3 cities-map-link">
+    <%= link_to cities_path do %>
+      <%# <i class="fa-solid fa-chevron-left"></i> <i class="fa-solid fa-earth-americas"></i> %>
+    <%# <% end %>
+  <%# </div> %>
   <div class="profile">
     <div class="profile-info">
       <div class="profile-info-main">
@@ -11,7 +13,7 @@
         <div class="under-photo">
           <h3><%= @user.first_name %> <%= @user.last_name %></h3>
           <p class="mb-2 job-title"><%= @user.job_title %></p>
-          <p><strong>Department: </strong><%= @user.department %></p>
+          <p class="mb-2 department"><strong>Department: </strong><%= @user.department %></p>
           <div class="contacts">
             <% if (@current_user == @user) %>
               <p class="btn-link">
