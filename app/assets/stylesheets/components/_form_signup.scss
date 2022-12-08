@@ -19,4 +19,18 @@
     color: $gray;
     font-size: 1rem;
   }
+
+  .bold-text {
+    font-weight: 600;
+    margin-right: 10px;
+  }
+
+  i {
+    color: $pink-orange;
+    font-size: 18px;
+  }
+
+  i:hover {
+    cursor: pointer;
+  }
 }
