@@ -8,7 +8,15 @@ class TipsController < ApplicationController
 
   def create
     set_city
-    @place = Place.create!(name: params[:name], location: params[:location].split(',').drop(1).map(&:strip).join(", "), category: params[:category], city: @city)
+    @company = current_user.company
+    @place = Place.create!(name: params[:name], location: params[:location], category: params[:category], city: @city, company: @company)
+
+    if @city.places.where(company: current_user.company, name: @place.name, latitude: @place.latitude, longitude: @place.longitude).length > 1
+      duplicates_array = @city.places.where(company: current_user.company, name: @place.name, latitude: @place.latitude, longitude: @place.longitude)
+      original_place = duplicates_array[0]
+      Place.delete(duplicates_array[1].id)
+      @place = original_place
+    end
     @tip = Tip.new(tip_params)
     @tip.place = @place
     @tip.user = current_user
