@@ -47,14 +47,13 @@ class CitiesController < ApplicationController
     @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
     @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
     @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
-    @places = Place.where(city: @city)
     @tips = Tip.where(city: @city)
-    @places_markers = @places.geocoded.map do |place|
+    @tips_markers = @tips.geocoded.map do |tip|
       {
-        lat: place.latitude,
-        lng: place.longitude,
-        place_window: render_to_string(partial: "place_window", locals: { city: @city, place: place, tips: Tip.where(place: place) }),
-        place_marker: render_to_string(partial: "place_marker", locals: { city: @city, places: @places, place: place, category: place.category })
+        lat: tip.latitude,
+        lng: tip.longitude,
+        tips_window: render_to_string(partial: "tips_window", locals: { city: @city, tip: tip, bookmarked_place: @bookmarked_place }),
+        tip_marker: render_to_string(partial: "tip_marker", locals: { city: @city, tips: @tips, tip: tip, category: tip.category })
       }
     end
     if params[:date]

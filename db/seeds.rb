@@ -17,53 +17,85 @@ Company.destroy_all
 ## COMPANIES
 
 company1 = Company.create!(name: "AirBnBeer", slack_sub_domain: "T02NE0241", email_domain: "@airbnbeer.remost", company_code: "abcd123")
+company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd123")
 
 
 
 ## CITIES & THEIR PHOTOS
+
+################## CITIES NEEDED FOR COMPANY1 & COMPANY2 ##################
 photo_paris = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-paris = City.create!(name: 'Paris, France', flag: '🇫🇷')
+paris = City.create!(name: 'Paris, France', flag: '🇫🇷', company: company1)
 paris.photo.attach(io: photo_paris, filename: 'paris.jpg', content_type: 'image/jpg')
 
 photo_london = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485636/ReMost/london_krq8d9.jpg")
-london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧')
+london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧', company: company1)
 london.photo.attach(io: photo_london, filename: 'london.jpg', content_type: 'image/jpg')
 
 photo_dublin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/dublin_jyz38h.jpg")
-dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪')
+dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪', company: company1)
 dublin.photo.attach(io: photo_dublin, filename: 'dublin.jpg', content_type: 'image/jpg')
 
 photo_brussels = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/brussels_swwscr.jpg")
-brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪')
+brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪', company: company1)
 brussels.photo.attach(io: photo_brussels, filename: 'brussels.jpg', content_type: 'image/jpg')
 
 photo_amsterdam = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/amsterdam_jhskkq.jpg")
-amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱')
+amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱', company: company1)
 amsterdam.photo.attach(io: photo_amsterdam, filename: 'amsterdam.jpg', content_type: 'image/jpg')
 
 photo_madrid = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167188/ReMost/madrid_qrov1i.jpg")
-madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸')
+madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸', company: company1)
 madrid.photo.attach(io: photo_madrid, filename: 'madrid.jpg', content_type: 'image/jpg')
 
 photo_lisbon = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167187/ReMost/lisbon_dqf5ut.jpg")
-lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹')
+lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹', company: company1)
 lisbon.photo.attach(io: photo_lisbon, filename: 'lisbon.jpg', content_type: 'image/jpg')
 
 photo_berlin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/berlin_ot0dou.jpg")
-berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪')
+berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪', company: company1)
 berlin.photo.attach(io: photo_berlin, filename: 'berlin.jpg', content_type: 'image/jpg')
 
 photo_zurich = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/zurich_oa9z3r.jpg")
-zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭')
+zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭', company: company1)
 zurich.photo.attach(io: photo_zurich, filename: 'zurich.jpg', content_type: 'image/jpg')
 
 photo_copenhagen = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/copenhagen_qzhsoa.jpg")
-copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰')
+copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰', company: company1)
 copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', content_type: 'image/jpg')
+
+
+################## CITIES NEEDED ONLY FOR COMPANY2 (TheExcitingCompany) ##################
+
+photo_rome = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/rome_kupdrz.jpg")
+rome = City.create!(name: 'Rome, Rome, Italy', flag: '🇮🇹', company: company2)
+rome.photo.attach(io: photo_rome, filename: 'rome.jpg', content_type: 'image/jpg')
+
+photo_prague = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/prague_ro6uc0.jpg")
+prague = City.create!(name: 'Prague, Prague, Czech Republic', flag: '🇨🇿', company: company2)
+prague.photo.attach(io: photo_prague, filename: 'prague.jpg', content_type: 'image/jpg')
+
+photo_bratislava = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506420/ReMost/bratislava_bd9rdv.jpg")
+bratislava = City.create!(name: 'Bratislava, Bratislava, Slovakia', flag: '🇸🇰', company: company2)
+bratislava.photo.attach(io: photo_bratislava, filename: 'bratislava.jpg', content_type: 'image/jpg')
+
+photo_zagreb = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506419/ReMost/zagreb_pi7rmf.jpg")
+zagreb = City.create!(name: 'Zagreb, Zagreb, Croatia', flag: '🇭🇷', company: company2)
+zagreb.photo.attach(io: photo_zagreb, filename: 'zagreb.jpg', content_type: 'image/jpg')
+
+photo_vienna = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/vienna_d0jgf9.jpg")
+vienna = City.create!(name: 'Vienna, Austria', flag: '🇦🇹', company: company2)
+vienna.photo.attach(io: photo_vienna, filename: 'vienna.jpg', content_type: 'image/jpg')
+
+photo_budapest = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/budapest_fu9gro.jpg")
+budapest = City.create!(name: 'Budapest, Hungary', flag: '🇭🇺', company: company2)
+budapest.photo.attach(io: photo_budapest, filename: 'budapest.jpg', content_type: 'image/jpg')
 
 
 
 ## USERS & THEIR AVATARS
+
+################## USERS COMPANY 1 ##################
 
 marion = User.new(company: company1, city: london, email: 'marion@airbnbeer.remost', password: 123456, first_name: 'Marion', last_name: 'Salaun', job_title: 'Speedy Onboarding Specialist', department: 'HR', languages: ['English', 'French', 'Spanish', 'Dutch'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
 photo_marion = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663234417/ReMost/marion_pwlxzr.jpg")
@@ -186,11 +218,133 @@ benjamin.photo.attach(io: photo_benjamin, filename: 'benjamin.jpg', content_type
 benjamin.save
 
 
+################## USERS COMPANY 2 ##################
 
+marion2 = User.new(company: company2, city: budapest, email: 'marion2@exciting.remost', password: 123456, first_name: 'Marion2', last_name: 'Salaun2', job_title: 'Speedy Onboarding Specialist', department: 'HR', languages: ['English', 'French', 'Spanish', 'Dutch'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
+photo_marion2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663234417/ReMost/marion_pwlxzr.jpg")
+marion2.photo.attach(io: photo_marion2, filename: 'marion2.jpg', content_type: 'image/jpg')
+marion2.save
+
+john2 = User.new(company: company2, city: vienna, email: 'john2@exciting.remost', password: 123456, first_name: 'John2', last_name: 'Smith2', job_title: 'Forward Operations Engineer', department: 'Ops', languages: ['English', 'French'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
+photo_john2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/john_oyqjvw.jpg")
+john2.photo.attach(io: photo_john2, filename: 'john2.jpg', content_type: 'image/jpg')
+john2.save
+
+bob2 = User.new(company: company2, city: budapest, email: 'bob2@exciting.remost', password: 123456, first_name: 'Bob2', last_name: 'MacFarlane2', job_title: 'Legacy Branding Associate', department: 'Marketing', languages: ['English', 'Scots'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
+photo_bob2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485633/ReMost/bob_tg0nq6.jpg")
+bob2.photo.attach(io: photo_bob2, filename: 'bob2.jpg', content_type: 'image/jpg')
+bob2.save
+
+jeanne2 = User.new(company: company2, city: budapest, email: 'jeanne2@exciting.remost', password: 123456, first_name: 'Jeanne2', last_name: 'Dupont2', job_title: 'Internal Tactics Technician', department: 'Sales', languages: ['English', 'French', 'Spanish'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🍲 Dinner'], slack_user: 'U03PQD9E3M1')
+photo_jeanne2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/jeanne_aho5sc.jpg")
+jeanne2.photo.attach(io: photo_jeanne2, filename: 'jeanne2.jpg', content_type: 'image/jpg')
+jeanne2.save
+
+leah2 = User.new(company: company2, city: budapest, email: 'leah2@exciting.remost', password: 123456, first_name: 'Leah2', last_name: 'Johnson2', job_title: 'Chief Response Officer', department: 'Sales', languages: ['English', 'Hebrew'], open_to: ['💻 Working together/side-by-side', '🏃 Weekend activity/meal', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
+photo_leah2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485633/ReMost/leah_c8hlhz.jpg")
+leah2.photo.attach(io: photo_leah2, filename: 'leah2.jpg', content_type: 'image/jpg')
+leah2.save
+
+anastasia2 = User.new(company: company2, city: bratislava, email: 'anastasia2@exciting.remost', password: 123456, first_name: 'Anastasia2', last_name: 'Golubeva2', job_title: 'Product Resonance Designer', department: 'Product', languages: ['English', 'Russian'], open_to: ['💻 Working together/side-by-side', '🏃 Weekend activity/meal', '🍲 Dinner'], slack_user: 'U03PQD9E3M1')
+photo_anastasia2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485637/ReMost/anastasia_oxfjnf.jpg")
+anastasia2.photo.attach(io: photo_anastasia2, filename: 'anastasia2.jpg', content_type: 'image/jpg')
+anastasia2.save
+
+bertrand2 = User.new(company: company2, city: budapest, email: 'bertrand2@exciting.remost', password: 123456, first_name: 'Bertrand2', last_name: 'Martinot2', job_title: 'Internal Security Architect', department: 'Engineering', languages: ['English', 'French'], open_to: ['💡 Brainstorming', '🍲 Lunch'], slack_user: 'U03PQD9E3M1')
+photo_bertrand2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167130/ReMost/bertrand_m1zaqe.jpg")
+bertrand2.photo.attach(io: photo_bertrand2, filename: 'bertrand2.jpg', content_type: 'image/jpg')
+bertrand2.save
+
+anthony2 = User.new(company: company2, city: zagreb, email: 'anthony2@exciting.remost', password: 123456, first_name: 'Anthony2', last_name: 'Balkus2', job_title: 'Future Web Sales Associate', department: 'Sales', languages: ['English', 'Lithuanian', 'German'], open_to: ['🍻 Drinks', '🍲 Dinner'], slack_user: 'U03PQD9E3M1')
+photo_anthony2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167129/ReMost/anthony_ltdylg.jpg")
+anthony2.photo.attach(io: photo_anthony2, filename: 'anthony2.jpg', content_type: 'image/jpg')
+anthony2.save
+
+nick2 = User.new(company: company2, city: zagreb, email: 'nick2@exciting.remost', password: 123456, first_name: 'Nick2', last_name: 'Bain2', job_title: 'Central Ideation Consultant', department: 'Sales', languages: ['English', 'Spanish', 'Polish'], open_to: ['💻 Working together/side-by-side', '🏃 Weekend activity/meal', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
+photo_nick2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167133/ReMost/nick_h8ojzb.jpg")
+nick2.photo.attach(io: photo_nick2, filename: 'nick2.jpg', content_type: 'image/jpg')
+nick2.save
+
+beatriz2 = User.new(company: company2, city: budapest, email: 'beatriz2@exciting.remost', password: 123456, first_name: 'Beatriz2', last_name: 'Bakker2', job_title: 'Product Accountability Senior Intern', department: 'Product', languages: ['English', 'Spanish', 'Dutch'], open_to: ['💡 Brainstorming', '🍲 Dinner'], slack_user: 'U03PQD9E3M1')
+photo_beatriz2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167131/ReMost/beatriz_chy5wd.jpg")
+beatriz2.photo.attach(io: photo_beatriz2, filename: 'beatriz2.jpg', content_type: 'image/jpg')
+beatriz2.save
+
+pavel2 = User.new(company: company2, city: prague, email: 'pavel2@exciting.remost', password: 123456, first_name: 'Pavel2', last_name: 'Ivanov2', job_title: 'Legacy Quality Planner', department: 'Product', languages: ['English', 'Russian'], open_to: ['☕ Coffee', '💬 Casual chat', '🤝 Networking at an event'], slack_user: 'U03PQD9E3M1')
+photo_pavel2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167129/ReMost/pavel_b5koft.jpg")
+pavel2.photo.attach(io: photo_pavel2, filename: 'pavel2.jpg', content_type: 'image/jpg')
+pavel2.save
+
+sam2 = User.new(company: company2, city: bratislava, email: 'sam2@exciting.remost', password: 123456, first_name: 'Sam2', last_name: 'Byrne2', job_title: 'Dynamic Product Specialist', department: 'Product', languages: ['English', 'Irish Gaelic'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '🍲 Lunch'], slack_user: 'U03PQD9E3M1')
+photo_sam2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167129/ReMost/sam_qszf4c.jpg")
+sam2.photo.attach(io: photo_sam2, filename: 'sam2.jpg', content_type: 'image/jpg')
+sam2.save
+
+ed2 = User.new(company: company2, city: vienna, email: 'ed2@exciting.remost', password: 123456, first_name: 'Ed2', last_name: 'Wilson2', job_title: 'Senior Accounting Orchestrator', department: 'Finance', languages: ['English', 'French'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
+photo_ed2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167130/ReMost/ed_qa6h4m.jpg")
+ed2.photo.attach(io: photo_ed2, filename: 'ed2.jpg', content_type: 'image/jpg')
+ed2.save
+
+charlie2 = User.new(company: company2, city: bratislava, email: 'charlie2@exciting.remost', password: 123456, first_name: 'Charlie2', last_name: 'Rossi2', job_title: 'Head of Corporate Resonance', department: 'Sales', languages: ['English', 'Italian'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
+photo_charlie2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250945/ReMost/charlie_valtn3.jpg")
+charlie2.photo.attach(io: photo_charlie2, filename: 'charlie2.jpg', content_type: 'image/jpg')
+charlie2.save
+
+mina2 = User.new(company: company2, city: rome, email: 'mina2@exciting.remost', password: 123456, first_name: 'Mina2', last_name: 'Heikkinnen2', job_title: 'Sales Quality Representative', department: 'Sales', languages: ['English', 'Finnish'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
+photo_mina2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663252324/ReMost/mina_axghpx.jpg")
+mina2.photo.attach(io: photo_mina2, filename: 'mina2.jpg', content_type: 'image/jpg')
+mina2.save
+
+anton2 = User.new(company: company2, city: prague, email: 'anton2@exciting.remost', password: 123456, first_name: 'Anton2', last_name: 'Schmid2', job_title: 'Talent Security Director', department: 'HR', languages: ['English', 'Spanish', 'German'], open_to: ['💡 Brainstorming', '☕ Coffee', '🏃 Weekend activity/meal'], slack_user: 'U03PQD9E3M1')
+photo_anton2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/anton_y5x87w.jpg")
+anton2.photo.attach(io: photo_anton2, filename: 'anton2.jpg', content_type: 'image/jpg')
+anton2.save
+
+ina2 = User.new(company: company2, city: zagreb, email: 'ina2@exciting.remost', password: 123456, first_name: 'Ina2', last_name: 'Demir2', job_title: 'Interactive Identity Agent', department: 'HR', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
+photo_ina2 = URI.open("https://res.cloudina2ry.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
+ina2.photo.attach(io: photo_ina2, filename: 'ina2.jpg', content_type: 'image/jpg')
+ina2.save
+
+anjali2 = User.new(company: company2, city: prague, email: 'anjali2@exciting.remost', password: 123456, first_name: 'Anjali2', last_name: 'Adhvaryu2', job_title: 'Product Growth Marketing Branding Officer', department: 'Marketing', languages: ['English', 'Gujarati'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🥐 Breakfast'], slack_user: 'U03PQD9E3M1')
+photo_anjali2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250946/ReMost/anjali_hzmb7s.jpg")
+anjali2.photo.attach(io: photo_anjali2, filename: 'anjali2.jpg', content_type: 'image/jpg')
+anjali2.save
+
+aakash2 = User.new(company: company2, city: rome, email: 'aakash2@exciting.remost', password: 123456, first_name: 'Aakash2', last_name: 'Patel2', job_title: 'Senior Full-end Engineer', department: 'Engineering', languages: ['English', 'Hindi'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
+photo_aakash2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/aakash_xozrhi.jpg")
+aakash2.photo.attach(io: photo_aakash2, filename: 'aakash2.jpg', content_type: 'image/jpg')
+aakash2.save
+
+paul2 = User.new(company: company2, city: rome, email: 'paul2@exciting.remost', password: 123456, first_name: 'Paul2', last_name: 'Harris2', job_title: 'Relational Java Associate', department: 'Engineering', languages: ['English', 'Portuguese'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
+photo_paul2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250949/ReMost/paul_po3owz.jpg")
+paul2.photo.attach(io: photo_paul2, filename: 'paul2.jpg', content_type: 'image/jpg')
+paul2.save
+
+fang2 = User.new(company: company2, city: budapest, email: 'fang2@exciting.remost', password: 123456, first_name: 'Fang2', last_name: 'Zhang2', job_title: 'Global Legal Intern', department: 'Admin', languages: ['English', 'Portuguese'], open_to: ['💻 Working together/side-by-side', '☕ Coffee'], slack_user: 'U03PQD9E3M1')
+photo_fang2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250946/ReMost/fang_nxua1d.jpg")
+fang2.photo.attach(io: photo_fang2, filename: 'fang2.jpg', content_type: 'image/jpg')
+fang2.save
+
+alba2 = User.new(company: company2, city: budapest, email: 'alba2@exciting.remost', password: 123456, first_name: 'Alba2', last_name: 'Perez2', job_title: 'Lead Travel Administrator', department: 'HR', languages: ['English', 'Spanish'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
+photo_alba2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250944/ReMost/alba_x57tnn.jpg")
+alba2.photo.attach(io: photo_alba2, filename: 'alba2.jpg', content_type: 'image/jpg')
+alba2.save
+
+effia2 = User.new(company: company2, city: prague, email: 'effia2@exciting.remost', password: 123456, first_name: 'Effia2', last_name: 'Akakpo2', job_title: 'Lead Growth Engineer', department: 'Sales', languages: ['English', 'French'], open_to: ['💻 Working together/side-by-side', '☕ Coffee', '🏃 Weekend activity/meal'], slack_user: 'U03PQD9E3M1')
+photo_effia2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250948/ReMost/effia_rs3q3v.jpg")
+effia2.photo.attach(io: photo_effia2, filename: 'effia2.jpg', content_type: 'image/jpg')
+effia2.save
+
+benjamin2 = User.new(company: company2, city: budapest, email: 'benjamin2@exciting.remost', password: 123456, first_name: 'Benjamin2', last_name: 'Muller2', job_title: 'Technical Debt Designer', department: 'Product', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '💬 Casual chat', '🍻 Drinks'], slack_user: 'U03PQD9E3M1')
+photo_benjamin2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250947/ReMost/benjamin_sgqp4o.jpg")
+benjamin2.photo.attach(io: photo_benjamin2, filename: 'benjamin2.jpg', content_type: 'image/jpg')
+benjamin2.save
 
 
 
 ## TRIPS - originally created for Demo Day, for days of SEPT 21, then 22, then 23 (more people there)
+
+##################  COMPANY 1 - TRIPS ##################
 
 trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
 trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
@@ -218,14 +372,44 @@ trip21 = Trip.create!(user: marion, city: amsterdam, start_date: 'Mon, 21 Nov 20
 trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
 
 
+################## COMPANY 2 - TRIPS (cloned users, same cities, same dates) ##################
+
+trip1 = Trip.create!(user: john2, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
+trip2 = Trip.create!(user: bob2, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
+trip3 = Trip.create!(user: jeanne2, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
+trip4 = Trip.create!(user: leah2, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
+
+trip5 = Trip.create!(user: anastasia2, city: london, start_date: 'Thu, 15 Sept 2022', end_date: 'Tue, 20 Sept 2022')
+trip7 = Trip.create!(user: anastasia2, city: paris, start_date: 'Wed, 21 Sept 2022', end_date: 'Mon, 26 Sept 2022')
+trip8 = Trip.create!(user: anastasia2, city: madrid, start_date: 'Tue, 27 Sept 2022', end_date: 'Fri, 30 Sept 2022')
+trip9 = Trip.create!(user: anastasia2, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
+trip10 = Trip.create!(user: anastasia2, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
+trip11 = Trip.create!(user: anastasia2, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
+
+trip12 = Trip.create!(user: leah2, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
+trip13 = Trip.create!(user: jeanne2, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip14 = Trip.create!(user: bob2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip15 = Trip.create!(user: sam2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
+trip16 = Trip.create!(user: ed2, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
+trip17 = Trip.create!(user: pavel2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
+trip18 = Trip.create!(user: anthony2, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
+
+trip19 = Trip.create!(user: marion2, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
+trip20 = Trip.create!(user: marion2, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
+trip21 = Trip.create!(user: marion2, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
+trip22 = Trip.create!(user: marion2, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
+
+
 
 
 ## PLACES
 
+################## USED FOR TIPS BY BOTH USERS OF COMPANY1 AND COMPANY2 ##################
+
 place1 = Place.create!(location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
 place2 = Place.create!(location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
 place3 = Place.create!(location: '33 Rue La Fayette, 75009 Paris', city: paris, name: 'WeWork Lafayette', category: '💻 Coworking')
-place4 = Place.create!(location: 'Gracechurch St, London EC3V 1LT', city: paris, name: 'Leadenhall Market', category: '🎭 Cultural')
+place4 = Place.create!(location: 'Gracechurch St, London EC3V 1LT', city: london, name: 'Leadenhall Market', category: '🎭 Cultural')
 place5 = Place.create!(location: '51 Roman Rd, Bethnal Green, London E2 0HU', city: london, name: 'London Buddhist Centre', category: '🛐 Worship')
 place6 = Place.create!(location: '47-48, Temple Bar, Dublin 2, D02 N725', city: dublin, name: 'Temple Bar Pub', category: '🍹 Bar')
 place7 = Place.create!(location: "Pl. de l'Atomium 1, 1020 Brussels", city: brussels, name: 'Atomium', category: '🎨 Art')
@@ -247,7 +431,9 @@ place21 = Place.create!(location: 'Pl. de la Bataille de Stalingrad, 75019 Paris
 
 
 
-# ## TIPS
+## TIPS
+
+################## TIPS BY USERS OF COMPANY1 (AirBnBeer) ##################
 tip1 = Tip.create!(user: john, place: place1, content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5)
 tip2 = Tip.create!(user: john, place: place2, content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4)
 tip3 = Tip.create!(user: bob, place: place3, content: 'Just the best (and most beautiful!) WeWork in Paris! Half the remote workers travelling to Paris stop there at some point.', rating: 5)
@@ -273,6 +459,34 @@ tip18 = Tip.create!(user: sam, place: place18, content: "Some say it's the best 
 tip19 = Tip.create!(user: ed, place: place19, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
 tip20 = Tip.create!(user: nick, place: place20, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
 tip21 = Tip.create!(user: beatriz, place: place21, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
+
+
+################## TIPS BY USERS OF COMPANY2 (TheExcitingCompany) ##################
+tip1 = Tip.create!(user: john2, place: place1, content: 'Just amazing, despite the ongoing works after the big fire. Strongly recommended!', rating: 5)
+tip2 = Tip.create!(user: john2, place: place2, content: 'Cheap food, in a typical Parisian bistro atmosphere. Beautiful, but queues can be veeery long.', rating: 4)
+tip3 = Tip.create!(user: bob2, place: place3, content: 'Just the best (and most beautiful!) WeWork in Paris! Half the remote workers travelling to Paris stop there at some point.', rating: 5)
+tip4 = Tip.create!(user: jeanne2, place: place4, content: 'Very Harry-Potteresque, but full of bankers having a pint after work. Worth a quick visit.', rating: 4)
+tip5 = Tip.create!(user: leah2, place: place5, content: 'My favourite temple in London by far! Everyone is lovely.', rating: 5)
+tip6 = Tip.create!(user: leah2, place: place6, content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4)
+tip7 = Tip.create!(user: anastasia2, place: place7, content: 'Nice to see at least once, but some will be disappointed...', rating: 3)
+tip8 = Tip.create!(user: anastasia2, place: place8, content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5)
+
+tip9 = Tip.create!(user: sam2, place: place9, content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8)
+tip10 = Tip.create!(user: bertrand2, place: place10, content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9)
+tip11 = Tip.create!(user: nick2, place: place11, content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9)
+
+tip12 = Tip.create!(user: pavel2, place: place12, content: "Go at least once!", rating: 8)
+tip13 = Tip.create!(user: beatriz2, place: place13, content: "My favorite coworking space in the city.", rating: 8)
+tip14 = Tip.create!(user: ed2, place: place14, content: "One of the best restaurants I've ever been to!", rating: 9)
+
+tip15 = Tip.create!(user: beatriz2, place: place15, content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9)
+tip16 = Tip.create!(user: anthony2, place: place16, content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9)
+tip17 = Tip.create!(user: anastasia2, place: place17, content: "Decent CoWorking Space", rating: 7)
+
+tip18 = Tip.create!(user: sam2, place: place18, content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8)
+tip19 = Tip.create!(user: ed2, place: place19, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
+tip20 = Tip.create!(user: nick2, place: place20, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
+tip21 = Tip.create!(user: beatriz2, place: place21, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
 
 
 # # BOOKMARKED PLACES

@@ -14,6 +14,16 @@
   opacity: 0.6;
 }
 
+.btn-outline-grey {
+  color: lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.btn-outline-grey:hover {
+  color: black;
+  border: 1px solid black;
+}
+
 .btn-pink {
   background-color: $pink-orange;
   color: white;

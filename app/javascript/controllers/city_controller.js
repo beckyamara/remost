@@ -19,7 +19,7 @@ export default class extends Controller {
 
     if (this.placesMarkersValue.length == 0) {
       config.center = [this.cityValue.longitude, this.cityValue.latitude]
-      config.zoom = 10
+      config.zoom = 12
     }
 
     this.city = new mapboxgl.Map(config)

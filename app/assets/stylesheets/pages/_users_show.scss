@@ -1,3 +1,4 @@
+
 .fa-chevron-left, .fa-earth-americas {
   color: $pink-orange;
   text-decoration: none;
@@ -18,14 +19,14 @@
 
 
   .profile-page-photo {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
     border-radius: 50%;
   }
 
   .profile-info {
-    height: 550px;
+    height: 600px;
     width: 50%;
     background-color: white;
     padding: 30px;
@@ -49,11 +50,16 @@
 
       .job-title {
         font-weight: lighter;
-        font-size: 18px;
+        font-size: 20px;
+      }
+
+      .department {
+        font-weight: lighter;
+        font-size: 15px;
       }
 
       .under-photo {
-        width: 200px;
+        width: 240px;
       }
     }
 
@@ -108,7 +114,7 @@
   text-align: center;
 
   width: 50%;
-  height: 550px;
+  height: 600px;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
   border-radius: 8px;
 
