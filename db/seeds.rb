@@ -17,7 +17,7 @@ Company.destroy_all
 ## COMPANIES
 
 company1 = Company.create!(name: "AirBnBeer", slack_sub_domain: "T02NE0241", email_domain: "@airbnbeer.remost", company_code: "abcd123")
-company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd123")
+company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd1234")
 
 
 
