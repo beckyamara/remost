@@ -301,7 +301,7 @@ anton2.photo.attach(io: photo_anton2, filename: 'anton2.jpg', content_type: 'ima
 anton2.save
 
 ina2 = User.new(company: company2, city: zagreb, email: 'ina2@exciting.remost', password: 123456, first_name: 'Ina2', last_name: 'Demir2', job_title: 'Interactive Identity Agent', department: 'HR', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_ina2 = URI.open("https://res.cloudina2ry.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
+photo_ina2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
 ina2.photo.attach(io: photo_ina2, filename: 'ina2.jpg', content_type: 'image/jpg')
 ina2.save
 

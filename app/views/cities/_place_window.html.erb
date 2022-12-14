@@ -4,6 +4,23 @@
     <%= link_to "https://www.google.com/maps/search/#{place.location}", target: :_blank do %>
       <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
     <% end %>
+
+    <% if current_user.bookmarked_place?(place) %>
+      <%= link_to  bookmarked_place_unfavourite_path(current_user.bookmarked_places.where(place_id: place.id).first), data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
+        <i class="fa-solid fa-heart"></i>
+      <% end %>
+      <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"}, class:"d-none" do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to  "/bookmarked_places/id/unfavourite", data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
+        <i class="fa-solid fa-heart"></i>
+      <% end %>
+      <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"} do %>
+        <i class="fa-regular fa-heart"></i>
+      <% end %>
+    <% end %>
+
   </p>
 
   <p class="tip-content">

@@ -1,6 +1,6 @@
 class BookmarkedPlace < ApplicationRecord
-  # belongs_to :tip
-  # belongs_to :user
+  belongs_to :place
+  belongs_to :user
 
   # scope :filter_by_city, ->(city) { where "tip.city.name ILIKE ?", "%#{city}%" }
   # scope :filter_by_category, ->(category) { where("tip.category ILIKE ?", "%#{category}%") }
