@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_12_111815) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_14_100223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_111815) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "bookmarked_places", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "place_id", null: false
+    t.index ["place_id"], name: "index_bookmarked_places_on_place_id"
+    t.index ["user_id"], name: "index_bookmarked_places_on_user_id"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -130,6 +139,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_12_111815) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bookmarked_places", "places"
+  add_foreign_key "bookmarked_places", "users"
   add_foreign_key "cities", "companies"
   add_foreign_key "companies", "users", column: "admin_id"
   add_foreign_key "places", "cities"

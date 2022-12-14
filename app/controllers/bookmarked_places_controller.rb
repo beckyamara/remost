@@ -10,20 +10,19 @@ class BookmarkedPlacesController < ApplicationController
     # @saved_tips = @bookmarked_places.filter_by_user(params[:user]) if params[:user].present?
     # @saved_tips = @bookmarked_places.filter_by_rating(params[:rating]) if params[:rating].present?
 
-
-    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.tip.city.name == params[:city] } if params[:city].present?
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.city.name == params[:city] } if params[:city].present?
     @bookmarked_places_cities = []
-    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.tip.city.id, "name" => b.tip.city.name})}
+    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.place.city.id, "name" => b.place.city.name})}
     @bookmarked_places_cities = @bookmarked_places_cities.uniq
   end
 
   def favourite
     @bookmarked_place = BookmarkedPlace.new
-    @bookmarked_place.tip = set_tip
+    @bookmarked_place.place = set_place
     @bookmarked_place.user = current_user || params[:user_id]
     respond_to do |format|
       if @bookmarked_place.save
-        format.html { redirect_to city_path(@bookmarked_place.tip.city) }
+        format.html { redirect_to city_path(@bookmarked_place.place.city) }
         format.json { render json: { message: @bookmarked_place.id } }
       else
         format.html { render :show, status: :unproccessable_entity }
@@ -43,7 +42,7 @@ class BookmarkedPlacesController < ApplicationController
 
   private
 
-  def set_tip
-    Tip.find(params[:tip_id])
+  def set_place
+    Place.find(params[:place_id])
   end
 end

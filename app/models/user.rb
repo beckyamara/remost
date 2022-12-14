@@ -17,7 +17,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_one_attached :photo
-  # has_many :bookmarked_places
+  has_many :bookmarked_places
   # has_many :bookmarked_users
   has_many :tips
   has_many :trips, -> { order(start_date: :asc) }
@@ -46,8 +46,8 @@ class User < ApplicationRecord
     end
   end
 
-  def bookmarked_tip?(tip)
-    bookmarked_places.map(&:tip).include?(tip)
+  def bookmarked_place?(place)
+    bookmarked_places.map(&:place).include?(place)
   end
 
   # def create_city
