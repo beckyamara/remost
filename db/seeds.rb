@@ -25,70 +25,70 @@ company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0
 
 ################## CITIES NEEDED FOR COMPANY1 & COMPANY2 ##################
 photo_paris = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-paris = City.create!(name: 'Paris, France', flag: '🇫🇷', company: company1)
+paris = City.create!(name: 'Paris, France', flag: '🇫🇷')
 paris.photo.attach(io: photo_paris, filename: 'paris.jpg', content_type: 'image/jpg')
 
 photo_london = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485636/ReMost/london_krq8d9.jpg")
-london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧', company: company1)
+london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧')
 london.photo.attach(io: photo_london, filename: 'london.jpg', content_type: 'image/jpg')
 
 photo_dublin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/dublin_jyz38h.jpg")
-dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪', company: company1)
+dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪')
 dublin.photo.attach(io: photo_dublin, filename: 'dublin.jpg', content_type: 'image/jpg')
 
 photo_brussels = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/brussels_swwscr.jpg")
-brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪', company: company1)
+brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪')
 brussels.photo.attach(io: photo_brussels, filename: 'brussels.jpg', content_type: 'image/jpg')
 
 photo_amsterdam = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/amsterdam_jhskkq.jpg")
-amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱', company: company1)
+amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱')
 amsterdam.photo.attach(io: photo_amsterdam, filename: 'amsterdam.jpg', content_type: 'image/jpg')
 
 photo_madrid = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167188/ReMost/madrid_qrov1i.jpg")
-madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸', company: company1)
+madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸')
 madrid.photo.attach(io: photo_madrid, filename: 'madrid.jpg', content_type: 'image/jpg')
 
 photo_lisbon = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167187/ReMost/lisbon_dqf5ut.jpg")
-lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹', company: company1)
+lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹')
 lisbon.photo.attach(io: photo_lisbon, filename: 'lisbon.jpg', content_type: 'image/jpg')
 
 photo_berlin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/berlin_ot0dou.jpg")
-berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪', company: company1)
+berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪')
 berlin.photo.attach(io: photo_berlin, filename: 'berlin.jpg', content_type: 'image/jpg')
 
 photo_zurich = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/zurich_oa9z3r.jpg")
-zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭', company: company1)
+zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭')
 zurich.photo.attach(io: photo_zurich, filename: 'zurich.jpg', content_type: 'image/jpg')
 
 photo_copenhagen = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/copenhagen_qzhsoa.jpg")
-copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰', company: company1)
+copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰')
 copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', content_type: 'image/jpg')
 
 
 ################## CITIES NEEDED ONLY FOR COMPANY2 (TheExcitingCompany) ##################
 
 photo_rome = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/rome_kupdrz.jpg")
-rome = City.create!(name: 'Rome, Rome, Italy', flag: '🇮🇹', company: company2)
+rome = City.create!(name: 'Rome, Rome, Italy', flag: '🇮🇹')
 rome.photo.attach(io: photo_rome, filename: 'rome.jpg', content_type: 'image/jpg')
 
 photo_prague = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/prague_ro6uc0.jpg")
-prague = City.create!(name: 'Prague, Prague, Czech Republic', flag: '🇨🇿', company: company2)
+prague = City.create!(name: 'Prague, Prague, Czech Republic', flag: '🇨🇿')
 prague.photo.attach(io: photo_prague, filename: 'prague.jpg', content_type: 'image/jpg')
 
 photo_bratislava = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506420/ReMost/bratislava_bd9rdv.jpg")
-bratislava = City.create!(name: 'Bratislava, Bratislava, Slovakia', flag: '🇸🇰', company: company2)
+bratislava = City.create!(name: 'Bratislava, Bratislava, Slovakia', flag: '🇸🇰')
 bratislava.photo.attach(io: photo_bratislava, filename: 'bratislava.jpg', content_type: 'image/jpg')
 
 photo_zagreb = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506419/ReMost/zagreb_pi7rmf.jpg")
-zagreb = City.create!(name: 'Zagreb, Zagreb, Croatia', flag: '🇭🇷', company: company2)
+zagreb = City.create!(name: 'Zagreb, Zagreb, Croatia', flag: '🇭🇷')
 zagreb.photo.attach(io: photo_zagreb, filename: 'zagreb.jpg', content_type: 'image/jpg')
 
 photo_vienna = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/vienna_d0jgf9.jpg")
-vienna = City.create!(name: 'Vienna, Austria', flag: '🇦🇹', company: company2)
+vienna = City.create!(name: 'Vienna, Austria', flag: '🇦🇹')
 vienna.photo.attach(io: photo_vienna, filename: 'vienna.jpg', content_type: 'image/jpg')
 
 photo_budapest = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/budapest_fu9gro.jpg")
-budapest = City.create!(name: 'Budapest, Hungary', flag: '🇭🇺', company: company2)
+budapest = City.create!(name: 'Budapest, Hungary', flag: '🇭🇺')
 budapest.photo.attach(io: photo_budapest, filename: 'budapest.jpg', content_type: 'image/jpg')
 
 
