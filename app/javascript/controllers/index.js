@@ -16,17 +16,20 @@ application.register("city-autocomplete", CityAutocompleteController)
 import CityController from "./city_controller"
 application.register("city", CityController)
 
+import EndDateController from "./end_date_controller"
+application.register("end-date", EndDateController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import HiddenFieldController from "./hidden_field_controller"
+application.register("hidden-field", HiddenFieldController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
 
 import PasswordChangeController from "./password_change_controller"
 application.register("password-change", PasswordChangeController)
-
-import HiddenFieldController from "./hidden_field_controller"
-application.register("hidden-field", HiddenFieldController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
