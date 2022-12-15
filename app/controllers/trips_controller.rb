@@ -25,7 +25,7 @@ class TripsController < ApplicationController
         @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
       end
       unsplash_key = ENV.fetch('UNSPLASH_ACCESS_KEY')
-      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination.split(',').first)} architecture&orientation=portrait&client_id=#{unsplash_key}"
+      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination.split(',').first)}&orientation=portrait&client_id=#{unsplash_key}"
       @response = RestClient.get(@url)
       @response_parsed = JSON.parse(@response)
       if @response_parsed["total"].zero?
@@ -67,7 +67,7 @@ class TripsController < ApplicationController
         @flag = row['Emoji'] if trip_params[:destination].split(",").map(&:strip).last == row['Name']
       end
       unsplash_key = ENV.fetch('UNSPLASH_ACCESS_KEY')
-      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination.split(',').first)} architecture&orientation=portrait&client_id=#{unsplash_key}"
+      @url = "https://api.unsplash.com/search/photos?query=#{I18n.transliterate(@trip.destination.split(',').first)}&orientation=portrait&client_id=#{unsplash_key}"
       @response = RestClient.get(@url)
       @response_parsed = JSON.parse(@response)
       if @response_parsed["total"].zero?

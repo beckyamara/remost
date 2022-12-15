@@ -17,7 +17,7 @@ Company.destroy_all
 ## COMPANIES
 
 company1 = Company.create!(name: "AirBnBeer", slack_sub_domain: "T02NE0241", email_domain: "@airbnbeer.remost", company_code: "abcd123")
-company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd123")
+company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd124")
 
 
 
@@ -25,70 +25,70 @@ company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0
 
 ################## CITIES NEEDED FOR COMPANY1 & COMPANY2 ##################
 photo_paris = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485634/ReMost/paris_id5nmp.jpg")
-paris = City.create!(name: 'Paris, France', flag: '🇫🇷', company: company1)
+paris = City.create!(name: 'Paris, France', flag: '🇫🇷')
 paris.photo.attach(io: photo_paris, filename: 'paris.jpg', content_type: 'image/jpg')
 
 photo_london = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485636/ReMost/london_krq8d9.jpg")
-london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧', company: company1)
+london = City.create!(name: 'London, Greater London, England, United Kingdom', flag: '🇬🇧')
 london.photo.attach(io: photo_london, filename: 'london.jpg', content_type: 'image/jpg')
 
 photo_dublin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/dublin_jyz38h.jpg")
-dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪', company: company1)
+dublin = City.create!(name: 'Dublin, Ireland', flag: '🇮🇪')
 dublin.photo.attach(io: photo_dublin, filename: 'dublin.jpg', content_type: 'image/jpg')
 
 photo_brussels = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485635/ReMost/brussels_swwscr.jpg")
-brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪', company: company1)
+brussels = City.create!(name: 'Brussels, Brussels-Capital, Belgium', flag: '🇧🇪')
 brussels.photo.attach(io: photo_brussels, filename: 'brussels.jpg', content_type: 'image/jpg')
 
 photo_amsterdam = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1662485632/ReMost/amsterdam_jhskkq.jpg")
-amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱', company: company1)
+amsterdam = City.create!(name: 'Amsterdam, Amsterdam, North Holland, Netherlands', flag: '🇳🇱')
 amsterdam.photo.attach(io: photo_amsterdam, filename: 'amsterdam.jpg', content_type: 'image/jpg')
 
 photo_madrid = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167188/ReMost/madrid_qrov1i.jpg")
-madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸', company: company1)
+madrid = City.create!(name: 'Madrid, Madrid, Spain', flag: '🇪🇸')
 madrid.photo.attach(io: photo_madrid, filename: 'madrid.jpg', content_type: 'image/jpg')
 
 photo_lisbon = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167187/ReMost/lisbon_dqf5ut.jpg")
-lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹', company: company1)
+lisbon = City.create!(name: 'Lisbon, Lisbon, Portugal', flag: '🇵🇹')
 lisbon.photo.attach(io: photo_lisbon, filename: 'lisbon.jpg', content_type: 'image/jpg')
 
 photo_berlin = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/berlin_ot0dou.jpg")
-berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪', company: company1)
+berlin = City.create!(name: 'Berlin, Germany', flag: '🇩🇪')
 berlin.photo.attach(io: photo_berlin, filename: 'berlin.jpg', content_type: 'image/jpg')
 
 photo_zurich = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/zurich_oa9z3r.jpg")
-zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭', company: company1)
+zurich = City.create!(name: 'Zurich, Zürich, Switzerland', flag: '🇨🇭')
 zurich.photo.attach(io: photo_zurich, filename: 'zurich.jpg', content_type: 'image/jpg')
 
 photo_copenhagen = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/copenhagen_qzhsoa.jpg")
-copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰', company: company1)
+copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰')
 copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', content_type: 'image/jpg')
 
 
 ################## CITIES NEEDED ONLY FOR COMPANY2 (TheExcitingCompany) ##################
 
 photo_rome = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/rome_kupdrz.jpg")
-rome = City.create!(name: 'Rome, Rome, Italy', flag: '🇮🇹', company: company2)
+rome = City.create!(name: 'Rome, Rome, Italy', flag: '🇮🇹')
 rome.photo.attach(io: photo_rome, filename: 'rome.jpg', content_type: 'image/jpg')
 
 photo_prague = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506416/ReMost/prague_ro6uc0.jpg")
-prague = City.create!(name: 'Prague, Prague, Czech Republic', flag: '🇨🇿', company: company2)
+prague = City.create!(name: 'Prague, Prague, Czech Republic', flag: '🇨🇿')
 prague.photo.attach(io: photo_prague, filename: 'prague.jpg', content_type: 'image/jpg')
 
 photo_bratislava = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506420/ReMost/bratislava_bd9rdv.jpg")
-bratislava = City.create!(name: 'Bratislava, Bratislava, Slovakia', flag: '🇸🇰', company: company2)
+bratislava = City.create!(name: 'Bratislava, Bratislava, Slovakia', flag: '🇸🇰')
 bratislava.photo.attach(io: photo_bratislava, filename: 'bratislava.jpg', content_type: 'image/jpg')
 
 photo_zagreb = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506419/ReMost/zagreb_pi7rmf.jpg")
-zagreb = City.create!(name: 'Zagreb, Zagreb, Croatia', flag: '🇭🇷', company: company2)
+zagreb = City.create!(name: 'Zagreb, Zagreb, Croatia', flag: '🇭🇷')
 zagreb.photo.attach(io: photo_zagreb, filename: 'zagreb.jpg', content_type: 'image/jpg')
 
 photo_vienna = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/vienna_d0jgf9.jpg")
-vienna = City.create!(name: 'Vienna, Austria', flag: '🇦🇹', company: company2)
+vienna = City.create!(name: 'Vienna, Austria', flag: '🇦🇹')
 vienna.photo.attach(io: photo_vienna, filename: 'vienna.jpg', content_type: 'image/jpg')
 
 photo_budapest = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1670506417/ReMost/budapest_fu9gro.jpg")
-budapest = City.create!(name: 'Budapest, Hungary', flag: '🇭🇺', company: company2)
+budapest = City.create!(name: 'Budapest, Hungary', flag: '🇭🇺')
 budapest.photo.attach(io: photo_budapest, filename: 'budapest.jpg', content_type: 'image/jpg')
 
 
@@ -301,7 +301,7 @@ anton2.photo.attach(io: photo_anton2, filename: 'anton2.jpg', content_type: 'ima
 anton2.save
 
 ina2 = User.new(company: company2, city: zagreb, email: 'ina2@exciting.remost', password: 123456, first_name: 'Ina2', last_name: 'Demir2', job_title: 'Interactive Identity Agent', department: 'HR', languages: ['English', 'German'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💡 Brainstorming'], slack_user: 'U03PQD9E3M1')
-photo_ina2 = URI.open("https://res.cloudina2ry.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
+photo_ina2 = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663250953/ReMost/ina_xb7fb4.jpg")
 ina2.photo.attach(io: photo_ina2, filename: 'ina2.jpg', content_type: 'image/jpg')
 ina2.save
 
@@ -346,60 +346,58 @@ benjamin2.save
 
 ##################  COMPANY 1 - TRIPS ##################
 
-trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
-trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
-trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
+trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sun, 15 Jan 2023', end_date: 'Tue, 31 Jan 2023')
+trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Wed, 01 Feb 2023', end_date: 'Sat, 18 Feb 2023')
+trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 26 Mar 2023')
+trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Mon, 6 Mar 2023', end_date: 'Thu, 16 Mar 2023')
 
-trip5 = Trip.create!(user: anastasia, city: london, start_date: 'Thu, 15 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip7 = Trip.create!(user: anastasia, city: paris, start_date: 'Wed, 21 Sept 2022', end_date: 'Mon, 26 Sept 2022')
-trip8 = Trip.create!(user: anastasia, city: madrid, start_date: 'Tue, 27 Sept 2022', end_date: 'Fri, 30 Sept 2022')
-trip9 = Trip.create!(user: anastasia, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
-trip10 = Trip.create!(user: anastasia, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip11 = Trip.create!(user: anastasia, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
+trip5 = Trip.create!(user: anastasia, city: london, start_date: 'Sun, 15 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip7 = Trip.create!(user: anastasia, city: paris, start_date: 'Sat, 21 Jan 2023', end_date: 'Thu, 26 Jan 2023')
+trip8 = Trip.create!(user: anastasia, city: madrid, start_date: 'Fri, 27 Jan 2023', end_date: 'Mon, 30 Jan 2023')
+trip9 = Trip.create!(user: anastasia, city: zurich, start_date: 'Sat, 18 Feb 2023', end_date: 'Thu, 23 Feb 2023')
+trip10 = Trip.create!(user: anastasia, city: amsterdam, start_date: 'Fri, 24 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip11 = Trip.create!(user: anastasia, city: copenhagen, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 19 Mar 2023')
 
-trip12 = Trip.create!(user: leah, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip13 = Trip.create!(user: jeanne, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip14 = Trip.create!(user: bob, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip15 = Trip.create!(user: sam, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip16 = Trip.create!(user: ed, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip17 = Trip.create!(user: pavel, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
-trip18 = Trip.create!(user: anthony, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
+trip12 = Trip.create!(user: leah, city: london, start_date: 'Mon, 20 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip13 = Trip.create!(user: jeanne, city: paris, start_date: 'Sun, 22 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip14 = Trip.create!(user: bob, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip15 = Trip.create!(user: sam, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip16 = Trip.create!(user: ed, city: london, start_date: 'Tue, 17 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip17 = Trip.create!(user: pavel, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sun, 29 Jan 2023')
+trip18 = Trip.create!(user: anthony, city: dublin, start_date: 'Wed, 01 Feb 2023', end_date: 'Wed, 8 Feb 2023')
 
-trip19 = Trip.create!(user: marion, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip20 = Trip.create!(user: marion, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
-trip21 = Trip.create!(user: marion, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
+trip19 = Trip.create!(user: marion, city: dublin, start_date: 'Fri, 17 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip20 = Trip.create!(user: marion, city: lisbon, start_date: 'Fri, 3 Mar 2023', end_date: 'Mon, 6 Mar 2023')
+trip21 = Trip.create!(user: marion, city: amsterdam, start_date: 'Tue, 21 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Sun, 2 Apr 2023', end_date: 'Tue, 11 Apr 2023')
 
 
 ################## COMPANY 2 - TRIPS (cloned users, same cities, same dates) ##################
 
-trip1 = Trip.create!(user: john2, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip2 = Trip.create!(user: bob2, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
-trip3 = Trip.create!(user: jeanne2, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
-trip4 = Trip.create!(user: leah2, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
+trip1 = Trip.create!(user: john2, city: dublin, start_date: 'Sun, 15 Jan 2023', end_date: 'Tue, 31 Jan 2023')
+trip2 = Trip.create!(user: bob2, city: brussels, start_date: 'Wed, 01 Feb 2023', end_date: 'Sat, 18 Feb 2023')
+trip3 = Trip.create!(user: jeanne2, city: amsterdam, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 26 Mar 2023')
+trip4 = Trip.create!(user: leah2, city: amsterdam, start_date: 'Mon, 6 Mar 2023', end_date: 'Thu, 16 Mar 2023')
 
-trip5 = Trip.create!(user: anastasia2, city: london, start_date: 'Thu, 15 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip7 = Trip.create!(user: anastasia2, city: paris, start_date: 'Wed, 21 Sept 2022', end_date: 'Mon, 26 Sept 2022')
-trip8 = Trip.create!(user: anastasia2, city: madrid, start_date: 'Tue, 27 Sept 2022', end_date: 'Fri, 30 Sept 2022')
-trip9 = Trip.create!(user: anastasia2, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
-trip10 = Trip.create!(user: anastasia2, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip11 = Trip.create!(user: anastasia2, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
+trip5 = Trip.create!(user: anastasia2, city: london, start_date: 'Sun, 15 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip7 = Trip.create!(user: anastasia2, city: paris, start_date: 'Sat, 21 Jan 2023', end_date: 'Thu, 26 Jan 2023')
+trip8 = Trip.create!(user: anastasia2, city: madrid, start_date: 'Fri, 27 Jan 2023', end_date: 'Mon, 30 Jan 2023')
+trip9 = Trip.create!(user: anastasia2, city: zurich, start_date: 'Sat, 18 Feb 2023', end_date: 'Thu, 23 Feb 2023')
+trip10 = Trip.create!(user: anastasia2, city: amsterdam, start_date: 'Fri, 24 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip11 = Trip.create!(user: anastasia2, city: copenhagen, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 19 Mar 2023')
 
-trip12 = Trip.create!(user: leah2, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip13 = Trip.create!(user: jeanne2, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip14 = Trip.create!(user: bob2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip15 = Trip.create!(user: sam2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip16 = Trip.create!(user: ed2, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip17 = Trip.create!(user: pavel2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
-trip18 = Trip.create!(user: anthony2, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
+trip12 = Trip.create!(user: leah2, city: london, start_date: 'Mon, 20 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip13 = Trip.create!(user: jeanne2, city: paris, start_date: 'Sun, 22 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip14 = Trip.create!(user: bob2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip15 = Trip.create!(user: sam2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip16 = Trip.create!(user: ed2, city: london, start_date: 'Tue, 17 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip17 = Trip.create!(user: pavel2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sun, 29 Jan 2023')
+trip18 = Trip.create!(user: anthony2, city: dublin, start_date: 'Wed, 01 Feb 2023', end_date: 'Wed, 8 Feb 2023')
 
-trip19 = Trip.create!(user: marion2, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip20 = Trip.create!(user: marion2, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
-trip21 = Trip.create!(user: marion2, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip22 = Trip.create!(user: marion2, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
-
-
+trip19 = Trip.create!(user: marion2, city: dublin, start_date: 'Fri, 17 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip20 = Trip.create!(user: marion2, city: lisbon, start_date: 'Fri, 3 Mar 2023', end_date: 'Mon, 6 Mar 2023')
+trip21 = Trip.create!(user: marion2, city: amsterdam, start_date: 'Tue, 21 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip22 = Trip.create!(user: marion2, city: madrid, start_date: 'Sun, 2 Apr 2023', end_date: 'Tue, 11 Apr 2023')
 
 
 ## PLACES
@@ -426,6 +424,28 @@ place18 = Place.create!(company: company1, location: "52 Rue de l'Hôtel de Vill
 place19 = Place.create!(company: company1, location: 'Jardin des Tuileries, Place de la Concorde, Paris, France', city: paris, name: 'Jardin des Tuileries', category: '🎾 Sports')
 place20 = Place.create!(company: company1, location: '17 rue Pajol, 75018 Paris, France', city: paris, name: 'Temple de Ganesh', category: '🛐 Worship')
 place21 = Place.create!(company: company1, location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', city: paris, name: 'Stalingrad (metro)', category: '🛡️ Safety')
+
+# place1 = Place.create!(location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
+# place2 = Place.create!(location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
+# place3 = Place.create!(location: '33 Rue La Fayette, 75009 Paris', city: paris, name: 'WeWork Lafayette', category: '💻 Coworking')
+# place4 = Place.create!(location: 'Gracechurch St, London EC3V 1LT', city: paris, name: 'Leadenhall Market', category: '🎭 Cultural')
+# place5 = Place.create!(location: '51 Roman Rd, Bethnal Green, London E2 0HU', city: london, name: 'London Buddhist Centre', category: '🛐 Worship')
+# place6 = Place.create!(location: '47-48, Temple Bar, Dublin 2, D02 N725', city: dublin, name: 'Temple Bar Pub', category: '🍹 Bar')
+# place7 = Place.create!(location: "Pl. de l'Atomium 1, 1020 Brussels", city: brussels, name: 'Atomium', category: '🎨 Art')
+# place8 = Place.create!(location: 'Botanic Building, Boulevard Saint-Lazare 4 Saint-Josse-ten-Noode, 1210 Brussels', city: brussels, name: 'WeWork Botanic', category: '💻 Coworking')
+# place9 = Place.create!(location: 'Rua Da Atalaia 8, 1200-041 Lisbon, Lisboa, Portugal', city: lisbon, name: 'Primero de Maio', category: '🍽️ Restaurant')
+# place10 = Place.create!(location: 'Av. 24 de Julho 49, 1200-479 Lisboa, Portugal', city: lisbon, name: 'TimeOut Market Lisbon', category: '🍽️ Restaurant')
+# place11 = Place.create!(location: 'R. de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal', city: lisbon, name: 'Castelo de S. Jorge', category: '🎭 Cultural')
+# place12 = Place.create!(location: 'Museumplein 10, 1071 DJ Amsterdam, Netherlands', city: amsterdam, name: 'Stedelijk Museum', category: '🎨 Art')
+# place13 = Place.create!(location: 'Herengracht 420, 1017 BZ Amsterdam, Netherlands', city: amsterdam, name: 'StartDock Coworking Herengracht', category: '💻 Coworking')
+# place14 = Place.create!(location: 'Daniël Stalpertstraat 103, 1072 XD Amsterdam, Netherlands', city: amsterdam, name: 'Restaurant Zazas', category: '🍽️ Restaurant')
+# place15 = Place.create!(location: 'B18-19 Parnell Square N, Rotunda, Dublin 1, D01 T3V8, Ireland', city: dublin, name: 'Chapter One', category: '🍽️ Restaurant')
+# place16 = Place.create!(location: '31 Dawson St, Dublin 2, D02 DR58, Ireland', city: dublin, name: 'Peruke & Periwig', category: '🍹 Bar')
+# place17 = Place.create!(location: '27 Camden Street Lower, Saint Kevins, Dublin 2, D02 NV09, Ireland', city: dublin, name: 'CoCreate South', category: '💻 Coworking')
+# place18 = Place.create!(location: "52 Rue de l'Hôtel de Ville, 75004 Paris, France", city: paris, name: 'The Caféothèque of Paris', category: '☕️ Café')
+# place19 = Place.create!(location: 'Jardin des Tuileries, Place de la Concorde, Paris, France', city: paris, name: 'Jardin des Tuileries', category: '🎾 Sports')
+# place20 = Place.create!(location: '17 rue Pajol, 75018 Paris, France', city: paris, name: 'Temple de Ganesh', category: '🛐 Worship')
+# place21 = Place.create!(location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', city: paris, name: 'Stalingrad (metro)', category: '🛡️ Safety')
 
 
 

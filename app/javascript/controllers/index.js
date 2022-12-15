@@ -33,3 +33,6 @@ application.register("tom-select", TomSelectController)
 
 import TypedJsController from "./typed_js_controller"
 application.register("typed-js", TypedJsController)
+
+import TripDatesCalendarController from "./trip_dates_calendar_controller"
+application.register("trip_dates_calendar", TripDatesCalendarController)

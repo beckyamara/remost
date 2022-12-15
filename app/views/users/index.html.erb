@@ -10,7 +10,7 @@
    <div class="filters mt-4">
     <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
       <%= f.date_field :date, html5: true, value: params[:date], class: "form-control rounded-0" %>
-      <%= f.select :city, City.all.collect { |c| [ c.name.split(",").first ] }.sort, class: "custom-select", selected: params[:city], include_blank: "city" %>
+      <%# <%= f.select :city, City.all.collect { |c| [ c.name.split(",").first ] }.sort, class: "custom-select", selected: params[:city], include_blank: "city" %> %>
       <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
       <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Find colleagues by name or job title" %>
       <%# <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
