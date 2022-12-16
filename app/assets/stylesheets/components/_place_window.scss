@@ -1,0 +1,108 @@
+.city-map .mapboxgl-popup-content {
+  width: 300px;
+}
+
+
+
+.tip-window {
+  padding: 15px;
+  text-align: left;
+  overflow: auto;
+
+  .place-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .place-rating {
+      font-size: 16px;
+      margin-bottom: 0;
+
+      .fa-star {
+        color: rgb(255, 210, 15);
+      }
+
+      .reviews-count {
+        font-size: 14px;
+        color: $gray;
+      }
+    }
+  }
+
+  .reviews-container {
+    padding-top: 10px;
+    margin-top: 15px;
+    height: 200px;
+    overflow-y: scroll;
+  }
+
+  .review-container {
+    display: flex;
+
+    .review-content {
+      margin-left: 7px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+  }
+
+  a:focus-visible {
+    outline: none;
+  }
+
+  .fa-map-location-dot {
+    font-size: 1.15rem;
+    color: $pink-orange;
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: 0.2s
+  }
+
+  .fa-map-location-dot:hover {
+    color: $dark-pink-orange;
+    transition: 0.2s
+  }
+
+
+  .fa-heart {
+    font-size: 1.15rem;
+    color: $pink-orange;
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: 0.2s;
+  }
+
+  .fa-heart:hover {
+    color: $dark-pink-orange;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square {
+    font-size: 1.15rem;
+    color: $pink-orange;
+    margin-top: 5px;
+    transition: 0.2s
+  }
+
+  .fa-pen-to-square:hover {
+    color: $dark-pink-orange;
+    transition: 0.2s
+  }
+}
+
+.tip-name {
+  color: $pink-orange;
+}
+
+.tip-category {
+  border: 1px solid $pink-orange;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 2px 15px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

@@ -1,34 +1,37 @@
 <div class="tip-window" data-controller="bookmarktip" data-user="<%= current_user.id %>">
-  <h4 class="tip-name"> <%= place.name %> </h4>
-  <p class="tip-icons"><span class="tip-category"%><%= place.category %></span>
-    <%= link_to "https://www.google.com/maps/search/#{place.location}", target: :_blank do %>
-      <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
-    <% end %>
+  <span class="tip-category"><%= place.category %></span>
+  <h4 class="tip-name"> <%= place.name %></h4>
+  <div class="place-details">
+    <p class="place-rating"><i class="fa-solid fa-star"></i> <%= place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= place.tips.count %> reviews</span>)</p>
+    <div>
+      <%= link_to "https://www.google.com/maps/search/#{place.location}", target: :_blank do %>
+        <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
+      <% end %>
 
-    <% if current_user.bookmarked_place?(place) %>
-      <%= link_to  bookmarked_place_unfavourite_path(current_user.bookmarked_places.where(place_id: place.id).first), data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
-        <i class="fa-solid fa-heart"></i>
+      <% if current_user.bookmarked_place?(place) %>
+        <%= link_to  bookmarked_place_unfavourite_path(current_user.bookmarked_places.where(place_id: place.id).first), data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'} do %>
+          <i class="fa-solid fa-heart"></i>
+        <% end %>
+        <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"}, class:"d-none" do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
+      <% else %>
+        <%= link_to  "/bookmarked_places/id/unfavourite", data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
+          <i class="fa-solid fa-heart"></i>
+        <% end %>
+        <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"} do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
       <% end %>
-      <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"}, class:"d-none" do %>
-        <i class="fa-regular fa-heart"></i>
-      <% end %>
-    <% else %>
-      <%= link_to  "/bookmarked_places/id/unfavourite", data: {bookmarktip_target: "unfav", action: 'click->bookmarktip#unfav'}, class:"d-none" do %>
-        <i class="fa-solid fa-heart"></i>
-      <% end %>
-      <%= link_to place_favourite_path(place), data: {bookmarktip_target: "fav", action: "click->bookmarktip#fav"} do %>
-        <i class="fa-regular fa-heart"></i>
-      <% end %>
-    <% end %>
-
-  </p>
-
-  <p class="tip-content">
+    </div>
+  </div>
+  <div class="reviews-container">
     <% tips.each do |tip| %>
-      <%= link_to user_path(tip.user.id), target: :_blank do %></p>
-        <span title="See author's profile"><%= cl_image_tag tip.user.photo.key, class: "avatar-tiny" %></span>
-      <% end %>
-      <p><%= tip.content %></p>
+      <div class="review-container">
+        <%= link_to user_path(tip.user.id), target: :_blank do %>
+          <span title="See author's profile"><%= cl_image_tag tip.user.photo.key, class: "avatar-tiny" %></span>
+        <% end %>
+        <p class="review-content"><%= tip.content %>
+      </div>
     <% end %>
-  </p>
 </div>
