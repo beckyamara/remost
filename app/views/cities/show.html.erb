@@ -42,7 +42,7 @@
 </div>
 <%= link_to "Back to World Map", cities_path, class: "btn btn-dark btn-map" %>
 
-<div style="width: 100%; height: 100vh;"
+<div class="city-map" style="width: 100%; height: 100vh;"
   data-controller="city"
   data-city-places-markers-value="<%= @places_markers.to_json %>"
   data-city-city-value="<%= @city.to_json %>"
