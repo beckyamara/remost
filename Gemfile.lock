@@ -109,6 +109,8 @@ GEM
       responders
       warden (~> 1.2.3)
     digest (3.1.0)
+    dom_id (0.1.0)
+      hoe (>= 1.2.1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.8.1)
@@ -123,6 +125,8 @@ GEM
     geocoder (1.8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hoe (4.0.0)
+      rake (>= 0.8, < 15.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -297,6 +301,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
+  dom_id (~> 0.1.0)
   dotenv-rails
   font-awesome-sass (~> 6.1)
   geocoder
