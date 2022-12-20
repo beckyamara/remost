@@ -1,0 +1,26 @@
+<div class="row" data-search-people-target="list">
+    <% users.each do |user| %>
+      <div class="col-lg-3">
+        <div class="card-user">
+          <%= cl_image_tag user.photo.key %>
+          <div class="card-user-infos">
+            <h2 class="card-title">
+              <%= link_to(user_path(user)) do %>
+              <%= user.first_name %> <%= user.last_name %>
+              <% end %>
+            </h2>
+            <p><%= user.job_title %> (<%= user.department %>)</p>
+            <p class="card-user-location">
+              <% if params[:date].present? %>
+              <i class="fa-solid fa-map-pin"></i>
+                Will be in: <%= link_to user.current_city(params[:date]).name.split(",").first, city_path(user.current_city(params[:date])) %>
+              <% else %>
+              <i class="fa-solid fa-house-user"></i>
+                Based in: <%= link_to user.city.name.split(",").first, city_path(user.city) %>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>

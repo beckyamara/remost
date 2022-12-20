@@ -91,6 +91,13 @@
 
 .card-user .card-user-infos {
   padding: 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .card-user-location {
+    margin-top: auto;
+  }
 
   i {
     color: $red;
