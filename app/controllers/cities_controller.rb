@@ -11,8 +11,7 @@ class CitiesController < ApplicationController
     end
     @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
     @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
-    @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
-    @teammates = @teammates.to_a.select { |user| params[:date] == "" ? user.city.name == params[:city] : user.current_city(params[:date]).name == params[:city] } if params[:city].present?
+    # @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
 
     @cities = City.all
     @markers = @cities.geocoded.map do |city|

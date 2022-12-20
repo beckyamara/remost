@@ -7,16 +7,13 @@
       <summary class="mb-3">Filters</summary>
         <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
         <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
-        <div class="input-div"><i class="fa-solid fa-door-open"></i>
+        <%# <div class="input-div"><i class="fa-solid fa-door-open"></i>
         <%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %>
-        </div>
-
-        <div class="row justify-content-center">
-          <%= link_to "Reset filters", cities_path, class: "btn btn-light" %>
-        </div>
+        <%# </div> %>
       </details>
-      <div class="row justify-content-center">
-        <%= f.submit "Search", class: "btn btn-light" %>
+      <div class="filters-buttons">
+        <%= f.submit "Search", class: "btn btn-pink btn-search" %>
+        <%= link_to "Clear", cities_path, class: "reset-text" %>
       </div>
     <% end %>
 </div>

@@ -7,10 +7,11 @@ class User < ApplicationRecord
   serialize :open_to, Array
   include PgSearch::Model
   pg_search_scope :search_by_job_city_name,
-  against: [ :job_title, :first_name, :last_name, :city_id ],
+  against: [ :job_title, :first_name, :last_name, :department ],
   using: {
     tsearch: { prefix: true }
   }
+  # scope :filter_by_city, ->(city) { where("cities.name ILIKE ?", "#{city}%") }
   scope :filter_by_job, ->(job_title) { where job_title: job_title }
   scope :filter_by_department, ->(department) { where department: department }
   scope :filter_by_open_to, ->(open_to) { where("open_to ILIKE ?", "%#{open_to}%") }

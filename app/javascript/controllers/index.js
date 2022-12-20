@@ -34,6 +34,9 @@ application.register("map", MapController)
 import PasswordChangeController from "./password_change_controller"
 application.register("password-change", PasswordChangeController)
 
+import SearchPeopleController from "./search_people_controller"
+application.register("search-people", SearchPeopleController)
+
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
 

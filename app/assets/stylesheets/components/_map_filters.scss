@@ -23,6 +23,23 @@
     margin-right: 13px;
   }
 
+  .filters-buttons {
+    display: flex;
+    align-items: center;
+
+    .btn-search {
+      // width: 50%;
+      margin-left: 25px;
+    }
+
+    .reset-text {
+      text-decoration: none;
+      color: white;
+      margin-left: 10px;
+      font-size: 15px;
+      font-weight: 300;
+    }
+  }
 }
 
 
