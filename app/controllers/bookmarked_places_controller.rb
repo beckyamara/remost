@@ -14,6 +14,10 @@ class BookmarkedPlacesController < ApplicationController
     @bookmarked_places_cities = []
     @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.place.city.id, "name" => b.place.city.name})}
     @bookmarked_places_cities = @bookmarked_places_cities.uniq
+    # @bookmarked_places_tips = @bookmarked_places_cities.each do |c|
+    #   c.
+    # end
+    # @bookmarked_tips = Tip.all.where(city: @bookmarked_places_city)
   end
 
   def favourite

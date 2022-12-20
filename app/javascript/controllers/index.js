@@ -25,6 +25,9 @@ application.register("hello", HelloController)
 import HiddenFieldController from "./hidden_field_controller"
 application.register("hidden-field", HiddenFieldController)
 
+import HiddenPanelController from "./hidden_panel_controller"
+application.register("hidden-panel", HiddenPanelController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
