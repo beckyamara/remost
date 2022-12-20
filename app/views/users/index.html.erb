@@ -6,44 +6,21 @@
   <%# SEARCH AND FILTERS %>
 
 
-
-   <div class="filters mt-4">
-    <%= form_with url: users_path, method: :get, class: "d-flex mb-5" do |f| %>
-      <%= f.date_field :date, html5: true, value: params[:date], class: "form-control rounded-0" %>
-      <%= f.select :city, City.all.collect { |c| [ c.name.split(",").first ] }.sort, class: "custom-select", selected: params[:city], include_blank: "city" %>
-      <%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %>
-      <%= text_field_tag :query, params[:query], class: "form-control search", placeholder: "Find colleagues by name or job title" %>
-      <%# <%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %>
-      <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
-      <%= link_to "Reset filters", users_path, class: "btn btn-light border border-dark rounded-0" %>
-    <% end %>
-  </div>
-
-  <%# CARDS %>
-  <div class="row">
-  <% @users.each do |user| %>
-    <div class="col-lg-3">
-      <div class="card-user">
-        <%= cl_image_tag user.photo.key %>
-        <div class="card-user-infos">
-          <h2 class="card-title">
-            <%= link_to(user_path(user)) do %>
-            <%= user.first_name %> <%= user.last_name %>
-            <% end %>
-          </h2>
-          <p><%= user.job_title %> (<%= user.department %>)</p>
-          <p>
-            <% if params[:date].present? %>
-            <i class="fa-solid fa-map-pin"></i>
-              Will be in: <%= link_to user.current_city(params[:date]).name.split(",").first, city_path(user.current_city(params[:date])) %>
-            <% else %>
-            <i class="fa-solid fa-house-user"></i>
-              Based in: <%= link_to user.city.name.split(",").first, city_path(user.city) %>
-            <% end %>
-          </p>
-        </div>
-      </div>
+  <div data-controller="search-people">
+    <div class="filters mt-4">
+      <%= form_with url: users_path, method: :get, html: { class: 'd-flex mb-5', data: { search_people_target: 'form' } } do |f| %>
+        <%= f.date_field :date, html5: true, value: params[:date], data: { search_people_target: 'selectDate', action: "change->search-people#refresh"}, class: "form-control rounded-0" %>
+        <%= f.select(:city, options_for_select(City.all.collect { |c| [ c.name.split(",").first ] }.sort, selected: params[:city]), {:include_blank => 'city'}, { class: 'custom-select', data: {search_people_target: 'selectCity', action: "change->search-people#refresh"} }) %>
+        <%= f.select(:department, options_for_select(User.all.collect { |u| [ u.department ] }.uniq, selected: params[:department]), {:include_blank => 'department'}, { class: 'custom-select', data: {search_people_target: 'selectDepartment', action: "change->search-people#refresh"} }) %>
+        <%= f.text_field :query, value: params[:query], data: { search_people_target: 'searchInput', action: "keyup->search-people#refresh"}, class: "form-control search", placeholder: "Find colleagues by name, job title or department" %>
+        <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
+        <%= link_to users_path, class: "x-icon" do %>
+          <i class="fa-solid fa-xmark"></i> Clear
+        <% end %>
+      <% end %>
     </div>
-  <% end %>
+
+    <%# CARDS %>
+    <%= render 'list', users: @users %>
   </div>
 </div>
