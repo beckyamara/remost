@@ -1,5 +1,7 @@
 .city-map .mapboxgl-popup-content {
   width: 300px;
+  position: relative;
+  z-index: 10
 }
 
 
@@ -14,24 +16,24 @@
     justify-content: space-between;
     align-items: center;
 
-    .place-rating {
-      font-size: 16px;
-      margin-bottom: 0;
+  }
 
-      .fa-star {
-        color: rgb(255, 210, 15);
-      }
+  .place-rating {
+    font-size: 15px;
+    margin-bottom: 0;
 
-      .reviews-count {
-        font-size: 14px;
-        color: $gray;
-      }
+    .fa-star {
+      color: rgb(255, 210, 15);
+    }
+
+    .reviews-count {
+      font-size: 14px;
+      color: $gray;
     }
   }
 
   .reviews-container {
     padding-top: 10px;
-    margin-top: 15px;
     height: 200px;
     overflow-y: scroll;
   }
@@ -56,8 +58,7 @@
   .fa-map-location-dot {
     font-size: 1.15rem;
     color: $pink-orange;
-    margin-top: 5px;
-    margin-right: 10px;
+    margin-left: 10px;
     transition: 0.2s
   }
 
@@ -70,8 +71,6 @@
   .fa-heart {
     font-size: 1.15rem;
     color: $pink-orange;
-    margin-top: 5px;
-    margin-right: 10px;
     transition: 0.2s;
   }
 
@@ -99,10 +98,10 @@
 
 .tip-category {
   border: 1px solid $pink-orange;
+  background-color: #ffeceb;
   border-radius: 15px;
   display: inline-block;
   padding: 2px 15px;
   font-size: 0.7rem;
   font-weight: bold;
-  margin-bottom: 10px;
 }
