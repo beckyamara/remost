@@ -1,5 +1,5 @@
 .city-map .mapboxgl-popup-content {
-  width: 300px;
+  width: 320px;
   position: relative;
   z-index: 10
 }
@@ -21,6 +21,7 @@
   .place-rating {
     font-size: 15px;
     margin-bottom: 0;
+    margin-left: 5px;
 
     .fa-star {
       color: rgb(255, 210, 15);

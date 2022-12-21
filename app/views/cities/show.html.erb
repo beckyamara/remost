@@ -57,16 +57,30 @@
         <% if t.city.name == @city.name %>
           <span title="City local"><i class="fa-solid fa-house-chimney"></i></span>
         <% end %>
-        <%= cl_image_tag t.photo.key, class: "avatar-small-carousel mb-2" %>
-        <h6 class="card-title">
-        <%= link_to(user_path(t)) do %>
-        <%= t.first_name %> <%= t.last_name %>
-        <% end %>
-        </h6>
-        <div class="d-flex justify-content-center align-items-center mt-2">
-          <p class="mb-0 mt-0 mr-3"><%= t.department  %> | </p>
-          <%= link_to "See profile", user_path(t), class: "link" %>
+        <div class="d-flex">
+          <%= cl_image_tag t.photo.key, class: "" %>
+          <div class="card-body-info">
+            <h6>
+            <%= link_to(user_path(t)) do %>
+            <%= t.first_name %> <%= t.last_name %>
+            <% end %>
+            </h6>
+            <%# <div class="d-flex justify-content-center align-items-center mt-2"> %>
+            <p class="mb-0 mt-1 mr-3"><%= t.department  %></p>
+          </div>
         </div>
+        <% if t.trips.where("city_id = ?", @city.id).where("start_date <= ?", @date).where("end_date >= ?", @date).length > 0 %>
+          <p class="mb-0">Leaves on:
+          <strong><%= t.trips.where("city_id = ?", @city.id).where("start_date <= ?", @date).where("end_date >= ?", @date)[0].end_date.to_formatted_s(:short) %></strong>
+          </p>
+        <% elsif t.trips.where("city_id = ?", @city.id).where("start_date <= ?", @date).where("end_date >= ?", @date).empty? && t.trips.where("start_date >= ?", @date).length > 0  %>
+          <p class="mb-0">Leaves on:
+          <strong><%= t.trips.where("start_date >= ?", @date).first.start_date.to_formatted_s(:short) %></strong>
+          </p>
+        <% else %>
+          <p class="mb-0">No planned trips</p>
+        <% end %>
+        <%# </div> %>
       </div>
     </div>
   <% end %>

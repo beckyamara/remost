@@ -28,10 +28,6 @@
     }
 }
 
-.card img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .card {
   margin: 0.5em 0.5em;
@@ -45,10 +41,24 @@
 }
 
 .card-body {
+  text-align: left;
+  padding: 16px 13px 16px 20px;
+
+  img {
+    width: 50px;
+    height: 62px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+
+  .card-body-info {
+    width: 62%;
+    margin-left: 10px;
+  }
 
   h6 {
-    padding-top: 3px;
     margin-bottom: 0px;
+
 
     a {
       color:white;
@@ -87,11 +97,15 @@
     font-weight: 300;
   }
 
-  i {
+  .fa-house-chimney {
     color: $pink-orange;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 8px;
+    left: 11px;
+  }
+
+  .fa-arrow-up-right-from-square {
+    font-size: 14px;
   }
 }
 

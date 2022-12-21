@@ -3,10 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @user = current_user
+    @teammates = User.where(company: current_user.company)
     @cities = City.all
-    @users = User.all
-    @trips = Trip.all
-    # @trips = City.all.trips
-    # @company_cities = current_user.company.users.city.count
+    @trips = Trip.joins(:user).where("users.company_id = ?", current_user.company.id)
   end
 end
