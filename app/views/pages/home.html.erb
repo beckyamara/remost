@@ -6,13 +6,9 @@
     <div class="container">
       <div class="homepage-text">
           <h1>Get the most from remote working</h1>
-          <p class="mb-2">Meet your coworkers from <%= current_user.company.name %> in <span data-controller="typed-js"></span> </h5>
-            <% num = 0 %>
-            <% @cities.each do |city| %>
-              <% num += city.trips.count%>
-            <% end %>
+          <p class="mb-2">Meet your coworkers from <%= current_user.company.name %> in <span data-controller="typed-js"></span>
           <div>
-            <p><span><%= @users.count %></span> teammates | <span><%= current_user.company.cities.uniq.count %></span> cities | <span><%= num %></span> upcoming trips  </p>
+            <p><span><%= @teammates.count %></span> teammates | <span><%= @cities.count %></span> cities | <span><%= @trips.count %></span> upcoming trips  </p>
           </div>
           <%= link_to "Explore", cities_path, class: "btn btn-dark btn-lg" %>
       </div>
