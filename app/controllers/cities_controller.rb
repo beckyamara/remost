@@ -11,7 +11,6 @@ class CitiesController < ApplicationController
     end
     @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
     @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
-    # @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
 
     @cities = City.all
     @markers = @cities.geocoded.map do |city|
@@ -46,6 +45,9 @@ class CitiesController < ApplicationController
     @teammates = @teammates.filter_by_job(params[:job_title]) if params[:job_title].present?
     @teammates = @teammates.filter_by_department(params[:department]) if params[:department].present?
     @teammates = @teammates.filter_by_languages(params[:languages]) if params[:languages].present?
+
+    @teammates_city = @teammates.select { |t| t.current_city(@date) == @city }.compact
+
     @places = Place.where(city: @city)
     @tips = Tip.where(city: @city)
     @places_markers = @places.geocoded.map do |place|
@@ -55,11 +57,6 @@ class CitiesController < ApplicationController
         place_window: render_to_string(partial: "place_window", locals: { city: @city, place: place, tips: Tip.where(place: place) }),
         place_marker: render_to_string(partial: "place_marker", locals: { city: @city, places: @places, place: place, category: place.category })
       }
-    end
-    if params[:date]
-      @teammates_city = @teammates.select { |t| t.current_city(@date) == @city }.compact
-    else
-      @teammates_city = @teammates.select { |t| t.city == @city }.compact
     end
   end
 

@@ -1,9 +1,10 @@
 .btn-map {
   position: absolute;
-  right: 2%;
-  top: 12%;
+  left: 2%;
+  bottom: 5%;
   z-index: 3;
   opacity: 0.6;
+  border-radius: 5px;
 }
 
 .btn-city-map {
@@ -102,4 +103,19 @@
 
 .modal-header {
   border-bottom-color: white !important;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 300;
+  color: lightgrey;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-left: 5px;
+
+  &:hover {
+    color: $pink-orange;
+  }
+
 }
