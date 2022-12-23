@@ -10,7 +10,7 @@
     <div class="filters mt-4">
       <%= form_with url: users_path, method: :get, html: { class: 'd-flex mb-5', data: { search_people_target: 'form' } } do |f| %>
         <%= f.date_field :date, html5: true, value: params[:date], data: { search_people_target: 'selectDate', action: "change->search-people#refresh"}, class: "form-control rounded-0" %>
-        <%= f.select(:city, options_for_select(City.all.collect { |c| [ c.name.split(",").first ] }.sort, selected: params[:city]), {:include_blank => 'city'}, { class: 'custom-select', data: {search_people_target: 'selectCity', action: "change->search-people#refresh"} }) %>
+        <%= f.select(:city, options_for_select(City.all.collect { |c| [ c.name.split(",").first ] }.sort, selected: params[:city]), {:include_blank => 'city'}, { class: 'custom-select', data: {controller: "tom-select", search_people_target: 'selectCity', action: "change->search-people#refresh"} }) %>
         <%= f.select(:department, options_for_select(User.all.collect { |u| [ u.department ] }.uniq, selected: params[:department]), {:include_blank => 'department'}, { class: 'custom-select', data: {search_people_target: 'selectDepartment', action: "change->search-people#refresh"} }) %>
         <%= f.text_field :query, value: params[:query], data: { search_people_target: 'searchInput', action: "keyup->search-people#refresh"}, class: "form-control search", placeholder: "Find colleagues by name, job title or department" %>
         <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
