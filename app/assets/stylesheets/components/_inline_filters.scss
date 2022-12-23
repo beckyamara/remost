@@ -13,6 +13,60 @@
     width: 16%;
   }
 
+  .ts-wrapper {
+    width: 18%;
+
+    .ts-control {
+      background-color: var(--bs-body-bg);
+      height: 100%;
+      border-radius: 0;
+      border-left: none;
+      padding: 6px 12px;
+
+      input {
+        font-size: 15px;
+        line-height: 1.5;
+
+        &::placeholder {
+          color: black !important;
+        }
+      }
+    }
+
+    .ts-dropdown {
+      margin-top: 0;
+    }
+
+    .ts-dropdown-content {
+      background-color: var(--bs-body-bg);
+    }
+
+    .item {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .option {
+      font-size: 16px;
+    }
+
+    .option.active {
+      color: black;
+    }
+
+    .clear-button {
+      right: 5px !important;
+      top: 40%;
+      font-size: 20px;
+    }
+  }
+
+  .ts-wrapper.focus {
+    .ts-control {
+      background-color: var(--bs-body-bg);
+    }
+  }
+
   select {
     background-color: #F4F4F4;
     border: 1px solid #ced4da;
