@@ -49,8 +49,8 @@
           <% end %>
         </ul>
         <ul class="upcoming-trips"><i class="fa-sharp fa-solid fa-plane-departure"></i><strong>Upcoming trips:</strong>
-            <% if @upcoming_trips.length > 4 %>
-              <% @upcoming_trips.slice(0, 4).each do |trip| %>
+            <% if @upcoming_trips.length > 3 %>
+              <% @upcoming_trips.slice(0, 3).each do |trip| %>
                 <li><%= trip.city.flag %> <%= trip.city.name.split(",").first %></li>
               <% end %>
             <% else %>

@@ -20,8 +20,7 @@
               <div class="place-card-bottom" data-controller="hidden-panel">
 
                 <div class="pic-box">
-                  <% picture = ('place-category-'+ b.place.category.split.last + '.jpeg') %>
-                  <img class="category-picture" src="<%= asset_path(picture) %>" data-hidden-panel-target="picture">
+                  <%= cl_image_tag b.picture, class: "category-picture", "data-hidden-panel-target":"picture"  %>
                   <div class="hidden-panel-reviews d-none" data-hidden-panel-target="panel">
                     <% b.place.tips.each do |review| %>
                       <div class="review-box">
@@ -34,7 +33,7 @@
 
                 <div class="info-box">
                   <%= b.place.category %>
-                  <p class="place-rating"><i class="fa-solid fa-star"></i> <%= b.place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= b.place.tips.count %> reviews</span>)</p>
+                  <p class="place-rating"><i class="fa-solid fa-star"></i> <%= b.place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= b.place.tips.count %><% if b.place.tips.count > 1 %> reviews<% else %> review<% end %></span>)</p>
                   <div class="place-card-icons-box">
                     <%= link_to city_path(b.place.city), class: "place-card-icon-pin" do %>
                       <span title="See city map"><i class="fa-solid fa-location-dot"></i></span>
@@ -42,7 +41,7 @@
                     <%= link_to "https://www.google.com/maps/search/#{b.place.location}", target: :_blank, class: "place-card-icon-address" do %>
                       <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
                     <% end %>
-                    <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved places for #{b.place.city.name.split(",")} #{b.place.city.flag}?"}, class: "place-card-icon-bin" do %>
+                    <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved places?"}, class: "place-card-icon-bin" do %>
                       <span title="Unsave"><i class="fa-solid fa-heart-circle-minus"></i></span>
                     <% end %>
                   </div>
@@ -59,7 +58,7 @@
   </div>
 
   <% else %>
-    <p>You haven't bookmarked any of your teammates' reviews. You can find them by clicking on the icons which are on each city map.</p>
+    <p>You haven't bookmarked any places yet. You can find your teammates' reviews by clicking on the icons which are on each city map.</p>
   <% end %>
 
 </div>

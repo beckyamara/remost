@@ -12,12 +12,9 @@ class BookmarkedPlacesController < ApplicationController
 
     @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.city.name == params[:city] } if params[:city].present?
     @bookmarked_places_cities = []
-    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.place.city.id, "name" => b.place.city.name})}
+    @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.place.city.id, "name" => b.place.city.name }) }
     @bookmarked_places_cities = @bookmarked_places_cities.uniq
-    # @bookmarked_places_tips = @bookmarked_places_cities.each do |c|
-    #   c.
-    # end
-    # @bookmarked_tips = Tip.all.where(city: @bookmarked_places_city)
+    @bookmarked_places.each { |b| b.picture = "place-category-sq-#{b.place.category.split.last}" }
   end
 
   def favourite

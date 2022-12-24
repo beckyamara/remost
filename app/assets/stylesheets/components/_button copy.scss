@@ -1,0 +1,121 @@
+.btn-map {
+  position: absolute;
+  left: 2%;
+  bottom: 5%;
+  z-index: 3;
+  opacity: 0.6;
+  border-radius: 5px;
+}
+
+.btn-city-map {
+  position: absolute;
+  left: 20px;
+  top: 260px;
+  z-index: 3;
+  opacity: 0.6;
+}
+
+.btn-outline-grey {
+  color: lightgrey;
+  border: 1px solid lightgrey;
+}
+
+.btn-outline-grey:hover {
+  color: black;
+  border: 1px solid black;
+}
+
+.btn-pink {
+  background-color: $pink-orange;
+  color: white;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.btn-pink:hover {
+  border: 1px solid $pink-orange;
+  background-color: white;
+  color: $pink-orange;
+}
+
+.btn-white {
+  background-color: white;
+  color: $pink-orange;
+  display: inline-block;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 8px 20px;
+  font-weight: 400;
+  border: 1px solid white;
+}
+
+.btn-white:hover {
+  border: 1px solid white;
+  background-color: $pink-orange;
+  color: white;
+}
+
+.btn-green-reviews {
+  background-color: $new-green;
+  color: white;
+  display: inline-block;
+}
+
+.btn-green-reviews:hover {
+  border: 1px solid $new-green;
+  background-color: white;
+  color: $new-green;
+}
+
+.btn-outline {
+  text-align: center;
+  display: block;
+  width: 150px;
+  border: 1px solid $pink-orange;
+  background-color: white;
+  color: $pink-orange;
+  padding: 8px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.btn-outline:hover {
+  border: 1px solid white;
+  background-color: $pink-orange;
+  color: white;
+}
+
+.btn-map:hover {
+  opacity: 0.9;
+}
+
+.btn {
+  letter-spacing: 0.05rem;
+}
+
+.btn-link {
+  a {
+    color: $gray;
+    text-decoration: none;
+  }
+}
+
+.modal-header {
+  border-bottom-color: white !important;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 300;
+  color: lightgrey;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin-left: 5px;
+
+  &:hover {
+    color: $pink-orange;
+  }
+
+}
