@@ -15,6 +15,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def autocomplete
+    list = City.order(:name)
+               .where("name ilike :q", q: "%#{params[:q]}%")
+
+    render json: list.map { |c| { id: c.id, name: m.name.split(",").first } }
+  end
+
   def show
     @current_user = current_user
     @user = User.find(params[:id])
