@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     render json: list.map { |c| { id: c.id, name: m.name.split(",").first } }
   end
 
+  def department_autocomplete
+    list = User.all.collect { |u| [u.department] }.uniq
+    render json: list
+  end
+
   def show
     @current_user = current_user
     @user = User.find(params[:id])

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     collection do
       get :autocomplete
+      get :department_autocomplete
     end
   end
   resources :steps, only: [:show, :update], controller: 'user_steps'
