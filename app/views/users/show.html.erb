@@ -66,22 +66,29 @@
       <h3>Trips</h3>
       <div class="calender" data-controller="tooltip">
         <%= month_calendar(events: @trips, attribute: :start_date, end_attribute: :end_date) do |date, trips| %>
-          <%= date.day %>
-          <% if @user.trips.present? %>
-            <% trips.each do |trip| %>
-                <div class="tooltip-city">
-                  <p class="tooltip-city-name"><%= trip.city.name.split(",").first %>, <%= trip.city.name.split(",").last %> <%= trip.city.flag %></p>
-                  <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> – <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
-                </div>
-                <% if date == trip.start_date %>
-                  <div class="first-day">👋 <%= trip.city.name.split(",").first %></div>
-                <% end %>
-                <% if date == trip.end_date %>
-                  <div class="end-day">😢</div>
+          <% trips.each_with_index do |trip| %>
+              <% if trip.order % 2 == 0 %>
+                <div class="day-cell-color-1">
+              <% else %>
+                <div class="day-cell-color-2">
+              <% end %>
+            <% end %>
+            <%= date.day %>
+            <% if @trips.present? %>
+                <% trips.each_with_index do |trip| %>
+                    <div class="tooltip-city">
+                      <p class="tooltip-city-name"><%= trip.city.name.split(",").first %>, <%= trip.city.name.split(",").last %> <%= trip.city.flag %></p>
+                      <p class="tooltip-city-dates"><%= trip.start_date.to_formatted_s(:short) %> - <%= trip.end_date.to_formatted_s(:short) %> (<%= (trip.end_date - trip.start_date).to_i %> days)</p>
+                    </div>
+                    <% if date == trip.start_date %>
+                      <div class="first-day">👋 <%= trip.city.name.split(",").first %></div>
+                    <% elsif date == trip.end_date %>
+                      <div class="end-day">😢</div>
+                    <% end %>
+                  </div>
                 <% end %>
             <% end %>
           <% end %>
-        <% end %>
       </div>
     </div>
   </div>
