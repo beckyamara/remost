@@ -22,6 +22,11 @@ class UsersController < ApplicationController
     render json: list.map { |c| { id: c.id, name: m.name.split(",").first } }
   end
 
+  def department_autocomplete
+    list = User.all.collect { |u| [u.department] }.uniq
+    render json: list
+  end
+
   def show
     @current_user = current_user
     @user = User.find(params[:id])
@@ -30,7 +35,12 @@ class UsersController < ApplicationController
     @slack = "slack://user?team=#{@company_domain}&id=#{@user_slack}"
     @linkedin = "https://www.linkedin.com/in/#{@user.linkedin}"
     @email = "mailto:#{@user.email}"
-    @trips = @user.trips
+    @trips = @user.trips.each_with_index do |trip, index|
+      class << trip
+        attr_accessor :order
+      end
+      trip.order = index
+    end
     @upcoming_trips = @user.trips.select { |trip| trip.end_date > Date.today }
   end
 end

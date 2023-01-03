@@ -17,7 +17,7 @@ Company.destroy_all
 ## COMPANIES
 
 company1 = Company.create!(name: "AirBnBeer", slack_sub_domain: "T02NE0241", email_domain: "@airbnbeer.remost", company_code: "abcd123")
-company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd1234")
+company2 = Company.create!(name: "TheExcitingCompany", slack_sub_domain: "T02NE0241", email_domain: "@exciting.remost", company_code: "abcd124")
 
 
 
@@ -63,6 +63,7 @@ zurich.photo.attach(io: photo_zurich, filename: 'zurich.jpg', content_type: 'ima
 photo_copenhagen = URI.open("https://res.cloudinary.com/dpw4sfx8d/image/upload/v1663167184/ReMost/copenhagen_qzhsoa.jpg")
 copenhagen = City.create!(name: 'Copenhagen, Capital Region of Denmark, Denmark', flag: '🇩🇰')
 copenhagen.photo.attach(io: photo_copenhagen, filename: 'copenhagen.jpg', content_type: 'image/jpg')
+
 
 
 ################## CITIES NEEDED ONLY FOR COMPANY2 (TheExcitingCompany) ##################
@@ -218,6 +219,7 @@ benjamin.photo.attach(io: photo_benjamin, filename: 'benjamin.jpg', content_type
 benjamin.save
 
 
+
 ################## USERS COMPANY 2 ##################
 
 marion2 = User.new(company: company2, city: budapest, email: 'marion2@exciting.remost', password: 123456, first_name: 'Marion2', last_name: 'Salaun2', job_title: 'Speedy Onboarding Specialist', department: 'HR', languages: ['English', 'French', 'Spanish', 'Dutch'], open_to: ['💻 Working together/side-by-side', '🍻 Drinks', '💬 Casual chat'], slack_user: 'U03PQD9E3M1')
@@ -345,66 +347,57 @@ benjamin2.save
 ## TRIPS - originally created for Demo Day, for days of SEPT 21, then 22, then 23 (more people there)
 
 ##################  COMPANY 1 - TRIPS ##################
-
-trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
-trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
-trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
-
-trip5 = Trip.create!(user: anastasia, city: london, start_date: 'Thu, 15 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip7 = Trip.create!(user: anastasia, city: paris, start_date: 'Wed, 21 Sept 2022', end_date: 'Mon, 26 Sept 2022')
-trip8 = Trip.create!(user: anastasia, city: madrid, start_date: 'Tue, 27 Sept 2022', end_date: 'Fri, 30 Sept 2022')
-trip9 = Trip.create!(user: anastasia, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
-trip10 = Trip.create!(user: anastasia, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip11 = Trip.create!(user: anastasia, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
-
-trip12 = Trip.create!(user: leah, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip13 = Trip.create!(user: jeanne, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip14 = Trip.create!(user: bob, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip15 = Trip.create!(user: sam, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip16 = Trip.create!(user: ed, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip17 = Trip.create!(user: pavel, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
-trip18 = Trip.create!(user: anthony, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
-
-trip19 = Trip.create!(user: marion, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip20 = Trip.create!(user: marion, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
-trip21 = Trip.create!(user: marion, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
+trip1 = Trip.create!(user: john, city: dublin, start_date: 'Sun, 15 Jan 2023', end_date: 'Tue, 31 Jan 2023')
+trip2 = Trip.create!(user: bob, city: brussels, start_date: 'Wed, 01 Feb 2023', end_date: 'Sat, 18 Feb 2023')
+trip3 = Trip.create!(user: jeanne, city: amsterdam, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 26 Mar 2023')
+trip4 = Trip.create!(user: leah, city: amsterdam, start_date: 'Mon, 6 Mar 2023', end_date: 'Thu, 16 Mar 2023')
+trip5 = Trip.create!(user: anastasia, city: london, start_date: 'Sun, 15 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip7 = Trip.create!(user: anastasia, city: paris, start_date: 'Sat, 21 Jan 2023', end_date: 'Thu, 26 Jan 2023')
+trip8 = Trip.create!(user: anastasia, city: madrid, start_date: 'Fri, 27 Jan 2023', end_date: 'Mon, 30 Jan 2023')
+trip9 = Trip.create!(user: anastasia, city: zurich, start_date: 'Sat, 18 Feb 2023', end_date: 'Thu, 23 Feb 2023')
+trip10 = Trip.create!(user: anastasia, city: amsterdam, start_date: 'Fri, 24 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip11 = Trip.create!(user: anastasia, city: copenhagen, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 19 Mar 2023')
+trip12 = Trip.create!(user: leah, city: london, start_date: 'Mon, 20 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip13 = Trip.create!(user: jeanne, city: paris, start_date: 'Sun, 22 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip14 = Trip.create!(user: bob, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip15 = Trip.create!(user: sam, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip16 = Trip.create!(user: ed, city: london, start_date: 'Tue, 17 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip17 = Trip.create!(user: pavel, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sun, 29 Jan 2023')
+trip18 = Trip.create!(user: anthony, city: dublin, start_date: 'Wed, 01 Feb 2023', end_date: 'Wed, 8 Feb 2023')
+trip19 = Trip.create!(user: marion, city: dublin, start_date: 'Fri, 17 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip20 = Trip.create!(user: marion, city: lisbon, start_date: 'Fri, 3 Mar 2023', end_date: 'Mon, 6 Mar 2023')
+trip21 = Trip.create!(user: marion, city: amsterdam, start_date: 'Tue, 21 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip22 = Trip.create!(user: marion, city: madrid, start_date: 'Sun, 2 Apr 2023', end_date: 'Tue, 11 Apr 2023')
 
 
-################## COMPANY 2 - TRIPS (cloned users, same cities, same dates) ##################
-
-trip1 = Trip.create!(user: john2, city: dublin, start_date: 'Sat, 15 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip2 = Trip.create!(user: bob2, city: brussels, start_date: 'Sat, 01 Oct 2022', end_date: 'Tue, 18 Oct 2022')
-trip3 = Trip.create!(user: jeanne2, city: amsterdam, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 26 Nov 2022')
-trip4 = Trip.create!(user: leah2, city: amsterdam, start_date: 'Sun, 6 Nov 2022', end_date: 'Wed, 16 Nov 2022')
-
-trip5 = Trip.create!(user: anastasia2, city: london, start_date: 'Thu, 15 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip7 = Trip.create!(user: anastasia2, city: paris, start_date: 'Wed, 21 Sept 2022', end_date: 'Mon, 26 Sept 2022')
-trip8 = Trip.create!(user: anastasia2, city: madrid, start_date: 'Tue, 27 Sept 2022', end_date: 'Fri, 30 Sept 2022')
-trip9 = Trip.create!(user: anastasia2, city: zurich, start_date: 'Tue, 18 Oct 2022', end_date: 'Sun, 23 Oct 2022')
-trip10 = Trip.create!(user: anastasia2, city: amsterdam, start_date: 'Mon, 24 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip11 = Trip.create!(user: anastasia2, city: copenhagen, start_date: 'Sat, 5 Nov 2022', end_date: 'Sat, 19 Nov 2022')
-
-trip12 = Trip.create!(user: leah2, city: london, start_date: 'Sun, 20 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip13 = Trip.create!(user: jeanne2, city: paris, start_date: 'Thu, 22 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip14 = Trip.create!(user: bob2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip15 = Trip.create!(user: sam2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Wed, 28 Sept 2022')
-trip16 = Trip.create!(user: ed2, city: london, start_date: 'Sat, 17 Sept 2022', end_date: 'Tue, 20 Sept 2022')
-trip17 = Trip.create!(user: pavel2, city: paris, start_date: 'Fri, 23 Sept 2022', end_date: 'Thu, 29 Sept 2022')
-trip18 = Trip.create!(user: anthony2, city: dublin, start_date: 'Sat, 01 Oct 2022', end_date: 'Sat, 8 Oct 2022')
-
-trip19 = Trip.create!(user: marion2, city: dublin, start_date: 'Mon, 17 Oct 2022', end_date: 'Mon, 31 Oct 2022')
-trip20 = Trip.create!(user: marion2, city: lisbon, start_date: 'Thu, 03 Nov 2022', end_date: 'Sun, 6 Nov 2022')
-trip21 = Trip.create!(user: marion2, city: amsterdam, start_date: 'Mon, 21 Nov 2022', end_date: 'Sun, 27 Nov 2022')
-trip22 = Trip.create!(user: marion2, city: madrid, start_date: 'Fri, 2 Dec 2022', end_date: 'Sun, 11 Dec 2022')
-
+################## COMPANY 2 - TRIPS (cloned users, same cities, same dates - same names but with a 'b' at the end) ##################
+trip1b = Trip.create!(user: john2, city: dublin, start_date: 'Sun, 15 Jan 2023', end_date: 'Tue, 31 Jan 2023')
+trip2b = Trip.create!(user: bob2, city: brussels, start_date: 'Wed, 01 Feb 2023', end_date: 'Sat, 18 Feb 2023')
+trip3b = Trip.create!(user: jeanne2, city: amsterdam, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 26 Mar 2023')
+trip4b = Trip.create!(user: leah2, city: amsterdam, start_date: 'Mon, 6 Mar 2023', end_date: 'Thu, 16 Mar 2023')
+trip5b = Trip.create!(user: anastasia2, city: london, start_date: 'Sun, 15 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip7b = Trip.create!(user: anastasia2, city: paris, start_date: 'Sat, 21 Jan 2023', end_date: 'Thu, 26 Jan 2023')
+trip8b = Trip.create!(user: anastasia2, city: madrid, start_date: 'Fri, 27 Jan 2023', end_date: 'Mon, 30 Jan 2023')
+trip9b = Trip.create!(user: anastasia2, city: zurich, start_date: 'Sat, 18 Feb 2023', end_date: 'Thu, 23 Feb 2023')
+trip10b = Trip.create!(user: anastasia2, city: amsterdam, start_date: 'Fri, 24 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip11b = Trip.create!(user: anastasia2, city: copenhagen, start_date: 'Sun, 5 Mar 2023', end_date: 'Sun, 19 Mar 2023')
+trip12b = Trip.create!(user: leah2, city: london, start_date: 'Mon, 20 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip13b = Trip.create!(user: jeanne2, city: paris, start_date: 'Sun, 22 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip14b = Trip.create!(user: bob2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip15b = Trip.create!(user: sam2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sat, 28 Jan 2023')
+trip16b = Trip.create!(user: ed2, city: london, start_date: 'Tue, 17 Jan 2023', end_date: 'Fri, 20 Jan 2023')
+trip17b = Trip.create!(user: pavel2, city: paris, start_date: 'Mon, 23 Jan 2023', end_date: 'Sun, 29 Jan 2023')
+trip18b = Trip.create!(user: anthony2, city: dublin, start_date: 'Wed, 01 Feb 2023', end_date: 'Wed, 8 Feb 2023')
+trip19b = Trip.create!(user: marion2, city: dublin, start_date: 'Fri, 17 Feb 2023', end_date: 'Tue, 28 Feb 2023')
+trip20b = Trip.create!(user: marion2, city: lisbon, start_date: 'Fri, 3 Mar 2023', end_date: 'Mon, 6 Mar 2023')
+trip21b = Trip.create!(user: marion2, city: amsterdam, start_date: 'Tue, 21 Mar 2023', end_date: 'Mon, 27 Mar 2023')
+trip22b = Trip.create!(user: marion2, city: madrid, start_date: 'Sun, 2 Apr 2023', end_date: 'Tue, 11 Apr 2023')
 
 
 
 ## PLACES
 
-################## USED FOR TIPS BY BOTH USERS OF COMPANY1 AND COMPANY2 ##################
+################## COMPANY 1 ##################
 place1 = Place.create!(company: company1, location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
 place2 = Place.create!(company: company1, location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
 place3 = Place.create!(company: company1, location: '33 Rue La Fayette, 75009 Paris', city: paris, name: 'WeWork Lafayette', category: '💻 Coworking')
@@ -428,10 +421,12 @@ place20 = Place.create!(company: company1, location: '17 rue Pajol, 75018 Paris,
 place21 = Place.create!(company: company1, location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', city: paris, name: 'Stalingrad (metro)', category: '🛡️ Safety')
 
 
+
+################## COMPANY 2 ##################
 place1b = Place.create!(company: company2, location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
 place2b = Place.create!(company: company2, location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
 place3b = Place.create!(company: company2, location: '33 Rue La Fayette, 75009 Paris', city: paris, name: 'WeWork Lafayette', category: '💻 Coworking')
-place4b = Place.create!(company: company2, location: 'Gracechurch St, London EC3V 1LT', city: london, name: 'Leadenhall Market', category: '🎭 Cultural')
+place4b = Place.create!(company: company2, location: 'Gracechurch St, London EC3V 1LT', city: paris, name: 'Leadenhall Market', category: '🎭 Cultural')
 place5b = Place.create!(company: company2, location: '51 Roman Rd, Bethnal Green, London E2 0HU', city: london, name: 'London Buddhist Centre', category: '🛐 Worship')
 place6b = Place.create!(company: company2, location: '47-48, Temple Bar, Dublin 2, D02 N725', city: dublin, name: 'Temple Bar Pub', category: '🍹 Bar')
 place7b = Place.create!(company: company2, location: "Pl. de l'Atomium 1, 1020 Brussels", city: brussels, name: 'Atomium', category: '🎨 Art')
@@ -463,19 +458,15 @@ tip5 = Tip.create!(user: leah, place: place5, content: 'My favourite temple in L
 tip6 = Tip.create!(user: leah, place: place6, content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4)
 tip7 = Tip.create!(user: anastasia, place: place7, content: 'Nice to see at least once, but some will be disappointed...', rating: 3)
 tip8 = Tip.create!(user: anastasia, place: place8, content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5)
-
 tip9 = Tip.create!(user: sam, place: place9, content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8)
 tip10 = Tip.create!(user: bertrand, place: place10, content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9)
 tip11 = Tip.create!(user: nick, place: place11, content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9)
-
 tip12 = Tip.create!(user: pavel, place: place12, content: "Go at least once!", rating: 8)
 tip13 = Tip.create!(user: beatriz, place: place13, content: "My favorite coworking space in the city.", rating: 8)
 tip14 = Tip.create!(user: ed, place: place14, content: "One of the best restaurants I've ever been to!", rating: 9)
-
 tip15 = Tip.create!(user: beatriz, place: place15, content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9)
 tip16 = Tip.create!(user: anthony, place: place16, content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9)
 tip17 = Tip.create!(user: anastasia, place: place17, content: "Decent CoWorking Space", rating: 7)
-
 tip18 = Tip.create!(user: sam, place: place18, content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8)
 tip19 = Tip.create!(user: ed, place: place19, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
 tip20 = Tip.create!(user: nick, place: place20, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
@@ -493,25 +484,20 @@ tip5b = Tip.create!(user: leah2, place: place5b, content: 'My favourite temple i
 tip6b = Tip.create!(user: leah2, place: place6b, content: 'Just a classic in the middle of Dublin. Very, very busy at times.', rating: 4)
 tip7b = Tip.create!(user: anastasia2, place: place7b, content: 'Nice to see at least once, but some will be disappointed...', rating: 3)
 tip8b = Tip.create!(user: anastasia2, place: place8b, content: "Many folks from our company come here when stopping by Brussels. The WeWork manager is my friend, so drop me a line if you're around and you'll get some perks!", rating: 5)
-
 tip9b = Tip.create!(user: sam2, place: place9b, content: "Typical Portuguese food, lovely service, in the middle of the party district.", rating: 8)
 tip10b = Tip.create!(user: bertrand2, place: place10b, content: "Perfect to try various cuisines! Very busy, you might have to fight a bit to get a table...", rating: 9)
 tip11b = Tip.create!(user: nick2, place: place11b, content: "Best spot to watch the sun set over the city. Also very interesting history.", rating: 9)
-
 tip12b = Tip.create!(user: pavel2, place: place12b, content: "Go at least once!", rating: 8)
 tip13b = Tip.create!(user: beatriz2, place: place13b, content: "My favorite coworking space in the city.", rating: 8)
 tip14b = Tip.create!(user: ed2, place: place14b, content: "One of the best restaurants I've ever been to!", rating: 9)
-
 tip15b = Tip.create!(user: beatriz2, place: place15b, content: "Definitely not cheap, but if you're in for some super luxe French food, that's the place to go!", rating: 9)
 tip16b = Tip.create!(user: anthony2, place: place16b, content: "By far the best bar I've been to in Dublin. Their cocktails are just incredible", rating: 9)
 tip17b = Tip.create!(user: anastasia2, place: place17b, content: "Decent CoWorking Space", rating: 7)
-
 tip18b = Tip.create!(user: sam2, place: place18b, content: "Some say it's the best cafe in Paris... I think I agree!", rating: 8)
 tip19b = Tip.create!(user: ed2, place: place19b, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
 tip20b = Tip.create!(user: nick2, place: place20b, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
 tip21b = Tip.create!(user: beatriz2, place: place21b, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
-tip22b = Tip.create!(user: anjali2, place: place21b, content: "Confirming what Beatriz said, it's a crap area, already had multiple issues there, as soon as the sun's down, if not earlier.", rating: 0)
-tip23b = Tip.create!(user: leah2, place: place21b, content: "+1 about the other safety recommendations from Beatriz & Anjali.", rating: 0)
+
 
 
 # # BOOKMARKED PLACES
