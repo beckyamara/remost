@@ -421,6 +421,7 @@ place20 = Place.create!(company: company1, location: '17 rue Pajol, 75018 Paris,
 place21 = Place.create!(company: company1, location: 'Pl. de la Bataille de Stalingrad, 75019 Paris, France', city: paris, name: 'Stalingrad (metro)', category: '🛡️ Safety')
 
 
+
 ################## COMPANY 2 ##################
 place1b = Place.create!(company: company2, location: '6 Parvis Notre-Dame - Pl. Jean-Paul II, 75004 Paris, France', city: paris, name: 'Notre-Dame Cathedral', category: '🎭 Cultural')
 place2b = Place.create!(company: company2, location: '7 Rue du Faubourg Montmartre, 75009 Paris', city: paris, name: 'Bouillon Chartier', category: '🍽️ Restaurant')
@@ -470,6 +471,8 @@ tip18 = Tip.create!(user: sam, place: place18, content: "Some say it's the best 
 tip19 = Tip.create!(user: ed, place: place19, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
 tip20 = Tip.create!(user: nick, place: place20, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
 tip21 = Tip.create!(user: beatriz, place: place21, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
+tip22 = Tip.create!(user: anjali, place: place21, content: "Confirming what Beatriz said, it's a crap area, already had multiple issues there, as soon as the sun's down, if not earlier.", rating: 0)
+tip23 = Tip.create!(user: leah, place: place21, content: "+1 about the other safety recommendations from Beatriz & Anjali.", rating: 0)
 
 
 ################## TIPS BY USERS OF COMPANY2 (TheExcitingCompany) ##################
@@ -494,6 +497,7 @@ tip18b = Tip.create!(user: sam2, place: place18b, content: "Some say it's the be
 tip19b = Tip.create!(user: ed2, place: place19b, content: "Just the best place to go for a run, with a view on the river, musee du Louvre and its glass pyramid. Come early!", rating: 9)
 tip20b = Tip.create!(user: nick2, place: place20b, content: "Best Hindu temple in Paris. Recommended by a friend", rating: 8)
 tip21b = Tip.create!(user: beatriz2, place: place21b, content: "Just avoid this area at all costs at night, especially if you're alone. Lots of people roaming the street and strange behaviours...", rating: 0)
+
 
 
 # # BOOKMARKED PLACES

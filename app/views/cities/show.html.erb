@@ -33,7 +33,7 @@
       <summary class="mb-3">Filters</summary>
       <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
       <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
-      <%# <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", input_html: {multiple: true, data: {controller: "tom_select", tom_select_options_value: {tags: true}}}, selected: params[:open_to], include_blank: "open to" </div>%>
+      <div class="input-div"><i class="fa-solid fa-door-open"></i><%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", input_html: {multiple: true, data: {controller: "tom_select", tom_select_options_value: {tags: true}}}, selected: params[:open_to], include_blank: "open to" %></div>
       </details>
       <div class="filters-buttons">
         <%= f.submit "Search", class: "btn btn-pink btn-search" %>

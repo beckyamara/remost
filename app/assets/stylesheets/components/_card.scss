@@ -150,89 +150,9 @@
 }
 
 
-// PAGE "BOOKMARKED PLACES INDEX"
-
-.tip-card {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  width: 100%;
-  height: 90%;
-  flex-direction: column;
-
-  h3 {
-    font-size: 22px;
-    text-align: left;
-    margin-bottom: 10px;
-  }
-
-  .tip-card-content {
-    font-size: 0.9rem;
-    margin-top: 5px;
-    font-style: italic;
-    color: grey;
-  }
-
-  .tip-card-top {
-    width: 100%;
-    margin-bottom: 5px;
-    position: relative;
-  }
-
-  .tip-card-icon-pen {
-    color:  white;
-    opacity: 0.6;
-    transition: 0.2s;
-    font-size: medium;
-    position: absolute;
-    bottom: 13px;
-    right: 70px;
-  }
-
-  .tip-card-icon-pen:hover {
-    color: white;
-    opacity: 1;
-    transition: 0.2s;
-  }
-
-  .tip-card-icon-address {
-    color:  white;
-    opacity: 0.6;
-    transition: 0.2s;
-    font-size: medium;
-    position: absolute;
-    bottom: 13px;
-    right: 40px;
-  }
-
-  .tip-card-icon-address:hover {
-    color: white;
-    opacity: 1;
-    transition: 0.2s;
-  }
-
-  .tip-card-icon-bin {
-    color:  white;
-    opacity: 0.6;
-    transition: 0.2s;
-    font-size: medium;
-    position: absolute;
-    bottom: 13px;
-    right: 10px;
-  }
-
-  .tip-card-icon-bin:hover {
-    color: white;
-    opacity: 1;
-    transition: 0.2s;
-  }
-}
 
 
-// PAGE "MY SAVED PLACES"
+// MY SAVED PLACES - V2 (Dec 19)
 
 .city-category {
   padding-top: 1%;
@@ -252,25 +172,305 @@
   }
 }
 
-.review-box {
-  padding: 10px;
+.place-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 280px;
+  margin-bottom: 5%;
+
+  a {
+    text-decoration: none;
+  }
+
+  .place-card-name-box {
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    background-color: $new-green;
+  }
+
+  .place-card-bottom {
+    // font-size: 0.9rem;
+    // margin-top: 5px;
+    // font-style: italic;
+    // color: grey;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+
+    .info-box {
+      width: 40%;
+      padding: 10px;
+      // font-size: 0.9rem;
+
+      .place-rating {
+        font-size: 16px;
+        margin-bottom: 0;
+
+        .fa-star {
+          color: rgb(255, 210, 15);
+        }
+
+        .reviews-count {
+          font-size: 14px;
+          color: $gray;
+        }
+      }
+
+      .place-card-icons-box {
+        display: inline;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.7em;
+        padding: 5px;
+        // display: flex;
+        // align-content: space-between;
+
+        .place-card-icon-pin {
+          color:  $pink-orange;
+          opacity: 0.6;
+          transition: 0.2s;
+          font-size: large;
+          padding: 3px;
+        }
+
+        .place-card-icon-pin:hover {
+          color: $pink-orange;
+          opacity: 1;
+          transition: 0.2s;
+        }
+
+        .place-card-icon-address {
+          color:  $pink-orange;
+          opacity: 0.6;
+          transition: 0.2s;
+          font-size: large;
+          padding: 3px;
+        }
+
+        .place-card-icon-address:hover {
+          color: $pink-orange;
+          opacity: 1;
+          transition: 0.2s;
+        }
+
+        .place-card-icon-bin {
+          color:  $pink-orange;
+          opacity: 0.6;
+          transition: 0.2s;
+          font-size: large;
+          padding: 3px;
+        }
+
+        .place-card-icon-bin:hover {
+          color: $pink-orange;
+          opacity: 1;
+          transition: 0.2s;
+        }
+      }
+
+
+    }
+
+    .pic-box {
+      width: 60%;
+      overflow: hidden;
+      object-fit: fill;
+      transition: 0.3s;
+
+      .category-picture {
+        width: 100%;
+      }
+
+      .hidden-panel-reviews {
+        height: 260px;
+        overflow-y: scroll;
+        padding: 7px;
+        background-color: $new-grey;
+        color: black;
+        transition: 0.3s;
+
+        .review-box {
+          padding-bottom: 7px;
+
+          .author-name {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: $pink-orange;
+            padding-left: 5px;
+          }
+
+          .author-name:hover {
+            color: $dark-pink-orange;
+          }
+
+          .review-card-content {
+            font-size: 0.7rem;
+            margin-top: 5px;
+            font-style: italic;
+            // color: grey;
+          }
+        }
+      }
+    }
+  }
 }
 
-.place-name-box {
-  color: white;
-  font-weight: default;
-  font-size: 1.3rem;
-  padding: 10px;
-  background-color: #19A87B;
-}
 
-.author-name {
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: $pink-orange;
-  padding-left: 5px;
-}
 
-.author-name:hover {
-  color: $dark-pink-orange;
-}
+// // PAGE "BOOKMARKED PLACES INDEX"
+
+// .tip-card {
+//   display: flex;
+//   align-items: flex-start;
+//   margin-bottom: 20px;
+//   width: 100%;
+//   height: 90%;
+//   max-height: 33%;
+//   flex-direction: column;
+
+//   h3 {
+//     font-size: 22px;
+//     text-align: left;
+//     margin-bottom: 10px;
+//   }
+
+//   .tip-card-content {
+//     font-size: 0.9rem;
+//     margin-top: 5px;
+//     font-style: italic;
+//     color: grey;
+//   }
+
+//   .tip-card-top {
+//     width: 100%;
+//     margin-bottom: 5px;
+//     position: relative;
+//   }
+
+//   .tip-card-icon-pin {
+//     color:  white;
+//     opacity: 0.6;
+//     transition: 0.2s;
+//     font-size: medium;
+//     position: absolute;
+//     bottom: 13px;
+//     right: 70px;
+//   }
+
+//   .tip-card-icon-pin:hover {
+//     color: white;
+//     opacity: 1;
+//     transition: 0.2s;
+//   }
+
+//   .tip-card-icon-address {
+//     color:  white;
+//     opacity: 0.6;
+//     transition: 0.2s;
+//     font-size: medium;
+//     position: absolute;
+//     bottom: 13px;
+//     right: 40px;
+//   }
+
+//   .tip-card-icon-address:hover {
+//     color: white;
+//     opacity: 1;
+//     transition: 0.2s;
+//   }
+
+//   .tip-card-icon-bin {
+//     color:  white;
+//     opacity: 0.6;
+//     transition: 0.2s;
+//     font-size: medium;
+//     position: absolute;
+//     bottom: 13px;
+//     right: 10px;
+//   }
+
+//   .tip-card-icon-bin:hover {
+//     color: white;
+//     opacity: 1;
+//     transition: 0.2s;
+//   }
+// }
+
+
+// // PAGE "MY SAVED PLACES"
+
+
+
+
+// .place-name-box {
+//   color: white;
+//   font-weight: default;
+//   font-size: 1.3rem;
+//   padding: 10px;
+//   background-color: #19A87B;
+
+
+// }
+
+
+
+
+
+// .author-name {
+//   font-size: 1.1rem;
+//   text-decoration: none;
+//   color: $pink-orange;
+//   padding-left: 5px;
+// }
+
+// .author-name:hover {
+//   color: $dark-pink-orange;
+// }
+
+
+
+
+// .tip-card-top {
+//   width: 100%;
+//   margin-bottom: 5px;
+//   position: relative;
+// }
+
+// .tip-card-bottom {
+//   // font-size: 0.9rem;
+//   // margin-top: 5px;
+//   font-style: italic;
+//   color: grey;
+//   display: flex;
+//   flex-direction: row;
+//   align-content: space-between;
+
+//   .info-box {
+//     max-width: 50%;
+//     padding: 10px;
+//     font-size: 0.9rem;
+//   }
+
+//   .pic-box {
+//     max-width: 50%;
+//     max-height: 100px;
+//     padding: 10px;
+
+//     .place-category-picture {
+//       height: auto;
+//       object-fit: cover;
+//       max-height: 100%;
+//     }
+//   }
+// }
+
+
+
+// // MY SAVED PLACES V2
+
+// .bookmarked-place-card {
+//   display: flex;
+
+// }
