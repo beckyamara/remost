@@ -34,10 +34,10 @@
                 </div>
                 <%= f.input :first_name,
                             required: true,
-                            input_html: { autocomplete: "first name" } %>
+                            input_html: { maxlength: 20, autocomplete: "first name" } %>
                 <%= f.input :last_name,
                             required: true,
-                            input_html: { autocomplete: "last name" } %>
+                            input_html: { maxlength: 20, autocomplete: "last name" } %>
                 <%= f.input :photo,
                             as: :file,
                             required: true,
@@ -59,7 +59,7 @@
                             input_html: { autocomplete: "department" } %>
                 <%= f.input :job_title,
                             required: true,
-                            input_html: { autocomplete: "job_title" } %>
+                            input_html: { maxlength: 40, autocomplete: "job_title" } %>
                 <%= f.input :open_to, as: :check_boxes, collection: ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"],
                             include_hidden: false,
                             input_html: { class: "tag-selector" },
