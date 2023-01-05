@@ -65,6 +65,11 @@
       color: white;
     }
 
+    .has-events:has(.day-cell-color-3) {
+      background-color: blue;
+      color: white;
+    }
+
     .first-day {
       white-space: nowrap;
       text-align: left;

@@ -10,11 +10,14 @@ class BookmarkedPlacesController < ApplicationController
     # @saved_tips = @bookmarked_places.filter_by_user(params[:user]) if params[:user].present?
     # @saved_tips = @bookmarked_places.filter_by_rating(params[:rating]) if params[:rating].present?
 
-    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.city.name == params[:city] } if params[:city].present?
+    # @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.city.name == params[:city] } if params[:city].present?
     @bookmarked_places_cities = []
     @bookmarked_places.to_a.each { |b| @bookmarked_places_cities.push({ "id" => b.place.city.id, "name" => b.place.city.name }) }
     @bookmarked_places_cities = @bookmarked_places_cities.uniq
-    @bookmarked_places.each { |b| b.picture = "place-category-sq-#{b.place.category.split.last}" }
+    # @bookmarked_places.each { |b| b.picture = "place-category-sq-#{b.place.category.split.last}" }
+    @bookmarked_places = @bookmarked_places.search_by_city_name_category(params[:query]) if params[:query].present?
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.city.name.include?(params[:city]) } if params[:city].present?
+    @bookmarked_places = @bookmarked_places.to_a.select { |b| b.place.category == params[:category] } if params[:category].present?
   end
 
   def favourite

@@ -23,3 +23,12 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+// Removes Bootstrap default :focus settings for form-field
+form {
+  input, select {
+    &:focus {
+      border-color: #ced4da !important;
+      box-shadow: none !important;
+    }
+  }
+}

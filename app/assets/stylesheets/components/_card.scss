@@ -274,13 +274,14 @@
     }
 
     .pic-box {
-      width: 60%;
+      width: 50%;
       overflow: hidden;
-      object-fit: fill;
       transition: 0.3s;
 
-      .category-picture {
+      .category-image {
         width: 100%;
+        object-fit: cover;
+        vertical-align: center;
       }
 
       .hidden-panel-reviews {

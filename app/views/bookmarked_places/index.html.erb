@@ -1,10 +1,17 @@
 <div class="container">
 
-  <h1 class="mt-5 mb-5">My Saved Places</h1>
+  <h1 class="mt-5 mb-4">My Saved Places</h1>
+
+  <%= form_with url: bookmarked_places_path, method: :get, class: "d-flex places-filters mb-5" do |f| %>
+    <%= f.select(:city, options_for_select(current_user.bookmarked_places.map(&:place).map(&:city).uniq.map { |c| c.name.split(",").first }, selected: params[:city]), {:include_blank => 'city'}, { class: 'form-select' }) %>
+    <%= f.select(:category, options_for_select(['💻 Coworking','🍽️ Restaurant','☕️ Café','🍹 Bar','🎾 Sports','🛍️ Shop','🎭 Cultural','🎨 Art','🛐 Worship','🌆 Sight','🛡️ Safety','ℹ️ Other' ], selected: params[:category]), {:include_blank => 'category'}, { class: 'form-select' }) %>
+    <%= f.text_field :query, value: params[:query], class: "form-control search", placeholder: "Search by name, category or location" %>
+    <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
+  <% end %>
 
   <% if @bookmarked_places_cities != [] %>
 
-    <div class="row mt-5">
+    <div class="row mt-4">
     <% @bookmarked_places_cities.each do |c| %>
 
       <p class="city-category" id=<%= c["name"] %>><%= link_to c["name"].split(",").first, city_path(c["id"]) %> <%= City.where(name: c["name"]).first["flag"] %></p>
@@ -20,7 +27,8 @@
               <div class="place-card-bottom" data-controller="hidden-panel">
 
                 <div class="pic-box">
-                  <%= cl_image_tag b.picture, class: "category-picture", "data-hidden-panel-target":"picture"  %>
+                  <%= render "category_picture", place: b.place %>
+                  <%# <%= cl_image_tag b.picture, class: "category-picture", "data-hidden-panel-target":"picture" %>
                   <div class="hidden-panel-reviews d-none" data-hidden-panel-target="panel">
                     <% b.place.tips.each do |review| %>
                       <div class="review-box">

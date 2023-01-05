@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   def current_city(date)
     if self.trips.where('start_date <= ?', date).where('end_date >= ?', date).count > 0
-      self.trips.where('start_date <= ?', date).where('end_date >= ?', date).first.city
+      self.trips.where('start_date <= ?', date).where('end_date >= ?', date).last.city
     else
       self.city
     end
