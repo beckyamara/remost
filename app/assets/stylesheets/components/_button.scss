@@ -55,6 +55,12 @@
   color: white;
 }
 
+.btn-reviews {
+  justify-self: flex-end;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
 .btn-green-reviews {
   background-color: $new-green;
   color: white;
