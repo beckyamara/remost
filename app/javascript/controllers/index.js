@@ -34,6 +34,9 @@ application.register("map", MapController)
 import PasswordChangeController from "./password_change_controller"
 application.register("password-change", PasswordChangeController)
 
+import SearchBookmarksController from "./search_bookmarks_controller"
+application.register("search-bookmarks", SearchBookmarksController)
+
 import SearchPeopleController from "./search_people_controller"
 application.register("search-people", SearchPeopleController)
 

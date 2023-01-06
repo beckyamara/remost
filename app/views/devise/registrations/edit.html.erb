@@ -56,7 +56,8 @@
                 <%= f.input :department,
                             required: true,
                             collection: ["Administrative", "Community & Advocacy", "Customer Success & Support", "Data Science", "Engineering", "Finance & Accounting", "HR & Talent", "IT", "Legal", "Marketing & Comms", "Operations", "Other", "Product & Design", "Sales & Growth"],
-                            input_html: { autocomplete: "department" } %>
+                            input_html: { autocomplete: "department" },
+                            selected: resource.department %>
                 <%= f.input :job_title,
                             required: true,
                             input_html: { maxlength: 40, autocomplete: "job_title" } %>

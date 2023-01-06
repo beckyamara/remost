@@ -1,64 +1,19 @@
 <div class="container">
 
-  <h1 class="mt-5 mb-5">My Saved Places</h1>
+  <h1 class="mt-5 mb-4">My Saved Places</h1>
 
-  <% if @bookmarked_places_cities != [] %>
-
-    <div class="row mt-5">
-    <% @bookmarked_places_cities.each do |c| %>
-
-      <p class="city-category" id=<%= c["name"] %>><%= link_to c["name"].split(",").first, city_path(c["id"]) %> <%= City.where(name: c["name"]).first["flag"] %></p>
-
-      <% @bookmarked_places.select { |bk| bk.place.city.name == c["name"] }.each do |b| %>
-        <div class="col-lg-4">
-          <div class="place-card">
-
-              <div class="place-card-name-box">
-                <%= b.place.name %>
-              </div>
-
-              <div class="place-card-bottom" data-controller="hidden-panel">
-
-                <div class="pic-box">
-                  <%= cl_image_tag b.picture, class: "category-picture", "data-hidden-panel-target":"picture"  %>
-                  <div class="hidden-panel-reviews d-none" data-hidden-panel-target="panel">
-                    <% b.place.tips.each do |review| %>
-                      <div class="review-box">
-                        <%= cl_image_tag review.user.photo.key, class: "avatar-small" %>
-                        <%= link_to review.user.first_name, user_path(review.user.id), class: "author-name" %><span class="review-card-content"> • <%= review.rating %>/10 • <%= review.content %></span>
-                      </div>
-                    <% end %>
-                  </div>
-                </div>
-
-                <div class="info-box">
-                  <%= b.place.category %>
-                  <p class="place-rating"><i class="fa-solid fa-star"></i> <%= b.place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= b.place.tips.count %><% if b.place.tips.count > 1 %> reviews<% else %> review<% end %></span>)</p>
-                  <div class="place-card-icons-box">
-                    <%= link_to city_path(b.place.city), class: "place-card-icon-pin" do %>
-                      <span title="See city map"><i class="fa-solid fa-location-dot"></i></span>
-                    <% end %>
-                    <%= link_to "https://www.google.com/maps/search/#{b.place.location}", target: :_blank, class: "place-card-icon-address" do %>
-                      <span title="See in Google Maps"><i class="fa-solid fa-map-location-dot"></i></span>
-                    <% end %>
-                    <%= link_to bookmarked_place_unfavourite_path(b), data: {turbo_method: :unfavourite, turbo_confirm: "Are you sure you want to remove it from your saved places?"}, class: "place-card-icon-bin" do %>
-                      <span title="Unsave"><i class="fa-solid fa-heart-circle-minus"></i></span>
-                    <% end %>
-                  </div>
-                  <a class="btn btn-green-reviews" data-action="click->hidden-panel#display">Reviews</a>
-                </div>
-
-              </div>
-          </div>
-        </div>
-
-      <% end %> <%# END OF CITIES w/ BKMKED PLACES LOOP %>
-
-    <% end %> <%# END OF IF STATEMENT %>
-  </div>
-
-  <% else %>
-    <p>You haven't bookmarked any places yet. You can find your teammates' reviews by clicking on the icons which are on each city map.</p>
+  <div data-controller="search-bookmarks">
+  <%= form_with url: bookmarked_places_path, method: :get, html: { class: "d-flex places-filters mb-5", data: { search_bookmarks_target: 'form' } } do |f| %>
+    <%= f.select(:city, options_for_select(current_user.bookmarked_places.map(&:place).map(&:city).uniq.map { |c| c.name.split(",").first }, selected: params[:city]), {:include_blank => 'city'}, { class: 'form-select', data: {search_bookmarks_target: 'selectCity', action: "change->search-bookmarks#refresh"} }) %>
+    <%= f.select(:category, options_for_select(['💻 Coworking','🍽️ Restaurant','☕️ Café','🍹 Bar','🎾 Sports','🛍️ Shop','🎭 Cultural','🎨 Art','🛐 Worship','🌆 Sight','🛡️ Safety','ℹ️ Other' ], selected: params[:category]), {:include_blank => 'category'}, { class: 'form-select', data: {search_bookmarks_target: 'selectCategory', action: "change->search-bookmarks#refresh"} }) %>
+    <%= f.text_field :query, value: params[:query], data: { search_bookmarks_target: 'searchInput', action: "keyup->search-bookmarks#refresh"}, class: "form-control search", placeholder: "Search by name, category or location" %>
+    <%= link_to bookmarked_places_path, class: "eraser-icon" do %>
+          <span title="Clear filters"><i class="fa-solid fa-eraser"></i></span>
+        <% end %>
+    <%= submit_tag "Search", class: "btn btn-dark rounded-0" %>
   <% end %>
 
+  <%# CARDS %>
+  <%= render 'bookmarks_list', bookmarked_places: @bookmarked_places, bookmarked_places_cities: @bookmarked_places_cities %>
+  </div>
 </div>
