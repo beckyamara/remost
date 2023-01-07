@@ -25,11 +25,17 @@ application.register("hello", HelloController)
 import HiddenFieldController from "./hidden_field_controller"
 application.register("hidden-field", HiddenFieldController)
 
+import HiddenPanelController from "./hidden_panel_controller"
+application.register("hidden-panel", HiddenPanelController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)
 
 import PasswordChangeController from "./password_change_controller"
 application.register("password-change", PasswordChangeController)
+
+import SearchBookmarksController from "./search_bookmarks_controller"
+application.register("search-bookmarks", SearchBookmarksController)
 
 import SearchPeopleController from "./search_people_controller"
 application.register("search-people", SearchPeopleController)

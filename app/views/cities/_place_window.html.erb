@@ -1,7 +1,7 @@
 <div class="tip-window" data-controller="bookmarktip" data-user="<%= current_user.id %>">
   <div class="d-flex justify-content-between align-items-center mb-2">
     <span class="tip-category"><%= place.category %></span>
-    <p class="place-rating"><i class="fa-solid fa-star"></i> <%= place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= place.tips.count %> reviews</span>)</p>
+    <p class="place-rating"><i class="fa-solid fa-star"></i> <%= place.tips.average(:rating).round(1) %>/10 (<span class="reviews-count"><%= place.tips.count %><% if place.tips.count > 1 %> reviews<% else %> review<% end %></span>)</p>
   </div>
   <h4 class="tip-name">
     <%= place.name %>

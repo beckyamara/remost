@@ -48,7 +48,7 @@ class CitiesController < ApplicationController
 
     @teammates_city = @teammates.select { |t| t.current_city(@date) == @city }.compact
 
-    @places = Place.where(city: @city)
+    @places = Place.where(company: current_user.company).where(city: @city)
     @tips = Tip.where(city: @city)
     @places_markers = @places.geocoded.map do |place|
       {

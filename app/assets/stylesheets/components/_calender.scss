@@ -37,7 +37,13 @@
       height: 53.7px;
       width: 40px;
       // overflow: hidden;
+    }
 
+    .day:has(div.first-day) { border-left: solid 2px white; }
+    .day:has(div.end-day) { border-right: solid 2px white; }
+
+    .day:has(.end-date) {
+      text-align: right;
     }
 
     .today {
@@ -49,8 +55,18 @@
       background-color: white;
     }
 
-    .has-events {
-      background-color: #19A87B;
+    .has-events:has(.day-cell-color-1) {
+      background-color: $marker-green;
+      color: white;
+    }
+
+    .has-events:has(.day-cell-color-2) {
+      background-color: $pink-orange;
+      color: white;
+    }
+
+    .has-events:has(.day-cell-color-3) {
+      background-color: blue;
       color: white;
     }
 
@@ -65,10 +81,6 @@
 
     .end-day {
       font-size: 16px;
-    }
-
-    .day:has(.end-date) {
-      text-align: right;
     }
 
     .tooltip-city {

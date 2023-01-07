@@ -55,6 +55,24 @@
   color: white;
 }
 
+.btn-reviews {
+  justify-self: flex-end;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.btn-green-reviews {
+  background-color: $new-green;
+  color: white;
+  display: inline-block;
+}
+
+.btn-green-reviews:hover {
+  border: 1px solid $new-green;
+  background-color: white;
+  color: $new-green;
+}
+
 .btn-outline {
   text-align: center;
   display: block;
