@@ -5,8 +5,8 @@
       <div class="input-div"><i class="fa-solid fa-calendar-days"></i><%= f.date_field :date, html5: true, value: params[:date].present? ? params[:date] : Date.today, class: "date-field" %></div>
       <details class="mb-3">
       <summary class="mb-3">Filters</summary>
-        <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select :job_title, User.all.collect { |u| [ u.job_title ] }.uniq, class: "custom-select", selected: params[:job_title], include_blank: "job title" %></div>
-        <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select :department, User.all.collect { |u| [ u.department ] }.uniq, class: "custom-select", selected: params[:department], include_blank: "department" %></div>
+        <div class="input-div"><i class="fa-sharp fa-solid fa-user-tie"></i><%= f.select(:job_title, options_for_select(User.all.collect { |u| [ u.job_title ] }.uniq, selected: params[:job_title]), {:include_blank => 'job title'}, { class: 'custom-select', data: {controller: "tom-select", search_people_target: 'selectJobtitle', action: "change->search-people#refresh"} }) %></div>
+        <div class="input-div"><i class="fa-sharp fa-solid fa-briefcase"></i><%= f.select(:department, options_for_select(User.all.collect { |u| [ u.department ] }.uniq, selected: params[:department]), {:include_blank => 'department'}, { class: 'custom-select', data: {controller: "tom-select", search_people_target: 'selectDepartment', action: "change->search-people#refresh"} }) %></div>
         <%# <div class="input-div"><i class="fa-solid fa-door-open"></i>
         <%= f.select :open_to, ["💻 Working together or side-by-side", "💡 Brainstorming", "🥐 Breakfast", "💬 Casual chat", "☕ Coffee", "🍻 Drinks", "🍲 Lunch & Dinner", "🤝 Networking at events", "🪂 Weekend Activity", "🏃 Sports"], class: "custom-select mb-3", selected: params[:open_to], include_blank: "open to" %>
         <%# </div> %>
